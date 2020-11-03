@@ -2,4 +2,8 @@ Windows 10 Debloat Setup
 
 By: Justin Fu
 
-A simple batch file to debloat Windows 10 and automatically set settings
+Debloat and Setup Windows 10
+
+setup.bat - Main batch file
+
+othersetup.txt - Other Settings
