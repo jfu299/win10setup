@@ -1,0 +1,109 @@
+
+othersetup.txt
+Custom Setup for Windows 10 (Windows 10 Version 1909/19H2 - OS Build 18363)
+By: Justin Fu
+Updated: November 3, 2020
+
+1) Uninstall OneDrive
+	- Turn off OneDrive Auto Startup
+	- Uninstall OneDrive in Control Panel
+	- Take ownership and set Deny All to OneDriveSetup.exe in System32 and SysWOW64
+
+2) Remove Start Menu Bloat
+	- Open Administrator Powershell and Copy/Paste an Option
+
+Option 1: (Keep Store and Calculator and Xbox and Windows Terminal)
+
+Get-AppxPackage | where-object {$_.name -notlike "*store*"} | where-object {$_.name -notlike "*terminal*"} | where-object {$_.name -notlike "*calc*"} | where-object {$_.name -notlike "*xbox*"} | Remove-AppxPackage
+
+Option 2: (Keep Store and Calculator)
+
+Get-AppxPackage | where-object {$_.name -notlike "*store*"} | where-object {$_.name -notlike "*calc*"} | Remove-AppxPackage
+
+Option 3: (Keep Calculator Only)
+
+Get-AppxPackage | where-object {$_.name -notlike "*calc*"} | Remove-AppxPackage
+
+Option 4: (Remove Everything)
+
+Get-AppxPackage | Remove-AppxPackage
+
+Remove Microsoft/Windows Store Only:
+
+Get-AppxPackage *windowsstore* | Remove-AppxPackage
+
+Undo Everything:
+
+Get-AppxPackage -allusers *store* | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+
+3) Settings Page
+	- Notifications: Turn off
+		- Focus Assist: Configure
+	- Bluetooth: Turn off
+	- Wi-fi/Ethernet: Setup
+	- Search: Turn off Search Suggestions
+	- Privacy Settings:
+		- Deny: Documents
+		- Deny: Pictures
+		- Deny: Videos
+		- Deny: File System
+	- Display: Night Light Settings
+	- Tablet Mode: No Auto-Switching
+	- Projecting to PC: Turn off
+	- Shared Experiences: Turn off
+	- Remote Desktop: Turn off
+	- Devices:
+		- Printer: Set Windows does not manage default printers
+		- Touchpad: Scroll
+		- Typing: Turn off Auto-Suggestions
+		- Auto Play: Turn off
+	- Apps: Set default web browser
+	- Gaming: Setup
+	- Time and Language: Setup
+
+4) Control Panel
+	- Programs
+		- Disable Internet Explorer
+	- Advanced System Settings (Control Panel\System and Security\System)
+		- Remote Assistance: Turn Off
+		- Device Installation Settings: Turn off automatic
+	- Clock
+		- Set correct time zone and sync time with internet (time.nist.gov)
+
+5) Ease of Access
+	- Settings: Turn off Ease of Access Shortcuts
+	- Control Panel: Turn off keyboard shortcuts
+	- Take Ownership and Deny Utilman.exe
+
+6) Disk Cleanup (Run as Administrator)
+	- DO NOT Select the Downloads Folder
+
+7) Folder View Options
+	- View Hidden Files
+	- Show all File Extensions
+	- Address Bar: Delete History
+
+6) Windows 10 Updates
+	- Update
+	- Pause Updates
+
+7) Windows Update Medic Disable: WaaSMedicSvc
+	- Must Take Ownership and Deny Everyone Access Registry Key to fully disable
+		- HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
+
+8) Microsoft Edge Legacy and Connect App Disable
+C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe
+C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe
+C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy
+
+takeown /f C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /a /r /d y
+icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /grant administrators:F /t /q
+icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /deny Everyone:(X) /t /q
+
+takeown /f C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /a /r /d y
+icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /grant administrators:F /t /q
+icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /deny Everyone:(X) /t /q
+
+takeown /f C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /a /r /d y
+icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /grant administrators:F /t /q
+icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /deny Everyone:(X) /t /q
