@@ -3,13 +3,13 @@
 :: setup.bat
 :: Custom Setup for Windows 10 (Windows 10 Version 1909/19H2 - OS Build 18363)
 :: By: Justin Fu
-:: Updated: November 1, 2020
+:: Updated: November 3, 2020
 
 echo.
 echo -------
 echo Custom Setup for Windows 10 (Windows 10 Version 1909/19H2 - OS Build 18363)
 echo By: Justin Fu
-echo Updated: November 1, 2020
+echo Updated: November 3, 2020
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -1033,6 +1033,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\StorageSense" /V AllowStorageS
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\StorageSense" /V ConfigStorageSenseDownloadsCleanupThreshold /T REG_dWORD /D 0 /F
 :: Project to PC
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Connect" /V AllowProjectionToPC /T REG_dWORD /D 0 /F
+:: Shared Experiences
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V EnableCdp /T REG_dWORD /D 0 /F
 :: Other
 REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement" /V ScoobeSystemSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement" /V ScoobeSystemSettingEnabled /T REG_dWORD /D 0 /F
