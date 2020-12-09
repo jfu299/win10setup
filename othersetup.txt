@@ -1,8 +1,10 @@
 
 othersetup.txt
 Custom Setup for Windows 10 (Windows 10 Version 1909/19H2 - OS Build 18363)
+	https://github.com/jfu299/win10setup
+	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: November 3, 2020
+Updated: December 9, 2020
 
 1) Uninstall OneDrive
 	- Turn off OneDrive Auto Startup
@@ -12,23 +14,19 @@ Updated: November 3, 2020
 2) Remove Start Menu Bloat
 	- Open Administrator Powershell and Copy/Paste an Option
 
-Option 1: (Keep Store and Calculator and Xbox and Windows Terminal)
+Option 1: (Keep Store and Calculator and Windows Terminal)
 
-Get-AppxPackage | where-object {$_.name -notlike "*store*"} | where-object {$_.name -notlike "*terminal*"} | where-object {$_.name -notlike "*calc*"} | where-object {$_.name -notlike "*xbox*"} | Remove-AppxPackage
+Get-AppxPackage | where-object {$_.name -notlike "*store*"} | where-object {$_.name -notlike "*terminal*"} | where-object {$_.name -notlike "*calc*"} | Remove-AppxPackage
 
-Option 2: (Keep Store and Calculator)
-
-Get-AppxPackage | where-object {$_.name -notlike "*store*"} | where-object {$_.name -notlike "*calc*"} | Remove-AppxPackage
-
-Option 3: (Keep Calculator Only)
+Option 2: (Keep Calculator Only)
 
 Get-AppxPackage | where-object {$_.name -notlike "*calc*"} | Remove-AppxPackage
 
-Option 4: (Remove Everything)
+Option 3: (Remove Everything)
 
 Get-AppxPackage | Remove-AppxPackage
 
-Remove Microsoft/Windows Store Only:
+Remove Microsoft Store Only:
 
 Get-AppxPackage *windowsstore* | Remove-AppxPackage
 
@@ -107,3 +105,13 @@ icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe
 takeown /f C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /a /r /d y
 icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /grant administrators:F /t /q
 icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /deny Everyone:(X) /t /q
+
+9) Firefox Web Browser about:config Settings
+	- userChrome.css
+		- toolkit.legacyUserProfileCustomizations.stylesheets	true
+	- security.secure_connection_icon_color_gray	false
+	- network.http.sendRefererHeader	0
+	- security.insecure_connection_icon.enabled	true	
+	- security.insecure_connection_text.enabled	true
+	- security.insecure_connection_icon.pbmode.enabled	true		
+	- security.insecure_connection_text.pbmode.enabled	true
