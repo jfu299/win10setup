@@ -10,6 +10,8 @@
 echo.
 echo -------
 echo Custom Setup for Windows 10 (Windows 10 Version 1909/19H2 - OS Build 18363)
+echo 	https://github.com/jfu299/win10setup
+echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
 echo Updated: December 9, 2020
 echo -------
