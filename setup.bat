@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: December 14, 2020
+:: Updated: December 15, 2020
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10 (Windows 10 Version 1909/19H2 - OS Build 18363)
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: December 14, 2020
+echo Updated: December 15, 2020
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -283,7 +283,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /V 1 /T
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /V 2 /T REG_SZ /D mnjggcdmjocbbbhaepdhchncahnbgone;https://clients2.google.com/service/update2/crx /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /V 3 /T REG_SZ /D lckanjgmijmafbedllaakclkaicjfmnk;https://clients2.google.com/service/update2/crx /F
 :: Extension Settings
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\": {}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\": {},\"mnjggcdmjocbbbhaepdhchncahnbgone\": {},\"lckanjgmijmafbedllaakclkaicjfmnk\": {}}" /F
 :: Import Settings
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ImportAutofillFormData /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ImportBookmarks /T REG_dWORD /D 0 /F
@@ -337,7 +337,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /V 1 /T REG_
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /V 2 /T REG_SZ /D mnjggcdmjocbbbhaepdhchncahnbgone;https://clients2.google.com/service/update2/crx /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /V 3 /T REG_SZ /D lckanjgmijmafbedllaakclkaicjfmnk;https://clients2.google.com/service/update2/crx /F
 :: Extension Settings
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\": {}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\": {},\"mnjggcdmjocbbbhaepdhchncahnbgone\": {},\"lckanjgmijmafbedllaakclkaicjfmnk\": {}}" /F
 :: Import Settings
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ImportAutofillFormData /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ImportBookmarks /T REG_dWORD /D 0 /F
@@ -441,7 +441,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 1 /
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 2 /T REG_SZ /D mbmgnelfcpoecdepckhlhegpcehmpmji;https://edge.microsoft.com/extensionwebstorebase/v1/crx /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 3 /T REG_SZ /D mdkdmaickkfdekbjdoojfalpbkgaddei;https://edge.microsoft.com/extensionwebstorebase/v1/crx /F
 :: Extension Settings
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\": {}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\": {},\"mbmgnelfcpoecdepckhlhegpcehmpmji\": {},\"mdkdmaickkfdekbjdoojfalpbkgaddei\": {}}" /F
 :: Import Settings
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutoImportAtFirstRun /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcutDefault /T REG_dWORD /D 0 /F
@@ -497,6 +497,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabl
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageSearchBox /T REG_SZ /D redirect /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideInternetExplorerRedirectUXForIncompatibleSitesEnabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowMicrosoftRewards /T REG_dWORD /D 0 /F
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /V familySafetySettingsEnabled /T REG_dWORD /D 0 /F
 
 :: -----------------
 :: Microsoft Edge (Edge HTML)
@@ -693,6 +694,35 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 60 /
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 61 /T REG_SZ /D jaeigffnocnbblojlfmiimdocmfcjkii /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 62 /T REG_SZ /D ppdonaappkjkbgbncmmjencphdclioab /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 63 /T REG_SZ /D lalfpjdbhpmnhfofkckdpkljeilmogfl /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 64 /T REG_SZ /D alcmakjhknigccfidaelkafjmfifkhkc /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 65 /T REG_SZ /D fmaicbnbcbjgbpecclcnaehmbpjpdane /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 66 /T REG_SZ /D icegedoajhdclokfmeobnnbalabmpehm /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 67 /T REG_SZ /D jhpheijfhpbkaejncokigfaihgdndjhg /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 68 /T REG_SZ /D jbbmlecgjpijkeelnebilpekpnkaoool /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 69 /T REG_SZ /D gokhabgljglbmjilkmelajgkkhofeeij /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 70 /T REG_SZ /D klapabjimnakejfmpdolgamfplaondck /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 71 /T REG_SZ /D pclbpfjdhojdfcojcmmgggaanfnmhifk /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 72 /T REG_SZ /D dhdpjhfemdchgdfngofnkgmabdmchoii /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 73 /T REG_SZ /D ckjbcmkjhocgdhmkkkieknbmhdnjanoh /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 74 /T REG_SZ /D fkjdaikpmbninlknfjgehkoggdgmknel /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 75 /T REG_SZ /D eilkefcdofnagepelocjipipghaalkam /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 76 /T REG_SZ /D ocbcobiceiagblnejkcekbpgpakolhff /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 77 /T REG_SZ /D lkcohpjckebdgmdofkdfppgeejccjmnl /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 78 /T REG_SZ /D pedpfddehkfmobhbnccdcbhidojinimh /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 79 /T REG_SZ /D fhjieeiddoiibfbdknfligkjlpihnmjc /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 80 /T REG_SZ /D bkalmigiilcgdihccnaonhnkdhpfbaam /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 81 /T REG_SZ /D gkkehpomgpdgkdmbdfkangmbafecdhhd /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 82 /T REG_SZ /D inejjjikomlbaahobecdaoaillmfejil /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 83 /T REG_SZ /D kllohiclobgoaffphlofnjdlabflpgha /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 84 /T REG_SZ /D ececmkgelhdncajgmofiffjmhojnimmb /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 85 /T REG_SZ /D fjadbbodmeifhkgepjjkeneeojammfag /F
+:: VPN
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 86 /T REG_SZ /D kalfeohpimfncbfhjhanngehpbfilokk /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 87 /T REG_SZ /D nlbejmccbhkncgokjcmghpfloaajcffj /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 88 /T REG_SZ /D ejkaocphofnobjdedneohbbiilggdlbi /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 89 /T REG_SZ /D bihmplhobchoageeokmgbdihknkjbknd /F
+:: Other
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 90 /T REG_SZ /D aleggpabliehgbeagmfhnodcijcmbonb /F
 
 :: -----------------
 :: Chromium
@@ -781,6 +811,35 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 60 /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 61 /T REG_SZ /D jaeigffnocnbblojlfmiimdocmfcjkii /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 62 /T REG_SZ /D ppdonaappkjkbgbncmmjencphdclioab /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 63 /T REG_SZ /D lalfpjdbhpmnhfofkckdpkljeilmogfl /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 64 /T REG_SZ /D alcmakjhknigccfidaelkafjmfifkhkc /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 65 /T REG_SZ /D fmaicbnbcbjgbpecclcnaehmbpjpdane /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 66 /T REG_SZ /D icegedoajhdclokfmeobnnbalabmpehm /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 67 /T REG_SZ /D jhpheijfhpbkaejncokigfaihgdndjhg /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 68 /T REG_SZ /D jbbmlecgjpijkeelnebilpekpnkaoool /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 69 /T REG_SZ /D gokhabgljglbmjilkmelajgkkhofeeij /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 70 /T REG_SZ /D klapabjimnakejfmpdolgamfplaondck /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 71 /T REG_SZ /D pclbpfjdhojdfcojcmmgggaanfnmhifk /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 72 /T REG_SZ /D dhdpjhfemdchgdfngofnkgmabdmchoii /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 73 /T REG_SZ /D ckjbcmkjhocgdhmkkkieknbmhdnjanoh /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 74 /T REG_SZ /D fkjdaikpmbninlknfjgehkoggdgmknel /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 75 /T REG_SZ /D eilkefcdofnagepelocjipipghaalkam /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 76 /T REG_SZ /D ocbcobiceiagblnejkcekbpgpakolhff /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 77 /T REG_SZ /D lkcohpjckebdgmdofkdfppgeejccjmnl /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 78 /T REG_SZ /D pedpfddehkfmobhbnccdcbhidojinimh /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 79 /T REG_SZ /D fhjieeiddoiibfbdknfligkjlpihnmjc /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 80 /T REG_SZ /D bkalmigiilcgdihccnaonhnkdhpfbaam /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 81 /T REG_SZ /D gkkehpomgpdgkdmbdfkangmbafecdhhd /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 82 /T REG_SZ /D inejjjikomlbaahobecdaoaillmfejil /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 83 /T REG_SZ /D kllohiclobgoaffphlofnjdlabflpgha /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 84 /T REG_SZ /D ececmkgelhdncajgmofiffjmhojnimmb /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 85 /T REG_SZ /D fjadbbodmeifhkgepjjkeneeojammfag /F
+:: VPN
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 86 /T REG_SZ /D kalfeohpimfncbfhjhanngehpbfilokk /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 87 /T REG_SZ /D nlbejmccbhkncgokjcmghpfloaajcffj /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 88 /T REG_SZ /D ejkaocphofnobjdedneohbbiilggdlbi /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 89 /T REG_SZ /D bihmplhobchoageeokmgbdihknkjbknd /F
+:: Other
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 90 /T REG_SZ /D aleggpabliehgbeagmfhnodcijcmbonb /F
 
 :: -----------------
 :: Microsoft Edge (Chromium)
@@ -869,90 +928,117 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 60 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 61 /T REG_SZ /D jaeigffnocnbblojlfmiimdocmfcjkii /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 62 /T REG_SZ /D ppdonaappkjkbgbncmmjencphdclioab /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 63 /T REG_SZ /D lalfpjdbhpmnhfofkckdpkljeilmogfl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 64 /T REG_SZ /D alcmakjhknigccfidaelkafjmfifkhkc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 65 /T REG_SZ /D fmaicbnbcbjgbpecclcnaehmbpjpdane /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 66 /T REG_SZ /D icegedoajhdclokfmeobnnbalabmpehm /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 67 /T REG_SZ /D jhpheijfhpbkaejncokigfaihgdndjhg /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 68 /T REG_SZ /D jbbmlecgjpijkeelnebilpekpnkaoool /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 69 /T REG_SZ /D gokhabgljglbmjilkmelajgkkhofeeij /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 70 /T REG_SZ /D klapabjimnakejfmpdolgamfplaondck /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 71 /T REG_SZ /D pclbpfjdhojdfcojcmmgggaanfnmhifk /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 72 /T REG_SZ /D dhdpjhfemdchgdfngofnkgmabdmchoii /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 73 /T REG_SZ /D ckjbcmkjhocgdhmkkkieknbmhdnjanoh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 74 /T REG_SZ /D fkjdaikpmbninlknfjgehkoggdgmknel /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 75 /T REG_SZ /D eilkefcdofnagepelocjipipghaalkam /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 76 /T REG_SZ /D ocbcobiceiagblnejkcekbpgpakolhff /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 77 /T REG_SZ /D lkcohpjckebdgmdofkdfppgeejccjmnl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 78 /T REG_SZ /D pedpfddehkfmobhbnccdcbhidojinimh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 79 /T REG_SZ /D fhjieeiddoiibfbdknfligkjlpihnmjc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 80 /T REG_SZ /D bkalmigiilcgdihccnaonhnkdhpfbaam /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 81 /T REG_SZ /D gkkehpomgpdgkdmbdfkangmbafecdhhd /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 82 /T REG_SZ /D inejjjikomlbaahobecdaoaillmfejil /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 83 /T REG_SZ /D kllohiclobgoaffphlofnjdlabflpgha /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 84 /T REG_SZ /D ececmkgelhdncajgmofiffjmhojnimmb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 85 /T REG_SZ /D fjadbbodmeifhkgepjjkeneeojammfag /F
+:: VPN
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 86 /T REG_SZ /D kalfeohpimfncbfhjhanngehpbfilokk /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 87 /T REG_SZ /D nlbejmccbhkncgokjcmghpfloaajcffj /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 88 /T REG_SZ /D ejkaocphofnobjdedneohbbiilggdlbi /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 89 /T REG_SZ /D bihmplhobchoageeokmgbdihknkjbknd /F
+:: Other
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 90 /T REG_SZ /D aleggpabliehgbeagmfhnodcijcmbonb /F
 
 :: -----------------
 :: Microsoft Edge (Chromium) Add-on Store
 :: -----------------
 :: (Other adblockers interfere with ublock origin)
 :: Adblock Plus
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 64 /T REG_SZ /D gmgoamodcdcjnbaobigkjelfplakmdhh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 91 /T REG_SZ /D gmgoamodcdcjnbaobigkjelfplakmdhh /F
 :: Adblock
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 65 /T REG_SZ /D ndcileolkflehcjpmjnfbnaibdcgglog /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 92 /T REG_SZ /D ndcileolkflehcjpmjnfbnaibdcgglog /F
 :: Fair Adblocker
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 66 /T REG_SZ /D jccfboncbdccgbgcbhickioeailgpkgb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 93 /T REG_SZ /D jccfboncbdccgbgcbhickioeailgpkgb /F
 :: Adblock Ultimate
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 67 /T REG_SZ /D pciakllldcajllepkbbihkmfkikheffb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 94 /T REG_SZ /D pciakllldcajllepkbbihkmfkikheffb /F
 :: Adguard
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 68 /T REG_SZ /D pdffkfellgipmhklpdmokmckkkfcopbh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 95 /T REG_SZ /D pdffkfellgipmhklpdmokmckkkfcopbh /F
 :: -----
 :: Grammarly
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 69 /T REG_SZ /D cnlefmmeadmemmdciolhbnfeacpdfbkd /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 70 /T REG_SZ /D kljjdbdffnbengiilkaiblpinbhfcfnc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 96 /T REG_SZ /D cnlefmmeadmemmdciolhbnfeacpdfbkd /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 97 /T REG_SZ /D kljjdbdffnbengiilkaiblpinbhfcfnc /F
 :: Honey
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 71 /T REG_SZ /D amnbcmdbanbkjhnfoeceemmmdiepnbpp /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 98 /T REG_SZ /D amnbcmdbanbkjhnfoeceemmmdiepnbpp /F
 :: Avast
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 72 /T REG_SZ /D fdgpikaaheckgdijjmepmdjjkbceakif /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 73 /T REG_SZ /D phhhmbgggfifgikoihlakngnngdehhfe /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 99 /T REG_SZ /D fdgpikaaheckgdijjmepmdjjkbceakif /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 100 /T REG_SZ /D phhhmbgggfifgikoihlakngnngdehhfe /F
 :: AVG
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 74 /T REG_SZ /D lacbjnnibafcbpogdcpfdpmajfkdampi /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 75 /T REG_SZ /D iffhejniciepiiafcfhhapiidaomcdam /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 101 /T REG_SZ /D lacbjnnibafcbpogdcpfdpmajfkdampi /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 102 /T REG_SZ /D iffhejniciepiiafcfhhapiidaomcdam /F
 :: Hola
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 76 /T REG_SZ /D nfjgmgjhcihmkobljembcfodkajehoej /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 103 /T REG_SZ /D nfjgmgjhcihmkobljembcfodkajehoej /F
 :: Norton
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 77 /T REG_SZ /D bdaafgjhhjkdplpffldcncdignokfkbo /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 104 /T REG_SZ /D bdaafgjhhjkdplpffldcncdignokfkbo /F
 :: Mcafee
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 78 /T REG_SZ /D fdhgeoginicibhagdmblfikbgbkahibd /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 79 /T REG_SZ /D lamehkegphbbfdailghaeeleoajilfho /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 105 /T REG_SZ /D fdhgeoginicibhagdmblfikbgbkahibd /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 106 /T REG_SZ /D lamehkegphbbfdailghaeeleoajilfho /F
 :: Web of Trust
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 80 /T REG_SZ /D iiclaphjclecagpkkaacljnpcppnoibi /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 107 /T REG_SZ /D iiclaphjclecagpkkaacljnpcppnoibi /F
 :: Microsoft Annoyances
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 81 /T REG_SZ /D jebegceanihjkbdfnjelignmnclhpnfh /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 82 /T REG_SZ /D bnplfnhcidhhdapmblniehfaaompjlck /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 83 /T REG_SZ /D eghmccdcabhgeigmkhfbnioepobdhhab /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 84 /T REG_SZ /D cjmjijnpnollocennnapedpaeecninea /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 85 /T REG_SZ /D acgiggmcehhbhfnedfkcgenplgkjddef /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 86 /T REG_SZ /D hcfdaddfkgbmekbgcepcnpfiopaigpnn /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 108 /T REG_SZ /D jebegceanihjkbdfnjelignmnclhpnfh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 109 /T REG_SZ /D bnplfnhcidhhdapmblniehfaaompjlck /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 110 /T REG_SZ /D eghmccdcabhgeigmkhfbnioepobdhhab /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 111 /T REG_SZ /D cjmjijnpnollocennnapedpaeecninea /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 112 /T REG_SZ /D acgiggmcehhbhfnedfkcgenplgkjddef /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D hcfdaddfkgbmekbgcepcnpfiopaigpnn /F
 :: -----
 :: Fake Tiktok
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 87 /T REG_SZ /D eamchpjkhdjbbhdanfngombbbafoopbm /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 88 /T REG_SZ /D pdjhconnbgkdigcldclgbgihmjokldbe /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 89 /T REG_SZ /D mipfipmcmnedgckncckicogmnncflhhk /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 90 /T REG_SZ /D goepanlbnhiiaopmfcniejcbhgolcllb /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 91 /T REG_SZ /D ccjbgffbjdbnnpdnopghofogcfeopdmn /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 92 /T REG_SZ /D celdediiemogjpfcjocdbildilkccepl /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 93 /T REG_SZ /D ofbgciponmcpbencjjhomeoekhnlnppj /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 94 /T REG_SZ /D clklfdpdakpekcamjgiedicfnikeajcl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 114 /T REG_SZ /D eamchpjkhdjbbhdanfngombbbafoopbm /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 115 /T REG_SZ /D pdjhconnbgkdigcldclgbgihmjokldbe /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 116 /T REG_SZ /D mipfipmcmnedgckncckicogmnncflhhk /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 117 /T REG_SZ /D goepanlbnhiiaopmfcniejcbhgolcllb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 118 /T REG_SZ /D ccjbgffbjdbnnpdnopghofogcfeopdmn /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 119 /T REG_SZ /D celdediiemogjpfcjocdbildilkccepl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 120 /T REG_SZ /D ofbgciponmcpbencjjhomeoekhnlnppj /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 121 /T REG_SZ /D clklfdpdakpekcamjgiedicfnikeajcl /F
 :: Fake Flash
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 95 /T REG_SZ /D omhnkkegfjjhpkobpjdiokemdecmmebb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 122 /T REG_SZ /D omhnkkegfjjhpkobpjdiokemdecmmebb /F
 :: Fake Adblockers
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 96 /T REG_SZ /D pejdjolhgfenbjfjoejgllffflbbgecm /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 97 /T REG_SZ /D kjdjplhnalcgkamkcidihcodlblkihon /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 98 /T REG_SZ /D mbdlpgncclnhomdpmicmgdihapedhhak /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 99 /T REG_SZ /D odiffgppifkpehahdcafnkloapoblbkj /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 100 /T REG_SZ /D fhhdniedlnfoenmhbajomdablgpbhnad /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 101 /T REG_SZ /D bhhjenbjldcljpdofmhkdcdfmbagoong /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 102 /T REG_SZ /D oakdjiehbhihbklollmmmkhfilbklgkf /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 103 /T REG_SZ /D ffnfbjmflmibccofnlgeolaoamencnpf /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 104 /T REG_SZ /D bpllndkbconceaidgcllkolimbbiojic /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 105 /T REG_SZ /D lmfhgdeejhbbcagkkbefkkgkfofjhfch /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 106 /T REG_SZ /D efpgcmfgkpmogadebodiegjleafcmdcb /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 107 /T REG_SZ /D onlofoccaenllpjmalbnilfacjmcfhfk /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 108 /T REG_SZ /D bpffhahkoibohjndinfiimfomedmgnme /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 109 /T REG_SZ /D kkkldohdhcfhpjchcefpkfhjfeapdmek /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 110 /T REG_SZ /D gaobomhkmmnbjgehdfjeklkbfddhjbfi /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 111 /T REG_SZ /D fbobegkkdmmcnmoplkgdmfhdlkjfelnb /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 112 /T REG_SZ /D jlfbbmbfbkkilahjmbjehndogohpbfmf /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D bbocfgcdelebeaboidkmglbdkimdpojb /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 114 /T REG_SZ /D dckihkcdmjmlkndgmmgplpcnkmdpangb /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 115 /T REG_SZ /D gclhifbbggfamoojmienffegbmmfnfll /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 116 /T REG_SZ /D pafjohfpgafakkaoccipcknnaoneopei /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 117 /T REG_SZ /D oggghceenfdiodiakhigmpamjpcnilin /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 118 /T REG_SZ /D lojfohldolbkplldokkjgjmcffealmka /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 119 /T REG_SZ /D nipggfgilmoiofmnkbeabghbcaohmjih /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 120 /T REG_SZ /D obmbbppggfnabhdbepdbmpcjfckkoljl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 123 /T REG_SZ /D oakdjiehbhihbklollmmmkhfilbklgkf /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 124 /T REG_SZ /D ffnfbjmflmibccofnlgeolaoamencnpf /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 125 /T REG_SZ /D bpllndkbconceaidgcllkolimbbiojic /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 126 /T REG_SZ /D lmfhgdeejhbbcagkkbefkkgkfofjhfch /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 127 /T REG_SZ /D efpgcmfgkpmogadebodiegjleafcmdcb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D onlofoccaenllpjmalbnilfacjmcfhfk /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D bpffhahkoibohjndinfiimfomedmgnme /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D kkkldohdhcfhpjchcefpkfhjfeapdmek /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D gaobomhkmmnbjgehdfjeklkbfddhjbfi /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D fbobegkkdmmcnmoplkgdmfhdlkjfelnb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 133 /T REG_SZ /D jlfbbmbfbkkilahjmbjehndogohpbfmf /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D bbocfgcdelebeaboidkmglbdkimdpojb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D dckihkcdmjmlkndgmmgplpcnkmdpangb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 136 /T REG_SZ /D gclhifbbggfamoojmienffegbmmfnfll /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 137 /T REG_SZ /D pafjohfpgafakkaoccipcknnaoneopei /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 138 /T REG_SZ /D oggghceenfdiodiakhigmpamjpcnilin /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D lojfohldolbkplldokkjgjmcffealmka /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D nipggfgilmoiofmnkbeabghbcaohmjih /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 141 /T REG_SZ /D obmbbppggfnabhdbepdbmpcjfckkoljl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 142 /T REG_SZ /D pejdjolhgfenbjfjoejgllffflbbgecm /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 143 /T REG_SZ /D kjdjplhnalcgkamkcidihcodlblkihon /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 144 /T REG_SZ /D mbdlpgncclnhomdpmicmgdihapedhhak /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 145 /T REG_SZ /D odiffgppifkpehahdcafnkloapoblbkj /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fhhdniedlnfoenmhbajomdablgpbhnad /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 147 /T REG_SZ /D bhhjenbjldcljpdofmhkdcdfmbagoong /F
 :: -----------------
-
-
 
 :: -----------------
 :: EXTRA (Allow Both Microsoft Edge Versions to run at the same time):
@@ -1594,6 +1680,9 @@ REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V NoBalloonFeatureA
 :: It is not recommeded to use Java
 REG ADD "HKLM\SOFTWARE\JavaSoft" /V SPONSORS /T REG_SZ /D DISABLE /F
 REG ADD "HKLM\SOFTWARE\Wow6432Node\JavaSoft" /V SPONSORS /T REG_SZ /D DISABLE /F
+:: Settings Page Visibility
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /T REG_SZ /D "hide:workplace;mobile-devices;otherusers;emailandaccounts;sync;windowsinsider-optin;delivery-optimization;findmydevice;network-mobilehotspot;maps-downloadmaps;maps;mobile-devices-addphone;mobile-devices-addphone-direct" /F
+
 :: -------
 :: Windows Login Experience
 :: -------
@@ -1651,6 +1740,9 @@ REG ADD "HKLM\Software\Policies\Microsoft\Windows\SettingSync" /V DisableCredent
 REG ADD "HKLM\Software\Policies\Microsoft\Windows\SettingSync" /V DisablePersonalizationSettingSyncUserOverride /T REG_dWORD /D 2 /F
 REG ADD "HKLM\Software\Policies\Microsoft\Windows\SettingSync" /V DisableStartLayoutSettingSyncUserOverride /T REG_dWORD /D 2 /F
 REG ADD "HKLM\Software\Policies\Microsoft\Windows\SettingSync" /V DisableSyncOnPaidNetwork /T REG_dWORD /D 1 /F
+REG ADD "HKLM\Software\Policies\Microsoft\Microsoftaccount" /V DisableUserAuth /T REG_dWORD /D 1 /F
+:: Disable Sign in to Workplace
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowWorkplace" /V value /T REG_dWORD /D 0 /F
 :: Windows Defender
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Account protection" /V UILockdown /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Family options" /V UILockdown /T REG_dWORD /D 1 /F
@@ -1722,7 +1814,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /V 1 /T
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /V 2 /T REG_SZ /D mnjggcdmjocbbbhaepdhchncahnbgone;https://clients2.google.com/service/update2/crx /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /V 3 /T REG_SZ /D lckanjgmijmafbedllaakclkaicjfmnk;https://clients2.google.com/service/update2/crx /F
 :: Extension Settings
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\": {}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\": {},\"mnjggcdmjocbbbhaepdhchncahnbgone\": {},\"lckanjgmijmafbedllaakclkaicjfmnk\": {}}" /F
 :: Import Settings
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ImportAutofillFormData /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ImportBookmarks /T REG_dWORD /D 0 /F
@@ -1776,7 +1868,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /V 1 /T REG_
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /V 2 /T REG_SZ /D mnjggcdmjocbbbhaepdhchncahnbgone;https://clients2.google.com/service/update2/crx /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /V 3 /T REG_SZ /D lckanjgmijmafbedllaakclkaicjfmnk;https://clients2.google.com/service/update2/crx /F
 :: Extension Settings
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\": {}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\": {},\"mnjggcdmjocbbbhaepdhchncahnbgone\": {},\"lckanjgmijmafbedllaakclkaicjfmnk\": {}}" /F
 :: Import Settings
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ImportAutofillFormData /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ImportBookmarks /T REG_dWORD /D 0 /F
@@ -1880,7 +1972,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 1 /
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 2 /T REG_SZ /D mbmgnelfcpoecdepckhlhegpcehmpmji;https://edge.microsoft.com/extensionwebstorebase/v1/crx /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 3 /T REG_SZ /D mdkdmaickkfdekbjdoojfalpbkgaddei;https://edge.microsoft.com/extensionwebstorebase/v1/crx /F
 :: Extension Settings
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\": {}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\": {},\"mbmgnelfcpoecdepckhlhegpcehmpmji\": {},\"mdkdmaickkfdekbjdoojfalpbkgaddei\": {}}" /F
 :: Import Settings
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutoImportAtFirstRun /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcutDefault /T REG_dWORD /D 0 /F
@@ -1936,6 +2028,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabl
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageSearchBox /T REG_SZ /D redirect /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideInternetExplorerRedirectUXForIncompatibleSitesEnabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowMicrosoftRewards /T REG_dWORD /D 0 /F
+REG ADD "HKLM\Software\Policies\Microsoft\Edge" /V familySafetySettingsEnabled /T REG_dWORD /D 0 /F
 
 :: -----------------
 :: Microsoft Edge (Edge HTML)
@@ -2132,6 +2225,35 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 60 /
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 61 /T REG_SZ /D jaeigffnocnbblojlfmiimdocmfcjkii /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 62 /T REG_SZ /D ppdonaappkjkbgbncmmjencphdclioab /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 63 /T REG_SZ /D lalfpjdbhpmnhfofkckdpkljeilmogfl /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 64 /T REG_SZ /D alcmakjhknigccfidaelkafjmfifkhkc /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 65 /T REG_SZ /D fmaicbnbcbjgbpecclcnaehmbpjpdane /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 66 /T REG_SZ /D icegedoajhdclokfmeobnnbalabmpehm /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 67 /T REG_SZ /D jhpheijfhpbkaejncokigfaihgdndjhg /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 68 /T REG_SZ /D jbbmlecgjpijkeelnebilpekpnkaoool /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 69 /T REG_SZ /D gokhabgljglbmjilkmelajgkkhofeeij /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 70 /T REG_SZ /D klapabjimnakejfmpdolgamfplaondck /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 71 /T REG_SZ /D pclbpfjdhojdfcojcmmgggaanfnmhifk /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 72 /T REG_SZ /D dhdpjhfemdchgdfngofnkgmabdmchoii /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 73 /T REG_SZ /D ckjbcmkjhocgdhmkkkieknbmhdnjanoh /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 74 /T REG_SZ /D fkjdaikpmbninlknfjgehkoggdgmknel /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 75 /T REG_SZ /D eilkefcdofnagepelocjipipghaalkam /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 76 /T REG_SZ /D ocbcobiceiagblnejkcekbpgpakolhff /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 77 /T REG_SZ /D lkcohpjckebdgmdofkdfppgeejccjmnl /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 78 /T REG_SZ /D pedpfddehkfmobhbnccdcbhidojinimh /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 79 /T REG_SZ /D fhjieeiddoiibfbdknfligkjlpihnmjc /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 80 /T REG_SZ /D bkalmigiilcgdihccnaonhnkdhpfbaam /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 81 /T REG_SZ /D gkkehpomgpdgkdmbdfkangmbafecdhhd /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 82 /T REG_SZ /D inejjjikomlbaahobecdaoaillmfejil /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 83 /T REG_SZ /D kllohiclobgoaffphlofnjdlabflpgha /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 84 /T REG_SZ /D ececmkgelhdncajgmofiffjmhojnimmb /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 85 /T REG_SZ /D fjadbbodmeifhkgepjjkeneeojammfag /F
+:: VPN
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 86 /T REG_SZ /D kalfeohpimfncbfhjhanngehpbfilokk /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 87 /T REG_SZ /D nlbejmccbhkncgokjcmghpfloaajcffj /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 88 /T REG_SZ /D ejkaocphofnobjdedneohbbiilggdlbi /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 89 /T REG_SZ /D bihmplhobchoageeokmgbdihknkjbknd /F
+:: Other
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 90 /T REG_SZ /D aleggpabliehgbeagmfhnodcijcmbonb /F
 
 :: -----------------
 :: Chromium
@@ -2220,6 +2342,35 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 60 /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 61 /T REG_SZ /D jaeigffnocnbblojlfmiimdocmfcjkii /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 62 /T REG_SZ /D ppdonaappkjkbgbncmmjencphdclioab /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 63 /T REG_SZ /D lalfpjdbhpmnhfofkckdpkljeilmogfl /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 64 /T REG_SZ /D alcmakjhknigccfidaelkafjmfifkhkc /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 65 /T REG_SZ /D fmaicbnbcbjgbpecclcnaehmbpjpdane /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 66 /T REG_SZ /D icegedoajhdclokfmeobnnbalabmpehm /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 67 /T REG_SZ /D jhpheijfhpbkaejncokigfaihgdndjhg /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 68 /T REG_SZ /D jbbmlecgjpijkeelnebilpekpnkaoool /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 69 /T REG_SZ /D gokhabgljglbmjilkmelajgkkhofeeij /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 70 /T REG_SZ /D klapabjimnakejfmpdolgamfplaondck /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 71 /T REG_SZ /D pclbpfjdhojdfcojcmmgggaanfnmhifk /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 72 /T REG_SZ /D dhdpjhfemdchgdfngofnkgmabdmchoii /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 73 /T REG_SZ /D ckjbcmkjhocgdhmkkkieknbmhdnjanoh /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 74 /T REG_SZ /D fkjdaikpmbninlknfjgehkoggdgmknel /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 75 /T REG_SZ /D eilkefcdofnagepelocjipipghaalkam /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 76 /T REG_SZ /D ocbcobiceiagblnejkcekbpgpakolhff /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 77 /T REG_SZ /D lkcohpjckebdgmdofkdfppgeejccjmnl /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 78 /T REG_SZ /D pedpfddehkfmobhbnccdcbhidojinimh /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 79 /T REG_SZ /D fhjieeiddoiibfbdknfligkjlpihnmjc /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 80 /T REG_SZ /D bkalmigiilcgdihccnaonhnkdhpfbaam /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 81 /T REG_SZ /D gkkehpomgpdgkdmbdfkangmbafecdhhd /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 82 /T REG_SZ /D inejjjikomlbaahobecdaoaillmfejil /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 83 /T REG_SZ /D kllohiclobgoaffphlofnjdlabflpgha /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 84 /T REG_SZ /D ececmkgelhdncajgmofiffjmhojnimmb /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 85 /T REG_SZ /D fjadbbodmeifhkgepjjkeneeojammfag /F
+:: VPN
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 86 /T REG_SZ /D kalfeohpimfncbfhjhanngehpbfilokk /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 87 /T REG_SZ /D nlbejmccbhkncgokjcmghpfloaajcffj /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 88 /T REG_SZ /D ejkaocphofnobjdedneohbbiilggdlbi /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 89 /T REG_SZ /D bihmplhobchoageeokmgbdihknkjbknd /F
+:: Other
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 90 /T REG_SZ /D aleggpabliehgbeagmfhnodcijcmbonb /F
 
 :: -----------------
 :: Microsoft Edge (Chromium)
@@ -2308,90 +2459,117 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 60 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 61 /T REG_SZ /D jaeigffnocnbblojlfmiimdocmfcjkii /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 62 /T REG_SZ /D ppdonaappkjkbgbncmmjencphdclioab /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 63 /T REG_SZ /D lalfpjdbhpmnhfofkckdpkljeilmogfl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 64 /T REG_SZ /D alcmakjhknigccfidaelkafjmfifkhkc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 65 /T REG_SZ /D fmaicbnbcbjgbpecclcnaehmbpjpdane /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 66 /T REG_SZ /D icegedoajhdclokfmeobnnbalabmpehm /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 67 /T REG_SZ /D jhpheijfhpbkaejncokigfaihgdndjhg /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 68 /T REG_SZ /D jbbmlecgjpijkeelnebilpekpnkaoool /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 69 /T REG_SZ /D gokhabgljglbmjilkmelajgkkhofeeij /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 70 /T REG_SZ /D klapabjimnakejfmpdolgamfplaondck /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 71 /T REG_SZ /D pclbpfjdhojdfcojcmmgggaanfnmhifk /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 72 /T REG_SZ /D dhdpjhfemdchgdfngofnkgmabdmchoii /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 73 /T REG_SZ /D ckjbcmkjhocgdhmkkkieknbmhdnjanoh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 74 /T REG_SZ /D fkjdaikpmbninlknfjgehkoggdgmknel /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 75 /T REG_SZ /D eilkefcdofnagepelocjipipghaalkam /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 76 /T REG_SZ /D ocbcobiceiagblnejkcekbpgpakolhff /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 77 /T REG_SZ /D lkcohpjckebdgmdofkdfppgeejccjmnl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 78 /T REG_SZ /D pedpfddehkfmobhbnccdcbhidojinimh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 79 /T REG_SZ /D fhjieeiddoiibfbdknfligkjlpihnmjc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 80 /T REG_SZ /D bkalmigiilcgdihccnaonhnkdhpfbaam /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 81 /T REG_SZ /D gkkehpomgpdgkdmbdfkangmbafecdhhd /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 82 /T REG_SZ /D inejjjikomlbaahobecdaoaillmfejil /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 83 /T REG_SZ /D kllohiclobgoaffphlofnjdlabflpgha /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 84 /T REG_SZ /D ececmkgelhdncajgmofiffjmhojnimmb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 85 /T REG_SZ /D fjadbbodmeifhkgepjjkeneeojammfag /F
+:: VPN
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 86 /T REG_SZ /D kalfeohpimfncbfhjhanngehpbfilokk /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 87 /T REG_SZ /D nlbejmccbhkncgokjcmghpfloaajcffj /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 88 /T REG_SZ /D ejkaocphofnobjdedneohbbiilggdlbi /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 89 /T REG_SZ /D bihmplhobchoageeokmgbdihknkjbknd /F
+:: Other
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 90 /T REG_SZ /D aleggpabliehgbeagmfhnodcijcmbonb /F
 
 :: -----------------
 :: Microsoft Edge (Chromium) Add-on Store
 :: -----------------
 :: (Other adblockers interfere with ublock origin)
 :: Adblock Plus
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 64 /T REG_SZ /D gmgoamodcdcjnbaobigkjelfplakmdhh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 91 /T REG_SZ /D gmgoamodcdcjnbaobigkjelfplakmdhh /F
 :: Adblock
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 65 /T REG_SZ /D ndcileolkflehcjpmjnfbnaibdcgglog /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 92 /T REG_SZ /D ndcileolkflehcjpmjnfbnaibdcgglog /F
 :: Fair Adblocker
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 66 /T REG_SZ /D jccfboncbdccgbgcbhickioeailgpkgb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 93 /T REG_SZ /D jccfboncbdccgbgcbhickioeailgpkgb /F
 :: Adblock Ultimate
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 67 /T REG_SZ /D pciakllldcajllepkbbihkmfkikheffb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 94 /T REG_SZ /D pciakllldcajllepkbbihkmfkikheffb /F
 :: Adguard
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 68 /T REG_SZ /D pdffkfellgipmhklpdmokmckkkfcopbh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 95 /T REG_SZ /D pdffkfellgipmhklpdmokmckkkfcopbh /F
 :: -----
 :: Grammarly
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 69 /T REG_SZ /D cnlefmmeadmemmdciolhbnfeacpdfbkd /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 70 /T REG_SZ /D kljjdbdffnbengiilkaiblpinbhfcfnc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 96 /T REG_SZ /D cnlefmmeadmemmdciolhbnfeacpdfbkd /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 97 /T REG_SZ /D kljjdbdffnbengiilkaiblpinbhfcfnc /F
 :: Honey
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 71 /T REG_SZ /D amnbcmdbanbkjhnfoeceemmmdiepnbpp /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 98 /T REG_SZ /D amnbcmdbanbkjhnfoeceemmmdiepnbpp /F
 :: Avast
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 72 /T REG_SZ /D fdgpikaaheckgdijjmepmdjjkbceakif /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 73 /T REG_SZ /D phhhmbgggfifgikoihlakngnngdehhfe /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 99 /T REG_SZ /D fdgpikaaheckgdijjmepmdjjkbceakif /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 100 /T REG_SZ /D phhhmbgggfifgikoihlakngnngdehhfe /F
 :: AVG
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 74 /T REG_SZ /D lacbjnnibafcbpogdcpfdpmajfkdampi /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 75 /T REG_SZ /D iffhejniciepiiafcfhhapiidaomcdam /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 101 /T REG_SZ /D lacbjnnibafcbpogdcpfdpmajfkdampi /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 102 /T REG_SZ /D iffhejniciepiiafcfhhapiidaomcdam /F
 :: Hola
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 76 /T REG_SZ /D nfjgmgjhcihmkobljembcfodkajehoej /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 103 /T REG_SZ /D nfjgmgjhcihmkobljembcfodkajehoej /F
 :: Norton
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 77 /T REG_SZ /D bdaafgjhhjkdplpffldcncdignokfkbo /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 104 /T REG_SZ /D bdaafgjhhjkdplpffldcncdignokfkbo /F
 :: Mcafee
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 78 /T REG_SZ /D fdhgeoginicibhagdmblfikbgbkahibd /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 79 /T REG_SZ /D lamehkegphbbfdailghaeeleoajilfho /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 105 /T REG_SZ /D fdhgeoginicibhagdmblfikbgbkahibd /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 106 /T REG_SZ /D lamehkegphbbfdailghaeeleoajilfho /F
 :: Web of Trust
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 80 /T REG_SZ /D iiclaphjclecagpkkaacljnpcppnoibi /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 107 /T REG_SZ /D iiclaphjclecagpkkaacljnpcppnoibi /F
 :: Microsoft Annoyances
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 81 /T REG_SZ /D jebegceanihjkbdfnjelignmnclhpnfh /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 82 /T REG_SZ /D bnplfnhcidhhdapmblniehfaaompjlck /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 83 /T REG_SZ /D eghmccdcabhgeigmkhfbnioepobdhhab /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 84 /T REG_SZ /D cjmjijnpnollocennnapedpaeecninea /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 85 /T REG_SZ /D acgiggmcehhbhfnedfkcgenplgkjddef /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 86 /T REG_SZ /D hcfdaddfkgbmekbgcepcnpfiopaigpnn /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 108 /T REG_SZ /D jebegceanihjkbdfnjelignmnclhpnfh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 109 /T REG_SZ /D bnplfnhcidhhdapmblniehfaaompjlck /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 110 /T REG_SZ /D eghmccdcabhgeigmkhfbnioepobdhhab /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 111 /T REG_SZ /D cjmjijnpnollocennnapedpaeecninea /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 112 /T REG_SZ /D acgiggmcehhbhfnedfkcgenplgkjddef /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D hcfdaddfkgbmekbgcepcnpfiopaigpnn /F
 :: -----
 :: Fake Tiktok
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 87 /T REG_SZ /D eamchpjkhdjbbhdanfngombbbafoopbm /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 88 /T REG_SZ /D pdjhconnbgkdigcldclgbgihmjokldbe /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 89 /T REG_SZ /D mipfipmcmnedgckncckicogmnncflhhk /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 90 /T REG_SZ /D goepanlbnhiiaopmfcniejcbhgolcllb /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 91 /T REG_SZ /D ccjbgffbjdbnnpdnopghofogcfeopdmn /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 92 /T REG_SZ /D celdediiemogjpfcjocdbildilkccepl /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 93 /T REG_SZ /D ofbgciponmcpbencjjhomeoekhnlnppj /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 94 /T REG_SZ /D clklfdpdakpekcamjgiedicfnikeajcl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 114 /T REG_SZ /D eamchpjkhdjbbhdanfngombbbafoopbm /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 115 /T REG_SZ /D pdjhconnbgkdigcldclgbgihmjokldbe /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 116 /T REG_SZ /D mipfipmcmnedgckncckicogmnncflhhk /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 117 /T REG_SZ /D goepanlbnhiiaopmfcniejcbhgolcllb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 118 /T REG_SZ /D ccjbgffbjdbnnpdnopghofogcfeopdmn /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 119 /T REG_SZ /D celdediiemogjpfcjocdbildilkccepl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 120 /T REG_SZ /D ofbgciponmcpbencjjhomeoekhnlnppj /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 121 /T REG_SZ /D clklfdpdakpekcamjgiedicfnikeajcl /F
 :: Fake Flash
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 95 /T REG_SZ /D omhnkkegfjjhpkobpjdiokemdecmmebb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 122 /T REG_SZ /D omhnkkegfjjhpkobpjdiokemdecmmebb /F
 :: Fake Adblockers
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 96 /T REG_SZ /D pejdjolhgfenbjfjoejgllffflbbgecm /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 97 /T REG_SZ /D kjdjplhnalcgkamkcidihcodlblkihon /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 98 /T REG_SZ /D mbdlpgncclnhomdpmicmgdihapedhhak /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 99 /T REG_SZ /D odiffgppifkpehahdcafnkloapoblbkj /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 100 /T REG_SZ /D fhhdniedlnfoenmhbajomdablgpbhnad /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 101 /T REG_SZ /D bhhjenbjldcljpdofmhkdcdfmbagoong /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 102 /T REG_SZ /D oakdjiehbhihbklollmmmkhfilbklgkf /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 103 /T REG_SZ /D ffnfbjmflmibccofnlgeolaoamencnpf /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 104 /T REG_SZ /D bpllndkbconceaidgcllkolimbbiojic /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 105 /T REG_SZ /D lmfhgdeejhbbcagkkbefkkgkfofjhfch /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 106 /T REG_SZ /D efpgcmfgkpmogadebodiegjleafcmdcb /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 107 /T REG_SZ /D onlofoccaenllpjmalbnilfacjmcfhfk /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 108 /T REG_SZ /D bpffhahkoibohjndinfiimfomedmgnme /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 109 /T REG_SZ /D kkkldohdhcfhpjchcefpkfhjfeapdmek /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 110 /T REG_SZ /D gaobomhkmmnbjgehdfjeklkbfddhjbfi /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 111 /T REG_SZ /D fbobegkkdmmcnmoplkgdmfhdlkjfelnb /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 112 /T REG_SZ /D jlfbbmbfbkkilahjmbjehndogohpbfmf /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D bbocfgcdelebeaboidkmglbdkimdpojb /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 114 /T REG_SZ /D dckihkcdmjmlkndgmmgplpcnkmdpangb /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 115 /T REG_SZ /D gclhifbbggfamoojmienffegbmmfnfll /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 116 /T REG_SZ /D pafjohfpgafakkaoccipcknnaoneopei /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 117 /T REG_SZ /D oggghceenfdiodiakhigmpamjpcnilin /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 118 /T REG_SZ /D lojfohldolbkplldokkjgjmcffealmka /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 119 /T REG_SZ /D nipggfgilmoiofmnkbeabghbcaohmjih /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 120 /T REG_SZ /D obmbbppggfnabhdbepdbmpcjfckkoljl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 123 /T REG_SZ /D oakdjiehbhihbklollmmmkhfilbklgkf /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 124 /T REG_SZ /D ffnfbjmflmibccofnlgeolaoamencnpf /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 125 /T REG_SZ /D bpllndkbconceaidgcllkolimbbiojic /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 126 /T REG_SZ /D lmfhgdeejhbbcagkkbefkkgkfofjhfch /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 127 /T REG_SZ /D efpgcmfgkpmogadebodiegjleafcmdcb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D onlofoccaenllpjmalbnilfacjmcfhfk /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D bpffhahkoibohjndinfiimfomedmgnme /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D kkkldohdhcfhpjchcefpkfhjfeapdmek /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D gaobomhkmmnbjgehdfjeklkbfddhjbfi /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D fbobegkkdmmcnmoplkgdmfhdlkjfelnb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 133 /T REG_SZ /D jlfbbmbfbkkilahjmbjehndogohpbfmf /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D bbocfgcdelebeaboidkmglbdkimdpojb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D dckihkcdmjmlkndgmmgplpcnkmdpangb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 136 /T REG_SZ /D gclhifbbggfamoojmienffegbmmfnfll /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 137 /T REG_SZ /D pafjohfpgafakkaoccipcknnaoneopei /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 138 /T REG_SZ /D oggghceenfdiodiakhigmpamjpcnilin /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D lojfohldolbkplldokkjgjmcffealmka /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D nipggfgilmoiofmnkbeabghbcaohmjih /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 141 /T REG_SZ /D obmbbppggfnabhdbepdbmpcjfckkoljl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 142 /T REG_SZ /D pejdjolhgfenbjfjoejgllffflbbgecm /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 143 /T REG_SZ /D kjdjplhnalcgkamkcidihcodlblkihon /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 144 /T REG_SZ /D mbdlpgncclnhomdpmicmgdihapedhhak /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 145 /T REG_SZ /D odiffgppifkpehahdcafnkloapoblbkj /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fhhdniedlnfoenmhbajomdablgpbhnad /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 147 /T REG_SZ /D bhhjenbjldcljpdofmhkdcdfmbagoong /F
 :: -----------------
-
-
 
 :: -----------------
 :: EXTRA (Allow Both Microsoft Edge Versions to run at the same time):
