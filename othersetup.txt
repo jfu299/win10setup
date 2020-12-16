@@ -1,19 +1,31 @@
 
 othersetup.txt
-Custom Setup for Windows 10 (Windows 10 Version 1909/19H2 - OS Build 18363)
+Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: December 15, 2020
+Updated: December 16, 2020
 
-1) Uninstall OneDrive
+1) Take over permissions of Registry Keys
+
+	Take Full Ownership and Control
+		HKCR\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder
+		HKCR\CLSID\{B4FB3F98-C1EA-428d-A78A-D1F5659CBA93}\ShellFolder
+		HKCR\Wow6432Node\CLSID\{B4FB3F98-C1EA-428d-A78A-D1F5659CBA93}\ShellFolder
+		HKCR\Wow6432Node\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder
+		HKLM\SYSTEM\CurrentControlSet\Services\wuauserv
+	Deny Everyone Access (After disabling these services)
+		HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
+		HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack
+
+2) Uninstall OneDrive
 	- Turn off OneDrive Auto Startup
 	- Uninstall OneDrive in Control Panel (Should have been already uninstalled in the setup.bat file)
 		- %SystemRoot%\System32\OneDriveSetup.exe /uninstall
 		- %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 	- Take ownership and set Deny All to OneDriveSetup.exe in System32 and SysWOW64
 
-2) Remove Start Menu Bloat
+3) Remove Start Menu Bloat
 	- Open Administrator Powershell and Copy/Paste an Option
 	- Update Apps that you keep after running the powershell command
 
@@ -37,7 +49,7 @@ Undo Everything:
 
 Get-AppxPackage -allusers *store* | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 
-3) Settings Page
+4) Settings Page
 	- Notifications: Turn off
 		- Focus Assist: Configure
 	- Bluetooth: Turn off
@@ -63,7 +75,7 @@ Get-AppxPackage -allusers *store* | Foreach {Add-AppxPackage -DisableDevelopment
 	- Gaming: Setup
 	- Time and Language: Setup
 
-4) Control Panel
+5) Control Panel
 	- Programs
 		- Disable Internet Explorer
 	- Advanced System Settings (Control Panel\System and Security\System)
@@ -72,28 +84,28 @@ Get-AppxPackage -allusers *store* | Foreach {Add-AppxPackage -DisableDevelopment
 	- Clock
 		- Set correct time zone and sync time with internet (time.nist.gov)
 
-5) Ease of Access
+6) Ease of Access
 	- Settings: Turn off Ease of Access Shortcuts
 	- Control Panel: Turn off keyboard shortcuts
 	- Take Ownership and Deny Utilman.exe
 
-6) Disk Cleanup (Run as Administrator)
+7) Disk Cleanup (Run as Administrator)
 	- DO NOT Select the Downloads Folder
 
-7) Folder View Options
+8) Folder View Options
 	- View Hidden Files
 	- Show all File Extensions
 	- Address Bar: Delete History
 
-6) Windows 10 Updates
+9) Windows 10 Updates
 	- Update
 	- Pause Updates
 
-7) Windows Update Medic Disable: WaaSMedicSvc
+10) Windows Update Medic Disable: WaaSMedicSvc
 	- Must Take Ownership and Deny Everyone Access Registry Key to fully disable
 		- HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
 
-8) Microsoft Edge Legacy and Connect App Disable (Connect App has been removed in Windows 10 Version 2004/20H1)
+11) Microsoft Edge Legacy and Connect App Disable (Connect App has been removed in Windows 10 Version 2004/20H1)
 C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe
 C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe
 C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy
@@ -110,7 +122,7 @@ takeown /f C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /a /r /d 
 icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /grant administrators:F /t /q
 icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /deny Everyone:F /t /q
 
-9) Microsoft Edge Chromium Uninstall and Remove from Control Panel
+12) Microsoft Edge Chromium Uninstall and Remove from Control Panel
 	- Use Administrator Powershell or Command Prompt
 
 	- Go to this Folder (Insert Version Number into the Version Number Section):
@@ -127,7 +139,7 @@ icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /deny Everyon
 
 		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 
-10) Firefox Web Browser about:config Settings
+13) Firefox Web Browser about:config Settings
 	- userChrome.css
 		- toolkit.legacyUserProfileCustomizations.stylesheets	true
 	- security.secure_connection_icon_color_gray	false
