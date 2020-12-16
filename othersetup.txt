@@ -4,23 +4,26 @@ Custom Setup for Windows 10 (Windows 10 Version 1909/19H2 - OS Build 18363)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: December 9, 2020
+Updated: December 15, 2020
 
 1) Uninstall OneDrive
 	- Turn off OneDrive Auto Startup
-	- Uninstall OneDrive in Control Panel
+	- Uninstall OneDrive in Control Panel (Should have been already uninstalled in the setup.bat file)
+		- %SystemRoot%\System32\OneDriveSetup.exe /uninstall
+		- %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 	- Take ownership and set Deny All to OneDriveSetup.exe in System32 and SysWOW64
 
 2) Remove Start Menu Bloat
 	- Open Administrator Powershell and Copy/Paste an Option
+	- Update Apps that you keep after running the powershell command
 
 Option 1: (Keep Store and Calculator and Windows Terminal)
 
 Get-AppxPackage | where-object {$_.name -notlike "*store*"} | where-object {$_.name -notlike "*terminal*"} | where-object {$_.name -notlike "*calc*"} | Remove-AppxPackage
 
-Option 2: (Keep Calculator Only)
+Option 2: (Keep Calculator and Windows Terminal Only)
 
-Get-AppxPackage | where-object {$_.name -notlike "*calc*"} | Remove-AppxPackage
+Get-AppxPackage | where-object {$_.name -notlike "*calc*"} | where-object {$_.name -notlike "*terminal*"} | Remove-AppxPackage
 
 Option 3: (Remove Everything)
 
@@ -39,6 +42,7 @@ Get-AppxPackage -allusers *store* | Foreach {Add-AppxPackage -DisableDevelopment
 		- Focus Assist: Configure
 	- Bluetooth: Turn off
 	- Wi-fi/Ethernet: Setup
+	- Proxy: Turn off Auto Discovery
 	- Search: Turn off Search Suggestions
 	- Privacy Settings:
 		- Deny: Documents
@@ -89,24 +93,41 @@ Get-AppxPackage -allusers *store* | Foreach {Add-AppxPackage -DisableDevelopment
 	- Must Take Ownership and Deny Everyone Access Registry Key to fully disable
 		- HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
 
-8) Microsoft Edge Legacy and Connect App Disable
+8) Microsoft Edge Legacy and Connect App Disable (Connect App has been removed in Windows 10 Version 2004/20H1)
 C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe
 C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe
 C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy
 
 takeown /f C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /a /r /d y
 icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /grant administrators:F /t /q
-icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /deny Everyone:(X) /t /q
+icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /deny Everyone:F /t /q
 
 takeown /f C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /a /r /d y
 icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /grant administrators:F /t /q
-icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /deny Everyone:(X) /t /q
+icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /deny Everyone:F /t /q
 
 takeown /f C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /a /r /d y
 icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /grant administrators:F /t /q
-icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /deny Everyone:(X) /t /q
+icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /deny Everyone:F /t /q
 
-9) Firefox Web Browser about:config Settings
+9) Microsoft Edge Chromium Uninstall and Remove from Control Panel
+	- Use Administrator Powershell or Command Prompt
+
+	- Go to this Folder (Insert Version Number into the Version Number Section):
+	
+		C:\Program Files (x86)\Microsoft\Edge\Application\[VERSION NUMBER HERE]\Installer
+
+	- Copy and Paste This In:
+
+		setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+	- Take Ownership and Full Control, and then delete these Registry Keys
+
+		HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+
+		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+
+10) Firefox Web Browser about:config Settings
 	- userChrome.css
 		- toolkit.legacyUserProfileCustomizations.stylesheets	true
 	- security.secure_connection_icon_color_gray	false
