@@ -1,7 +1,7 @@
 @echo OFF
 
 :: setup.bat
-:: Custom Setup for Windows 10 (Windows 10 Version 1909/19H2 - OS Build 18363)
+:: Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
@@ -40,11 +40,17 @@ echo.
 echo 6) Username Visibility on Login/Lock Screen
 echo.
 echo 7) Username Visibility on UAC (Already included in Main)
+:: Will switch option 7 over to the powershell command
+:: Existing option 7 will be Combined with 6
 echo.
 echo 8) Ability to change password on Ctrl-Alt-Del Screen
 echo.
 echo 9) Exit
 echo.
+:: Option 10 will be set up in the future
+:: echo 10) Extra Policies to lock down user account
+:: -------Option 10 will lock down a user account even more
+:: echo.
 
 set /p op="Type Option: "
 
@@ -61,6 +67,8 @@ if "%op%"=="9" goto end
 if "%op%"=="n" goto end
 if "%op%"=="exit" goto end
 if "%op%"=="c" goto end
+
+:: if "%op%"=="10" goto option10
 
 :: Error Message if a valid choice is not selected
 echo.
@@ -1326,6 +1334,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 :: Firefox
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3662396/sponsorblock_skip_sponsorships_on_youtube-2.0.7-an+fx.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3612592/clearurls-1.19.0-an+fx.xpi\"},\"bypasspaywalls@bypasspaywalls.weebly.com\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"}}" /F
+:: Brave
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 :: Microsoft Edge (Chromium)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 :: Microsoft Edge (Edge HTML)
@@ -1355,6 +1365,9 @@ REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKLM\SOFTWARE\Policies\Chromium" /V BlockExternalExtensions /F
 :: Firefox
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3662396/sponsorblock_skip_sponsorships_on_youtube-2.0.7-an+fx.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3612592/clearurls-1.19.0-an+fx.xpi\"},\"bypasspaywalls@bypasspaywalls.weebly.com\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"}}" /F
+:: Brave
+REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /F
+REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BlockExternalExtensions /F
 :: Microsoft Edge (Chromium)
 REG DELETE "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BlockExternalExtensions /F
@@ -1683,6 +1696,16 @@ net stop DiagTrack
 :: -------
 %SystemRoot%\System32\OneDriveSetup.exe /uninstall
 %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
+
+:: -------
+:: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
+:: -------
+
+powershell.exe -ExecutionPolicy Unrestricted -Command ". '%~dpn0.ps1'"
+
+powershell.exe -ExecutionPolicy AllSigned
+
+TIMEOUT /T 10
 
 :: -------
 :: Enable Windows Photo Viewer and Remove 3D Objects Folder
