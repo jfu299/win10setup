@@ -4,7 +4,7 @@ Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: December 16, 2020
+Updated: December 17, 2020
 
 1) Take over permissions of Registry Keys
 
@@ -20,7 +20,7 @@ Updated: December 16, 2020
 
 2) Uninstall OneDrive
 	- Turn off OneDrive Auto Startup
-	- Uninstall OneDrive in Control Panel (Should have been already uninstalled in the setup.bat file)
+	- Uninstall OneDrive in Control Panel (OneDrive should have been already uninstalled in the setup.bat file)
 		- %SystemRoot%\System32\OneDriveSetup.exe /uninstall
 		- %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 	- Take ownership and set Deny All to OneDriveSetup.exe in System32 and SysWOW64
@@ -29,7 +29,7 @@ Updated: December 16, 2020
 	- Open Administrator Powershell and Copy/Paste an Option
 	- Update Apps that you keep after running the powershell command
 
-Option 1: (Keep Store and Calculator and Windows Terminal)
+Option 1: (Keep Store and Calculator and Windows Terminal) (Option 1 is already included in setup.bat file)
 
 Get-AppxPackage | where-object {$_.name -notlike "*store*"} | where-object {$_.name -notlike "*terminal*"} | where-object {$_.name -notlike "*calc*"} | Remove-AppxPackage
 
