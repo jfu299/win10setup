@@ -3184,51 +3184,8 @@ powershell.exe -ExecutionPolicy Unrestricted -Command ". '%~dpn0.ps1'"
 
 powershell.exe -ExecutionPolicy AllSigned
 
-TIMEOUT /T 10
-
-:: --------------
-@echo OFF
-echo.
-echo -------
-echo.
-echo It is recommended that you restart your computer
-echo If you choose to restart, your computer will restart in 15 seconds
-echo.
-echo -------
-echo.
-set /p op="Restart Computer? (y/n) "
-
-if "%op%"=="y" goto restartComputer
-if "%op%"=="yes" goto restartComputer
-if "%op%"=="Yes" goto restartComputer
-if "%op%"=="Y" goto restartComputer
-if "%op%"=="YES" goto restartComputer
-echo.
-echo -------
-echo.
-echo You have chosen not to restart
-PAUSE
-echo.
-echo -------
-echo.
-goto mainMenu
-:: --------------
-:: Restart Computer
-:restartComputer
-echo.
-echo -------
-echo.
-echo RESTARTING COMPUTER IN 15 SECONDS
-echo MAKE SURE TO SAVE ALL WORK
-echo.
-echo TO ABORT RESTART TYPE IN COMMAND PROMPT OR POWERSHELL: shutdown -a
-echo.
-echo -------
-echo.
-shutdown -s -t 15
-echo.
-PAUSE
 goto :EOF
+
 :: --------------
 :: Deny Message
 :deny
