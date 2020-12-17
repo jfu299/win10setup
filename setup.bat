@@ -1698,16 +1698,6 @@ net stop DiagTrack
 %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 
 :: -------
-:: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
-:: -------
-
-powershell.exe -ExecutionPolicy Unrestricted -Command ". '%~dpn0.ps1'"
-
-powershell.exe -ExecutionPolicy AllSigned
-
-TIMEOUT /T 10
-
-:: -------
 :: Enable Windows Photo Viewer and Remove 3D Objects Folder
 :: -------
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}" /F
@@ -3185,6 +3175,16 @@ icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /grant admini
 :: icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /deny Everyone:F /t /q
 
 :: --
+
+:: -------
+:: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
+:: -------
+
+powershell.exe -ExecutionPolicy Unrestricted -Command ". '%~dpn0.ps1'"
+
+powershell.exe -ExecutionPolicy AllSigned
+
+TIMEOUT /T 10
 
 :: --------------
 @echo OFF
