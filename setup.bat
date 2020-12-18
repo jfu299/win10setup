@@ -3166,6 +3166,12 @@ icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe
 takeown /f C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /a /r /d y
 icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /grant administrators:F /t /q
 
+:: --
+:: Lock Screen Pictures Location
+takeown /f C:\ProgramData\Microsoft\Windows\SystemData /a /r /d y
+icacls C:\ProgramData\Microsoft\Windows\SystemData /grant administrators:F /t /q
+:: --
+
 :: -------
 :: Deny Full Access to Everyone in the Microsoft Edge Legacy and the Connect App Folders
 :: -------
@@ -3178,6 +3184,7 @@ icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /grant admini
 
 :: -------
 :: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
+:: Redirects to powershell script (setup.ps1)
 :: -------
 
 powershell.exe -ExecutionPolicy Unrestricted -Command ". '%~dpn0.ps1'"
