@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: December 17, 2020
+:: Updated: December 18, 2020
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: December 17, 2020
+echo Updated: December 18, 2020
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -1887,6 +1887,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessCa
 :: Restrict Microphone
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessMicrophone /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsActivateWithVoice /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsActivateWithVoiceAboveLock /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessMicrophone_UserInControlOfTheseApps /T REG_MULTI_SZ /D NonPackaged\0Microsoft.XboxGamingOverlay_8wekyb3d8bbwe\0 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessNotifications /T REG_dWORD /D 2 /F
@@ -2004,11 +2005,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V BlockUserFromShowin
 :: -------
 :: Cortana
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowCortana /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V Allowcloudsearch /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowcortanaAboveLock /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowCloudSearch /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowSearchToUseLocation /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V DisableWebSearch /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V ConnectedSearchPrivacy /T REG_dWORD /D 3 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V BingSearchEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowCortanaButton /T REG_dWORD /D 0 /F
 :: Search History
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRecentDocsHistory /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRecentDocsHistory /T REG_dWORD /D 1 /F
