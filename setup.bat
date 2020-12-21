@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: December 19, 2020
+:: Updated: December 21, 2020
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: December 19, 2020
+echo Updated: December 21, 2020
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -40,8 +40,6 @@ echo.
 echo 6) Username Visibility on Login/Lock Screen
 echo.
 echo 7) Username Visibility on UAC (Already included in Main)
-:: Will switch option 7 over to the powershell command
-:: Existing option 7 will be Combined with 6
 echo.
 echo 8) Ability to change password on Ctrl-Alt-Del Screen
 echo.
@@ -1698,7 +1696,7 @@ net stop DiagTrack
 %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 
 :: -------
-:: Enable Windows Photo Viewer and Remove 3D Objects Folder
+:: Remove 3D Objects Folder
 :: -------
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}" /F
 REG DELETE "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}" /F
@@ -1713,13 +1711,77 @@ REG DELETE "HKCR\SystemFileAssociations\.jpg\Shell\3D Edit" /F
 REG DELETE "HKCR\SystemFileAssociations\.png\Shell\3D Edit" /F
 REG DELETE "HKCR\SystemFileAssociations\.tif\Shell\3D Edit" /F
 REG DELETE "HKCR\SystemFileAssociations\.tiff\Shell\3D Edit" /F
-REG ADD "HKCU\Software\Classes\.jpg" /V (Default) /T REG_SZ /D PhotoViewer.FileAssoc.Tiff /F
-REG ADD "HKCU\Software\Classes\.jpeg" /V (Default) /T REG_SZ /D PhotoViewer.FileAssoc.Tiff /F
-REG ADD "HKCU\Software\Classes\.gif" /V (Default) /T REG_SZ /D PhotoViewer.FileAssoc.Tiff /F
-REG ADD "HKCU\Software\Classes\.png" /V (Default) /T REG_SZ /D PhotoViewer.FileAssoc.Tiff /F
-REG ADD "HKCU\Software\Classes\.bmp" /V (Default) /T REG_SZ /D PhotoViewer.FileAssoc.Tiff /F
-REG ADD "HKCU\Software\Classes\.tiff" /V (Default) /T REG_SZ /D PhotoViewer.FileAssoc.Tiff /F
-REG ADD "HKCU\Software\Classes\.ico" /V (Default) /T REG_SZ /D PhotoViewer.FileAssoc.Tiff /F
+:: -------
+:: Enable Windows Photo Viewer
+:: -------
+REG ADD "HKCU\Software\Classes\.jpg" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.jpeg" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.gif" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.png" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.bmp" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.tiff" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.ico" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+:: --
+REG ADD "HKCR\Applications\photoviewer.dll\shell\open" /V "MuiVerb" /T REG_SZ /D "@photoviewer.dll,-3043" /F
+REG ADD "HKCR\Applications\photoviewer.dll\shell\open\command" /T REG_SZ /D "C:\WINDOWS\System32\rundll32.exe \"C:\Program Files\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\Applications\photoviewer.dll\shell\open\DropTarget" /V "Clsid" /T REG_SZ /D "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Bitmap" /V ImageOptionFlags /T REG_dWORD /D 1 /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Bitmap" /V "FriendlyTypeName" /T REG_SZ /D "@%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll,-3056" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Bitmap\DefaultIcon" /T REG_SZ /D "%SystemRoot%\\System32\\imageres.dll,-70" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Bitmap\shell\open\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Bitmap\shell\open\DropTarget" /V "Clsid" /T REG_SZ /D "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}" /F
+REG ADD "HKCR\Applications\photoviewer.dll\shell\print" /V "NeverDefault" /T REG_SZ /F
+REG ADD "HKCR\Applications\photoviewer.dll\shell\print\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\Applications\photoviewer.dll\shell\print\DropTarget" /V "Clsid" /T REG_SZ /D "{60fd46de-f830-4894-a628-6fa81bc0190d}" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.JFIF" /V EditFlags /T REG_dWORD /D 10000 /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.JFIF" /V ImageOptionFlags /T REG_dWORD /D 1 /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.JFIF" /V "FriendlyTypeName" /T REG_SZ /D "@%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll,-3055" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.JFIF\DefaultIcon" /T REG_SZ /D "%SystemRoot%\\System32\\imageres.dll,-72" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.JFIF\shell\open" /V "MuiVerb" /T REG_SZ /D "@%ProgramFiles%\Windows Photo Viewer\photoviewer.dll,-3043" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.JFIF\shell\open\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.JFIF\shell\open\DropTarget" /V "Clsid" /T REG_SZ /D "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Jpeg" /V EditFlags /T REG_dWORD /D 10000 /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Jpeg" /V ImageOptionFlags /T REG_dWORD /D 1 /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Jpeg" /V "FriendlyTypeName" /T REG_SZ /D "@%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll,-3055" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Jpeg\DefaultIcon" /T REG_SZ /D "%SystemRoot%\\System32\\imageres.dll,-72" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Jpeg\shell\open" /V "MuiVerb" /T REG_SZ /D "@%ProgramFiles%\Windows Photo Viewer\photoviewer.dll,-3043" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Jpeg\shell\open\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Jpeg\shell\open\DropTarget" /V "Clsid" /T REG_SZ /D "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Gif" /V ImageOptionFlags /T REG_dWORD /D 1 /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Gif" /V "FriendlyTypeName" /T REG_SZ /D "@%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll,-3057" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Gif\DefaultIcon" /T REG_SZ /D "%SystemRoot%\\System32\\imageres.dll,-83" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Gif\shell\open\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Gif\shell\open\DropTarget" /V "Clsid" /T REG_SZ /D "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Png" /V ImageOptionFlags /T REG_dWORD /D 1 /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Png" /V "FriendlyTypeName" /T REG_SZ /D "@%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll,-3057" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Png\DefaultIcon" /T REG_SZ /D "%SystemRoot%\\System32\\imageres.dll,-71" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Png\shell\open\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Png\shell\open\DropTarget" /V "Clsid" /T REG_SZ /D "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Wdp" /V EditFlags /T REG_REG_dWORD /D 10000 /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Wdp" /V ImageOptionFlags /T REG_REG_dWORD /D 1 /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Wdp\DefaultIcon" /T REG_SZ /D "%SystemRoot%\\System32\\wmphoto.dll,-400" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Wdp\shell\open" /V "MuiVerb" /T REG_SZ /D "@%ProgramFiles%\Windows Photo Viewer\photoviewer.dll,-3043" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Wdp\shell\open\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\PhotoViewer.FileAssoc.Wdp\shell\open\DropTarget" /V "Clsid" /T REG_SZ /D "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}" /F
+:: --
+REG ADD "HKCR\SystemFileAssociations\image\shell\Image Preview\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\SystemFileAssociations\image\shell\Image Preview\DropTarget" /V "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}" /T REG_SZ /F
+:: --
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities" /V "ApplicationDescription" /T REG_SZ /D "@%ProgramFiles%\\Windows Photo Viewer\\photoviewer.dll,-3069" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities" /V "ApplicationName" /T REG_SZ /D "@%ProgramFiles%\\Windows Photo Viewer\\photoviewer.dll,-3009" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".cr2" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".jpg" /T REG_SZ /D "PhotoViewer.FileAssoc.Jpeg" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".wdp" /T REG_SZ /D "PhotoViewer.FileAssoc.Wdp" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".jfif" /T REG_SZ /D "PhotoViewer.FileAssoc.JFIF" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".dib" /T REG_SZ /D "PhotoViewer.FileAssoc.Bitmap" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".png" /T REG_SZ /D "PhotoViewer.FileAssoc.Png" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".jxr" /T REG_SZ /D "PhotoViewer.FileAssoc.Wdp" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".bmp" /T REG_SZ /D "PhotoViewer.FileAssoc.Bitmap" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".jpe" /T REG_SZ /D "PhotoViewer.FileAssoc.Jpeg" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".jpeg" /T REG_SZ /D "PhotoViewer.FileAssoc.Jpeg" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".gif" /T REG_SZ /D "PhotoViewer.FileAssoc.Gif" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".tif" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations" /V ".tiff" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
 :: -------
 :: Remove Quick Print on Context Menu
 :: -------
@@ -3209,6 +3271,8 @@ powershell.exe -ExecutionPolicy AllSigned
 
 goto :EOF
 
+:: ----------------------------------------------------------------------
+:: Other Messages
 :: --------------
 :: Deny Message
 :deny
