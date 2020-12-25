@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: December 21, 2020
+:: Updated: December 25, 2020
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: December 21, 2020
+echo Updated: December 25, 2020
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -33,22 +33,23 @@ echo 2) Windows 10 Update Options
 echo.
 echo 3) Web Browser Policies Setup
 echo.
-echo 4) Ctrl-Alt-Del Requirement on Login
+echo 4) Enable/Disable OneDrive
 echo.
-echo 5) Ctrl-Alt-Del Requirement on UAC
+echo 5) Remove Microsoft Edge
 echo.
-echo 6) Username Visibility on Login/Lock Screen
+echo 6) Username Visibility
 echo.
-echo 7) Username Visibility on UAC (Already included in Main)
+echo 7) Ctrl-Alt-Del Requirements
 echo.
-echo 8) Ability to change password on Ctrl-Alt-Del Screen
+echo 8) Extra Policies to lock down user account
 echo.
 echo 9) Exit
-echo.
-:: Option 10 will be set up in the future
-:: echo 10) Extra Policies to lock down user account
-:: -------Option 10 will lock down a user account even more
-:: echo.
+
+:: Ctrl-Alt-Del Requirement on Login
+:: Ctrl-Alt-Del Requirement on UAC
+:: Username Visibility on Login/Lock Screen
+:: Username Visibility on UAC (Already included in Main)
+:: Ability to change password on Ctrl-Alt-Del Screen
 
 set /p op="Type Option: "
 
@@ -123,7 +124,7 @@ goto option2redo
 @echo ON
 :: -------
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
-:: Target Release Version (Version 1909)
+:: Target Release Version (Version 20H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "20H2" /F
 :: Defer Updates (Windows Update for Business)
@@ -145,7 +146,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /V DODow
 :: Pause Updates Indefinitely
 :: HEX: 96520 DECIMAL: 615712
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V FlightSettingsMaxPauseDays /T REG_dWORD /D 615712 /F
-:: Disable Microsoft Edge (Chromium) Auto-Install
+:: Disable Microsoft Edge Chromium Auto-Install
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 :: Disable Windows Update Medic Service
 net stop WaaSMedicSvc
@@ -170,7 +171,7 @@ goto option2
 :option2.2
 @echo ON
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
-:: Target Release Version (Version 1909)
+:: Target Release Version (Version 20H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "20H2" /F
 :: Defer Updates (Windows Update for Business)
@@ -192,7 +193,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /V DODow
 :: Pause Updates Indefinitely
 :: HEX: 96520 DECIMAL: 615712
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V FlightSettingsMaxPauseDays /T REG_dWORD /D 615712 /F
-:: Disable Microsoft Edge (Chromium) Auto-Install
+:: Disable Microsoft Edge Chromium Auto-Install
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 :: Disable Windows Update Medic Service
 net stop WaaSMedicSvc
@@ -236,14 +237,14 @@ goto option2
 :option3
 echo -------
 echo.
-echo You have selected Option 3: Web Browser Policies Setup for Chrome, Chromium, Firefox, and Microsoft Edge (Chromium)
+echo You have selected Option 3: Web Browser Policies Setup for Chrome, Chromium, Firefox, and Microsoft Edge Chromium
 :option3redo
 echo.
 echo Select a task:
 echo.
 echo ----------------------------
 echo.
-echo Web Browser Policies for Chrome, Chromium, Firefox, Microsoft Edge (Chromium), Microsoft Edge (Edge HTML), and Internet Explorer
+echo Web Browser Policies for Chrome, Chromium, Firefox, Microsoft Edge Chromium, Microsoft Edge Legacy, and Internet Explorer
 echo It is not recommended to use Internet Explorer or the Legacy (non-Chromium) Microsoft Edge
 echo.
 echo ----------------------------
@@ -331,6 +332,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ShowAppsShortcutIn
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DeveloperToolsAvailability /T REG_SZ /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V MediaRecommendationsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V BookmarkBarEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AlwaysOpenPdfExternally /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V EnableMediaRouter /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutoplayAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
 
 :: -----------------
 :: Chromium
@@ -385,6 +406,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ShowAppsShortcutInBookm
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DeveloperToolsAvailability /T REG_SZ /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V MediaRecommendationsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V BookmarkBarEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AlwaysOpenPdfExternally /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V EnableMediaRouter /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutoplayAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
 
 :: -----------------
 :: Firefox
@@ -397,6 +438,16 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Notifications" /V Bl
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Notifications" /V Locked /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Location" /V BlockNewRequests /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Location" /V Locked /T REG_dWORD /D 1 /F
+:: Default Permissions
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Camera" /V BlockNewRequests /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Camera" /V Locked /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Microphone" /V BlockNewRequests /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Microphone" /V Locked /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\VirtualReality" /V BlockNewRequests /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\VirtualReality" /V Locked /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Autoplay" /V "Default" /T REG_SZ /D "block-audio-video" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Autoplay" /V Locked /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions" /V DisableDeveloperTools /T REG_dWORD /D 0 /F
 :: Disable DNS over HTTPS
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\DNSOverHTTPS" /V Enabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\DNSOverHTTPS" /V Locked /T REG_dWORD /D 1 /F
@@ -416,24 +467,18 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\FirefoxHome" /V Highlights /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\FirefoxHome" /V Pocket /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\FirefoxHome" /V Snippets /T REG_dWORD /D 0 /F
 :: About Config Settings
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_SZ /D "{\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"default\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.dns.disablePrefetch\":{\"Value\":true,\"Status\":\"locked\"},\"network.dns.disablePrefetchFromHTTPS\":{\"Value\":true,\"Status\":\"locked\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.tab_modal.enabled\":{\"Value\":true,\"Status\":\"default\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_SZ /D "{\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.interventions\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"browser.disableResetPrompt\":{\"Value\":false,\"Status\":\"default\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"default\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.dns.disablePrefetch\":{\"Value\":true,\"Status\":\"locked\"},\"network.dns.disablePrefetchFromHTTPS\":{\"Value\":true,\"Status\":\"locked\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.tab_modal.enabled\":{\"Value\":true,\"Status\":\"default\"},\"media.hardwaremediakeys.enabled\":{\"Value\":false,\"Status\":\"default\"},\"accessibility.blockautorefresh\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.formautofill.creditCards.enabled\":{\"Value\":false,\"Status\":\"default\"},\"extensions.formautofill.addresses.enabled\":{\"Value\":false,\"Status\":\"default\"}}" /F
 :: Privacy Settings
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Cookies" /V AcceptThirdParty /T REG_SZ /D never /F
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V SearchSuggestEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableFirefoxStudies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableSetDesktopBackground /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableTelemetry /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V BlockAboutSupport /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V BlockAboutSupport /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableFeedbackCommands /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V OverrideFirstRunPage /T REG_SZ /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V OverridePostUpdatePage /T REG_SZ /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V NoDefaultBookmarks /T REG_dWORD /D 1 /F
-:: Removed because already on About Config Settings
-:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /V UrlbarInterventions /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /V WhatsNew /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /V ExtensionRecommendations /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /V FeatureRecommendations /T REG_dWORD /D 0 /F
 REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /F
 
 :: -----------------
@@ -483,9 +528,29 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V RestoreOnSta
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ShowAppsShortcutInBookmarkBar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DeveloperToolsAvailability /T REG_SZ /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V MediaRecommendationsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V BookmarkBarEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AlwaysOpenPdfExternally /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V EnableMediaRouter /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutoplayAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
 
 :: -----------------
-:: Microsoft Edge (Chromium)
+:: Microsoft Edge Chromium
 :: -----------------
 
 :: Disable Auto-Install
@@ -555,9 +620,29 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageSearchBox /T REG_SZ
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideInternetExplorerRedirectUXForIncompatibleSitesEnabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowMicrosoftRewards /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V familySafetySettingsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DeveloperToolsAvailability /T REG_SZ /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MediaRecommendationsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BookmarkBarEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AlwaysOpenPdfExternally /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V EnableMediaRouter /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutoplayAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
 
 :: -----------------
-:: Microsoft Edge (Edge HTML)
+:: Microsoft Edge Legacy
 :: -----------------
 
 :: First Run
@@ -1085,7 +1170,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
 
 :: -----------------
-:: Microsoft Edge (Chromium)
+:: Microsoft Edge Chromium
 :: -----------------
 :: (Other adblockers interfere with ublock origin)
 :: Adblock Plus
@@ -1225,7 +1310,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 112
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
 
 :: -----------------
-:: Microsoft Edge (Chromium) Add-on Store
+:: Microsoft Edge Chromium Add-on Store
 :: -----------------
 
 :: Fake Tiktok
@@ -1334,9 +1419,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3662396/sponsorblock_skip_sponsorships_on_youtube-2.0.7-an+fx.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3612592/clearurls-1.19.0-an+fx.xpi\"},\"bypasspaywalls@bypasspaywalls.weebly.com\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"}}" /F
 :: Brave
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
-:: Microsoft Edge (Chromium)
+:: Microsoft Edge Chromium
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
-:: Microsoft Edge (Edge HTML)
+:: Microsoft Edge Legacy
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Extensions" /V ExtensionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Extensions" /V AllowSideloadingOfExtensions /T REG_dWORD /D 0 /F
 :: Internet Explorer
@@ -1366,10 +1451,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 :: Brave
 REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BlockExternalExtensions /F
-:: Microsoft Edge (Chromium)
+:: Microsoft Edge Chromium
 REG DELETE "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BlockExternalExtensions /F
-:: Microsoft Edge (Edge HTML)
+:: Microsoft Edge Legacy
 REG DELETE "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Extensions" /V ExtensionsEnabled /F
 REG DELETE "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Extensions" /V AllowSideloadingOfExtensions /F
 :: Internet Explorer
@@ -1385,14 +1470,22 @@ goto option3
 :option4
 echo -------
 echo.
-echo You have selected Option 4: Ctrl-Alt-Del Requirement on Login
+echo You have selected Option 4: Enable/Disable OneDrive
 :option4redo
+echo.
+echo ------- IMPORTANT ----------
+echo.
+echo Disabling OneDrive will completely remove and disable all OneDrive functions
+echo.
+echo When enabling OneDrive, you will need to manually re-install OneDrive
+echo.
+echo ----------------------------
 echo.
 echo Select a task:
 echo.
-echo 1) Require Ctrl-Alt-Del on Login
+echo 1) Uninstall and Disable OneDrive
 echo.
-echo 2) Do not Require Ctrl-Alt-Del on Login
+echo 2) Enable OneDrive
 echo.
 echo 3) Return
 echo.
@@ -1414,75 +1507,149 @@ goto option4redo
 
 :: --------------
 :option4.1
+echo.
+echo -------
+echo.
+
+:option4.1redo
+
+echo ------- IMPORTANT ----------
+echo.
+echo Disabling OneDrive will completely remove and disable all OneDrive functions
+echo.
+echo ----------------------------
+
+set /p op="Uninstall and Disable OneDrive? (y/n) "
+if "%op%"=="y" goto option4.1Start
+if "%op%"=="yes" goto option4.1Start
+if "%op%"=="Yes" goto option4.1Start
+if "%op%"=="Y" goto option4.1Start
+if "%op%"=="YES" goto option4.1Start
+
+if "%op%"=="n" goto option4
+if "%op%"=="no" goto option4
+if "%op%"=="No" goto option4
+if "%op%"=="N" goto option4
+if "%op%"=="NO" goto option4
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option4.1redo
+
+:: --------------
+
+:option4.2
+echo.
+echo -------
+echo.
+
+:option4.2redo
+
+echo ------- IMPORTANT ----------
+echo.
+echo When enabling OneDrive, you will need to manually re-install OneDrive
+echo.
+echo ----------------------------
+
+set /p op="Enable OneDrive? (y/n) "
+if "%op%"=="y" goto option4.2Start
+if "%op%"=="yes" goto option4.2Start
+if "%op%"=="Yes" goto option4.2Start
+if "%op%"=="Y" goto option4.2Start
+if "%op%"=="YES" goto option4.2Start
+
+if "%op%"=="n" goto option4
+if "%op%"=="no" goto option4
+if "%op%"=="No" goto option4
+if "%op%"=="N" goto option4
+if "%op%"=="NO" goto option4
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option4.2redo
+
+:: --------------
+
+:option4.1Start
 @echo ON
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V DisableCAD /T REG_dWORD /D 0 /F
+
+:: Uninstall and Disable OneDrive
+
+%SystemRoot%\System32\OneDriveSetup.exe /uninstall
+%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
+
+REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
+
+takeown /f "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /inheritance:r
+icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
+icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /deny everyone:F /t /q
+
+takeown /f "%SystemRoot%\System32\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /inheritance:r
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /deny everyone:F /t /q
+
+rd /s /q "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+rd /s /q "%ProgramData%\Microsoft OneDrive"
+rd /s /q "%UserProfile%\OneDrive"
+
 @echo OFF
 goto option4
+
 :: --------------
-:option4.2
+
+:option4.2Start
 @echo ON
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V DisableCAD /T REG_dWORD /D 1 /F
+
+:: Enable OneDrive
+
+:: When enabling OneDrive, you will need to manually re-install OneDrive
+
+REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 0 /F
+
+takeown /f "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
+icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /inheritance:e
+icacls "%SystemRoot%\SysWOW6\OneDriveSetup.exe" /reset /t /q
+
+takeown /f "%SystemRoot%\System32\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /inheritance:e
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /reset /t /q
+
 @echo OFF
 goto option4
 :: ------------------------------------------------------------------------------------
 :option5
 echo -------
 echo.
-echo You have selected Option 5: Ctrl-Alt-Del Requirement on UAC
+echo You have selected Option 5: Remove Microsoft Edge
 :option5redo
 echo.
-echo Select a task:
+echo ------- IMPORTANT ----------
 echo.
-echo 1) Require Ctrl-Alt-Del on UAC
+echo The Start Menu Icon for Microsoft Edge Legacy cannot be removed, 
+echo Windows 10 will view it as ms-resource:AppName, and move it to the bottom of the app list
 echo.
-echo 2) Do not Require Ctrl-Alt-Del on UAC
+echo To fully remove Microsoft Edge Chromium from the Control Panel List, taking over and deleting registry keys is required
+echo This only removes the pre-installed Microsoft Edge Chromium
 echo.
-echo 3) Return
-echo.
-echo 4) Exit
-echo.
-
-set /p op="Type Option: "
-
-if "%op%"=="1" goto option5.1
-if "%op%"=="2" goto option5.2
-
-if "%op%"=="3" goto mainMenu
-if "%op%"=="4" goto end
-
-
-echo.
-echo -------
-echo PLEASE SELECT A VALID OPTION
-goto option5redo
-
-:: --------------
-:option5.1
-@echo ON
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnableSecureCredentialPrompting /T REG_dWORD /D 1 /F
-@echo OFF
-goto option5
-:: --------------
-:option5.2
-@echo ON
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnableSecureCredentialPrompting /T REG_dWORD /D 0 /F
-@echo OFF
-goto option5
-:: ------------------------------------------------------------------------------------
-:option6
-echo -------
-echo.
-echo You have selected Option 6: Username Visibility on Login/Lock Screen
-echo	- Login Screen is when you are signed out, Lock Screen is when you are signed in but locked
-:option6redo
+echo ----------------------------
 echo.
 echo Select a task:
 echo.
-echo 1) Hide Username on Login Screen Only
+echo 1) Remove Microsoft Edge Chromium and Microsoft Edge Legacy
 echo.
-echo 2) Hide Username on both Login and Lock Screen
+echo 2) Remove Microsoft Edge Chromium only
 echo.
-echo 3) Show Username on both Login and Lock Screen
+echo 3) Remove Microsoft Edge Legacy only
 echo.
 echo 4) Return
 echo.
@@ -1491,129 +1658,240 @@ echo.
 
 set /p op="Type Option: "
 
-if "%op%"=="1" goto option6.1
-if "%op%"=="2" goto option6.2
-if "%op%"=="3" goto option6.3
+if "%op%"=="1" goto option5.1
+if "%op%"=="2" goto option5.2
+if "%op%"=="3" goto option5.3
+if "%op%"=="4" goto option5.4
 
-if "%op%"=="4" goto mainMenu
-if "%op%"=="5" goto end
+if "%op%"=="5" goto mainMenu
+if "%op%"=="6" goto end
 
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
-goto option6redo
+goto option5redo
 
 :: --------------
-:option6.1
-@echo ON
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V dontdisplaylastusername /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 1 /F
-@echo OFF
-goto option6
+:option5.1
+echo.
+echo -------
+echo.
+
+:option5.1redo
+
+echo ------- IMPORTANT ----------
+echo.
+echo The Start Menu Icon for Microsoft Edge Legacy cannot be removed, 
+echo Windows 10 will view it as ms-resource:AppName, and move it to the bottom of the app list
+echo.
+echo To fully remove Microsoft Edge Chromium from the Control Panel List, taking over and deleting registry keys is required
+echo.
+echo Microsoft Edge Chromium Registry Keys:
+echo	Take over control and delete these registry keys
+echo.
+echo	HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+echo.
+echo	HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+echo.
+echo This only removes the pre-installed Microsoft Edge Chromium
+echo 	Please Check the Version Number of Microsoft Edge Chromium that is installed, otherwise this batch script will not work properly
+echo.
+echo Go To (x64 OS): C:\Program Files (x86)\Microsoft\Edge\Application
+echo Go To (x86 OS): C:\Program Files\Microsoft\Edge\Application
+echo.
+echo 	This batch script uses Edge Version: 84.0.522.52
+echo.
+echo ----------------------------
+
+set /p op="Remove Microsoft Edge Chromium and Microsoft Edge Legacy? (y/n) "
+if "%op%"=="y" goto option5.1Start
+if "%op%"=="yes" goto option5.1Start
+if "%op%"=="Yes" goto option5.1Start
+if "%op%"=="Y" goto option5.1Start
+if "%op%"=="YES" goto option5.1Start
+
+if "%op%"=="n" goto option5
+if "%op%"=="no" goto option5
+if "%op%"=="No" goto option5
+if "%op%"=="N" goto option5
+if "%op%"=="NO" goto option5
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option5.1redo
+
 :: --------------
-:option6.2
-@echo ON
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V dontdisplaylastusername /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 3 /F
-@echo OFF
-goto option6
+
+:option5.2
+echo.
+echo -------
+echo.
+
+:option5.2redo
+
+echo ------- IMPORTANT ----------
+echo.
+echo To fully remove Microsoft Edge Chromium from the Control Panel List, taking over and deleting registry keys is required
+echo.
+echo Microsoft Edge Chromium Registry Keys:
+echo	Take over control and delete these registry keys
+echo.
+echo	HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+echo.
+echo	HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+echo.
+echo This only removes the pre-installed Microsoft Edge Chromium
+echo 	Please Check the Version Number of Microsoft Edge Chromium that is installed, otherwise this batch script will not work properly
+echo.
+echo Go To (x64 OS): C:\Program Files (x86)\Microsoft\Edge\Application
+echo Go To (x86 OS): C:\Program Files\Microsoft\Edge\Application
+echo.
+echo 	This batch script uses Edge Version: 84.0.522.52
+echo.
+echo ----------------------------
+
+set /p op="Remove Microsoft Edge Chromium Only? (y/n) "
+if "%op%"=="y" goto option5.2Start
+if "%op%"=="yes" goto option5.2Start
+if "%op%"=="Yes" goto option5.2Start
+if "%op%"=="Y" goto option5.2Start
+if "%op%"=="YES" goto option5.2Start
+
+if "%op%"=="n" goto option5
+if "%op%"=="no" goto option5
+if "%op%"=="No" goto option5
+if "%op%"=="N" goto option5
+if "%op%"=="NO" goto option5
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option5.2redo
+
 :: --------------
-:option6.3
+
+:option5.3
+echo.
+echo -------
+echo.
+
+:option5.3redo
+
+echo ------- IMPORTANT ----------
+echo.
+echo The Start Menu Icon for Microsoft Edge Legacy cannot be removed, 
+echo Windows 10 will view it as ms-resource:AppName, and move it to the bottom of the app list
+echo.
+echo ----------------------------
+
+set /p op="Remove Microsoft Edge Legacy Only? (y/n) "
+if "%op%"=="y" goto option5.3Start
+if "%op%"=="yes" goto option5.3Start
+if "%op%"=="Yes" goto option5.3Start
+if "%op%"=="Y" goto option5.3Start
+if "%op%"=="YES" goto option5.3Start
+
+if "%op%"=="n" goto option5
+if "%op%"=="no" goto option5
+if "%op%"=="No" goto option5
+if "%op%"=="N" goto option5
+if "%op%"=="NO" goto option5
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option5.3redo
+
+:: --------------
+:option5.1Start
 @echo ON
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V dontdisplaylastusername /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 0 /F
+:: Remove Microsoft Edge Chromium and Microsoft Edge Legacy
+
+:: Microsoft Edge Chromium
+
+%ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\Edge"
+rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\EdgeUpdate"
+rd /s /q "%SystemDrive%\Program Files\Microsoft\Edge"
+rd /s /q "%SystemDrive%\Program Files\Microsoft\EdgeUpdate"
+rd /s /q "%UserProfile%\Local\Microsoft\Edge"
+
+:: Microsoft Edge Legacy
+takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" && md "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /deny everyone:F /t /q
+
+takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" && md "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
+
+rd /s /q "%UserProfile%\Local\MicrosoftEdge"
+rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
+
+
 @echo OFF
-goto option6
+goto option5
+
+:: --------------
+:option5.2Start
+@echo ON
+:: Remove Microsoft Edge Chromium Only
+
+%ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\Edge"
+rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\EdgeUpdate"
+rd /s /q "%SystemDrive%\Program Files\Microsoft\Edge"
+rd /s /q "%SystemDrive%\Program Files\Microsoft\EdgeUpdate"
+rd /s /q "%UserProfile%\Local\Microsoft\Edge"
+
+@echo OFF
+goto option5
+:: --------------
+:option5.3Start
+@echo ON
+:: Remove Microsoft Edge Legacy Only
+
+takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" && md "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /deny everyone:F /t /q
+
+takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" && md "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
+
+rd /s /q "%UserProfile%\Local\MicrosoftEdge"
+rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
+
+@echo OFF
+goto option5
 :: ------------------------------------------------------------------------------------
-:option7
-echo -------
-echo.
-echo You have selected Option 7: Username Visibility on UAC
-:option7redo
-echo.
-echo Select a task:
-echo.
-echo 1) (Already included in Main) Hide Username on UAC Password Prompt
-echo.
-echo 2) Show Username on UAC Password Prompt
-echo.
-echo 3) Return
-echo.
-echo 4) Exit
-echo.
 
-set /p op="Type Option: "
 
-if "%op%"=="1" goto option7.1
-if "%op%"=="2" goto option7.2
 
-if "%op%"=="3" goto mainMenu
-if "%op%"=="4" goto end
-
-echo.
-echo -------
-echo PLEASE SELECT A VALID OPTION
-goto option7redo
-
-:: --------------
-:option7.1
-@echo ON
-:: Hide Username on UAC Password Prompt
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnumerateAdministrators /T REG_dWORD /D 0 /F
-@echo OFF
-goto option7
-:: --------------
-:option7.2
-@echo ON
-:: Show Username on UAC Password Prompt
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnumerateAdministrators /T REG_dWORD /D 1 /F
-@echo OFF
-goto option7
-:: --------------
-:option8
-echo -------
-echo.
-echo You have selected Option 8: Ability to change password on Ctrl-Alt-Del Screen
-:option8redo
-echo.
-echo Select a task:
-echo.
-echo 1) Block Changing Password on Ctrl-Alt-Del Screen
-echo.
-echo 2) Allow Changing Password on Ctrl-Alt-Del Screen
-echo.
-echo 3) Return
-echo.
-echo 4) Exit
-echo.
-
-set /p op="Type Option: "
-
-if "%op%"=="1" goto option8.1
-if "%op%"=="2" goto option8.2
-
-if "%op%"=="3" goto mainMenu
-if "%op%"=="4" goto end
-
-echo.
-echo -------
-echo PLEASE SELECT A VALID OPTION
-goto option8redo
-
-:: --------------
-:option8.1
-@echo ON
-:: Block Changing Password on Ctrl-Alt-Del Screen
-REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 1 /F
-@echo OFF
-goto option8
-:: --------------
-:option8.2
-@echo ON
-:: Allow Changing Password on Ctrl-Alt-Del Screen
-REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 0 /F
-@echo OFF
-goto option8
 :: ------------------------------------------------------------------------------------
 
 :: Main File
@@ -1655,11 +1933,11 @@ echo RUN THIS BATCH FILE AS ADMINISTRATOR
 echo -------
 echo.
 set /p op="RUN THIS BATCH FILE (Main File): (y/n) "
-if "%op%"=="y" goto startmainFile
-if "%op%"=="yes" goto startmainFile
-if "%op%"=="Yes" goto startmainFile
-if "%op%"=="Y" goto startmainFile
-if "%op%"=="YES" goto startmainFile
+if "%op%"=="y" goto mainFileStart
+if "%op%"=="yes" goto mainFileStart
+if "%op%"=="Yes" goto mainFileStart
+if "%op%"=="Y" goto mainFileStart
+if "%op%"=="YES" goto mainFileStart
 
 if "%op%"=="n" goto deny
 if "%op%"=="no" goto deny
@@ -1675,7 +1953,7 @@ goto mainFileredo
 
 :: --------------
 
-:startmainFile
+:mainFileStart
 
 echo.
 echo Please wait for this batch file to finish
@@ -1688,12 +1966,6 @@ echo.
 :: -------
 net stop WaaSMedicSvc
 net stop DiagTrack
-
-:: -------
-:: Uninstall OneDrive
-:: -------
-%SystemRoot%\System32\OneDriveSetup.exe /uninstall
-%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 
 :: -------
 :: Remove 3D Objects Folder
@@ -1723,7 +1995,7 @@ REG ADD "HKCU\Software\Classes\.tiff" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" 
 REG ADD "HKCU\Software\Classes\.ico" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
 :: --
 REG ADD "HKCR\Applications\photoviewer.dll\shell\open" /V "MuiVerb" /T REG_SZ /D "@photoviewer.dll,-3043" /F
-REG ADD "HKCR\Applications\photoviewer.dll\shell\open\command" /T REG_SZ /D "C:\WINDOWS\System32\rundll32.exe \"C:\Program Files\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\Applications\photoviewer.dll\shell\open\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"C:\Program Files\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
 REG ADD "HKCR\Applications\photoviewer.dll\shell\open\DropTarget" /V "Clsid" /T REG_SZ /D "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}" /F
 REG ADD "HKCR\PhotoViewer.FileAssoc.Bitmap" /V ImageOptionFlags /T REG_dWORD /D 1 /F
 REG ADD "HKCR\PhotoViewer.FileAssoc.Bitmap" /V "FriendlyTypeName" /T REG_SZ /D "@%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll,-3056" /F
@@ -1815,7 +2087,7 @@ REG DELETE "HKLM\SOFTWARE\Classes\InternetShortcut\shell\print" /F
 :: -------
 :: Windows 10 Updates Partial Control (Windows Update Not Disabled)
 :: -------
-:: Target Release Version (Version 1909)
+:: Target Release Version (Version 20H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "20H2" /F
 :: Defer Updates (Windows Update for Business)
@@ -1837,7 +2109,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /V DODow
 :: Pause Updates Indefinitely
 :: HEX: 96520 DECIMAL: 615712
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V FlightSettingsMaxPauseDays /T REG_dWORD /D 615712 /F
-:: Disable Microsoft Edge (Chromium) Auto-Install
+:: Disable Microsoft Edge Chromium Auto-Install
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 :: Disable Windows Update Medic Service
 :: net stop WaaSMedicSvc (Moved to Top)
@@ -2000,17 +2272,14 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V "Append Completion" /T REG_SZ /D no /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V AutoSuggest /T REG_SZ /D no /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V AutoSuggest /T REG_SZ /D no /F
-REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V "Append Completion" /T REG_SZ /D no /F
-REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V "Append Completion" /T REG_SZ /D no /F
-REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V AutoSuggest /T REG_SZ /D no /F
-REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V AutoSuggest /T REG_SZ /D no /F
-REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowInfoTip /T REG_dWORD /D 0 /F
-REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowSyncProviderNotifications /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V "Append Completion" /T REG_SZ /D no /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V "Append Completion" /T REG_SZ /D no /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V AutoSuggest /T REG_SZ /D no /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V AutoSuggest /T REG_SZ /D no /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowInfoTip /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowSyncProviderNotifications /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowInfoTip /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowSyncProviderNotifications /T REG_dWORD /D 0 /F
-:: OneDrive Disable
-REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
 :: Settings Tips
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V AllowOnlineTips /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Input\Settings" /V EnableHwkbTextPrediction /T REG_dWORD /D 0 /F
@@ -2142,15 +2411,13 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V Enum
 :: -------
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V DisableNotificationcenter /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V DisableNotificationcenter /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\PushNotifications" /V ToastEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\PushNotifications" /V ToastEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_GLEAM_ENABLED /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_BADGE_ENABLED /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_TOASTS_ENABLED /T REG_dWORD /D 0 /F
-:: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell
-:: UseActionCenterExperience 0
 :: -------
 :: Desktop
 :: -------
@@ -2238,6 +2505,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ShowAppsShortcutIn
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DeveloperToolsAvailability /T REG_SZ /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V MediaRecommendationsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V BookmarkBarEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AlwaysOpenPdfExternally /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V EnableMediaRouter /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutoplayAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
 
 :: -----------------
 :: Chromium
@@ -2292,6 +2579,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ShowAppsShortcutInBookm
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DeveloperToolsAvailability /T REG_SZ /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V MediaRecommendationsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V BookmarkBarEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AlwaysOpenPdfExternally /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V EnableMediaRouter /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutoplayAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
 
 :: -----------------
 :: Firefox
@@ -2304,6 +2611,16 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Notifications" /V Bl
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Notifications" /V Locked /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Location" /V BlockNewRequests /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Location" /V Locked /T REG_dWORD /D 1 /F
+:: Default Permissions
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Camera" /V BlockNewRequests /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Camera" /V Locked /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Microphone" /V BlockNewRequests /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Microphone" /V Locked /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\VirtualReality" /V BlockNewRequests /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\VirtualReality" /V Locked /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Autoplay" /V "Default" /T REG_SZ /D "block-audio-video" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions\Autoplay" /V Locked /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Permissions" /V DisableDeveloperTools /T REG_dWORD /D 0 /F
 :: Disable DNS over HTTPS
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\DNSOverHTTPS" /V Enabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\DNSOverHTTPS" /V Locked /T REG_dWORD /D 1 /F
@@ -2323,24 +2640,18 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\FirefoxHome" /V Highlights /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\FirefoxHome" /V Pocket /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\FirefoxHome" /V Snippets /T REG_dWORD /D 0 /F
 :: About Config Settings
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_SZ /D "{\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"default\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.dns.disablePrefetch\":{\"Value\":true,\"Status\":\"locked\"},\"network.dns.disablePrefetchFromHTTPS\":{\"Value\":true,\"Status\":\"locked\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.tab_modal.enabled\":{\"Value\":true,\"Status\":\"default\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_SZ /D "{\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.interventions\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"browser.disableResetPrompt\":{\"Value\":false,\"Status\":\"default\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"default\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.dns.disablePrefetch\":{\"Value\":true,\"Status\":\"locked\"},\"network.dns.disablePrefetchFromHTTPS\":{\"Value\":true,\"Status\":\"locked\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.tab_modal.enabled\":{\"Value\":true,\"Status\":\"default\"},\"media.hardwaremediakeys.enabled\":{\"Value\":false,\"Status\":\"default\"},\"accessibility.blockautorefresh\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.formautofill.creditCards.enabled\":{\"Value\":false,\"Status\":\"default\"},\"extensions.formautofill.addresses.enabled\":{\"Value\":false,\"Status\":\"default\"}}" /F
 :: Privacy Settings
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\Cookies" /V AcceptThirdParty /T REG_SZ /D never /F
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V SearchSuggestEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableFirefoxStudies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableSetDesktopBackground /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableTelemetry /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V BlockAboutSupport /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V BlockAboutSupport /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableFeedbackCommands /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V OverrideFirstRunPage /T REG_SZ /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V OverridePostUpdatePage /T REG_SZ /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V NoDefaultBookmarks /T REG_dWORD /D 1 /F
-:: Removed because already on About Config Settings
-:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /V UrlbarInterventions /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /V WhatsNew /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /V ExtensionRecommendations /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /V FeatureRecommendations /T REG_dWORD /D 0 /F
 REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /F
 
 :: -----------------
@@ -2390,9 +2701,29 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V RestoreOnSta
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ShowAppsShortcutInBookmarkBar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DeveloperToolsAvailability /T REG_SZ /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V MediaRecommendationsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V BookmarkBarEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AlwaysOpenPdfExternally /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V EnableMediaRouter /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutoplayAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
 
 :: -----------------
-:: Microsoft Edge (Chromium)
+:: Microsoft Edge Chromium
 :: -----------------
 
 :: Disable Auto-Install
@@ -2462,9 +2793,29 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageSearchBox /T REG_SZ
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideInternetExplorerRedirectUXForIncompatibleSitesEnabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowMicrosoftRewards /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V familySafetySettingsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DeveloperToolsAvailability /T REG_SZ /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MediaRecommendationsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BookmarkBarEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AlwaysOpenPdfExternally /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V EnableMediaRouter /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutoplayAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
 
 :: -----------------
-:: Microsoft Edge (Edge HTML)
+:: Microsoft Edge Legacy
 :: -----------------
 
 :: First Run
@@ -2993,7 +3344,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
 
 :: -----------------
-:: Microsoft Edge (Chromium)
+:: Microsoft Edge Chromium
 :: -----------------
 :: (Other adblockers interfere with ublock origin)
 :: Adblock Plus
@@ -3133,7 +3484,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 112
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
 
 :: -----------------
-:: Microsoft Edge (Chromium) Add-on Store
+:: Microsoft Edge Chromium Add-on Store
 :: -----------------
 
 :: Fake Tiktok
@@ -3227,38 +3578,81 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 173
 :: -------
 :: Take Ownership and Full Control under administrators group
 :: -------
+
+:: Windows 10 Update Notifications
 takeown /f musnotification.exe /a /r /d y
+icacls musnotification.exe /inheritance:r
 icacls musnotification.exe /grant administrators:F /t /q
-icacls musnotification.exe /deny Everyone:F /t /q
-:: --
+icacls musnotification.exe /deny everyone:F /t /q
+
 takeown /f musnotificationux.exe /a /r /d y
+icacls musnotificationux.exe /inheritance:r
 icacls musnotificationux.exe /grant administrators:F /t /q
-icacls musnotificationux.exe /deny Everyone:F /t /q
-:: --
-takeown /f C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /a /r /d y
-icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /grant administrators:F /t /q
-:: --
-takeown /f C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /a /r /d y
-icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /grant administrators:F /t /q
-:: --
-takeown /f C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /a /r /d y
-icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /grant administrators:F /t /q
+icacls musnotificationux.exe /deny everyone:F /t /q
 
-:: --
+:: Microsoft Connect App (Removed in Version 2004/20H1)
+:: 		Disables the Microsoft Connect App
+
+takeown /f "%SystemRoot%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /a /r /d y
+icacls "%SystemRoot%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /grant administrators:F /t /q
+rd /s /q "%SystemRoot%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" && md "%SystemRoot%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy"
+icacls "%SystemRoot%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /grant administrators:F /t /q
+icacls "%SystemRoot%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /deny everyone:F /t /q
+
+:: Holographic First Run (Removed in Version 1809)
+:: 		Disables the Holographic App
+
+takeown /f "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /a /r /d y
+icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /grant administrators:F /t /q
+rd /s /q "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" && md "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy"
+icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /grant administrators:F /t /q
+icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /deny everyone:F /t /q
+
+:: Microsoft Edge Legacy
+:: 		This only takes over administrator permissions, use other option to remove Microsoft Edge Legacy
+
+takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+
+takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+
+:: OneDrive
+:: 		This only takes over administrator permissions, use other option to remove OneDrive
+
+takeown /f "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
+
+takeown /f "%SystemRoot%\System32\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
+
+:: ----
+
 :: Lock Screen Pictures Location
-takeown /f C:\ProgramData\Microsoft\Windows\SystemData /a /r /d y
-icacls C:\ProgramData\Microsoft\Windows\SystemData /grant administrators:F /t /q
-:: --
+:: 		Takes over permissions over SystemData Folder, lets administrator accounts change the lock screen
+::			In order to change lock screen image, replace old image with new image under the same name
 
-:: -------
-:: Deny Full Access to Everyone in the Microsoft Edge Legacy and the Connect App Folders
-:: -------
+takeown /f "%ProgramData%\Microsoft\Windows\SystemData" /a /r /d y
+icacls "%ProgramData%\Microsoft\Windows\SystemData" /inheritance:d
+icacls "%ProgramData%\Microsoft\Windows\SystemData" /grant administrators:F /t /q
 
-:: icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /deny Everyone:F /t /q
-:: icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /deny Everyone:F /t /q
-:: icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /deny Everyone:F /t /q
+:: Remove Other Files
+:: 		Removes other unnecessary files
 
-:: --
+:: 3D Objects Folder
+rd /s /q %UserProfile%\3D Objects
+
+:: Adobe Flash Player
+rd /s /q %UserProfile%\AppData\Roaming\Adobe\Flash Player
+
+:: Mixed Reality Viewer
+rd /s /q %ProgramData%\WindowsHolographicDevices
 
 :: -------
 :: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
