@@ -39,7 +39,7 @@ echo 5) Remove Microsoft Edge
 echo.
 echo 6) Username Visibility
 echo.
-echo 7) Ctrl-Alt-Del Requirements
+echo 7) Ctrl-Alt-Del Options
 echo.
 echo 8) Extra Policies to lock down user account
 echo.
@@ -47,8 +47,6 @@ echo 9) Exit
 
 :: Ctrl-Alt-Del Requirement on Login
 :: Ctrl-Alt-Del Requirement on UAC
-:: Username Visibility on Login/Lock Screen
-:: Username Visibility on UAC (Already included in Main)
 :: Ability to change password on Ctrl-Alt-Del Screen
 
 set /p op="Type Option: "
@@ -65,9 +63,8 @@ if "%op%"=="8" goto option8
 if "%op%"=="9" goto end
 if "%op%"=="n" goto end
 if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
 if "%op%"=="c" goto end
-
-:: if "%op%"=="10" goto option10
 
 :: Error Message if a valid choice is not selected
 echo.
@@ -86,6 +83,7 @@ echo.
 echo Please notice to set updates to manual or disabled you must stop the
 echo Windows 10 Medic Service (WaaSMedicSvc) through the registry and
 echo take ownership and disable access to everyone to the WaaSMedicSvc registry key
+echo (HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc)
 echo.
 echo ----------------------------
 echo.
@@ -97,7 +95,7 @@ echo 2) Disable Updates
 echo.
 echo 3) (Windows 10 Pro Only) Disable Access to Update in Settings
 echo.
-echo 4) (Windows 10 Pro Only) Undo Disable Access to Update in Settings
+echo 4) (Windows 10 Pro Only) Enable Access to Update in Settings
 echo.
 echo 5) Return
 echo.
@@ -113,6 +111,9 @@ if "%op%"=="4" goto option2.4
 
 if "%op%"=="5" goto mainMenu
 if "%op%"=="6" goto end
+if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
+if "%op%"=="c" goto end
 
 echo.
 echo -------
@@ -121,6 +122,117 @@ goto option2redo
 
 :: --------------
 :option2.1
+echo.
+echo -------
+echo.
+
+:option2.1redo
+
+set /p op="Set Manual Updates? (y/n) "
+if "%op%"=="y" goto option2.1Start
+if "%op%"=="yes" goto option2.1Start
+if "%op%"=="Yes" goto option2.1Start
+if "%op%"=="Y" goto option2.1Start
+if "%op%"=="YES" goto option2.1Start
+
+if "%op%"=="n" goto option2
+if "%op%"=="no" goto option2
+if "%op%"=="No" goto option2
+if "%op%"=="N" goto option2
+if "%op%"=="NO" goto option2
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option2.1redo
+
+:: --------------
+
+:option2.2
+echo.
+echo -------
+echo.
+
+:option2.2redo
+
+set /p op="Set Disable Updates? (y/n) "
+if "%op%"=="y" goto option2.2Start
+if "%op%"=="yes" goto option2.2Start
+if "%op%"=="Yes" goto option2.2Start
+if "%op%"=="Y" goto option2.2Start
+if "%op%"=="YES" goto option2.2Start
+
+if "%op%"=="n" goto option2
+if "%op%"=="no" goto option2
+if "%op%"=="No" goto option2
+if "%op%"=="N" goto option2
+if "%op%"=="NO" goto option2
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option2.2redo
+
+:: --------------
+
+:option2.3
+echo.
+echo -------
+echo.
+
+:option2.3redo
+
+set /p op="(Windows 10 Pro Only) Disable Access to Update in Settings? (y/n) "
+if "%op%"=="y" goto option2.3Start
+if "%op%"=="yes" goto option2.3Start
+if "%op%"=="Yes" goto option2.3Start
+if "%op%"=="Y" goto option2.3Start
+if "%op%"=="YES" goto option2.3Start
+
+if "%op%"=="n" goto option2
+if "%op%"=="no" goto option2
+if "%op%"=="No" goto option2
+if "%op%"=="N" goto option2
+if "%op%"=="NO" goto option2
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option2.3redo
+
+:: --------------
+
+:option2.4
+echo.
+echo -------
+echo.
+
+:option2.4redo
+
+set /p op="(Windows 10 Pro Only) Enable Access to Update in Settings? (y/n) "
+if "%op%"=="y" goto option2.4Start
+if "%op%"=="yes" goto option2.4Start
+if "%op%"=="Yes" goto option2.4Start
+if "%op%"=="Y" goto option2.4Start
+if "%op%"=="YES" goto option2.4Start
+
+if "%op%"=="n" goto option2
+if "%op%"=="no" goto option2
+if "%op%"=="No" goto option2
+if "%op%"=="N" goto option2
+if "%op%"=="NO" goto option2
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option2.4redo
+
+:: --------------
+:option2.1Start
 @echo ON
 :: -------
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
@@ -168,7 +280,7 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V ObjectName /T REG_S
 @echo OFF
 goto option2
 :: --------------
-:option2.2
+:option2.2Start
 @echo ON
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
 :: Target Release Version (Version 20H2)
@@ -217,7 +329,7 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V ObjectName /T REG_S
 @echo OFF
 goto option2
 :: --------------
-:option2.3
+:option2.3Start
 @echo ON
 :: Windows 10 Disable Access to Update in Settings
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetDisableUXWUAccess /T REG_dWORD /D 1 /F
@@ -225,7 +337,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetDisablePa
 @echo OFF
 goto option2
 :: --------------
-:option2.4
+:option2.4Start
 :: Windows 10 Undo Disable Access to Update in Settings
 @echo ON
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetDisableUXWUAccess /T REG_dWORD /D 0 /F
@@ -251,9 +363,9 @@ echo ----------------------------
 echo.
 echo 1) (Already included in Main) Web Browser Enterprise Policies
 echo.
-echo 2) Prevent Installing Extensions/Addons
+echo 2) Block Install of Extensions/Addons
 echo.
-echo 3) Undo Prevent Installing Extensions/Addons
+echo 3) Allow Install of Extensions/Addons
 echo.
 echo 4) Return
 echo.
@@ -268,6 +380,9 @@ if "%op%"=="3" goto option3.3
 
 if "%op%"=="4" goto mainMenu
 if "%op%"=="5" goto end
+if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
+if "%op%"=="c" goto end
 
 echo.
 echo -------
@@ -276,6 +391,89 @@ goto option3redo
 
 :: --------------
 :option3.1
+echo.
+echo -------
+echo.
+
+:option3.1redo
+
+set /p op="(Already included in Main) Set Web Browser Enterprise Policies? (y/n) "
+if "%op%"=="y" goto option3.1Start
+if "%op%"=="yes" goto option3.1Start
+if "%op%"=="Yes" goto option3.1Start
+if "%op%"=="Y" goto option3.1Start
+if "%op%"=="YES" goto option3.1Start
+
+if "%op%"=="n" goto option3
+if "%op%"=="no" goto option3
+if "%op%"=="No" goto option3
+if "%op%"=="N" goto option3
+if "%op%"=="NO" goto option3
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option3.1redo
+
+:: --------------
+
+:option3.2
+echo.
+echo -------
+echo.
+
+:option3.2redo
+
+set /p op="Block Install of Extensions/Addons? (y/n) "
+if "%op%"=="y" goto option3.2Start
+if "%op%"=="yes" goto option3.2Start
+if "%op%"=="Yes" goto option3.2Start
+if "%op%"=="Y" goto option3.2Start
+if "%op%"=="YES" goto option3.2Start
+
+if "%op%"=="n" goto option3
+if "%op%"=="no" goto option3
+if "%op%"=="No" goto option3
+if "%op%"=="N" goto option3
+if "%op%"=="NO" goto option3
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option3.2redo
+
+:: --------------
+
+:option3.3
+echo.
+echo -------
+echo.
+
+:option3.3redo
+
+set /p op="Allow Install of Extensions/Addons? (y/n) "
+if "%op%"=="y" goto option3.3Start
+if "%op%"=="yes" goto option3.3Start
+if "%op%"=="Yes" goto option3.3Start
+if "%op%"=="Y" goto option3.3Start
+if "%op%"=="YES" goto option3.3Start
+
+if "%op%"=="n" goto option3
+if "%op%"=="no" goto option3
+if "%op%"=="No" goto option3
+if "%op%"=="N" goto option3
+if "%op%"=="NO" goto option3
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option3.3redo
+
+:: --------------
+:option3.1Start
 @echo ON
 
 :: -----------------
@@ -479,6 +677,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableFeedbackCommands /T R
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V OverrideFirstRunPage /T REG_SZ /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V OverridePostUpdatePage /T REG_SZ /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V NoDefaultBookmarks /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisplayBookmarksToolbar /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V "DisplayMenuBar" /T REG_SZ /D "default-off" /F
 REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /F
 
 :: -----------------
@@ -1404,11 +1604,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 173
 @echo OFF
 goto option3
 :: --------------
-:option3.2
+:option3.2Start
 @echo ON
 
 :: -----------------
-:: Disable Extension/Addon Install
+:: Block Extension/Addon Install
 :: -----------------
 
 :: Chrome
@@ -1433,11 +1633,11 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext" /V Restric
 goto option3
 :: --------------
 :: --------------
-:option3.3
+:option3.3Start
 @echo ON
 
 :: -----------------
-:: Undo Disable Extension/Addon Install
+:: Allow Extension/Addon Install
 :: -----------------
 
 :: Chrome
@@ -1499,6 +1699,9 @@ if "%op%"=="2" goto option4.2
 
 if "%op%"=="3" goto mainMenu
 if "%op%"=="4" goto end
+if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
+if "%op%"=="c" goto end
 
 echo.
 echo -------
@@ -1645,7 +1848,7 @@ echo ----------------------------
 echo.
 echo Select a task:
 echo.
-echo 1) Remove Microsoft Edge Chromium and Microsoft Edge Legacy
+echo 1) (Already Included in Main) Remove Microsoft Edge Chromium and Microsoft Edge Legacy
 echo.
 echo 2) Remove Microsoft Edge Chromium only
 echo.
@@ -1665,6 +1868,9 @@ if "%op%"=="4" goto option5.4
 
 if "%op%"=="5" goto mainMenu
 if "%op%"=="6" goto end
+if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
+if "%op%"=="c" goto end
 
 echo.
 echo -------
@@ -1813,6 +2019,10 @@ goto option5.3redo
 
 :: Microsoft Edge Chromium
 
+:: Disable Auto-Install
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+
+:: Uninstall
 %ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 %ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
@@ -1851,6 +2061,10 @@ goto option5
 @echo ON
 :: Remove Microsoft Edge Chromium Only
 
+:: Disable Auto-Install
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+
+:: Uninstall
 %ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 %ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
@@ -1889,7 +2103,526 @@ rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
 @echo OFF
 goto option5
 :: ------------------------------------------------------------------------------------
+:option6
+echo -------
+echo.
+echo You have selected Option 6: Username Visibility
+:option6redo
+echo.
+echo Select a task:
+echo.
+echo 1) Hide Username on Login Screen Only
+echo.
+echo 2) Hide Username on Login and Lock Screen
+echo.
+echo 3) (Already included in Main) Hide Username on UAC Prompt
+echo.
+echo 4) Show Username on Login and Lock Screen
+echo.
+echo 5) Show Username on UAC Prompt
+echo.
+echo 6) Return
+echo.
+echo 7) Exit
+echo.
 
+set /p op="Type Option: "
+
+if "%op%"=="1" goto option6.1
+if "%op%"=="2" goto option6.2
+if "%op%"=="3" goto option6.3
+if "%op%"=="4" goto option6.4
+if "%op%"=="5" goto option6.5
+
+if "%op%"=="6" goto mainMenu
+if "%op%"=="7" goto end
+if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
+if "%op%"=="c" goto end
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+goto option6redo
+
+:: --------------
+:option6.1
+echo.
+echo -------
+echo.
+
+:option6.1redo
+
+set /p op="Hide Username on Login Screen Only? (y/n) "
+if "%op%"=="y" goto option6.1Start
+if "%op%"=="yes" goto option6.1Start
+if "%op%"=="Yes" goto option6.1Start
+if "%op%"=="Y" goto option6.1Start
+if "%op%"=="YES" goto option6.1Start
+
+if "%op%"=="n" goto option6
+if "%op%"=="no" goto option6
+if "%op%"=="No" goto option6
+if "%op%"=="N" goto option6
+if "%op%"=="NO" goto option6
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option6.1redo
+
+:: --------------
+
+:option6.2
+echo.
+echo -------
+echo.
+
+:option6.2redo
+
+set /p op="Hide Username on Login and Lock Screen? (y/n) "
+if "%op%"=="y" goto option6.2Start
+if "%op%"=="yes" goto option6.2Start
+if "%op%"=="Yes" goto option6.2Start
+if "%op%"=="Y" goto option6.2Start
+if "%op%"=="YES" goto option6.2Start
+
+if "%op%"=="n" goto option6
+if "%op%"=="no" goto option6
+if "%op%"=="No" goto option6
+if "%op%"=="N" goto option6
+if "%op%"=="NO" goto option6
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option6.2redo
+
+:: --------------
+
+:option6.3
+echo.
+echo -------
+echo.
+
+:option6.3redo
+
+set /p op="(Already included in Main) Hide Username on UAC Prompt? (y/n) "
+if "%op%"=="y" goto option6.3Start
+if "%op%"=="yes" goto option6.3Start
+if "%op%"=="Yes" goto option6.3Start
+if "%op%"=="Y" goto option6.3Start
+if "%op%"=="YES" goto option6.3Start
+
+if "%op%"=="n" goto option6
+if "%op%"=="no" goto option6
+if "%op%"=="No" goto option6
+if "%op%"=="N" goto option6
+if "%op%"=="NO" goto option6
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option6.3redo
+
+:: --------------
+
+:option6.4
+echo.
+echo -------
+echo.
+
+:option6.4redo
+
+set /p op="Show Username on Login and Lock Screen? (y/n) "
+if "%op%"=="y" goto option6.4Start
+if "%op%"=="yes" goto option6.4Start
+if "%op%"=="Yes" goto option6.4Start
+if "%op%"=="Y" goto option6.4Start
+if "%op%"=="YES" goto option6.4Start
+
+if "%op%"=="n" goto option6
+if "%op%"=="no" goto option6
+if "%op%"=="No" goto option6
+if "%op%"=="N" goto option6
+if "%op%"=="NO" goto option6
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option6.4redo
+
+:: --------------
+
+
+:option6.5
+echo.
+echo -------
+echo.
+
+:option6.5redo
+
+set /p op="Show Username on UAC Prompt? (y/n) "
+if "%op%"=="y" goto option6.5Start
+if "%op%"=="yes" goto option6.5Start
+if "%op%"=="Yes" goto option6.5Start
+if "%op%"=="Y" goto option6.5Start
+if "%op%"=="YES" goto option6.5Start
+
+if "%op%"=="n" goto option6
+if "%op%"=="no" goto option6
+if "%op%"=="No" goto option6
+if "%op%"=="N" goto option6
+if "%op%"=="NO" goto option6
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option6.5redo
+
+:: --------------
+
+:option6.1Start
+@echo ON
+
+:: Hide Username on Login Screen Only
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V dontdisplaylastusername /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 1 /F
+
+@echo OFF
+goto option6
+
+:: --------------
+
+:option6.2Start
+@echo ON
+
+:: Hide Username on Login and Lock Screen
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V dontdisplaylastusername /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 3 /F
+
+@echo OFF
+goto option6
+
+:: --------------
+
+:option6.3Start
+@echo ON
+
+:: (Already included in Main) Hide Username on UAC Prompt
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnumerateAdministrators /T REG_dWORD /D 0 /F
+
+@echo OFF
+goto option6
+
+:: --------------
+
+:option6.4Start
+@echo ON
+
+:: Undo Hide Username on Login and Lock Screen
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V dontdisplaylastusername /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 0 /F
+
+@echo OFF
+goto option6
+
+:: --------------
+
+:option6.5Start
+@echo ON
+
+:: Undo Hide Username on UAC Prompt
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnumerateAdministrators /T REG_dWORD /D 1 /F
+
+@echo OFF
+goto option6
+:: ------------------------------------------------------------------------------------
+:option7
+echo -------
+echo.
+echo You have selected Option 7: Ctrl-Alt-Del Options
+:option7redo
+echo.
+echo Select a task:
+echo.
+echo 1) Require Ctrl-Alt-Del on Login
+echo.
+echo 2) Require Ctrl-Alt-Del on UAC
+echo.
+echo 3) Disable ability to change account password on Ctrl-Alt-Del Screen
+echo.
+echo 4) Do Not Require Ctrl-Alt-Del on Login
+echo.
+echo 5) Do Not Require Ctrl-Alt-Del on UAC
+echo.
+echo 6) Enable ability to change account password on Ctrl-Alt-Del Screen
+echo.
+echo 7) Return
+echo.
+echo 8) Exit
+echo.
+
+set /p op="Type Option: "
+
+if "%op%"=="1" goto option7.1
+if "%op%"=="2" goto option7.2
+if "%op%"=="3" goto option7.3
+if "%op%"=="4" goto option7.4
+if "%op%"=="5" goto option7.5
+if "%op%"=="6" goto option7.6
+
+if "%op%"=="7" goto mainMenu
+if "%op%"=="8" goto end
+if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
+if "%op%"=="c" goto end
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+goto option7redo
+
+:: --------------
+:option7.1
+echo.
+echo -------
+echo.
+
+:option7.1redo
+
+set /p op="Require Ctrl-Alt-Del on Login? (y/n) "
+if "%op%"=="y" goto option7.1Start
+if "%op%"=="yes" goto option7.1Start
+if "%op%"=="Yes" goto option7.1Start
+if "%op%"=="Y" goto option7.1Start
+if "%op%"=="YES" goto option7.1Start
+
+if "%op%"=="n" goto option7
+if "%op%"=="no" goto option7
+if "%op%"=="No" goto option7
+if "%op%"=="N" goto option7
+if "%op%"=="NO" goto option7
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option7.1redo
+
+:: --------------
+
+:option7.2
+echo.
+echo -------
+echo.
+
+:option7.2redo
+
+set /p op="Require Ctrl-Alt-Del on UAC? (y/n) "
+if "%op%"=="y" goto option7.2Start
+if "%op%"=="yes" goto option7.2Start
+if "%op%"=="Yes" goto option7.2Start
+if "%op%"=="Y" goto option7.2Start
+if "%op%"=="YES" goto option7.2Start
+
+if "%op%"=="n" goto option7
+if "%op%"=="no" goto option7
+if "%op%"=="No" goto option7
+if "%op%"=="N" goto option7
+if "%op%"=="NO" goto option7
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option7.2redo
+
+:: --------------
+
+:option7.3
+echo.
+echo -------
+echo.
+
+:option7.3redo
+
+set /p op="Disable ability to change account password on Ctrl-Alt-Del Screen? (y/n) "
+if "%op%"=="y" goto option7.3Start
+if "%op%"=="yes" goto option7.3Start
+if "%op%"=="Yes" goto option7.3Start
+if "%op%"=="Y" goto option7.3Start
+if "%op%"=="YES" goto option7.3Start
+
+if "%op%"=="n" goto option7
+if "%op%"=="no" goto option7
+if "%op%"=="No" goto option7
+if "%op%"=="N" goto option7
+if "%op%"=="NO" goto option7
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option7.3redo
+
+:: --------------
+
+:option7.4
+echo.
+echo -------
+echo.
+
+:option7.4redo
+
+set /p op="Do Not Require Ctrl-Alt-Del on Login? (y/n) "
+if "%op%"=="y" goto option7.4Start
+if "%op%"=="yes" goto option7.4Start
+if "%op%"=="Yes" goto option7.4Start
+if "%op%"=="Y" goto option7.4Start
+if "%op%"=="YES" goto option7.4Start
+
+if "%op%"=="n" goto option7
+if "%op%"=="no" goto option7
+if "%op%"=="No" goto option7
+if "%op%"=="N" goto option7
+if "%op%"=="NO" goto option7
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option7.4redo
+
+:: --------------
+
+:option7.5
+echo.
+echo -------
+echo.
+
+:option7.5redo
+
+set /p op="Do Not Require Ctrl-Alt-Del on UAC? (y/n) "
+if "%op%"=="y" goto option7.5Start
+if "%op%"=="yes" goto option7.5Start
+if "%op%"=="Yes" goto option7.5Start
+if "%op%"=="Y" goto option7.5Start
+if "%op%"=="YES" goto option7.5Start
+
+if "%op%"=="n" goto option7
+if "%op%"=="no" goto option7
+if "%op%"=="No" goto option7
+if "%op%"=="N" goto option7
+if "%op%"=="NO" goto option7
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option7.5redo
+
+:: --------------
+
+
+:option7.6
+echo.
+echo -------
+echo.
+
+:option7.6redo
+
+set /p op="Enable ability to change account password on Ctrl-Alt-Del Screen? (y/n) "
+if "%op%"=="y" goto option7.6Start
+if "%op%"=="yes" goto option7.6Start
+if "%op%"=="Yes" goto option7.6Start
+if "%op%"=="Y" goto option7.6Start
+if "%op%"=="YES" goto option7.6Start
+
+if "%op%"=="n" goto option7
+if "%op%"=="no" goto option7
+if "%op%"=="No" goto option7
+if "%op%"=="N" goto option7
+if "%op%"=="NO" goto option7
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option7.6redo
+
+:: --------------
+
+:option7.1Start
+@echo ON
+
+:: Require Ctrl-Alt-Del on Login
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V DisableCAD /T REG_dWORD /D 0 /F
+
+@echo OFF
+goto option7
+
+:: --------------
+
+:option7.2Start
+@echo ON
+
+:: Require Ctrl-Alt-Del on UAC
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnableSecureCredentialPrompting /T REG_dWORD /D 1 /F
+
+@echo OFF
+goto option7
+
+:: --------------
+
+:option7.3Start
+@echo ON
+
+:: Disable ability to change account password on Ctrl-Alt-Del Screen
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 1 /F
+
+@echo OFF
+goto option7
+
+:: --------------
+
+:option7.4Start
+@echo ON
+
+:: Do Not Require Ctrl-Alt-Del on Login
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V DisableCAD /T REG_dWORD /D 1 /F
+
+@echo OFF
+goto option7
+
+:: --------------
+
+:option7.5Start
+@echo ON
+
+:: Do Not Require Ctrl-Alt-Del on UAC
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnableSecureCredentialPrompting /T REG_dWORD /D 0 /F
+
+@echo OFF
+goto option7
+
+:: --------------
+
+:option7.6Start
+@echo ON
+
+:: Enable ability to change account password on Ctrl-Alt-Del Screen
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 0 /F
+
+
+@echo OFF
+goto option7
+:: ------------------------------------------------------------------------------------
 
 
 :: ------------------------------------------------------------------------------------
@@ -1917,6 +2650,10 @@ echo.
 echo HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
 echo.
 echo HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack
+echo.
+echo HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+echo.
+echo HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 echo.
 PAUSE
 echo -------
@@ -1966,6 +2703,21 @@ echo.
 :: -------
 net stop WaaSMedicSvc
 net stop DiagTrack
+
+:: -------
+:: Uninstall Microsoft Edge Chromium
+:: -------
+
+%ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+:: -------
+:: Uninstall OneDrive
+:: -------
+
+%SystemRoot%\System32\OneDriveSetup.exe /uninstall
+%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
+
 
 :: -------
 :: Remove 3D Objects Folder
@@ -2112,7 +2864,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V FlightSettingsMax
 :: Disable Microsoft Edge Chromium Auto-Install
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 :: Disable Windows Update Medic Service
-:: net stop WaaSMedicSvc (Moved to Top)
+:: Moved to Top of Main File
+:: net stop WaaSMedicSvc
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /V Start /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /V ObjectName /T REG_SZ /D Administrators /F
 :: No Auto Reboot
@@ -2167,7 +2920,8 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Privacy" /V TailoredExpe
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableTailoredExperiencesWithDiagnosticData /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DisableEnterpriseAuthproxy /T REG_dWORD /D 1 /F
 :: Connected User Experiences and Telemetry Service (DiagTrack)
-:: net stop DiagTrack (Moved to Top)
+:: Moved to Top of Main File
+:: net stop DiagTrack
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack" /V Start /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack" /V ObjectName /T REG_SZ /D Administrators /F
 :: Windows 10 Send Feedback
@@ -2652,6 +3406,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableFeedbackCommands /T R
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V OverrideFirstRunPage /T REG_SZ /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V OverridePostUpdatePage /T REG_SZ /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V NoDefaultBookmarks /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisplayBookmarksToolbar /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V "DisplayMenuBar" /T REG_SZ /D "default-off" /F
 REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /F
 
 :: -----------------
@@ -3602,7 +4358,7 @@ icacls "%SystemRoot%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /grant ad
 icacls "%SystemRoot%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /deny everyone:F /t /q
 
 :: Holographic First Run (Removed in Version 1809)
-:: 		Disables the Holographic App
+:: 		Disables the Holographic App / Windows Mixed Reality App
 
 takeown /f "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /a /r /d y
 icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /inheritance:r
@@ -3612,27 +4368,69 @@ icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txy
 icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /grant administrators:F /t /q
 icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /deny everyone:F /t /q
 
-:: Microsoft Edge Legacy
-:: 		This only takes over administrator permissions, use other option to remove Microsoft Edge Legacy
+:: -----------------
+:: Remove Microsoft Edge Chromium and Microsoft Edge Legacy
+:: -----------------
 
+:: Microsoft Edge Chromium
+
+:: Moved to Top of Main File
+:: %ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+:: %ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\Edge"
+rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\EdgeUpdate"
+rd /s /q "%SystemDrive%\Program Files\Microsoft\Edge"
+rd /s /q "%SystemDrive%\Program Files\Microsoft\EdgeUpdate"
+rd /s /q "%UserProfile%\Local\Microsoft\Edge"
+
+:: Microsoft Edge Legacy
 takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" && md "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /deny everyone:F /t /q
 
 takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" && md "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
-:: OneDrive
-:: 		This only takes over administrator permissions, use other option to remove OneDrive
+rd /s /q "%UserProfile%\Local\MicrosoftEdge"
+rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
+
+:: -----------------
+:: Uninstall and Disable OneDrive
+:: -----------------
+
+:: Moved to Top of Main File
+:: %SystemRoot%\System32\OneDriveSetup.exe /uninstall
+:: %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
+
+REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
 
 takeown /f "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /inheritance:r
 icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
+icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /deny everyone:F /t /q
 
 takeown /f "%SystemRoot%\System32\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /inheritance:r
 icacls "%SystemRoot%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /deny everyone:F /t /q
 
-:: ----
+rd /s /q "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+rd /s /q "%ProgramData%\Microsoft OneDrive"
+rd /s /q "%UserProfile%\OneDrive"
+
+
+:: -----------------
 
 :: Lock Screen Pictures Location
 :: 		Takes over permissions over SystemData Folder, lets administrator accounts change the lock screen
@@ -3641,6 +4439,8 @@ icacls "%SystemRoot%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
 takeown /f "%ProgramData%\Microsoft\Windows\SystemData" /a /r /d y
 icacls "%ProgramData%\Microsoft\Windows\SystemData" /inheritance:d
 icacls "%ProgramData%\Microsoft\Windows\SystemData" /grant administrators:F /t /q
+
+:: -------
 
 :: Remove Other Files
 :: 		Removes other unnecessary files
@@ -3654,10 +4454,10 @@ rd /s /q %UserProfile%\AppData\Roaming\Adobe\Flash Player
 :: Mixed Reality Viewer
 rd /s /q %ProgramData%\WindowsHolographicDevices
 
-:: -------
+:: -----------------
 :: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
 :: Redirects to powershell script (setup.ps1)
-:: -------
+:: -----------------
 
 powershell.exe -ExecutionPolicy Unrestricted -Command ". '%~dpn0.ps1'"
 
