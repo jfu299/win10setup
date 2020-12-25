@@ -1902,8 +1902,8 @@ echo.
 echo This only removes the pre-installed Microsoft Edge Chromium
 echo 	Please Check the Version Number of Microsoft Edge Chromium that is installed, otherwise this batch script will not work properly
 echo.
-echo Go To (x64 OS): C:\Program Files (x86)\Microsoft\Edge\Application
-echo Go To (x86 OS): C:\Program Files\Microsoft\Edge\Application
+echo Go To (x64 OS): %ProgramFiles(x86)%\Microsoft\Edge\Application
+echo Go To (x86 OS): %ProgramFiles%\Microsoft\Edge\Application
 echo.
 echo 	This batch script uses Edge Version: 84.0.522.52
 echo.
@@ -1951,8 +1951,8 @@ echo.
 echo This only removes the pre-installed Microsoft Edge Chromium
 echo 	Please Check the Version Number of Microsoft Edge Chromium that is installed, otherwise this batch script will not work properly
 echo.
-echo Go To (x64 OS): C:\Program Files (x86)\Microsoft\Edge\Application
-echo Go To (x86 OS): C:\Program Files\Microsoft\Edge\Application
+echo Go To (x64 OS): %ProgramFiles(x86)%\Microsoft\Edge\Application
+echo Go To (x86 OS): %ProgramFiles%\Microsoft\Edge\Application
 echo.
 echo 	This batch script uses Edge Version: 84.0.522.52
 echo.
@@ -2623,6 +2623,267 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /V Disa
 @echo OFF
 goto option7
 :: ------------------------------------------------------------------------------------
+:option8
+echo -------
+echo.
+echo You have selected Option 8: Extra Policies to lock down user account
+:option8redo
+echo.
+echo ------- WARNING ----------
+echo.
+echo This will disable many functions when run on an user account
+echo These policies only affect the current user account that it is run on
+echo.
+echo Before running this, set the user account that you want to restrict to the Administrators group, run this batch script on that user account,
+echo then sign out of that account and set it back to the Users group
+echo.
+echo  -- WARNING --
+echo This will prevent a user account from accessing the Settings App, Control Panel, Run, Command Prompt, Powershell, and the Registry
+echo This will also disable extension/addon install on Chrome, Chromium, Firefox, Brave, Microsoft Edge Chromium, Microsoft Edge Legacy, and Internet Explorer
+echo These restrictions take effect once you sign out and sign back in of the user account
+echo.
+echo ----------------------------
+echo.
+echo Select a task:
+echo.
+echo 1) WARNING --- Restrict User Account --- WARNING
+echo.
+echo 2) Undo Restrict User Account
+echo.
+echo 3) Return
+echo.
+echo 4) Exit
+echo.
+
+set /p op="Type Option: "
+
+if "%op%"=="1" goto option8.1
+if "%op%"=="2" goto option8.2
+
+if "%op%"=="3" goto mainMenu
+if "%op%"=="4" goto end
+if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
+if "%op%"=="c" goto end
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+goto option8redo
+
+:: --------------
+:option8.1
+echo.
+echo -------
+echo.
+
+:option8.1redo
+
+echo ------- WARNING ----------
+echo.
+echo This will disable many functions when run on an user account
+echo These policies only affect the current user account that it is run on
+echo.
+echo Before running this, set the user account that you want to restrict to the Administrators group, run this batch script on that user account,
+echo then sign out of that account and set it back to the Users group
+echo.
+echo  -- WARNING --
+echo This will prevent a user account from accessing the Settings App, Control Panel, Run, Command Prompt, Powershell, and the Registry
+echo This will also disable extension/addon install on Chrome, Chromium, Firefox, Brave, Microsoft Edge Chromium, Microsoft Edge Legacy, and Internet Explorer
+echo These restrictions take effect once you sign out and sign back in of the user account
+echo.
+echo ----------------------------
+
+set /p op="Restrict User Account? (yes/n) "
+if "%op%"=="y" goto option8.1warn
+if "%op%"=="Y" goto option8.1warn
+
+if "%op%"=="yes" goto option8.1Start
+if "%op%"=="Yes" goto option8.1Start
+if "%op%"=="YES" goto option8.1Start
+
+if "%op%"=="n" goto option8
+if "%op%"=="no" goto option8
+if "%op%"=="No" goto option8
+if "%op%"=="N" goto option8
+if "%op%"=="NO" goto option8
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option8.1redo
+
+:option8.1warn
+echo.
+echo -------
+echo TYPE YES TO CONTINUE
+echo.
+goto option8.1redo
+
+:: --------------
+
+:option8.2
+echo.
+echo -------
+echo.
+
+:option8.2redo
+
+echo ------- IMPORTANT ----------
+echo.
+echo When enabling OneDrive, you will need to manually re-install OneDrive
+echo.
+echo ----------------------------
+
+set /p op="Undo Restrict User Account? (y/n) "
+if "%op%"=="y" goto option8.2Start
+if "%op%"=="yes" goto option8.2Start
+if "%op%"=="Yes" goto option8.2Start
+if "%op%"=="Y" goto option8.2Start
+if "%op%"=="YES" goto option8.2Start
+
+if "%op%"=="n" goto option8
+if "%op%"=="no" goto option8
+if "%op%"=="No" goto option8
+if "%op%"=="N" goto option8
+if "%op%"=="NO" goto option8
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option8.2redo
+
+:: --------------
+
+:option8.1Start
+@echo ON
+
+:: ---
+:: Restrict Extension/Addon Install
+:: ---
+
+:: Chrome
+REG ADD "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+
+:: Chromium
+REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+
+:: Firefox
+REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3662396/sponsorblock_skip_sponsorships_on_youtube-2.0.7-an+fx.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3612592/clearurls-1.19.0-an+fx.xpi\"},\"bypasspaywalls@bypasspaywalls.weebly.com\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"}}" /F
+
+:: Brave
+REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+
+:: Microsoft Edge Chromium
+REG ADD "HKCU\Software\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+
+:: Microsoft Edge Legacy
+REG ADD "HKCU\Software\Policies\Microsoft\MicrosoftEdge\Extensions" /V ExtensionsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\MicrosoftEdge\Extensions" /V AllowSideloadingOfExtensions /T REG_dWORD /D 0 /F
+
+:: Internet Explorer
+REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Main" /V Enable Browser Extensions /T REG_SZ /D no /F
+REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Restrictions" /V NoExtensionManagement /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Ext" /V RestrictToList /T REG_dWORD /D 1 /F
+
+:: ---
+:: Block Settings and Control Panel
+:: ---
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoControlPanel /T REG_dWORD /D 1 /F
+
+:: ---
+:: Block Run
+:: ---
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRun /T REG_dWORD /D 1 /F
+
+:: ---
+:: Block Powershell and Registry
+:: ---
+
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /T REG_dWORD /D 1 /F
+
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 1 /T REG_SZ /D "powershell.exe" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 2 /T REG_SZ /D "powershell_ise.exe" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 3 /T REG_SZ /D "regedit.exe" /F
+
+:: ---
+:: Block Command Prompt
+:: ---
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\System" /V DisableCMD /T REG_dWORD /D 1 /F
+
+:: ---
+
+@echo OFF
+goto end
+
+:: --------------
+
+:option8.2Start
+@echo ON
+
+:: ---
+:: Undo Restrict Extension/Addon Install
+:: ---
+
+:: Chrome
+REG DELETE "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /F
+
+:: Chromium
+REG DELETE "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /F
+
+:: Firefox
+REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
+
+:: Brave
+REG DELETE "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /F
+
+:: Microsoft Edge Chromium
+REG DELETE "HKCU\Software\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /F
+
+:: Microsoft Edge Legacy
+REG DELETE "HKCU\Software\Policies\Microsoft\MicrosoftEdge\Extensions" /V ExtensionsEnabled /F
+REG DELETE "HKCU\Software\Policies\Microsoft\MicrosoftEdge\Extensions" /V AllowSideloadingOfExtensions /F
+
+:: Internet Explorer
+REG DELETE "HKCU\Software\Policies\Microsoft\Internet Explorer\Main" /V Enable Browser Extensions /F
+REG DELETE "HKCU\Software\Policies\Microsoft\Internet Explorer\Restrictions" /V NoExtensionManagement /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Ext" /V RestrictToList /F
+
+:: ---
+:: Undo Block Settings and Control Panel
+:: ---
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoControlPanel /F
+
+:: ---
+:: Undo Block Run
+:: ---
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRun /F
+
+:: ---
+:: Undo Block Powershell and Registry
+:: ---
+
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /T REG_dWORD /D 0 /F
+
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 1 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 2 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 3 /T /F
+
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /F
+
+:: ---
+:: Undo Block Command Prompt
+:: ---
+REG DELETE "HKCU\Software\Policies\Microsoft\Windows\System" /V DisableCMD /F
+
+:: ---
+
+@echo OFF
+goto option8
+:: ------------------------------------------------------------------------------------
 
 
 :: ------------------------------------------------------------------------------------
@@ -2658,8 +2919,12 @@ echo.
 PAUSE
 echo -------
 echo This also sets some Windows 10 Updates policies, sets up policies on major web browsers,
-echo hides user accounts on a non-admin User Account Control prompt, and removes/disables various Windows 10 annoyances.
+echo hides user accounts on a non-admin User Account Control prompt, uninstall and disable OneDrive,
+echo remove the pre-installed Microsoft Edge Chromium and Microsoft Edge Legacy,
+echo and removes/disables various Windows 10 annoyances.
 echo To stop or disable the Windows Update service (wuauserv), use the other options.
+echo To fully disable the Windows Update Medic Service (WaaSMedicSvc), 
+echo (HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc) you must take over its registry key and deny full access to everyone
 echo.
 PAUSE
 echo -------
@@ -2747,7 +3012,7 @@ REG ADD "HKCU\Software\Classes\.tiff" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" 
 REG ADD "HKCU\Software\Classes\.ico" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
 :: --
 REG ADD "HKCR\Applications\photoviewer.dll\shell\open" /V "MuiVerb" /T REG_SZ /D "@photoviewer.dll,-3043" /F
-REG ADD "HKCR\Applications\photoviewer.dll\shell\open\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"C:\Program Files\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
+REG ADD "HKCR\Applications\photoviewer.dll\shell\open\command" /T REG_SZ /D "%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
 REG ADD "HKCR\Applications\photoviewer.dll\shell\open\DropTarget" /V "Clsid" /T REG_SZ /D "{FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}" /F
 REG ADD "HKCR\PhotoViewer.FileAssoc.Bitmap" /V ImageOptionFlags /T REG_dWORD /D 1 /F
 REG ADD "HKCR\PhotoViewer.FileAssoc.Bitmap" /V "FriendlyTypeName" /T REG_SZ /D "@%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll,-3056" /F
