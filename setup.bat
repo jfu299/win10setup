@@ -2041,11 +2041,19 @@ goto option5.3redo
 :: Remove Microsoft Edge Chromium
 :: -----------------
 
+TASKKILL /F /IM msedge.exe
+
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
+
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
-%ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge"
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
@@ -2054,7 +2062,6 @@ rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
 
 takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
-%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 rd /s /q "%ProgramFiles%\Microsoft\Edge"
 
 takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
@@ -2065,9 +2072,15 @@ takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
 icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\Local\Microsoft\Edge"
 
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+
 :: -----------------
 :: Remove Microsoft Edge Legacy
 :: -----------------
+
+TASKKILL /F /IM MicrosoftEdge.exe
 
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
@@ -2107,11 +2120,19 @@ goto option5
 :: Remove Microsoft Edge Chromium
 :: -----------------
 
+TASKKILL /F /IM msedge.exe
+
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
+
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
-%ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge"
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
@@ -2120,7 +2141,6 @@ rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
 
 takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
-%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 rd /s /q "%ProgramFiles%\Microsoft\Edge"
 
 takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
@@ -2131,6 +2151,10 @@ takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
 icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\Local\Microsoft\Edge"
 
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+
 @echo OFF
 goto option5
 :: --------------
@@ -2140,6 +2164,8 @@ goto option5
 :: -----------------
 :: Remove Microsoft Edge Legacy
 :: -----------------
+
+TASKKILL /F /IM MicrosoftEdge.exe
 
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
@@ -3103,6 +3129,10 @@ echo.
 :: -------
 net stop WaaSMedicSvc
 net stop DiagTrack
+
+:: Force Close Microsoft Edge Chromium and Microsoft Edge Legacy
+TASKKILL /F /IM msedge.exe
+TASKKILL /F /IM MicrosoftEdge.exe
 
 :: -------
 :: Remove 3D Objects Folder
@@ -4771,11 +4801,19 @@ icacls "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy"
 :: Remove Microsoft Edge Chromium
 :: -----------------
 
+TASKKILL /F /IM msedge.exe
+
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
+
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
-%ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge"
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
@@ -4784,7 +4822,6 @@ rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
 
 takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
-%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 rd /s /q "%ProgramFiles%\Microsoft\Edge"
 
 takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
@@ -4795,9 +4832,15 @@ takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
 icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\Local\Microsoft\Edge"
 
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+
 :: -----------------
 :: Remove Microsoft Edge Legacy
 :: -----------------
+
+TASKKILL /F /IM MicrosoftEdge.exe
 
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
