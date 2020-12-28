@@ -1782,26 +1782,37 @@ goto option4.2redo
 :option4.1Start
 @echo ON
 
+:: -----------------
 :: Uninstall and Disable OneDrive
-
-%SystemRoot%\System32\OneDriveSetup.exe /uninstall
-%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
+:: -----------------
 
 REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
 
 takeown /f "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
+%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /inheritance:r
 icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
 icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /deny everyone:F /t /q
 
 takeown /f "%SystemRoot%\System32\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
+%SystemRoot%\System32\OneDriveSetup.exe /uninstall
 icacls "%SystemRoot%\System32\OneDriveSetup.exe" /inheritance:r
 icacls "%SystemRoot%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
 icacls "%SystemRoot%\System32\OneDriveSetup.exe" /deny everyone:F /t /q
 
+takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+
+takeown /f "%ProgramData%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramData%\Microsoft OneDrive" /grant administrators:F /t /q
 rd /s /q "%ProgramData%\Microsoft OneDrive"
+
+takeown /f "%UserProfile%\OneDrive" /a /r /d y
+icacls "%UserProfile%\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\OneDrive"
 
 @echo OFF
@@ -1812,7 +1823,9 @@ goto option4
 :option4.2Start
 @echo ON
 
+:: -----------------
 :: Enable OneDrive
+:: -----------------
 
 :: When enabling OneDrive, you will need to manually re-install OneDrive
 
@@ -1828,6 +1841,12 @@ takeown /f "%SystemRoot%\System32\OneDriveSetup.exe" /a /r /d y
 icacls "%SystemRoot%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
 icacls "%SystemRoot%\System32\OneDriveSetup.exe" /inheritance:e
 icacls "%SystemRoot%\System32\OneDriveSetup.exe" /reset /t /q
+
+md "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+
+md "%ProgramData%\Microsoft OneDrive"
+
+md "%UserProfile%\OneDrive"
 
 @echo OFF
 goto option4
@@ -2017,24 +2036,37 @@ goto option5.3redo
 :: --------------
 :option5.1Start
 @echo ON
-:: Remove Microsoft Edge Chromium and Microsoft Edge Legacy
 
-:: Microsoft Edge Chromium
+:: -----------------
+:: Remove Microsoft Edge Chromium
+:: -----------------
 
-:: Disable Auto-Install
-REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
-
-:: Uninstall
+takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
 %ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge"
 
-rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\Edge"
-rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\EdgeUpdate"
-rd /s /q "%SystemDrive%\Program Files\Microsoft\Edge"
-rd /s /q "%SystemDrive%\Program Files\Microsoft\EdgeUpdate"
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
+
+takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
+%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+rd /s /q "%ProgramFiles%\Microsoft\Edge"
+
+takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+rd /s /q "%ProgramFiles%\Microsoft\EdgeUpdate"
+
+takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\Local\Microsoft\Edge"
 
-:: Microsoft Edge Legacy
+:: -----------------
+:: Remove Microsoft Edge Legacy
+:: -----------------
+
 takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
@@ -2053,7 +2085,12 @@ icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8b
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
+takeown /f "%UserProfile%\Local\MicrosoftEdge" /a /r /d y
+icacls "%UserProfile%\Local\MicrosoftEdge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\Local\MicrosoftEdge"
+
+takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
+icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
 
 
@@ -2063,19 +2100,31 @@ goto option5
 :: --------------
 :option5.2Start
 @echo ON
-:: Remove Microsoft Edge Chromium Only
 
-:: Disable Auto-Install
-REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+:: -----------------
+:: Remove Microsoft Edge Chromium
+:: -----------------
 
-:: Uninstall
+takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
 %ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge"
 
-rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\Edge"
-rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\EdgeUpdate"
-rd /s /q "%SystemDrive%\Program Files\Microsoft\Edge"
-rd /s /q "%SystemDrive%\Program Files\Microsoft\EdgeUpdate"
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
+
+takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
+%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+rd /s /q "%ProgramFiles%\Microsoft\Edge"
+
+takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+rd /s /q "%ProgramFiles%\Microsoft\EdgeUpdate"
+
+takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\Local\Microsoft\Edge"
 
 @echo OFF
@@ -2083,7 +2132,10 @@ goto option5
 :: --------------
 :option5.3Start
 @echo ON
-:: Remove Microsoft Edge Legacy Only
+
+:: -----------------
+:: Remove Microsoft Edge Legacy
+:: -----------------
 
 takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
@@ -2103,7 +2155,12 @@ icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8b
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
+takeown /f "%UserProfile%\Local\MicrosoftEdge" /a /r /d y
+icacls "%UserProfile%\Local\MicrosoftEdge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\Local\MicrosoftEdge"
+
+takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
+icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
 
 @echo OFF
@@ -3042,21 +3099,6 @@ echo.
 :: -------
 net stop WaaSMedicSvc
 net stop DiagTrack
-
-:: -------
-:: Uninstall Microsoft Edge Chromium
-:: -------
-
-%ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-:: -------
-:: Uninstall OneDrive
-:: -------
-
-%SystemRoot%\System32\OneDriveSetup.exe /uninstall
-%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
-
 
 :: -------
 :: Remove 3D Objects Folder
@@ -4722,22 +4764,35 @@ icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txy
 icacls "%SystemRoot%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /deny everyone:F /t /q
 
 :: -----------------
-:: Remove Microsoft Edge Chromium and Microsoft Edge Legacy
+:: Remove Microsoft Edge Chromium
 :: -----------------
 
-:: Microsoft Edge Chromium
+takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
+%ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge"
 
-:: Moved to Top of Main File
-:: %ProgramFiles(x86)%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-:: %ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
 
-rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\Edge"
-rd /s /q "%SystemDrive%\Program Files (x86)\Microsoft\EdgeUpdate"
-rd /s /q "%SystemDrive%\Program Files\Microsoft\Edge"
-rd /s /q "%SystemDrive%\Program Files\Microsoft\EdgeUpdate"
+takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
+%ProgramFiles%\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+rd /s /q "%ProgramFiles%\Microsoft\Edge"
+
+takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+rd /s /q "%ProgramFiles%\Microsoft\EdgeUpdate"
+
+takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\Local\Microsoft\Edge"
 
-:: Microsoft Edge Legacy
+:: -----------------
+:: Remove Microsoft Edge Legacy
+:: -----------------
+
 takeown /f "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
@@ -4756,34 +4811,46 @@ icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8b
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
 icacls "%SystemRoot%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
+takeown /f "%UserProfile%\Local\MicrosoftEdge" /a /r /d y
+icacls "%UserProfile%\Local\MicrosoftEdge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\Local\MicrosoftEdge"
+
+takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
+icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
 
 :: -----------------
 :: Uninstall and Disable OneDrive
 :: -----------------
 
-:: Moved to Top of Main File
-:: %SystemRoot%\System32\OneDriveSetup.exe /uninstall
-:: %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
-
 REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
 
 takeown /f "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
+%SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
 icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /inheritance:r
 icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
 icacls "%SystemRoot%\SysWOW64\OneDriveSetup.exe" /deny everyone:F /t /q
 
 takeown /f "%SystemRoot%\System32\OneDriveSetup.exe" /a /r /d y
+icacls "%SystemRoot%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
+%SystemRoot%\System32\OneDriveSetup.exe /uninstall
 icacls "%SystemRoot%\System32\OneDriveSetup.exe" /inheritance:r
 icacls "%SystemRoot%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
 icacls "%SystemRoot%\System32\OneDriveSetup.exe" /deny everyone:F /t /q
 
+takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\AppData\Local\Microsoft\OneDrive"
-rd /s /q "%ProgramData%\Microsoft OneDrive"
-rd /s /q "%UserProfile%\OneDrive"
 
+takeown /f "%ProgramData%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramData%\Microsoft OneDrive" /grant administrators:F /t /q
+rd /s /q "%ProgramData%\Microsoft OneDrive"
+
+takeown /f "%UserProfile%\OneDrive" /a /r /d y
+icacls "%UserProfile%\OneDrive" /grant administrators:F /t /q
+rd /s /q "%UserProfile%\OneDrive"
 
 :: -----------------
 
@@ -4800,12 +4867,18 @@ icacls "%ProgramData%\Microsoft\Windows\SystemData" /grant administrators:F /t /
 :: Remove Other Folders
 
 :: 3D Objects Folder
+takeown /f "%UserProfile%\3D Objects" /a /r /d y
+icacls "%UserProfile%\3D Objects" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\3D Objects"
 
 :: Adobe Flash Player
+takeown /f "%UserProfile%\AppData\Roaming\Adobe\Flash Player" /a /r /d y
+icacls "%UserProfile%\AppData\Roaming\Adobe\Flash Player" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\AppData\Roaming\Adobe\Flash Player"
 
 :: Mixed Reality Viewer
+takeown /f "%ProgramData%\WindowsHolographicDevices" /a /r /d y
+icacls "%ProgramData%\WindowsHolographicDevices" /grant administrators:F /t /q
 rd /s /q "%ProgramData%\WindowsHolographicDevices"
 
 :: -----------------
