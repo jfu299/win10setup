@@ -3324,6 +3324,10 @@ REG DELETE "HKCR\wrifile\shell\print" /F
 REG DELETE "HKCR\WSFFile\shell\print" /F
 REG DELETE "HKLM\SOFTWARE\Classes\InternetShortcut\shell\print" /F
 :: -------
+:: Remove Modern Share on Context Menu
+:: -------
+REG DELETE "HKCR\*\shellex\ContextMenuHandlers\ModernSharing" /F
+:: -------
 :: Windows 10 Updates Partial Control (Windows Update Not Disabled)
 :: -------
 :: Target Release Version (Version 20H2)
