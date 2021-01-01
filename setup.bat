@@ -45,10 +45,6 @@ echo 8) Extra Policies to lock down user account
 echo.
 echo 9) Exit
 
-:: Ctrl-Alt-Del Requirement on Login
-:: Ctrl-Alt-Del Requirement on UAC
-:: Ability to change password on Ctrl-Alt-Del Screen
-
 set /p op="Type Option: "
 
 if "%op%"=="1" goto mainFile
