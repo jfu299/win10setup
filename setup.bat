@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: January 15, 2021
+:: Updated: January 16, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: Janaury 15, 2021
+echo Updated: Janaury 16, 2021
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -1104,6 +1104,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V AllowWindow
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main\FormatDetection" /V PhoneNumberEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Security" /V DisableFixSecuritySettings /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Security" /V DisableSecuritySettingsCheck /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer" /V AllowServicePoweredQSA /T REG_dWORD /D 0 /F
 :: -----
 
 :: --------------------------------------------------------------------
@@ -3499,8 +3500,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V FlightSettingsMax
 :: Disable Microsoft Edge Chromium Auto-Install
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 :: Disable Windows Update Medic Service
-:: Moved to Top of Main File
-:: net stop WaaSMedicSvc
+:: (Moved to Top of Main File) net stop WaaSMedicSvc
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /V Start /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /V ObjectName /T REG_SZ /D Administrators /F
 :: No Auto Reboot
@@ -3552,8 +3552,7 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy" /V TailoredExpe
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableTailoredExperiencesWithDiagnosticData /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DisableEnterpriseAuthproxy /T REG_dWORD /D 1 /F
 :: Connected User Experiences and Telemetry Service (DiagTrack)
-:: Moved to Top of Main File
-:: net stop DiagTrack
+:: (Moved to Top of Main File) net stop DiagTrack
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack" /V Start /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack" /V ObjectName /T REG_SZ /D Administrators /F
 :: Windows 10 Send Feedback
@@ -3608,7 +3607,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessLo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\FindMyDevice" /V AllowFindMyDevice /T REG_dWORD /D 0 /F
 :: Restrict Camera
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessCamera /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessCamera_ForceDenyTheseApps /T REG_MULTI_SZ /D Microsoft.MicrosoftEdge_8wekyb3d8bbwe\0Microsoft.Win32WebViewHost_cw5n1h2txyewy\0Microsoft.Windows.Cortana_cw5n1h2txyewy\0Microsoft.WindowsStore_8wekyb3d8bbwe\0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessCamera_ForceDenyTheseApps /T REG_MULTI_SZ /D Microsoft.MicrosoftEdge_8wekyb3d8bbwe\0Microsoft.Win32WebViewHost_cw5n1h2txyewy\0Microsoft.Windows.Cortana_cw5n1h2txyewy\0Microsoft.WindowsStore_8wekyb3d8bbwe\0Microsoft.Microsoft3DViewer_8wekyb3d8bbwe\0Microsoft.Office.OneNote_8wekyb3d8bbwe\0Microsoft.SkypeApp_kzf8qxf38zg5c\0Microsoft.Win32WebViewHost_cw5n1h2txyewy\0Microsoft.Windows.Photos_8wekyb3d8bbwe\0Microsoft.WindowsCamera_8wekyb3d8bbwe\0Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe\0Microsoft.XboxGamingOverlay_8wekyb3d8bbwe\0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessCamera_UserInControlOfTheseApps /T REG_MULTI_SZ /D NonPackaged\0 /F
 :: Restrict Microphone
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessMicrophone /T REG_dWORD /D 2 /F
@@ -3685,10 +3684,15 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Control Panel\International" /V TurnOf
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Control Panel\International" /V TurnOffInsertSpace /T REG_dWORD /D 1 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Control Panel\International" /V TurnOffAutocorrectMisspelledWords /T REG_dWORD /D 1 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Control Panel\International" /V TurnOffHighlightMisspelledWords /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\policies\microsoft\TabletTip\1.7" /V Disableprediction /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\policies\microsoft\TabletTip\1.7" /V EnableTextPrediction /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\microsoft\TabletTip\1.7" /V Disableprediction /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\microsoft\TabletTip\1.7" /V EnableTextPrediction /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Microsoft\Input\Settings" /V MultilingualEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Microsoft\TabletTip\1.7" /V EnableDoubleTapSpace /T REG_dWORD /D 0 /F
+:: Turn off auto switch to tablet mode
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V TabletMode /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V TabletMode /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V ConvertibleSlateModePromptPreference /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V ConvertibleSlateModePromptPreference /T REG_dWORD /D 0 /F
 :: Windows Spotlight
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableThirdPartySuggestions /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightOnactioncenter /T REG_dWORD /D 1 /F
@@ -3740,6 +3744,11 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTask
 REG ADD "HKCU\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData\Microsoft.ProjectNewsbar_8wekyb3d8bbwe\msnews-newsbar" /V State /T REG_dWORD /D 1 /F
 :: Microsoft Customer Experience Improvement Program
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\SQMClient\Windows" /V CEIPEnable /T REG_dWORD /D 0 /F
+:: Windows Media Player
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" /V GroupPrivacyAcceptance /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" /V PreventCDDVDMetadataRetrieval /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" /V PreventMusicFileMetadataRetrieval /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WMDRM" /V DisableOnline /T REG_dWORD /D 1 /F
 
 :: -------
 :: Windows Login Experience
@@ -3863,6 +3872,7 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\M
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Windows.Cortana_cw5n1h2txyewy!App" /V Enabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Windows.Cortana_cw5n1h2txyewy!CortanaUI" /V Enabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.MobilityExperience" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.LocationManager" /V Enabled /T REG_dWORD /D 0 /F
 :: -------
 :: Desktop
 :: -------
@@ -3900,6 +3910,18 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V Co
 :: 2010 - 14.0
 :: 2013 - 15.0
 :: 2016/2019/365 - 16.0
+
+:: First Run Page
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\General" /V ShownOptIn /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
+
+:: Customer Experience Improvement Program
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
 
 :: Office 2007 Disable Application Add-ins
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
@@ -3953,7 +3975,6 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Visio\Security" /V Disable
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Word\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
 
 :: Office 2013 Disable Macros
-
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Office\15.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Outlook\Security" /V Level /T REG_dWORD /D 4 /F
@@ -3985,6 +4006,36 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\PowerPoint\Security" /V VB
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Publisher\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Visio\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Word\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+
+:: Office 2016 Telemetry
+REG ADD "HKCU\Software\Policies\Microsoft\Office\Common\clienttelemetry" /V sendtelemetry /T REG_dWORD /D 3 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\osm" /V enableupload /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\osm" /V disableonlinemodeauthdiagnostics /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\readinesstoolkit" /V enableusageagent /T REG_dWORD /D 0 /F
+
+:: Office 2016 Feedback
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V sendcustomerdata /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V msoridsurveyenabled /T REG_dWORD /D 0 /F
+
+:: Office 2013 Telemetry
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\osm" /V enableupload /T REG_dWORD /D 0 /F
+
+:: Office 2013 Feedback
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
+
+:: Office 2007 - Disable Microsoft Office Online featured links
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\Internet" /V ShowSpotlight /T REG_dWORD /D 2 /F
+
+:: Office Disable Online Content
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
 
 :: Office Disable ActiveX
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\Common\Security" /V DisableAllActiveX /T REG_dWORD /D 1 /F
@@ -4642,6 +4693,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V AllowWindow
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main\FormatDetection" /V PhoneNumberEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Security" /V DisableFixSecuritySettings /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Security" /V DisableSecuritySettingsCheck /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer" /V AllowServicePoweredQSA /T REG_dWORD /D 0 /F
 :: -----
 
 :: --------------------------------------------------------------------
@@ -5472,6 +5524,17 @@ takeown /f "%ProgramData%\WindowsHolographicDevices" /a /r /d y
 icacls "%ProgramData%\WindowsHolographicDevices" /grant administrators:F /t /q
 rd /s /q "%ProgramData%\WindowsHolographicDevices"
 
+:: -------
+:: Set Time Zone (United States Eastern Time)
+:: -------
+:: Auto Time Zone
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\tzautoupdate" /V start /T REG_dWORD /D 4 /F
+:: Set to United States Eastern Time
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "TimeZoneKeyName" /T REG_SZ /D "Eastern Standard Time" /F
+:: Set Time Sync Server and Sync Time
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" /V "NtpServer" /T REG_SZ /D "time.nist.gov,0x9" /F
+w32tm /resync
+
 :: -----------------
 :: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
 :: Redirects to powershell script (setup.ps1)
@@ -5502,7 +5565,7 @@ goto :EOF
 :: Disable Guest Mode (All Chromium-based Browsers)
 :: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BrowserGuestModeEnabled /T REG_dWORD /D 0 /F
 
-:: Disable Incognito Mode (All Chromium-based Browsers EXCEPT Edge Chromium)
+:: Disable Incognito Mode (All Chromium-based Browsers EXCEPT Microsoft Edge Chromium)
 :: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V IncognitoModeAvailability /T REG_dWORD /D 1 /F
 :: 0 - User Choice, 1 - Force Disable, 2 - Force Enabled
 
