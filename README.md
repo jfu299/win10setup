@@ -6,6 +6,6 @@ Setup Windows 10
 
 setup.bat - Main batch file
 
-setup.ps1 - Powershell Script that is called to run in the Main batch file
+setup.ps1 - Powershell Script to remove UWP Apps (Combined with setup.bat)
 
 othersetup.txt - Other Settings
