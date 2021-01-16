@@ -4021,6 +4021,10 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common\General" /V ShownOp
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\firstrun" /V disablemovie /T REG_dWORD /D 1 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\firstrun" /V disablemovie /T REG_dWORD /D 1 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\firstrun" /V bootedrtm /T REG_dWORD /D 1 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\firstrun" /V bootedrtm /T REG_dWORD /D 1 /F
 
 :: Customer Experience Improvement Program
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
