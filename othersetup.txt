@@ -4,7 +4,7 @@ Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: December 17, 2020
+Updated: January 16, 2021
 
 1) Take over permissions of Registry Keys
 
@@ -140,11 +140,24 @@ icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /deny Everyon
 		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 
 13) Firefox Web Browser about:config Settings
-	- userChrome.css
-		- toolkit.legacyUserProfileCustomizations.stylesheets	true
-	- security.secure_connection_icon_color_gray	false
-	- network.http.sendRefererHeader	0
-	- security.insecure_connection_icon.enabled	true	
-	- security.insecure_connection_text.enabled	true
-	- security.insecure_connection_icon.pbmode.enabled	true		
-	- security.insecure_connection_text.pbmode.enabled	true
+		- Insert custom userChrome.css file into Profile (Roaming)
+	- toolkit.legacyUserProfileCustomizations.stylesheets
+		true
+	- security.secure_connection_icon_color_gray
+		false
+	- browser.newtabpage.activity-stream.asrouter.providers.whats-new-panel	
+  		{"id":"whats-new-panel","enabled":false,"type":"remote-settings","bucket":"whats-new-panel","updateCycleInMs":3600000}
+	- identity.mobilepromo.android
+  		(LEAVE BLANK)
+	- identity.mobilepromo.ios
+  		(LEAVE BLANK)
+	- identity.sendtabpromo.url
+  		(LEAVE BLANK)
+	- security.insecure_connection_icon.enabled
+		true	
+	- security.insecure_connection_text.enabled
+		true
+	- security.insecure_connection_icon.pbmode.enabled
+		true		
+	- security.insecure_connection_text.pbmode.enabled
+		true
