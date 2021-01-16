@@ -41,9 +41,11 @@ echo 6) Username Visibility
 echo.
 echo 7) Ctrl-Alt-Del Options
 echo.
-echo 8) Extra Policies to lock down user account
+echo 8) Remove UWP Apps
 echo.
 echo 9) Exit
+echo.
+echo 10) Extra Policies to lock down user account
 echo.
 
 set /p op="Type Option: "
@@ -62,6 +64,8 @@ if "%op%"=="n" goto end
 if "%op%"=="exit" goto end
 if "%op%"=="C" goto end
 if "%op%"=="c" goto end
+
+if "%op%"=="10" goto option10
 
 :: Error Message if a valid choice is not selected
 echo.
@@ -676,7 +680,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 :: -----
 
 :: About Config Preferences (about:config)
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_MULTI_SZ /D "{\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.interventions\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"default\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.dns.disablePrefetch\":{\"Value\":true,\"Status\":\"locked\"},\"network.dns.disablePrefetchFromHTTPS\":{\"Value\":true,\"Status\":\"locked\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.discover.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.getAddons.showPane\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.tab_modal.enabled\":{\"Value\":true,\"Status\":\"default\"},\"print.save_print_settings\":{\"Value\":false,\"Status\":\"default\"},\"media.hardwaremediakeys.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"accessibility.blockautorefresh\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.formautofill.creditCards.enabled\":{\"Value\":false,\"Status\":\"default\"},\"extensions.formautofill.addresses.enabled\":{\"Value\":false,\"Status\":\"default\"},\"ui.key.menuAccessKeyFocuses\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.vpn-promo.url\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.privatebrowsing.vpnpromourl\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.backspace_action\":{\"Value\":2,\"Status\":\"locked\"},\"extensions.allowPrivateBrowsingByDefault\":{\"Value\":true,\"Status\":\"locked\"},\"browser.urlbar.eventTelemetry.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.discoverystream.spocs.personalized\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.aboutpreferences\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.discoverystreamfeed\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.favicon\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.newtabinit\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.places\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.sections\":{\"Value\":false,\"Status\":\"locked\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_MULTI_SZ /D "{\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.interventions\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"locked\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.dns.disablePrefetch\":{\"Value\":true,\"Status\":\"locked\"},\"network.dns.disablePrefetchFromHTTPS\":{\"Value\":true,\"Status\":\"locked\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.discover.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.getAddons.showPane\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.tab_modal.enabled\":{\"Value\":true,\"Status\":\"default\"},\"print.save_print_settings\":{\"Value\":false,\"Status\":\"default\"},\"media.hardwaremediakeys.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"accessibility.blockautorefresh\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.formautofill.creditCards.enabled\":{\"Value\":false,\"Status\":\"default\"},\"extensions.formautofill.addresses.enabled\":{\"Value\":false,\"Status\":\"default\"},\"ui.key.menuAccessKeyFocuses\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.vpn-promo.url\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.privatebrowsing.vpnpromourl\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.backspace_action\":{\"Value\":2,\"Status\":\"locked\"},\"extensions.allowPrivateBrowsingByDefault\":{\"Value\":true,\"Status\":\"locked\"},\"browser.urlbar.eventTelemetry.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.discoverystream.spocs.personalized\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.aboutpreferences\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.discoverystreamfeed\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.favicon\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.newtabinit\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.places\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.sections\":{\"Value\":false,\"Status\":\"locked\"}}" /F
 
 :: -----
 :: DNS Over HTTPS
@@ -2876,8 +2880,106 @@ goto option7
 :option8
 echo -------
 echo.
-echo You have selected Option 8: Extra Policies to lock down user account
+echo You have selected Option 8: Remove UWP Apps
 :option8redo
+echo.
+echo ------- IMPORTANT ----------
+echo.
+echo This will remove all UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
+echo.
+echo Selecting Option 1 will redirect you the powershell script (setup.ps1)
+echo.
+echo To Remove the Microsoft Store, paste this command into Administrator Powershell:
+echo.
+echo        Get-AppxPackage *windowsstore* | Remove-AppxPackage
+echo.
+echo To Undo, paste this command into Administrator Powershell:
+echo.
+echo        Get-AppxPackage -allusers *store* | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+echo.
+echo ----------------------------
+echo.
+echo Select a task:
+echo.
+echo 1) (Already Included in Main) Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
+echo.
+echo 2) Return
+echo.
+echo 3) Exit
+echo.
+
+set /p op="Type Option: "
+
+if "%op%"=="1" goto option8.1
+
+if "%op%"=="2" goto mainMenu
+if "%op%"=="3" goto end
+if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
+if "%op%"=="c" goto end
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+goto option8redo
+
+:: --------------
+:option8.1
+echo.
+echo -------
+echo.
+
+:option8.1redo
+
+echo ------- IMPORTANT ----------
+echo.
+echo This will remove all UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
+echo.
+echo Selecting this option will redirect you the powershell script (setup.ps1)
+echo.
+echo ----------------------------
+
+set /p op="Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)? (y/n) "
+if "%op%"=="y" goto option8.1Start
+if "%op%"=="yes" goto option8.1Start
+if "%op%"=="Yes" goto option8.1Start
+if "%op%"=="Y" goto option8.1Start
+if "%op%"=="YES" goto option8.1Start
+
+if "%op%"=="n" goto option8
+if "%op%"=="no" goto option8
+if "%op%"=="No" goto option8
+if "%op%"=="N" goto option8
+if "%op%"=="NO" goto option8
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto option8.1redo
+
+:: --------------
+
+:option8.1Start
+@echo ON
+
+:: -----------------
+:: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
+:: Redirects to powershell script (setup.ps1)
+:: -----------------
+
+powershell.exe -ExecutionPolicy Unrestricted -Command ". '%~dpn0.ps1'"
+
+powershell.exe -ExecutionPolicy AllSigned
+
+goto :EOF
+
+:: ------------------------------------------------------------------------------------
+:option10
+echo -------
+echo.
+echo You have selected Option 10: Extra Policies to lock down user account
+:option10redo
 echo.
 echo ------- WARNING ----------
 echo.
@@ -2913,9 +3015,9 @@ echo.
 
 set /p op="Type Option: "
 
-if "%op%"=="1" goto option8.1
-if "%op%"=="2" goto option8.2
-:: if "%op%"=="3" goto option8.3
+if "%op%"=="1" goto option10.1
+if "%op%"=="2" goto option10.2
+if "%op%"=="3" goto option10.3
 
 if "%op%"=="4" goto mainMenu
 if "%op%"=="5" goto end
@@ -2926,15 +3028,15 @@ if "%op%"=="c" goto end
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
-goto option8redo
+goto option10redo
 
 :: --------------
-:option8.1
+:option10.1
 echo.
 echo -------
 echo.
 
-:option8.1redo
+:option10.1redo
 
 echo ------- WARNING ----------
 echo.
@@ -2954,40 +3056,40 @@ echo.
 echo ----------------------------
 
 set /p op="Restrict User Account (Block Control Panel and Settings)? (yes/n) "
-if "%op%"=="y" goto option8.1warn
-if "%op%"=="Y" goto option8.1warn
+if "%op%"=="y" goto option10.1warn
+if "%op%"=="Y" goto option10.1warn
 
-if "%op%"=="yes" goto option8.1Start
-if "%op%"=="Yes" goto option8.1Start
-if "%op%"=="YES" goto option8.1Start
+if "%op%"=="yes" goto option10.1Start
+if "%op%"=="Yes" goto option10.1Start
+if "%op%"=="YES" goto option10.1Start
 
-if "%op%"=="n" goto option8
-if "%op%"=="no" goto option8
-if "%op%"=="No" goto option8
-if "%op%"=="N" goto option8
-if "%op%"=="NO" goto option8
+if "%op%"=="n" goto option10
+if "%op%"=="no" goto option10
+if "%op%"=="No" goto option10
+if "%op%"=="N" goto option10
+if "%op%"=="NO" goto option10
 
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
 echo.
-goto option8.1redo
+goto option10.1redo
 
-:option8.1warn
+:option10.1warn
 echo.
 echo -------
 echo TYPE YES TO CONTINUE
 echo.
-goto option8.1redo
+goto option10.1redo
 
 :: --------------
 
-:option8.2
+:option10.2
 echo.
 echo -------
 echo.
 
-:option8.2redo
+:option10.2redo
 
 echo ------- WARNING ----------
 echo.
@@ -3007,63 +3109,63 @@ echo.
 echo ----------------------------
 
 set /p op="Restrict User Account (Limit Control Panel and Settings)? (yes/n) "
-if "%op%"=="y" goto option8.2warn
-if "%op%"=="Y" goto option8.2warn
+if "%op%"=="y" goto option10.2warn
+if "%op%"=="Y" goto option10.2warn
 
-if "%op%"=="yes" goto option8.2Start
-if "%op%"=="Yes" goto option8.2Start
-if "%op%"=="YES" goto option8.2Start
+if "%op%"=="yes" goto option10.2Start
+if "%op%"=="Yes" goto option10.2Start
+if "%op%"=="YES" goto option10.2Start
 
-if "%op%"=="n" goto option8
-if "%op%"=="no" goto option8
-if "%op%"=="No" goto option8
-if "%op%"=="N" goto option8
-if "%op%"=="NO" goto option8
+if "%op%"=="n" goto option10
+if "%op%"=="no" goto option10
+if "%op%"=="No" goto option10
+if "%op%"=="N" goto option10
+if "%op%"=="NO" goto option10
 
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
 echo.
-goto option8.2redo
+goto option10.2redo
 
-:option8.2warn
+:option10.2warn
 echo.
 echo -------
 echo TYPE YES TO CONTINUE
 echo.
-goto option8.2redo
+goto option10.2redo
 
 :: --------------
 
-:option8.3
+:option10.3
 echo.
 echo -------
 echo.
 
-:option8.3redo
+:option10.3redo
 
 set /p op="Undo Restrict User Account? (y/n) "
-if "%op%"=="y" goto option8.3Start
-if "%op%"=="yes" goto option8.3Start
-if "%op%"=="Yes" goto option8.3Start
-if "%op%"=="Y" goto option8.3Start
-if "%op%"=="YES" goto option8.3Start
+if "%op%"=="y" goto option10.3Start
+if "%op%"=="yes" goto option10.3Start
+if "%op%"=="Yes" goto option10.3Start
+if "%op%"=="Y" goto option10.3Start
+if "%op%"=="YES" goto option10.3Start
 
-if "%op%"=="n" goto option8
-if "%op%"=="no" goto option8
-if "%op%"=="No" goto option8
-if "%op%"=="N" goto option8
-if "%op%"=="NO" goto option8
+if "%op%"=="n" goto option10
+if "%op%"=="no" goto option10
+if "%op%"=="No" goto option10
+if "%op%"=="N" goto option10
+if "%op%"=="NO" goto option10
 
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
 echo.
-goto option8.3redo
+goto option10.3redo
 
 :: --------------
 
-:option8.1Start
+:option10.1Start
 @echo ON
 
 :: ---
@@ -3126,7 +3228,7 @@ goto end
 
 :: --------------
 
-:option8.2Start
+:option10.2Start
 @echo ON
 
 :: ---
@@ -3187,11 +3289,11 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\System" /V DisableCMD /T REG_d
 :: ---
 
 @echo OFF
-goto option8
+goto option10
 
 :: --------------
 
-:option8.3Start
+:option10.3Start
 @echo ON
 
 :: ---
@@ -3256,14 +3358,12 @@ REG DELETE "HKCU\SOFTWARE\Policies\Microsoft\Windows\System" /V DisableCMD /F
 :: ---
 
 @echo OFF
-goto option8
+goto option10
 :: ------------------------------------------------------------------------------------
 
 
-:: ------------------------------------------------------------------------------------
-
+:: ------------------------------------------------------------------------------------------------------------------------------
 :: Main File
-
 :: ------------------------------------------------------------------------------------
 :mainFile
 echo -------
@@ -3282,13 +3382,18 @@ echo HKCR\Wow6432Node\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder
 echo.
 echo HKLM\SYSTEM\CurrentControlSet\Services\wuauserv
 echo.
+echo HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+echo.
+echo HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+echo.
+echo -------------
+echo    In addition to taking over these registry keys below, deny access to these registry keys below AFTER running this batch script
+echo.
 echo HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
 echo.
 echo HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack
 echo.
-echo HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
-echo.
-echo HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+
 echo.
 PAUSE
 echo -------
@@ -3912,16 +4017,16 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V Co
 :: 2016/2019/365 - 16.0
 
 :: First Run Page
-REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\General" /V ShownOptIn /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common\General" /V ShownOptIn /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
 
 :: Customer Experience Improvement Program
-REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
 
 :: Office 2007 Disable Application Add-ins
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
@@ -4008,34 +4113,34 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Visio\Security" /V VBAWarn
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Word\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
 
 :: Office 2016 Telemetry
-REG ADD "HKCU\Software\Policies\Microsoft\Office\Common\clienttelemetry" /V sendtelemetry /T REG_dWORD /D 3 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\osm" /V enableupload /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\osm" /V disableonlinemodeauthdiagnostics /T REG_dWORD /D 1 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\readinesstoolkit" /V enableusageagent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\Common\clienttelemetry" /V sendtelemetry /T REG_dWORD /D 3 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /V enableupload /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /V disableonlinemodeauthdiagnostics /T REG_dWORD /D 1 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\readinesstoolkit" /V enableusageagent /T REG_dWORD /D 0 /F
 
 :: Office 2016 Feedback
-REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V sendcustomerdata /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V msoridsurveyenabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common" /V sendcustomerdata /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\Feedback" /V msoridsurveyenabled /T REG_dWORD /D 0 /F
 
 :: Office 2013 Telemetry
-REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\osm" /V enableupload /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /V enableupload /T REG_dWORD /D 0 /F
 
 :: Office 2013 Feedback
-REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
 
 :: Office 2007 - Disable Microsoft Office Online featured links
-REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\Internet" /V ShowSpotlight /T REG_dWORD /D 2 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common\Internet" /V ShowSpotlight /T REG_dWORD /D 2 /F
 
 :: Office Disable Online Content
-REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
 
 :: Office Disable ActiveX
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\Common\Security" /V DisableAllActiveX /T REG_dWORD /D 1 /F
@@ -4265,7 +4370,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 :: -----
 
 :: About Config Preferences (about:config)
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_MULTI_SZ /D "{\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.interventions\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"default\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.dns.disablePrefetch\":{\"Value\":true,\"Status\":\"locked\"},\"network.dns.disablePrefetchFromHTTPS\":{\"Value\":true,\"Status\":\"locked\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.discover.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.getAddons.showPane\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.tab_modal.enabled\":{\"Value\":true,\"Status\":\"default\"},\"print.save_print_settings\":{\"Value\":false,\"Status\":\"default\"},\"media.hardwaremediakeys.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"accessibility.blockautorefresh\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.formautofill.creditCards.enabled\":{\"Value\":false,\"Status\":\"default\"},\"extensions.formautofill.addresses.enabled\":{\"Value\":false,\"Status\":\"default\"},\"ui.key.menuAccessKeyFocuses\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.vpn-promo.url\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.privatebrowsing.vpnpromourl\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.backspace_action\":{\"Value\":2,\"Status\":\"locked\"},\"extensions.allowPrivateBrowsingByDefault\":{\"Value\":true,\"Status\":\"locked\"},\"browser.urlbar.eventTelemetry.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.discoverystream.spocs.personalized\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.aboutpreferences\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.discoverystreamfeed\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.favicon\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.newtabinit\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.places\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.sections\":{\"Value\":false,\"Status\":\"locked\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_MULTI_SZ /D "{\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.interventions\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"locked\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.dns.disablePrefetch\":{\"Value\":true,\"Status\":\"locked\"},\"network.dns.disablePrefetchFromHTTPS\":{\"Value\":true,\"Status\":\"locked\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.discover.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.getAddons.showPane\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.tab_modal.enabled\":{\"Value\":true,\"Status\":\"default\"},\"print.save_print_settings\":{\"Value\":false,\"Status\":\"default\"},\"media.hardwaremediakeys.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"accessibility.blockautorefresh\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.formautofill.creditCards.enabled\":{\"Value\":false,\"Status\":\"default\"},\"extensions.formautofill.addresses.enabled\":{\"Value\":false,\"Status\":\"default\"},\"ui.key.menuAccessKeyFocuses\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.vpn-promo.url\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.privatebrowsing.vpnpromourl\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.backspace_action\":{\"Value\":2,\"Status\":\"locked\"},\"extensions.allowPrivateBrowsingByDefault\":{\"Value\":true,\"Status\":\"locked\"},\"browser.urlbar.eventTelemetry.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.discoverystream.spocs.personalized\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.aboutpreferences\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.discoverystreamfeed\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.favicon\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.newtabinit\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.places\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.sections\":{\"Value\":false,\"Status\":\"locked\"}}" /F
 
 :: -----
 :: DNS Over HTTPS
@@ -5531,9 +5636,15 @@ rd /s /q "%ProgramData%\WindowsHolographicDevices"
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\tzautoupdate" /V start /T REG_dWORD /D 4 /F
 :: Set to United States Eastern Time
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "TimeZoneKeyName" /T REG_SZ /D "Eastern Standard Time" /F
-:: Set Time Sync Server and Sync Time
+:: Set Time Sync Server  to time.nist.gov and Sync Time
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" /V "NtpServer" /T REG_SZ /D "time.nist.gov,0x9" /F
+
+:: Sync Time
+timeout /t 10 /nobreak
 w32tm /resync
+timeout /t 10 /nobreak
+w32tm /resync
+timeout /t 10 /nobreak
 
 :: -----------------
 :: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
