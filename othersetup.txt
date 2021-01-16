@@ -14,6 +14,9 @@ Updated: January 16, 2021
 		HKCR\Wow6432Node\CLSID\{B4FB3F98-C1EA-428d-A78A-D1F5659CBA93}\ShellFolder
 		HKCR\Wow6432Node\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder
 		HKLM\SYSTEM\CurrentControlSet\Services\wuauserv
+		HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update
 	Deny Everyone Access (After disabling these services)
 		HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
 		HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack
