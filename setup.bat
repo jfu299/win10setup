@@ -5644,11 +5644,10 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "TimeZone
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" /V "NtpServer" /T REG_SZ /D "time.nist.gov,0x9" /F
 
 :: Sync Time
-timeout /t 10 /nobreak
+timeout /t 2 /nobreak
 w32tm /resync
-timeout /t 10 /nobreak
+timeout /t 2 /nobreak
 w32tm /resync
-timeout /t 10 /nobreak
 
 :: -----------------
 :: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
