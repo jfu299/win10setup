@@ -5636,8 +5636,6 @@ rd /s /q "%ProgramData%\WindowsHolographicDevices"
 :: -------
 :: Set Time Zone (United States Eastern Time)
 :: -------
-:: Auto Time Zone
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\tzautoupdate" /V start /T REG_dWORD /D 4 /F
 :: Set to United States Eastern Time
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "TimeZoneKeyName" /T REG_SZ /D "Eastern Standard Time" /F
 :: Set Time Sync Server  to time.nist.gov and Sync Time
@@ -5648,6 +5646,10 @@ timeout /t 2 /nobreak
 w32tm /resync
 timeout /t 2 /nobreak
 w32tm /resync
+timeout /t 2 /nobreak
+
+:: Auto Time Zone
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\tzautoupdate" /V start /T REG_dWORD /D 4 /F
 
 :: -----------------
 :: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
