@@ -1038,6 +1038,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter" /V Preve
 :: First Run
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer" /V DisableImportExportFavorites /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V DisableFirstRunCustomize /T REG_dWORD /D 1 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V DisableFirstRunCustomize /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main\EnterpriseMode" /V ShowMessageWhenOpeningSitesInMicrosoftEdge /T REG_dWORD /D 0 /F
 :: Default Browser
 REG ADD "HKLM\Default\Software\Microsoft\Internet Explorer\Main" /V "Check_Associations" /T REG_SZ /D "no" /F
@@ -3386,6 +3387,8 @@ echo HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 echo.
 echo HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 echo.
+echo HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update
+echo.
 echo -------------
 echo    In addition to taking over these registry keys below, deny access to these registry keys below AFTER running this batch script
 echo.
@@ -4732,6 +4735,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter" /V Preve
 :: First Run
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer" /V DisableImportExportFavorites /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V DisableFirstRunCustomize /T REG_dWORD /D 1 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V DisableFirstRunCustomize /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main\EnterpriseMode" /V ShowMessageWhenOpeningSitesInMicrosoftEdge /T REG_dWORD /D 0 /F
 :: Default Browser
 REG ADD "HKLM\Default\Software\Microsoft\Internet Explorer\Main" /V "Check_Associations" /T REG_SZ /D "no" /F
@@ -5531,9 +5535,13 @@ takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
 icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\Local\Microsoft\Edge"
 
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
+
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
 REG DELETE "HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge" /F
 
 :: -----------------
@@ -5633,13 +5641,17 @@ takeown /f "%ProgramData%\WindowsHolographicDevices" /a /r /d y
 icacls "%ProgramData%\WindowsHolographicDevices" /grant administrators:F /t /q
 rd /s /q "%ProgramData%\WindowsHolographicDevices"
 
+:: Disable Windows XPS Document Writer
+DISM /online /Disable-Feature /FeatureName:Printing-XPSServices-Features -NoRestart
+
+:: Disable Internet Explorer
+DISM /online /Disable-Feature /FeatureName:Internet-Explorer-Optional-amd64 -NoRestart
+
 :: -------
 :: Set Time Zone (United States Eastern Time)
 :: -------
 :: Set to United States Eastern Time
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "TimeZoneKeyName" /T REG_SZ /D "Eastern Standard Time" /F
-:: Set Time Sync Server  to time.nist.gov and Sync Time
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" /V "NtpServer" /T REG_SZ /D "time.nist.gov,0x9" /F
 
 :: Sync Time
 timeout /t 2 /nobreak
@@ -5648,7 +5660,7 @@ timeout /t 2 /nobreak
 w32tm /resync
 timeout /t 2 /nobreak
 
-:: Auto Time Zone
+:: Disable Auto Select Time Zone
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\tzautoupdate" /V start /T REG_dWORD /D 4 /F
 
 :: -----------------
