@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: January 16, 2021
+:: Updated: January 18, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: Janaury 16, 2021
+echo Updated: Janaury 18, 2021
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -4020,10 +4020,10 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V Co
 :: 2016/2019/365 - 16.0
 
 :: First Run Page
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common\General" /V ShownOptIn /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 0 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common\General" /V ShownOptIn /T REG_dWORD /D 1 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
+REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\firstrun" /V disablemovie /T REG_dWORD /D 1 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\firstrun" /V disablemovie /T REG_dWORD /D 1 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\firstrun" /V bootedrtm /T REG_dWORD /D 1 /F
