@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: January 18, 2021
+:: Updated: January 19, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: Janaury 18, 2021
+echo Updated: Janaury 19, 2021
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -244,7 +244,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleas
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdates /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdatesPeriodInDays /T REG_dWORD /D 30 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdatesPeriodInDays /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuilds /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuildsPolicyValue /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
@@ -253,6 +253,20 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AUPowerManag
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance" /V WakeUp /T REG_dWORD /D 0 /F
 powercfg /SETDCVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 0
 powercfg /SETACVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 0
+powercfg -attributes SUB_SLEEP BD3B718A-0680-4D9D-8AB2-E1D2B4AC806D +ATTRIB_HIDE
+:: No Windows Update Taskbar Notification
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V TrayIconVisibility /T REG_dWORD /D 0 /F
+:: Disable Automatic Active Hours
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
+:: Maximum Active Hours
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHoursMaxRange /T REG_dWORD /D 1 /F
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursMaxRange /T REG_dWORD /D 18 /F
+:: Set Active Hours
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHours /T REG_dWORD /D 1 /F
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursStart /T REG_dWORD /D 7 /F
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursEnd /T REG_dWORD /D 1 /F
+:: Disable Upgrade Message to Windows 10 on Windows 7, Windows 8, and Windows 8.1
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableOSUpgrade /T REG_dWORD /D 1 /F
 :: Disable Delivery Optimization
 :: HEX: 64 DECIMAL: 100
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /V DODownloadMode /T REG_dWORD /D 100 /F
@@ -289,7 +303,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleas
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdates /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdatesPeriodInDays /T REG_dWORD /D 30 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdatesPeriodInDays /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuilds /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuildsPolicyValue /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
@@ -298,6 +312,20 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AUPowerManag
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance" /V WakeUp /T REG_dWORD /D 0 /F
 powercfg /SETDCVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 0
 powercfg /SETACVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 0
+powercfg -attributes SUB_SLEEP BD3B718A-0680-4D9D-8AB2-E1D2B4AC806D +ATTRIB_HIDE
+:: No Windows Update Taskbar Notification
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V TrayIconVisibility /T REG_dWORD /D 0 /F
+:: Disable Automatic Active Hours
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
+:: Maximum Active Hours
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHoursMaxRange /T REG_dWORD /D 1 /F
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursMaxRange /T REG_dWORD /D 18 /F
+:: Set Active Hours
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHours /T REG_dWORD /D 1 /F
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursStart /T REG_dWORD /D 7 /F
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursEnd /T REG_dWORD /D 1 /F
+:: Disable Upgrade Message to Windows 10 on Windows 7, Windows 8, and Windows 8.1
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableOSUpgrade /T REG_dWORD /D 1 /F
 :: Disable Delivery Optimization
 :: HEX: 64 DECIMAL: 100
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /V DODownloadMode /T REG_dWORD /D 100 /F
@@ -3590,7 +3618,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleas
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdates /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdatesPeriodInDays /T REG_dWORD /D 30 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdatesPeriodInDays /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuilds /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuildsPolicyValue /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
@@ -3599,6 +3627,20 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AUPowerManag
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance" /V WakeUp /T REG_dWORD /D 0 /F
 powercfg /SETDCVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 0
 powercfg /SETACVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd3b718a-0680-4d9d-8ab2-e1d2b4ac806d 0
+powercfg -attributes SUB_SLEEP BD3B718A-0680-4D9D-8AB2-E1D2B4AC806D +ATTRIB_HIDE
+:: No Windows Update Taskbar Notification
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V TrayIconVisibility /T REG_dWORD /D 0 /F
+:: Disable Automatic Active Hours
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
+:: Maximum Active Hours
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHoursMaxRange /T REG_dWORD /D 1 /F
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursMaxRange /T REG_dWORD /D 18 /F
+:: Set Active Hours
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHours /T REG_dWORD /D 1 /F
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursStart /T REG_dWORD /D 7 /F
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursEnd /T REG_dWORD /D 1 /F
+:: Disable Upgrade Message to Windows 10 on Windows 7, Windows 8, and Windows 8.1
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableOSUpgrade /T REG_dWORD /D 1 /F
 :: Disable Delivery Optimization
 :: HEX: 64 DECIMAL: 100
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" /V DODownloadMode /T REG_dWORD /D 100 /F
@@ -3867,6 +3909,14 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Disa
 :: Auto Open Apps After Restart
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartApps /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartApps /T REG_dWORD /D 0 /F
+:: --------------
+
+:: Group Policies for First Login:
+
+:: Computer Configuration > Administrative Templates > 
+::      System > Login >> Show First Sign-In Animation: Disabled
+::      Windows Components > OOBE >> Don't launch privacy settings experience on user logon: Enabled
+
 :: Login Animation
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V EnableFirstLogonAnimation /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V EnableFirstLogonAnimation /T REG_dWORD /D 0 /F
@@ -3874,6 +3924,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Enab
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightWindowswelcomeExperience /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /V DisablePrivacyExperience /T REG_dWORD /D 1 /F
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\OOBE" /V DisablePrivacyExperience /T REG_dWORD /D 1 /F
+:: --------------
 :: Lock Screen Blur
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V DisableAcrylicBackgroundOnLogon /T REG_dWORD /D 1 /F
 :: Block User from showing specific account details on signin
@@ -4165,6 +4216,54 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\feature_r
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\feature_restrict_activexinstall" /V msaccess.exe /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\feature_restrict_activexinstall" /V onenote.exe /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\feature_restrict_activexinstall" /V mse7.exe /T REG_dWORD /D 1 /F
+
+:: -------
+:: Battery Settings
+:: ------- REG ADD "EXAMPLE" /V EXAMPLE /T REG_dWORD /D 999 /F
+
+:: Require Password on Wake-Up
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51" /V DCSettingIndex /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51" /V ACSettingIndex /T REG_dWORD /D 1 /F
+
+:: Require Password after Display turns off
+REG ADD "HKLM\Control Panel\Desktop" /V DelayLockInterval /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Control Panel\Desktop" /V DelayLockInterval /T REG_dWORD /D 0 /F
+
+:: Enable Hibernate Option
+powercfg -hibernate on
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FlyoutMenuSettings" /V ShowHibernateOption /T REG_dWORD /D 1 /F
+
+:: Automatic Turn Off Display (3 Minutes)
+powercfg -change -monitor-timeout-dc 3
+powercfg -change -monitor-timeout-ac 3
+
+:: Automatic Sleep (5 Minutes)
+powercfg -change -standby-timeout-dc 5
+powercfg -change -standby-timeout-ac 5
+
+:: Low Battery Notification
+powercfg /SETDCVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f bcded951-187b-4d05-bccc-f7e51960c258 1
+powercfg /SETACVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f bcded951-187b-4d05-bccc-f7e51960c258 1
+
+:: Low Battery Percent (10 Percent)
+powercfg /SETDCVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f 8183ba9a-e910-48da-8769-14ae6dc1170a 10
+powercfg /SETDCVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f 8183ba9a-e910-48da-8769-14ae6dc1170a 10
+
+:: Low Battery Action
+powercfg /SETDCVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f d8742dcb-3e6a-4b3c-b3fe-374623cdcf06 0
+powercfg /SETACVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f d8742dcb-3e6a-4b3c-b3fe-374623cdcf06 0
+
+:: Critical Battery Notification
+powercfg /SETDCVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f 5dbb7c9f-38e9-40d2-9749-4f8a0e9f640f 1
+powercfg /SETACVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f 5dbb7c9f-38e9-40d2-9749-4f8a0e9f640f 1
+
+:: Critical Battery Percent (2 Percent)
+powercfg /SETDCVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f 9a66d8d7-4ff7-4ef9-b5a2-5a326ca2a469 2
+powercfg /SETACVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f 9a66d8d7-4ff7-4ef9-b5a2-5a326ca2a469 2
+
+:: Critical Battery Action
+powercfg /SETDCVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f 637ea02f-bbcb-4015-8e2c-a1c7b9c0b546 2
+powercfg /SETACVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f 637ea02f-bbcb-4015-8e2c-a1c7b9c0b546 2
 
 :: ------------------------------------------------------------------------------------
 :: Web Browser Policy Settings
@@ -5712,6 +5811,17 @@ goto :EOF
 
 :: Enable Receive updates for other Microsoft Products when you update windows
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V AllowMUUpdateService /T REG_dWORD /D 1 /F
+
+:: Do Not Include Drivers with Windows Update
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ExcludeWUDriversInQualityUpdate /T REG_dWORD /D 1 /F
+
+:: --------------
+
+:: Group Policies for First Login (Registry Equivalent already included):
+
+:: Computer Configuration > Administrative Templates > 
+::      System > Login >> Show First Sign-In Animation: DISABLED
+::      Windows Components > OOBE >> Don't launch privacy settings experience on user logon: ENABLED
 
 :: ----------------------------------------------------------------------
 :: Other Messages
