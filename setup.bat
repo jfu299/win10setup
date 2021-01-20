@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: January 19, 2021
+:: Updated: January 20, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: Janaury 19, 2021
+echo Updated: Janaury 20, 2021
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -248,6 +248,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQuality
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuilds /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuildsPolicyValue /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\PolicyState" /V IsWUfBConfigured /T REG_dWORD /D 1 /F
+:: Current Branch Readiness (Semi-Annual Channel for 1903 and above)
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V BranchReadinessLevel /T REG_dWORD /D 16 /F
 :: Disable Wake Timers
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AUPowerManagement /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance" /V WakeUp /T REG_dWORD /D 0 /F
@@ -307,6 +310,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQuality
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuilds /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuildsPolicyValue /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\PolicyState" /V IsWUfBConfigured /T REG_dWORD /D 1 /F
+:: Current Branch Readiness (Semi-Annual Channel for 1903 and above)
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V BranchReadinessLevel /T REG_dWORD /D 16 /F
 :: Disable Wake Timers
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AUPowerManagement /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance" /V WakeUp /T REG_dWORD /D 0 /F
@@ -1976,6 +1982,10 @@ goto option4.2redo
 
 REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
+REG ADD "HKLM\Software\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
 
 takeown /f "%windir%\SysWOW64\OneDriveSetup.exe" /a /r /d y
 icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
@@ -2019,6 +2029,10 @@ goto option4
 
 REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 0 /F
+
+REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
+REG ADD "HKLM\Software\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
 
 takeown /f "%windir%\SysWOW64\OneDriveSetup.exe" /a /r /d y
 icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
@@ -3622,6 +3636,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQuality
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuilds /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuildsPolicyValue /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\PolicyState" /V IsWUfBConfigured /T REG_dWORD /D 1 /F
+:: Current Branch Readiness (Semi-Annual Channel for 1903 and above)
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V BranchReadinessLevel /T REG_dWORD /D 16 /F
 :: Disable Wake Timers
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AUPowerManagement /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance" /V WakeUp /T REG_dWORD /D 0 /F
@@ -5684,6 +5701,10 @@ TASKKILL /F /IM OneDrive.exe
 
 REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
+REG ADD "HKLM\Software\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
 
 takeown /f "%windir%\SysWOW64\OneDriveSetup.exe" /a /r /d y
 icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
