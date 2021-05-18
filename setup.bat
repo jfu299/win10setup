@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: April 30, 2021
+:: Updated: May 17, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: April 30, 2021
+echo Updated: May 17, 2021
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -1311,6 +1311,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 112 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
 :: Amazon Assistant
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 114 /T REG_SZ /D pbjikboenpfhbbejgkoklgkhjpfogcam /F
+:: College Board Secure Test
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 115 /T REG_SZ /D lhfmngifffjhdjdgkfdhbifhndddmjko /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 116 /T REG_SZ /D hblfbmjdaalalhifaajnnodlkiloengc /F
+:: ProctorU
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 117 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 118 /T REG_SZ /D digojkgonhgmnohbapdfjllpnmjmdhpg /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 119 /T REG_SZ /D kbmmbecgmmkedcifdommembgkeomigjf /F
 
 :: -----------------
 :: Chromium
@@ -1453,6 +1460,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 112 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
 :: Amazon Assistant
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 114 /T REG_SZ /D pbjikboenpfhbbejgkoklgkhjpfogcam /F
+:: College Board Browser
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 115 /T REG_SZ /D lhfmngifffjhdjdgkfdhbifhndddmjko /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 116 /T REG_SZ /D hblfbmjdaalalhifaajnnodlkiloengc /F
+:: ProctorU
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 117 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 118 /T REG_SZ /D digojkgonhgmnohbapdfjllpnmjmdhpg /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 119 /T REG_SZ /D kbmmbecgmmkedcifdommembgkeomigjf /F
 
 :: -----------------
 :: Brave
@@ -1595,6 +1609,13 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
 :: Amazon Assistant
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 114 /T REG_SZ /D pbjikboenpfhbbejgkoklgkhjpfogcam /F
+:: College Board Browser
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 115 /T REG_SZ /D lhfmngifffjhdjdgkfdhbifhndddmjko /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 116 /T REG_SZ /D hblfbmjdaalalhifaajnnodlkiloengc /F
+:: ProctorU
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 117 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 118 /T REG_SZ /D digojkgonhgmnohbapdfjllpnmjmdhpg /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 119 /T REG_SZ /D kbmmbecgmmkedcifdommembgkeomigjf /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -1735,6 +1756,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 110
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 111 /T REG_SZ /D igcpjndghfaebohjdanobonebnejppej /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 112 /T REG_SZ /D digojkgonhgmnohbapdfjllpnmjmdhpg /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
+:: College Board Browser
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 176 /T REG_SZ /D lhfmngifffjhdjdgkfdhbifhndddmjko /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 177 /T REG_SZ /D hblfbmjdaalalhifaajnnodlkiloengc /F
+:: ProctorU
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 178 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 179 /T REG_SZ /D digojkgonhgmnohbapdfjllpnmjmdhpg /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 180 /T REG_SZ /D kbmmbecgmmkedcifdommembgkeomigjf /F
 
 :: -----------------
 :: Microsoft Edge Chromium Add-on Store
@@ -2159,8 +2187,6 @@ echo.
 echo Go To (x64 OS): %ProgramFiles(x86)%\Microsoft\Edge\Application
 echo Go To (x86 OS): %ProgramFiles%\Microsoft\Edge\Application
 echo.
-echo 	This batch script uses Edge Version: 84.0.522.52
-echo.
 echo ----------------------------
 
 set /p op="Remove Microsoft Edge Chromium and Microsoft Edge Legacy? (y/n) "
@@ -2207,8 +2233,6 @@ echo 	Please Check the Version Number of Microsoft Edge Chromium that is install
 echo.
 echo Go To (x64 OS): %ProgramFiles(x86)%\Microsoft\Edge\Application
 echo Go To (x86 OS): %ProgramFiles%\Microsoft\Edge\Application
-echo.
-echo 	This batch script uses Edge Version: 84.0.522.52
 echo.
 echo ----------------------------
 
@@ -2284,6 +2308,9 @@ REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mi
 
 %SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 %SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
@@ -2364,6 +2391,9 @@ REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mi
 
 %SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 %SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
@@ -5125,6 +5155,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 112 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
 :: Amazon Assistant
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 114 /T REG_SZ /D pbjikboenpfhbbejgkoklgkhjpfogcam /F
+:: College Board Secure Test
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 115 /T REG_SZ /D lhfmngifffjhdjdgkfdhbifhndddmjko /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 116 /T REG_SZ /D hblfbmjdaalalhifaajnnodlkiloengc /F
+:: ProctorU
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 117 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 118 /T REG_SZ /D digojkgonhgmnohbapdfjllpnmjmdhpg /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 119 /T REG_SZ /D kbmmbecgmmkedcifdommembgkeomigjf /F
 
 :: -----------------
 :: Chromium
@@ -5267,6 +5304,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 112 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
 :: Amazon Assistant
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 114 /T REG_SZ /D pbjikboenpfhbbejgkoklgkhjpfogcam /F
+:: College Board Browser
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 115 /T REG_SZ /D lhfmngifffjhdjdgkfdhbifhndddmjko /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 116 /T REG_SZ /D hblfbmjdaalalhifaajnnodlkiloengc /F
+:: ProctorU
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 117 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 118 /T REG_SZ /D digojkgonhgmnohbapdfjllpnmjmdhpg /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 119 /T REG_SZ /D kbmmbecgmmkedcifdommembgkeomigjf /F
 
 :: -----------------
 :: Brave
@@ -5409,6 +5453,13 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
 :: Amazon Assistant
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 114 /T REG_SZ /D pbjikboenpfhbbejgkoklgkhjpfogcam /F
+:: College Board Browser
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 115 /T REG_SZ /D lhfmngifffjhdjdgkfdhbifhndddmjko /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 116 /T REG_SZ /D hblfbmjdaalalhifaajnnodlkiloengc /F
+:: ProctorU
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 117 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 118 /T REG_SZ /D digojkgonhgmnohbapdfjllpnmjmdhpg /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 119 /T REG_SZ /D kbmmbecgmmkedcifdommembgkeomigjf /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -5549,6 +5600,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 110
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 111 /T REG_SZ /D igcpjndghfaebohjdanobonebnejppej /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 112 /T REG_SZ /D digojkgonhgmnohbapdfjllpnmjmdhpg /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 113 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
+:: College Board Browser
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 176 /T REG_SZ /D lhfmngifffjhdjdgkfdhbifhndddmjko /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 177 /T REG_SZ /D hblfbmjdaalalhifaajnnodlkiloengc /F
+:: ProctorU
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 178 /T REG_SZ /D goobgennebinldhonaajgafidboenlkl /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 179 /T REG_SZ /D digojkgonhgmnohbapdfjllpnmjmdhpg /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 180 /T REG_SZ /D kbmmbecgmmkedcifdommembgkeomigjf /F
 
 :: -----------------
 :: Microsoft Edge Chromium Add-on Store
@@ -5695,6 +5753,9 @@ REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mi
 
 %SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 %SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
