@@ -41,11 +41,9 @@ echo 6) Username Visibility
 echo.
 echo 7) Ctrl-Alt-Del Options
 echo.
-echo 8) Remove UWP Apps
+echo 8) Extra Policies to lock down user account
 echo.
 echo 9) Exit
-echo.
-echo 10) Extra Policies to lock down user account
 echo.
 
 set /p op="Type Option: "
@@ -64,8 +62,6 @@ if "%op%"=="n" goto end
 if "%op%"=="exit" goto end
 if "%op%"=="C" goto end
 if "%op%"=="c" goto end
-
-if "%op%"=="10" goto option10
 
 :: Error Message if a valid choice is not selected
 echo.
@@ -2980,110 +2976,14 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Disa
 
 @echo OFF
 goto option7
+
 :: ------------------------------------------------------------------------------------
+
 :option8
 echo -------
 echo.
-echo You have selected Option 8: Remove UWP Apps
+echo You have selected Option 8: Extra Policies to lock down user account
 :option8redo
-echo.
-echo ------- IMPORTANT ----------
-echo.
-echo This will remove all UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
-echo.
-echo Selecting Option 1 will redirect you the powershell script (setup.ps1)
-echo.
-echo To Remove the Microsoft Store, paste this command into Administrator Powershell:
-echo.
-echo        Get-AppxPackage *windowsstore* | Remove-AppxPackage
-echo.
-echo To Undo, paste this command into Administrator Powershell:
-echo.
-echo        Get-AppxPackage -allusers *store* | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
-echo.
-echo ----------------------------
-echo.
-echo Select a task:
-echo.
-echo 1) (Already Included in Main) Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
-echo.
-echo 2) Return
-echo.
-echo 3) Exit
-echo.
-
-set /p op="Type Option: "
-
-if "%op%"=="1" goto option8.1
-
-if "%op%"=="2" goto mainMenu
-if "%op%"=="3" goto end
-if "%op%"=="exit" goto end
-if "%op%"=="C" goto end
-if "%op%"=="c" goto end
-
-echo.
-echo -------
-echo PLEASE SELECT A VALID OPTION
-goto option8redo
-
-:: --------------
-:option8.1
-echo.
-echo -------
-echo.
-
-:option8.1redo
-
-echo ------- IMPORTANT ----------
-echo.
-echo This will remove all UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
-echo.
-echo Selecting this option will redirect you the powershell script (setup.ps1)
-echo.
-echo ----------------------------
-
-set /p op="Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)? (y/n) "
-if "%op%"=="y" goto option8.1Start
-if "%op%"=="yes" goto option8.1Start
-if "%op%"=="Yes" goto option8.1Start
-if "%op%"=="Y" goto option8.1Start
-if "%op%"=="YES" goto option8.1Start
-
-if "%op%"=="n" goto option8
-if "%op%"=="no" goto option8
-if "%op%"=="No" goto option8
-if "%op%"=="N" goto option8
-if "%op%"=="NO" goto option8
-
-echo.
-echo -------
-echo PLEASE SELECT A VALID OPTION
-echo.
-goto option8.1redo
-
-:: --------------
-
-:option8.1Start
-@echo ON
-
-:: -----------------
-:: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
-:: Redirects to powershell script (setup.ps1)
-:: -----------------
-
-powershell.exe -ExecutionPolicy Unrestricted -Command ". '%~dpn0.ps1'"
-
-powershell.exe -ExecutionPolicy AllSigned
-
-goto :EOF
-
-:: ------------------------------------------------------------------------------------
-:option10
-echo -------
-echo.
-echo You have selected Option 10: Extra Policies to lock down user account
-:option10redo
 echo.
 echo ------- WARNING ----------
 echo.
@@ -3119,9 +3019,9 @@ echo.
 
 set /p op="Type Option: "
 
-if "%op%"=="1" goto option10.1
-if "%op%"=="2" goto option10.2
-if "%op%"=="3" goto option10.3
+if "%op%"=="1" goto option8.1
+if "%op%"=="2" goto option8.2
+if "%op%"=="3" goto option8.3
 
 if "%op%"=="4" goto mainMenu
 if "%op%"=="5" goto end
@@ -3132,15 +3032,15 @@ if "%op%"=="c" goto end
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
-goto option10redo
+goto option8redo
 
 :: --------------
-:option10.1
+:option8.1
 echo.
 echo -------
 echo.
 
-:option10.1redo
+:option8.1redo
 
 echo ------- WARNING ----------
 echo.
@@ -3160,40 +3060,40 @@ echo.
 echo ----------------------------
 
 set /p op="Restrict User Account (Block Control Panel and Settings)? (yes/n) "
-if "%op%"=="y" goto option10.1warn
-if "%op%"=="Y" goto option10.1warn
+if "%op%"=="y" goto option8.1warn
+if "%op%"=="Y" goto option8.1warn
 
-if "%op%"=="yes" goto option10.1Start
-if "%op%"=="Yes" goto option10.1Start
-if "%op%"=="YES" goto option10.1Start
+if "%op%"=="yes" goto option8.1Start
+if "%op%"=="Yes" goto option8.1Start
+if "%op%"=="YES" goto option8.1Start
 
-if "%op%"=="n" goto option10
-if "%op%"=="no" goto option10
-if "%op%"=="No" goto option10
-if "%op%"=="N" goto option10
-if "%op%"=="NO" goto option10
+if "%op%"=="n" goto option8
+if "%op%"=="no" goto option8
+if "%op%"=="No" goto option8
+if "%op%"=="N" goto option8
+if "%op%"=="NO" goto option8
 
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
 echo.
-goto option10.1redo
+goto option8.1redo
 
-:option10.1warn
+:option8.1warn
 echo.
 echo -------
 echo TYPE YES TO CONTINUE
 echo.
-goto option10.1redo
+goto option8.1redo
 
 :: --------------
 
-:option10.2
+:option8.2
 echo.
 echo -------
 echo.
 
-:option10.2redo
+:option8.2redo
 
 echo ------- WARNING ----------
 echo.
@@ -3213,63 +3113,63 @@ echo.
 echo ----------------------------
 
 set /p op="Restrict User Account (Limit Control Panel and Settings)? (yes/n) "
-if "%op%"=="y" goto option10.2warn
-if "%op%"=="Y" goto option10.2warn
+if "%op%"=="y" goto option8.2warn
+if "%op%"=="Y" goto option8.2warn
 
-if "%op%"=="yes" goto option10.2Start
-if "%op%"=="Yes" goto option10.2Start
-if "%op%"=="YES" goto option10.2Start
+if "%op%"=="yes" goto option8.2Start
+if "%op%"=="Yes" goto option8.2Start
+if "%op%"=="YES" goto option8.2Start
 
-if "%op%"=="n" goto option10
-if "%op%"=="no" goto option10
-if "%op%"=="No" goto option10
-if "%op%"=="N" goto option10
-if "%op%"=="NO" goto option10
+if "%op%"=="n" goto option8
+if "%op%"=="no" goto option8
+if "%op%"=="No" goto option8
+if "%op%"=="N" goto option8
+if "%op%"=="NO" goto option8
 
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
 echo.
-goto option10.2redo
+goto option8.2redo
 
-:option10.2warn
+:option8.2warn
 echo.
 echo -------
 echo TYPE YES TO CONTINUE
 echo.
-goto option10.2redo
+goto option8.2redo
 
 :: --------------
 
-:option10.3
+:option8.3
 echo.
 echo -------
 echo.
 
-:option10.3redo
+:option8.3redo
 
 set /p op="Undo Restrict User Account? (y/n) "
-if "%op%"=="y" goto option10.3Start
-if "%op%"=="yes" goto option10.3Start
-if "%op%"=="Yes" goto option10.3Start
-if "%op%"=="Y" goto option10.3Start
-if "%op%"=="YES" goto option10.3Start
+if "%op%"=="y" goto option8.3Start
+if "%op%"=="yes" goto option8.3Start
+if "%op%"=="Yes" goto option8.3Start
+if "%op%"=="Y" goto option8.3Start
+if "%op%"=="YES" goto option8.3Start
 
-if "%op%"=="n" goto option10
-if "%op%"=="no" goto option10
-if "%op%"=="No" goto option10
-if "%op%"=="N" goto option10
-if "%op%"=="NO" goto option10
+if "%op%"=="n" goto option8
+if "%op%"=="no" goto option8
+if "%op%"=="No" goto option8
+if "%op%"=="N" goto option8
+if "%op%"=="NO" goto option8
 
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
 echo.
-goto option10.3redo
+goto option8.3redo
 
 :: --------------
 
-:option10.1Start
+:option8.1Start
 @echo ON
 
 :: ---
@@ -3332,7 +3232,7 @@ goto end
 
 :: --------------
 
-:option10.2Start
+:option8.2Start
 @echo ON
 
 :: ---
@@ -3393,11 +3293,11 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\System" /V DisableCMD /T REG_d
 :: ---
 
 @echo OFF
-goto option10
+goto option8
 
 :: --------------
 
-:option10.3Start
+:option8.3Start
 @echo ON
 
 :: ---
@@ -3462,7 +3362,7 @@ REG DELETE "HKCU\SOFTWARE\Policies\Microsoft\Windows\System" /V DisableCMD /F
 :: ---
 
 @echo OFF
-goto option10
+goto option8
 :: ------------------------------------------------------------------------------------
 
 
