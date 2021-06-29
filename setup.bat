@@ -3775,6 +3775,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\
 :: -------
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableSoftLanding /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsConsumerFeatures /T REG_dWORD /D 1 /F
+:: Microsoft Store Disable Auto Update Apps
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsStore" /V AutoDownload /T REG_dWORD /D 2 /F
 :: Microsoft Store Apps
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V ContentDeliveryAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V OemPreInstalledAppsEnabled /T REG_dWORD /D 0 /F
@@ -3827,6 +3829,8 @@ REG ADD "HKCU\SOFTWARE\Microsoft\TabletTip\1.7" /V EnableDoubleTapSpace /T REG_d
 :: Turn off auto switch to tablet mode
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V TabletMode /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V TabletMode /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V SignInMode /T REG_dWORD /D 1 /F
+REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V SignInMode /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V ConvertibleSlateModePromptPreference /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V ConvertibleSlateModePromptPreference /T REG_dWORD /D 0 /F
 :: Windows Spotlight
@@ -3848,11 +3852,14 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\StorageSense" /V AllowStorageS
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\StorageSense" /V ConfigStorageSenseDownloadsCleanupThreshold /T REG_dWORD /D 0 /F
 :: Project to PC
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Connect" /V AllowProjectionToPC /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\MiracastReceiver" /V "Primary Authorization Method" /T REG_dWORD /D 3 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Connect" /V "Primary Authorization Method" /T REG_dWORD /D 3 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\MiracastReceiver" /V ConsentToast /T REG_dWORD /D 2 /F
 :: Shared Experiences
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V EnableCdp /T REG_dWORD /D 0 /F
 :: Offline Maps App
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Maps" /V AllowUntriggeredNetworkTrafficOnSettingsPage /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Maps" /V AutoDownloadAndUpdateMapData /T REG_dWORD /D 0 /
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Maps" /V AutoDownloadAndUpdateMapData /T REG_dWORD /D 0 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement" /V ScoobeSystemSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement" /V ScoobeSystemSettingEnabled /T REG_dWORD /D 0 /F
@@ -3888,9 +3895,22 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTask
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTaskbarContentUpdateMode /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTaskbarOpenOnHover /T REG_dWORD /D 0 /F
 REG ADD "HKCU\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData\Microsoft.ProjectNewsbar_8wekyb3d8bbwe\msnews-newsbar" /V State /T REG_dWORD /D 1 /F
-:: Microsoft Store Disable Auto Update Apps
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsStore" /V AutoDownload /T REG_dWORD /D 2 /F
-	
+:: Remote Assistance Turn Off
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance" /v fAllowToGetHelp /t REG_DWORD /d 0 /f
+:: WPAD Turn Off (Requires Reboot to take effect)
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WinHttpAutoProxySvc" /V Start /T REG_dWORD /D 4 /F
+
+:: -------
+:: Windows Ease of Access
+:: -------
+:: Sticky Keys
+REG ADD "HKCU\Control Panel\Accessibility\StickyKeys" /V "Flags" /T REG_SZ /D "2" /F
+:: Fitler Keys
+REG ADD "HKCU\Control Panel\Accessibility\Keyboard Response" /V "Flags" /T REG_SZ /D "2" /F
+:: Toggle Keys
+REG ADD "HKCU\Control Panel\Accessibility\ToggleKeys" /V "Flags" /T REG_SZ /D "34" /F
+:: Mouse Keys
+REG ADD "HKCU\Control Panel\Accessibility\MouseKeys" /V "Flags" /T REG_SZ /D "2" /F
 :: -------
 :: Windows Login Experience
 :: -------
@@ -5909,11 +5929,21 @@ goto :EOF
 
 :: --------------
 
-:: Group Policies for First Login (Registry Equivalent already included):
+:: Group Policy: First Login (Registry Equivalent already included):
 
-:: Computer Configuration > Administrative Templates > 
-::      System > Login >> Show First Sign-In Animation: DISABLED
-::      Windows Components > OOBE >> Don't launch privacy settings experience on user logon: ENABLED
+::      Computer Configuration > Administrative Templates > System > Login >> Show First Sign-In Animation: DISABLED
+
+::      Computer Configuration > Administrative Templates > Windows Components > OOBE >> Don't launch privacy settings experience on user logon: ENABLED
+
+:: Group Policy: Disable Control Panel Devices and Printers from Showing Download Icon Message
+
+::      Computer Configuration > Administrative Templates > System > Device Installation >> Prevent device metadata retrieval from the Internet: ENABLED
+
+:: Group Policy: Windows 10 Updates
+
+::      Computer Configuration > Administrative Templates > Windows Components > Windows Update
+
+::      Computer Configuration > Administrative Templates > Windows Components > Windows Update > Windows Update for Business
 
 :: ----------------------------------------------------------------------
 
