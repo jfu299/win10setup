@@ -38,6 +38,7 @@ Updated: June 28, 2021
 	- Touchpad Settings
 	- Default Web Browser
 	- Time and Language
+	- Windows Defender
 
 5) Group Policy
 
