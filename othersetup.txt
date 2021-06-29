@@ -1,10 +1,9 @@
-
 othersetup.txt
 Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: January 16, 2021
+Updated: June 28, 2021
 
 1) Take over permissions of Registry Keys
 
@@ -17,18 +16,117 @@ Updated: January 16, 2021
 		HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update
+	
 	Deny Everyone Access (After disabling these services)
 		HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
 		HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack
 
-2) Uninstall OneDrive
-	- Turn off OneDrive Auto Startup
-	- Uninstall OneDrive in Control Panel (OneDrive should have been already uninstalled in the setup.bat file)
-		- %SystemRoot%\System32\OneDriveSetup.exe /uninstall
-		- %SystemRoot%\SysWOW64\OneDriveSetup.exe /uninstall
-	- Take ownership and set Deny All to OneDriveSetup.exe in System32 and SysWOW64
+2) Run setup.bat file
 
-3) Remove Start Menu Bloat
+3) OneDrive
+
+	- Take ownership and set Deny All to OneDriveSetup.exe in System32 and SysWOW64
+		- %windir%\System32\OneDriveSetup.exe
+		- %windir%\SysWOW64\OneDriveSetup.exe
+
+4) Settings Page
+
+	- Night Light Settings
+	- Focus Assist
+	- Bluetooth
+	- Wi-fi/Ethernet
+	- Touchpad Settings
+	- Default Web Browser
+	- Time and Language
+
+5) Group Policy
+
+	- Computer Configuration > Administrative Templates > System > Login >> Show First Sign-In Animation: DISABLED
+
+	- Computer Configuration > Administrative Templates > Windows Components > OOBE >> Don't launch privacy settings experience on user logon: ENABLED
+
+	- Computer Configuration > Administrative Templates > System > Device Installation >> Prevent device metadata retrieval from the Internet: ENABLED
+
+6) Windows 10 Updates
+	- Update
+	- Pause Updates
+	- Update Deferral
+
+	- Computer Configuration > Administrative Templates > Windows Components > Windows Update
+	- Computer Configuration > Administrative Templates > Windows Components > Windows Update > Windows Update for Business
+
+7) Windows Update Medic Service Disable: WaaSMedicSvc
+	- Must Take Ownership and Deny Everyone Access Registry Key to fully disable
+		- HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
+
+8) Ease of Access
+	- Take ownership and set Deny All to Utilman.exe in System32 and SysWOW64
+		- %windir%\System32\Utilman.exe
+		- %windir%\SysWOW64\Utilman.exe
+
+
+9) Disk Cleanup (Run as Administrator)
+	- DO NOT Select the Downloads Folder
+	Other Temp Folders
+		- %temp% (%windir%\Temp)
+		- %UserProfile%\AppData\Local\Temp
+		- %UserProfile%\AppData\LocalLow\Temp
+
+10) Microsoft Edge Chromium Uninstall
+
+	- Remove Microsoft Edge Shortcuts
+		- %UserProfile%\Desktop
+		- %UserProfile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
+		- %ProgramData%\Microsoft\Windows\Start Menu\Programs
+
+	
+	--- If setup.bat was not able to fully uninstall Microsoft Edge: ---
+
+	- Use Administrator Powershell or Command Prompt
+
+	- Go to this Folder (Insert Version Number into the Version Number Section):
+	
+		C:\Program Files (x86)\Microsoft\Edge\Application\[VERSION NUMBER HERE]\Installer
+
+	- Copy and Paste This In:
+
+		setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+	- Take Ownership and Full Control, and then delete these Registry Keys
+
+		HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+
+		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
+
+11) Firefox Web Browser about:config Settings
+		
+	- Insert custom userChrome.css file into Profile (Roaming)
+	- toolkit.legacyUserProfileCustomizations.stylesheets
+		true
+	
+	- security.secure_connection_icon_color_gray
+		false
+	- browser.newtabpage.activity-stream.asrouter.providers.whats-new-panel	
+  		{"id":"whats-new-panel","enabled":false,"type":"remote-settings","bucket":"whats-new-panel","updateCycleInMs":3600000}
+	- identity.mobilepromo.android
+  		(LEAVE BLANK)
+	- identity.mobilepromo.ios
+  		(LEAVE BLANK)
+	- identity.sendtabpromo.url
+  		(LEAVE BLANK)
+	- security.insecure_connection_icon.enabled
+		true	
+	- security.insecure_connection_text.enabled
+		true
+	- security.insecure_connection_icon.pbmode.enabled
+		true		
+	- security.insecure_connection_text.pbmode.enabled
+		true
+
+12) Remove Start Menu Bloat 
+
+	--- setup.bat already does Option 1 ---
+
 	- Open Administrator Powershell and Copy/Paste an Option
 	- Update Apps that you keep after running the powershell command
 
@@ -52,115 +150,4 @@ Undo Everything:
 
 Get-AppxPackage -allusers *store* | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
 
-4) Settings Page
-	- Notifications: Turn off
-		- Focus Assist: Configure
-	- Bluetooth: Turn off
-	- Wi-fi/Ethernet: Setup
-	- Proxy: Turn off Auto Discovery
-	- Search: Turn off Search Suggestions
-	- Privacy Settings:
-		- Deny: Documents
-		- Deny: Pictures
-		- Deny: Videos
-		- Deny: File System
-	- Display: Night Light Settings
-	- Tablet Mode: No Auto-Switching
-	- Projecting to PC: Turn off
-	- Shared Experiences: Turn off
-	- Remote Desktop: Turn off
-	- Devices:
-		- Printer: Set Windows does not manage default printers
-		- Touchpad: Scroll
-		- Typing: Turn off Auto-Suggestions
-		- Auto Play: Turn off
-	- Apps: Set default web browser
-	- Gaming: Setup
-	- Time and Language: Setup
-
-5) Control Panel
-	- Programs
-		- Disable Internet Explorer
-	- Advanced System Settings (Control Panel\System and Security\System)
-		- Remote Assistance: Turn Off
-		- Device Installation Settings: Turn off automatic
-	- Clock
-		- Set correct time zone and sync time with internet (time.nist.gov)
-
-6) Ease of Access
-	- Settings: Turn off Ease of Access Shortcuts
-	- Control Panel: Turn off keyboard shortcuts
-	- Take Ownership and Deny Utilman.exe
-
-7) Disk Cleanup (Run as Administrator)
-	- DO NOT Select the Downloads Folder
-
-8) Folder View Options
-	- View Hidden Files
-	- Show all File Extensions
-	- Address Bar: Delete History
-
-9) Windows 10 Updates
-	- Update
-	- Pause Updates
-
-10) Windows Update Medic Disable: WaaSMedicSvc
-	- Must Take Ownership and Deny Everyone Access Registry Key to fully disable
-		- HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
-
-11) Microsoft Edge Legacy and Connect App Disable (Connect App has been removed in Windows 10 Version 2004/20H1)
-C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe
-C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe
-C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy
-
-takeown /f C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /a /r /d y
-icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /grant administrators:F /t /q
-icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe /deny Everyone:F /t /q
-
-takeown /f C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /a /r /d y
-icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /grant administrators:F /t /q
-icacls C:\Windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe /deny Everyone:F /t /q
-
-takeown /f C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /a /r /d y
-icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /grant administrators:F /t /q
-icacls C:\Windows\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy /deny Everyone:F /t /q
-
-12) Microsoft Edge Chromium Uninstall and Remove from Control Panel
-	- Use Administrator Powershell or Command Prompt
-
-	- Go to this Folder (Insert Version Number into the Version Number Section):
-	
-		C:\Program Files (x86)\Microsoft\Edge\Application\[VERSION NUMBER HERE]\Installer
-
-	- Copy and Paste This In:
-
-		setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-	- Take Ownership and Full Control, and then delete these Registry Keys
-
-		HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
-
-		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
-
-13) Firefox Web Browser about:config Settings
-		- Insert custom userChrome.css file into Profile (Roaming)
-	- toolkit.legacyUserProfileCustomizations.stylesheets
-		true
-	- security.secure_connection_icon_color_gray
-		false
-	- browser.newtabpage.activity-stream.asrouter.providers.whats-new-panel	
-  		{"id":"whats-new-panel","enabled":false,"type":"remote-settings","bucket":"whats-new-panel","updateCycleInMs":3600000}
-	- identity.mobilepromo.android
-  		(LEAVE BLANK)
-	- identity.mobilepromo.ios
-  		(LEAVE BLANK)
-	- identity.sendtabpromo.url
-  		(LEAVE BLANK)
-	- security.insecure_connection_icon.enabled
-		true	
-	- security.insecure_connection_text.enabled
-		true
-	- security.insecure_connection_icon.pbmode.enabled
-		true		
-	- security.insecure_connection_text.pbmode.enabled
-		true
+-----
