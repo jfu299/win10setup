@@ -3891,7 +3891,7 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTask
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTaskbarOpenOnHover /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData\Microsoft.ProjectNewsbar_8wekyb3d8bbwe\msnews-newsbar" /V State /T REG_dWORD /D 1 /F
 :: Remote Assistance Turn Off
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance" /v fAllowToGetHelp /T REG_DWORD /D 0 /F
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance" /V fAllowToGetHelp /T REG_DWORD /D 0 /F
 :: WPAD Turn Off (Requires Reboot to take effect)
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WinHttpAutoProxySvc" /V Start /T REG_dWORD /D 4 /F
 :: Windows AutoPlay Turn Off
