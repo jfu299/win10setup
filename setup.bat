@@ -256,14 +256,14 @@ powercfg -attributes SUB_SLEEP BD3B718A-0680-4D9D-8AB2-E1D2B4AC806D +ATTRIB_HIDE
 :: No Windows Update Taskbar Notification
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V TrayIconVisibility /T REG_dWORD /D 0 /F
 :: Disable Automatic Active Hours
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
 :: Maximum Active Hours
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHoursMaxRange /T REG_dWORD /D 1 /F
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursMaxRange /T REG_dWORD /D 18 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHoursMaxRange /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursMaxRange /T REG_dWORD /D 18 /F
 :: Set Active Hours
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHours /T REG_dWORD /D 1 /F
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursStart /T REG_dWORD /D 7 /F
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursEnd /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHours /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursStart /T REG_dWORD /D 7 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursEnd /T REG_dWORD /D 1 /F
 :: Disable Upgrade Message to Windows 10 on Windows 7, Windows 8, and Windows 8.1
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableOSUpgrade /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsStore" /V DisableOSUpgrade /T REG_dWORD /D 1 /F
@@ -319,14 +319,14 @@ powercfg -attributes SUB_SLEEP BD3B718A-0680-4D9D-8AB2-E1D2B4AC806D +ATTRIB_HIDE
 :: No Windows Update Taskbar Notification
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V TrayIconVisibility /T REG_dWORD /D 0 /F
 :: Disable Automatic Active Hours
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
 :: Maximum Active Hours
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHoursMaxRange /T REG_dWORD /D 1 /F
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursMaxRange /T REG_dWORD /D 18 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHoursMaxRange /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursMaxRange /T REG_dWORD /D 18 /F
 :: Set Active Hours
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHours /T REG_dWORD /D 1 /F
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursStart /T REG_dWORD /D 7 /F
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursEnd /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHours /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursStart /T REG_dWORD /D 7 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursEnd /T REG_dWORD /D 1 /F
 :: Disable Upgrade Message to Windows 10 on Windows 7, Windows 8, and Windows 8.1
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableOSUpgrade /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsStore" /V DisableOSUpgrade /T REG_dWORD /D 1 /F
@@ -1033,7 +1033,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LocalProvidersEnabled /T REG_
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /V AllowPrelaunch /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /V PreventFirstRunPage /T REG_dWORD /D 1 /F
 :: Default Browser
-REG ADD "HKCU\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main" /V DisallowDefaultBrowserPrompt /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main" /V DisallowDefaultBrowserPrompt /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main" /V DisallowDefaultBrowserPrompt /T REG_dWORD /D 1 /F
 :: -----
 :: Flash
@@ -1090,7 +1090,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter" /V Preve
 :: First Run
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer" /V DisableImportExportFavorites /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V DisableFirstRunCustomize /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V DisableFirstRunCustomize /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Main" /V DisableFirstRunCustomize /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main\EnterpriseMode" /V ShowMessageWhenOpeningSitesInMicrosoftEdge /T REG_dWORD /D 0 /F
 :: Default Browser
 REG ADD "HKLM\Default\Software\Microsoft\Internet Explorer\Main" /V "Check_Associations" /T REG_SZ /D "no" /F
@@ -1104,7 +1104,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer" /V DisableFlashInIE
 :: Telemetry
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Safety\PrivacIE" /V DisableLogging /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Restrictions" /V NoHelpItemSendFeedback /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Restrictions" /V NoHelpItemSendFeedback /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Restrictions" /V NoHelpItemSendFeedback /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\SQM" /V DisableCustomerImprovementProgram /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V NoReportSiteProblems /T REG_SZ /D yes /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main\WindowsSearch" /V EnabledScopes /T REG_dWORD /D 0 /F
@@ -1122,8 +1122,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\SearchScopes" /V Top
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\ContinuousBrowsing" /V Enabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main" /V "Start Page" /T REG_SZ /D about:blank /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main" /V Default /T REG_SZ /D about:blank /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main" /V "Start Page" /T REG_SZ /D about:blank /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main" /V Default /T REG_SZ /D about:blank /F
+REG ADD "HKCU\Software\Microsoft\Internet Explorer\Main" /V "Start Page" /T REG_SZ /D about:blank /F
+REG ADD "HKCU\Software\Microsoft\Internet Explorer\Main" /V Default /T REG_SZ /D about:blank /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Recovery" /V NoReopenLastSession /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\TabbedBrowsing" /V NewTabPageShow /T REG_dWORD /D 0 /F
 :: -----
@@ -2042,7 +2042,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNG
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 1 /F
 
 REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
-REG ADD "HKLM\Software\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
 
 takeown /f "%windir%\SysWOW64\OneDriveSetup.exe" /a /r /d y
 icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
@@ -2089,7 +2089,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNG
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 0 /F
 
 REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
-REG ADD "HKLM\Software\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
 
 takeown /f "%windir%\SysWOW64\OneDriveSetup.exe" /a /r /d y
 icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
@@ -2122,7 +2122,6 @@ echo The Start Menu Icon for Microsoft Edge Legacy cannot be removed,
 echo Windows 10 will view it as ms-resource:AppName, and move it to the bottom of the app list
 echo.
 echo To fully remove Microsoft Edge Chromium from the Control Panel List, taking over and deleting registry keys is required
-echo This only removes the pre-installed Microsoft Edge Chromium
 echo.
 echo ----------------------------
 echo.
@@ -2179,9 +2178,6 @@ echo	HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 echo.
 echo	HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 echo.
-echo This only removes the pre-installed Microsoft Edge Chromium
-echo 	Please Check the Version Number of Microsoft Edge Chromium that is installed, otherwise this batch script will not work properly
-echo.
 echo Go To (x64 OS): %ProgramFiles(x86)%\Microsoft\Edge\Application
 echo Go To (x86 OS): %ProgramFiles%\Microsoft\Edge\Application
 echo.
@@ -2225,9 +2221,6 @@ echo.
 echo	HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 echo.
 echo	HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
-echo.
-echo This only removes the pre-installed Microsoft Edge Chromium
-echo 	Please Check the Version Number of Microsoft Edge Chromium that is installed, otherwise this batch script will not work properly
 echo.
 echo Go To (x64 OS): %ProgramFiles(x86)%\Microsoft\Edge\Application
 echo Go To (x86 OS): %ProgramFiles%\Microsoft\Edge\Application
@@ -2940,7 +2933,7 @@ goto option7
 @echo ON
 
 :: Disable ability to change account password on Ctrl-Alt-Del Screen
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 1 /F
 
 @echo OFF
 goto option7
@@ -2973,7 +2966,7 @@ goto option7
 @echo ON
 
 :: Enable ability to change account password on Ctrl-Alt-Del Screen
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 0 /F
 
 
 @echo OFF
@@ -3179,53 +3172,53 @@ goto option8.3redo
 :: ---
 
 :: Chrome
-REG ADD "HKCU\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+REG ADD "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Chromium
-REG ADD "HKCU\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Firefox
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3662396/sponsorblock_skip_sponsorships_on_youtube-2.0.7-an+fx.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3612592/clearurls-1.19.0-an+fx.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3752653/bypass_paywalls-1.7.9-an+fx.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3772067/tree_style_tab_-3.8.1-fx.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Brave
-REG ADD "HKCU\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Microsoft Edge Chromium
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+REG ADD "HKCU\Software\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Microsoft Edge Legacy
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Extensions" /V ExtensionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Extensions" /V AllowSideloadingOfExtensions /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\MicrosoftEdge\Extensions" /V ExtensionsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\MicrosoftEdge\Extensions" /V AllowSideloadingOfExtensions /T REG_dWORD /D 0 /F
 
 :: Internet Explorer
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V Enable Browser Extensions /T REG_SZ /D no /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Restrictions" /V NoExtensionManagement /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext" /V RestrictToList /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Main" /V Enable Browser Extensions /T REG_SZ /D no /F
+REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Restrictions" /V NoExtensionManagement /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Ext" /V RestrictToList /T REG_dWORD /D 1 /F
 
 :: ---
 :: Block Settings and Control Panel
 :: ---
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoControlPanel /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoControlPanel /T REG_dWORD /D 1 /F
 
 :: ---
 :: Block Run
 :: ---
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRun /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRun /T REG_dWORD /D 1 /F
 
 :: ---
 :: Block Powershell and Registry
 :: ---
 
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /T REG_dWORD /D 1 /F
 
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 1 /T REG_SZ /D "powershell.exe" /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 2 /T REG_SZ /D "powershell_ise.exe" /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 3 /T REG_SZ /D "regedit.exe" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 1 /T REG_SZ /D "powershell.exe" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 2 /T REG_SZ /D "powershell_ise.exe" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 3 /T REG_SZ /D "regedit.exe" /F
 
 :: ---
 :: Block Command Prompt
 :: ---
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\System" /V DisableCMD /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\System" /V DisableCMD /T REG_dWORD /D 1 /F
 
 :: ---
 
@@ -3242,55 +3235,55 @@ goto end
 :: ---
 
 :: Chrome
-REG ADD "HKCU\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+REG ADD "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Chromium
-REG ADD "HKCU\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Firefox
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3662396/sponsorblock_skip_sponsorships_on_youtube-2.0.7-an+fx.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3612592/clearurls-1.19.0-an+fx.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3752653/bypass_paywalls-1.7.9-an+fx.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/file/3772067/tree_style_tab_-3.8.1-fx.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Brave
-REG ADD "HKCU\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Microsoft Edge Chromium
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
+REG ADD "HKCU\Software\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Microsoft Edge Legacy
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Extensions" /V ExtensionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Extensions" /V AllowSideloadingOfExtensions /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\MicrosoftEdge\Extensions" /V ExtensionsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\MicrosoftEdge\Extensions" /V AllowSideloadingOfExtensions /T REG_dWORD /D 0 /F
 
 :: Internet Explorer
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V Enable Browser Extensions /T REG_SZ /D no /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Restrictions" /V NoExtensionManagement /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext" /V RestrictToList /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Main" /V Enable Browser Extensions /T REG_SZ /D no /F
+REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Restrictions" /V NoExtensionManagement /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Ext" /V RestrictToList /T REG_dWORD /D 1 /F
 
 :: ---
 :: Restrict Settings and Control Panel
 :: ---
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /T REG_SZ /D "showonly:about;network;network-status;network-wifi;network-wifisettings;network-ethernet;network-airplanemode" /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V RestrictCpl /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\RestrictCpl" /V 1 /T REG_SZ /D "Troubleshooting" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /T REG_SZ /D "showonly:about;network;network-status;network-wifi;network-wifisettings;network-ethernet;network-airplanemode" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V RestrictCpl /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\RestrictCpl" /V 1 /T REG_SZ /D "Troubleshooting" /F
 
 :: ---
 :: Block Run
 :: ---
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRun /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRun /T REG_dWORD /D 1 /F
 
 :: ---
 :: Block Powershell and Registry
 :: ---
 
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /T REG_dWORD /D 1 /F
 
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 1 /T REG_SZ /D "powershell.exe" /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 2 /T REG_SZ /D "powershell_ise.exe" /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 3 /T REG_SZ /D "regedit.exe" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 1 /T REG_SZ /D "powershell.exe" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 2 /T REG_SZ /D "powershell_ise.exe" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 3 /T REG_SZ /D "regedit.exe" /F
 
 :: ---
 :: Block Command Prompt
 :: ---
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\System" /V DisableCMD /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\System" /V DisableCMD /T REG_dWORD /D 1 /F
 
 :: ---
 
@@ -3307,59 +3300,59 @@ goto option8
 :: ---
 
 :: Chrome
-REG DELETE "HKCU\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /F
+REG DELETE "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /F
 
 :: Chromium
-REG DELETE "HKCU\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /F
+REG DELETE "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /F
 
 :: Firefox
-REG DELETE "HKCU\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /F
+REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 
 :: Brave
-REG DELETE "HKCU\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /F
+REG DELETE "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /F
 
 :: Microsoft Edge Chromium
-REG DELETE "HKCU\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /F
+REG DELETE "HKCU\Software\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 1 /F
 
 :: Microsoft Edge Legacy
-REG DELETE "HKCU\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Extensions" /V ExtensionsEnabled /F
-REG DELETE "HKCU\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Extensions" /V AllowSideloadingOfExtensions /F
+REG DELETE "HKCU\Software\Policies\Microsoft\MicrosoftEdge\Extensions" /V ExtensionsEnabled /F
+REG DELETE "HKCU\Software\Policies\Microsoft\MicrosoftEdge\Extensions" /V AllowSideloadingOfExtensions /F
 
 :: Internet Explorer
-REG DELETE "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V Enable Browser Extensions /F
-REG DELETE "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Restrictions" /V NoExtensionManagement /F
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext" /V RestrictToList /F
+REG DELETE "HKCU\Software\Policies\Microsoft\Internet Explorer\Main" /V Enable Browser Extensions /F
+REG DELETE "HKCU\Software\Policies\Microsoft\Internet Explorer\Restrictions" /V NoExtensionManagement /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Ext" /V RestrictToList /F
 
 :: ---
 :: Undo Block Settings and Control Panel
 :: ---
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoControlPanel /F
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /F
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V RestrictCpl /F
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\RestrictCpl" /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoControlPanel /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V RestrictCpl /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\RestrictCpl" /F
 
 :: ---
 :: Undo Block Run
 :: ---
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRun /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRun /F
 
 :: ---
 :: Undo Block Powershell and Registry
 :: ---
 
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /T REG_dWORD /D 0 /F
 
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 1 /F
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 2 /F
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 3 /T /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 1 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 2 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /V 3 /T /F
 
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /F
-REG DELETE "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun" /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DisallowRun /F
 
 :: ---
 :: Undo Block Command Prompt
 :: ---
-REG DELETE "HKCU\SOFTWARE\Policies\Microsoft\Windows\System" /V DisableCMD /F
+REG DELETE "HKCU\Software\Policies\Microsoft\Windows\System" /V DisableCMD /F
 
 :: ---
 
@@ -3412,6 +3405,8 @@ echo and removes/disables various Windows 10 annoyances.
 echo To stop or disable the Windows Update service (wuauserv), use the other options.
 echo To fully disable the Windows Update Medic Service (WaaSMedicSvc), 
 echo (HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc) you must take over its registry key and deny full access to everyone
+echo.
+echo This will fully uninstall Mirosoft Edge Chromium and Microsoft Edge Legacy
 echo.
 PAUSE
 echo -------
@@ -3483,13 +3478,13 @@ REG DELETE "HKCR\SystemFileAssociations\.tiff\Shell\3D Edit" /F
 :: -------
 :: Enable Windows Photo Viewer
 :: -------
-REG ADD "HKCU\SOFTWARE\Classes\.jpg" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
-REG ADD "HKCU\SOFTWARE\Classes\.jpeg" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
-REG ADD "HKCU\SOFTWARE\Classes\.gif" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
-REG ADD "HKCU\SOFTWARE\Classes\.png" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
-REG ADD "HKCU\SOFTWARE\Classes\.bmp" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
-REG ADD "HKCU\SOFTWARE\Classes\.tiff" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
-REG ADD "HKCU\SOFTWARE\Classes\.ico" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.jpg" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.jpeg" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.gif" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.png" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.bmp" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.tiff" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
+REG ADD "HKCU\Software\Classes\.ico" /T REG_SZ /D "PhotoViewer.FileAssoc.Tiff" /F
 :: --
 REG ADD "HKCR\Applications\photoviewer.dll\shell\open" /V "MuiVerb" /T REG_SZ /D "@photoviewer.dll,-3043" /F
 REG ADD "HKCR\Applications\photoviewer.dll\shell\open\command" /T REG_SZ /D "%windir%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1" /F
@@ -3611,14 +3606,14 @@ powercfg -attributes SUB_SLEEP BD3B718A-0680-4D9D-8AB2-E1D2B4AC806D +ATTRIB_HIDE
 :: No Windows Update Taskbar Notification
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V TrayIconVisibility /T REG_dWORD /D 0 /F
 :: Disable Automatic Active Hours
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
 :: Maximum Active Hours
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHoursMaxRange /T REG_dWORD /D 1 /F
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursMaxRange /T REG_dWORD /D 18 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHoursMaxRange /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursMaxRange /T REG_dWORD /D 18 /F
 :: Set Active Hours
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHours /T REG_dWORD /D 1 /F
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursStart /T REG_dWORD /D 7 /F
-REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursEnd /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V SetActiveHours /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursStart /T REG_dWORD /D 7 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ActiveHoursEnd /T REG_dWORD /D 1 /F
 :: Disable Upgrade Message to Windows 10 on Windows 7, Windows 8, and Windows 8.1
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableOSUpgrade /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsStore" /V DisableOSUpgrade /T REG_dWORD /D 1 /F
@@ -3679,8 +3674,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindow
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V AllowTelemetry /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" /V AllowTelemetry /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy" /V TailoredExperiencesWithDiagnosticDataEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy" /V TailoredExperiencesWithDiagnosticDataEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableTailoredExperiencesWithDiagnosticData /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Privacy" /V TailoredExperiencesWithDiagnosticDataEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableTailoredExperiencesWithDiagnosticData /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DisableEnterpriseAuthproxy /T REG_dWORD /D 1 /F
 :: Connected User Experiences and Telemetry Service (DiagTrack)
 :: (Moved to Top of Main File) net stop DiagTrack
@@ -3694,7 +3689,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /V SubmitSamp
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MRT" /V DontReportInfectionInformation /T REG_dWORD /D 1 /F	
 :: Windows Error Reporting
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /V Disabled /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /V Disabled /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Windows Error Reporting" /V Disabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting" /V DoReport /T REG_dWORD /D 0 /F
 :: -------
 :: Disable Inking and Typing
@@ -3704,19 +3699,19 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace" /V AllowWindowsIn
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization" /V AllowInputPersonalization /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization" /V RestrictImplicitTextCollection /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization" /V RestrictImplicitInkCollection /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\InputPersonalization" /V RestrictImplicitTextCollection /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\InputPersonalization" /V RestrictImplicitInkCollection /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\InputPersonalization" /V RestrictImplicitTextCollection /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\InputPersonalization" /V RestrictImplicitInkCollection /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput" /V AllowLinguisticDataCollection /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Input\TIPC" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\PenWorkspace" /V PenWorkspaceButtonDesiredVisibility /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\InputPersonalization" /V RestrictImplicitTextCollection /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\InputPersonalization" /V RestrictImplicitInkCollection /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\PenWorkspace" /V PenWorkspaceButtonDesiredVisibility /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\InputPersonalization" /V RestrictImplicitTextCollection /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\InputPersonalization" /V RestrictImplicitInkCollection /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\InputPersonalization" /V RestrictImplicitTextCollection /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\InputPersonalization" /V RestrictImplicitInkCollection /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" /V HarvestContacts /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Personalization\Settings" /V AcceptedPrivacyPolicy /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Input\Settings" /V InsightsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Input\TIPC" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\InputPersonalization\TrainedDataStore" /V HarvestContacts /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Personalization\Settings" /V AcceptedPrivacyPolicy /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Input\Settings" /V InsightsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Input\TIPC" /V Enabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\TabletPC" /V PreventhandwritingDataSharing /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports" /V PreventHandwritingErrorReports /T REG_dWORD /D 1 /F
 :: -------
@@ -3728,7 +3723,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /V Enab
 :: Turn Off Language List website access
 REG ADD "HKCU\Control Panel\International\User Profile" /V HttpAcceptLanguageOptOut /T REG_dWORD /D 1 /F
 :: Turn off App Launch Tracking
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Start_TrackProgs /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Start_TrackProgs /T REG_dWORD /D 0 /F
 :: Disable Location Services
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /V DisableLocation /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /V DisableLocationScripting /T REG_dWORD /D 1 /F
@@ -3747,7 +3742,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsActivate
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessMicrophone_ForceDenyTheseApps /T REG_MULTI_SZ /D Microsoft.MicrosoftEdge_8wekyb3d8bbwe\0Microsoft.Win32WebViewHost_cw5n1h2txyewy\0Microsoft.Windows.Cortana_cw5n1h2txyewy\0Microsoft.WindowsStore_8wekyb3d8bbwe\0Microsoft.Microsoft3DViewer_8wekyb3d8bbwe\0Microsoft.Office.OneNote_8wekyb3d8bbwe\0Microsoft.SkypeApp_kzf8qxf38zg5c\0Microsoft.Win32WebViewHost_cw5n1h2txyewy\0Microsoft.Windows.Photos_8wekyb3d8bbwe\0Microsoft.WindowsCamera_8wekyb3d8bbwe\0Microsoft.WindowsFeedbackHub_8wekyb3d8bbwe\0Microsoft.XboxGamingOverlay_8wekyb3d8bbwe\0Microsoft.Windows.SecureAssessmentBrowser_cw5n1h2txyewy\0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessMicrophone_UserInControlOfTheseApps /T REG_MULTI_SZ /D NonPackaged\0Microsoft.XboxGamingOverlay_8wekyb3d8bbwe\0 /F
 :: Headset Button Press Default App
-REG ADD "HKCU\SOFTWARE\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps" /V AgentActivationLastUsed /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps" /V AgentActivationLastUsed /T REG_dWORD /D 0 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessNotifications /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessAccountInfo /T REG_dWORD /D 2 /F
@@ -3778,75 +3773,75 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindow
 :: Microsoft Store Disable Auto Update Apps
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsStore" /V AutoDownload /T REG_dWORD /D 2 /F
 :: Microsoft Store Apps
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V ContentDeliveryAllowed /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V OemPreInstalledAppsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V PreInstalledAppsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V PreInstalledAppsEverEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SilentInstalledAppsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SilentInstalledAppsEverEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SoftLandingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SystemPaneSuggestionsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V ContentDeliveryAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V OemPreInstalledAppsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V PreInstalledAppsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V PreInstalledAppsEverEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SilentInstalledAppsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SilentInstalledAppsEverEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SoftLandingEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SystemPaneSuggestionsEnabled /T REG_dWORD /D 0 /F
 :: SubscribedContent Suggestions
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-338387Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-338388Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-338389Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-338393Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-353694Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-353696Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-353698Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-310093Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-338387Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-338388Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-338389Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-338393Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-353694Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-353696Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-353698Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V SubscribedContent-310093Enabled /T REG_dWORD /D 0 /F
 :: File Explorer Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V DisableSearchBoxSuggestions /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V DisableSearchBoxSuggestions /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V DisableSearchBoxSuggestions /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V DisableSearchhistory /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V DisableSearchhistory /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V DisableSearchhistory /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V "Append Completion" /T REG_SZ /D no /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V "Append Completion" /T REG_SZ /D no /F
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V AutoSuggest /T REG_SZ /D no /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V AutoSuggest /T REG_SZ /D no /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V "Append Completion" /T REG_SZ /D no /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V "AutoSuggest" /T REG_SZ /D no /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete" /V "AutoSuggest" /T REG_SZ /D no /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowInfoTip /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowInfoTip /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowInfoTip /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowSyncProviderNotifications /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowSyncProviderNotifications /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowSyncProviderNotifications /T REG_dWORD /D 0 /F
 :: Quick Access Recently Used Files
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V ShowRecent /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V ShowRecent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /V ShowRecent /T REG_dWORD /D 0 /F
 :: Quick Access Frequently Used Folders
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V ShowFrequent /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V ShowFrequent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /V ShowFrequent /T REG_dWORD /D 0 /F
 :: Settings Tips
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V AllowOnlineTips /T REG_dWORD /D 0 /F
 :: Keyboard
-REG ADD "HKCU\SOFTWARE\Microsoft\Input\Settings" /V EnableHwkbTextPrediction /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Control Panel\International" /V TurnOffOfferTextPredictions /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Control Panel\International" /V TurnOffInsertSpace /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Control Panel\International" /V TurnOffAutocorrectMisspelledWords /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Control Panel\International" /V TurnOffHighlightMisspelledWords /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Input\Settings" /V EnableHwkbTextPrediction /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Control Panel\International" /V TurnOffOfferTextPredictions /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Control Panel\International" /V TurnOffInsertSpace /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Control Panel\International" /V TurnOffAutocorrectMisspelledWords /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Control Panel\International" /V TurnOffHighlightMisspelledWords /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\microsoft\TabletTip\1.7" /V Disableprediction /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\microsoft\TabletTip\1.7" /V EnableTextPrediction /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Input\Settings" /V MultilingualEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\TabletTip\1.7" /V EnableDoubleTapSpace /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Input\Settings" /V MultilingualEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\TabletTip\1.7" /V EnableDoubleTapSpace /T REG_dWORD /D 0 /F
 :: Turn off auto switch to tablet mode
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V TabletMode /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V TabletMode /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V TabletMode /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V SignInMode /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V SignInMode /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V SignInMode /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V ConvertibleSlateModePromptPreference /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V ConvertibleSlateModePromptPreference /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V ConvertibleSlateModePromptPreference /T REG_dWORD /D 0 /F
 :: Windows Spotlight
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableThirdPartySuggestions /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightOnactioncenter /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightOnSettings /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableThirdPartySuggestions /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightOnactioncenter /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightOnSettings /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableThirdPartySuggestions /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightOnactioncenter /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightOnSettings /T REG_dWORD /D 1 /F
 :: Live Tiles
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NoTileApplicationNotification /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NoTileApplicationNotification /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V ClearTilesOnExit /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V ClearTilesOnExit /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V ClearTilesOnExit /T REG_dWORD /D 1 /F
 :: Windows People Bar
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HidePeopleBar /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" /V PeopleBand /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V HidePeopleBar /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" /V PeopleBand /T REG_dWORD /D 0 /F
 :: Storage Sense
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\StorageSense" /V AllowStorageSenseGlobal /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\StorageSense" /V ConfigStorageSenseDownloadsCleanupThreshold /T REG_dWORD /D 0 /F
@@ -3862,8 +3857,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Maps" /V AllowUntriggeredNetwo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Maps" /V AutoDownloadAndUpdateMapData /T REG_dWORD /D 0 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement" /V ScoobeSystemSettingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement" /V ScoobeSystemSettingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V NoBalloonFeatureAdvertisements /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\UserProfileEngagement" /V ScoobeSystemSettingEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V NoBalloonFeatureAdvertisements /T REG_dWORD /D 1 /F
 :: Disable Java Sponsor offers
 :: It is not recommeded to use Java
 REG ADD "HKLM\SOFTWARE\JavaSoft" /V "SPONSORS" /T REG_SZ /D "DISABLE" /F
@@ -3876,7 +3871,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V Se
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V multitaskingAltTabFilter /T REG_dWORD /D 4 /F
 :: Printing Manual Set Default Printer
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /V LegacyDefaultPrinterMode /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /V LegacyDefaultPrinterMode /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows" /V LegacyDefaultPrinterMode /T REG_dWORD /D 1 /F
 :: Device Installation Settings
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /V PreventDeviceMetadataFromNetwork /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceSetup" /V CostedNetworkPolicy /T REG_dWORD /D 0 /F
@@ -3894,11 +3889,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds" /V EnableFeeds 
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTaskbarViewMode /T REG_dWORD /D 2 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTaskbarContentUpdateMode /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTaskbarOpenOnHover /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData\Microsoft.ProjectNewsbar_8wekyb3d8bbwe\msnews-newsbar" /V State /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData\Microsoft.ProjectNewsbar_8wekyb3d8bbwe\msnews-newsbar" /V State /T REG_dWORD /D 1 /F
 :: Remote Assistance Turn Off
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance" /v fAllowToGetHelp /t REG_DWORD /d 0 /f
 :: WPAD Turn Off (Requires Reboot to take effect)
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WinHttpAutoProxySvc" /V Start /T REG_dWORD /D 4 /F
+:: Windows AutoPlay Turn Off
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" /V DisableAutoplay /T REG_dWORD /D 1 /F
 
 :: -------
 :: Windows Ease of Access
@@ -3919,7 +3916,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\UserARSO\S-1
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableAutomaticRestartSignOn /T REG_dWORD /D 1 /F
 :: Auto Open Apps After Restart
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartApps /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartApps /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartApps /T REG_dWORD /D 0 /F
 :: --------------
 
 :: Group Policies for First Login:
@@ -3932,9 +3929,9 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartA
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V EnableFirstLogonAnimation /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V EnableFirstLogonAnimation /T REG_dWORD /D 0 /F
 :: Welcome Experience
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightWindowswelcomeExperience /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightWindowswelcomeExperience /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /V DisablePrivacyExperience /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\OOBE" /V DisablePrivacyExperience /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\OOBE" /V DisablePrivacyExperience /T REG_dWORD /D 1 /F
 :: --------------
 :: Lock Screen Blur
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V DisableAcrylicBackgroundOnLogon /T REG_dWORD /D 1 /F
@@ -3950,19 +3947,19 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowCloudS
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowSearchToUseLocation /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V DisableWebSearch /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V ConnectedSearchPrivacy /T REG_dWORD /D 3 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /V BingSearchEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowCortanaButton /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V BingSearchEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowCortanaButton /T REG_dWORD /D 0 /F
 :: Search History
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRecentDocsHistory /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRecentDocsHistory /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRecentDocsHistory /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V ClearRecentDocsOnExit /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V ClearRecentDocsOnExit /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V ClearRecentProgForNewUserInStartMenu /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsAADCloudSearchEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsDeviceSearchHistoryEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsMSACloudSearchEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V ClearRecentDocsOnExit /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V ClearRecentProgForNewUserInStartMenu /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsAADCloudSearchEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsDeviceSearchHistoryEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsMSACloudSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Comdlg32" /V NoFileMru /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Comdlg32" /V NoFileMru /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Comdlg32" /V NoFileMru /T REG_dWORD /D 1 /F
 :: Recently Added Apps
 REG ADD " HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideRecentlyAddedApps /T REG_dWORD /D 1 /F
 :: Activity History
@@ -3972,7 +3969,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V EnableActivityFeed 
 :: Advanced Clipboard
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V AllowClipboardHistory /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V AllowCrossDeviceClipboard /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Start_TrackDocs /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Start_TrackDocs /T REG_dWORD /D 0 /F
 :: -------
 :: Windows Security and UAC Settings
 :: -------
@@ -3996,7 +3993,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowWorkplace" 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Account protection" /V UILockdown /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Family options" /V UILockdown /T REG_dWORD /D 1 /F
 :: Hide Password Reveal
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\CredUI" /V DisablePasswordReveal /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CredUI" /V DisablePasswordReveal /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CredUI" /V DisablePasswordReveal /T REG_dWORD /D 1 /F
 :: Picture Password
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V BlockDomainPicturePassword /T REG_dWORD /D 1 /F
@@ -4010,68 +4007,70 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V Enum
 :: Action Center
 :: -------
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V DisableNotificationcenter /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V DisableNotificationcenter /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V DisableNotificationcenter /T REG_dWORD /D 1 /F
 :: -------
 :: Windows 10 Notifications
 :: -------
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\PushNotifications" /V ToastEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\PushNotifications" /V ToastEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications" /V ToastEnabled /T REG_dWORD /D 0 /F
 :: --
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_GLEAM_ENABLED /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_BADGE_ENABLED /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_TOASTS_ENABLED /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_GLEAM_ENABLED /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_BADGE_ENABLED /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_TOASTS_ENABLED /T REG_dWORD /D 0 /F
 :: --
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Explorer.Notification.{B2E2D052-B051-D751-3E74-F8D4290BD1BC}" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Windows.InputSwitchToastHandler" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.Defender.SecurityCenter" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\windows.immersivecontrolpanel_cw5n1h2txyewy!microsoft.windows.immersivecontrolpanel" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.AudioTroubleshooter" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.AutoPlay" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.Explorer" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.Print.Notification" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.LowDisk" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.WindowsUpdate.Notification" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.CommsPhone_8wekyb3d8bbwe!App" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Messaging_8wekyb3d8bbwe!App" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Messaging_8wekyb3d8bbwe!SkypeVide" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Messaging_8wekyb3d8bbwe!x27e26f40ye031y48a6yb130yd1f20388991ax" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Windows.Cortana_cw5n1h2txyewy!App" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Windows.Cortana_cw5n1h2txyewy!CortanaUI" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.MobilityExperience" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.LocationManager" /V Enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.BackupReminder" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Explorer.Notification.{B2E2D052-B051-D751-3E74-F8D4290BD1BC}" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Windows.InputSwitchToastHandler" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.WindowsStore_8wekyb3d8bbwe!App" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.Defender.SecurityCenter" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\windows.immersivecontrolpanel_cw5n1h2txyewy!microsoft.windows.immersivecontrolpanel" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.AudioTroubleshooter" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.AutoPlay" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.Explorer" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.Print.Notification" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.LowDisk" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.WindowsUpdate.Notification" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.CommsPhone_8wekyb3d8bbwe!App" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Messaging_8wekyb3d8bbwe!App" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Messaging_8wekyb3d8bbwe!SkypeVide" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Messaging_8wekyb3d8bbwe!x27e26f40ye031y48a6yb130yd1f20388991ax" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Windows.Cortana_cw5n1h2txyewy!App" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Windows.Cortana_cw5n1h2txyewy!CortanaUI" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.MobilityExperience" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.LocationManager" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.BackupReminder" /V Enabled /T REG_dWORD /D 0 /F
 :: -------
 :: Desktop
 :: -------
 :: Disable Auto Preview Desktop
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V DisablePreviewDesktop /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V DisablePreviewDesktop /T REG_dWORD /D 1 /F
 :: Disable Aero Shake
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V DisallowShaking /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V DisallowShaking /T REG_dWORD /D 1 /F
 :: Command Prompt on Win X Shortcut
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V DontUsePowerShellOnWinX /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V DontUsePowerShellOnWinX /T REG_dWORD /D 1 /F
 :: -------
 :: Start Menu
 :: -------
 :: Quick Uninstall Apps
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V NoUninstallFromStart /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V NoUninstallFromStart /T REG_dWORD /D 1 /F
 :: Taskbar Badges
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarBadges /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarBadges /T REG_dWORD /D 0 /F
 :: Taskbar searchbox
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /V SearchboxTaskbarMode /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V SearchboxTaskbarMode /T REG_dWORD /D 0 /F
 :: Task View Button
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowTaskViewButton /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowTaskViewButton /T REG_dWORD /D 0 /F
 :: -------
 :: File Explorer
 :: -------
-:: Files show Extensions
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V HideFileExt /T REG_dWORD /D 0 /F
+:: File Name Extensions
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V HideFileExt /T REG_dWORD /D 0 /F
+:: Hidden Files
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Hidden /T REG_dWORD /D 1 /F
 :: Recycle Bin
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V ConfirmFileDelete /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V ConfirmFileDelete /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V ConfirmFileDelete /T REG_dWORD /D 1 /F
 
 :: -------
 :: Microsoft Office
@@ -4083,137 +4082,137 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V Co
 :: 2016/2019/365 - 16.0
 
 :: First Run Page
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common\General" /V ShownOptIn /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\firstrun" /V disablemovie /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\firstrun" /V disablemovie /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\firstrun" /V bootedrtm /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\firstrun" /V bootedrtm /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\General" /V ShownOptIn /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\firstrun" /V disablemovie /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\firstrun" /V disablemovie /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\firstrun" /V bootedrtm /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\firstrun" /V bootedrtm /T REG_dWORD /D 1 /F
 
 :: Customer Experience Improvement Program
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
 
 :: Office 2007 Disable Application Add-ins
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Excel\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\InfoPath\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\PowerPoint\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Publisher\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Visio\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Word\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Excel\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\InfoPath\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\PowerPoint\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Publisher\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Visio\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Word\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
 
 :: Office 2007 Disable Macros
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Office\12.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Outlook\Security" /V Level /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Outlook\Security" /V DontTrustInstalledFiles /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Access\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Excel\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\PowerPoint\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Publisher\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Visio\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Word\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Outlook\Security" /V Level /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Outlook\Security" /V DontTrustInstalledFiles /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Access\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Excel\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\PowerPoint\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Publisher\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Visio\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Word\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
 
 :: Office 2010 Disable Application Add-ins
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Excel\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\InfoPath\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\PowerPoint\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Publisher\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Visio\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Word\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Excel\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\InfoPath\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\PowerPoint\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Publisher\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Visio\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Word\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
 
 :: Office 2010 Disable Macros
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Office\14.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Outlook\Security" /V Level /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Outlook\Security" /V DontTrustInstalledFiles /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Access\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Excel\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\PowerPoint\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Publisher\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Visio\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Word\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Outlook\Security" /V Level /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Outlook\Security" /V DontTrustInstalledFiles /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Access\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Excel\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\PowerPoint\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Publisher\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Visio\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Word\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
 
 :: Office 2013 Disable Application Add-ins
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Excel\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\InfoPath\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\PowerPoint\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Publisher\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Visio\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Word\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Excel\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\InfoPath\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\PowerPoint\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Publisher\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Visio\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Word\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
 
 :: Office 2013 Disable Macros
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Office\15.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Outlook\Security" /V Level /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Outlook\Security" /V DontTrustInstalledFiles /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Access\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Excel\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\PowerPoint\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Publisher\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Visio\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Word\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Outlook\Security" /V Level /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Outlook\Security" /V DontTrustInstalledFiles /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Access\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Excel\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\PowerPoint\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Publisher\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Visio\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Word\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
 
 :: Office 2016/2019/365 Disable Application Add-ins
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Excel\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\InfoPath\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\PowerPoint\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Publisher\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Visio\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Word\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Excel\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\InfoPath\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\PowerPoint\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Publisher\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Visio\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Word\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
 
 :: Office 2016/2019/365 Disable Macros
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Office\16.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Outlook\Security" /V Level /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Outlook\Security" /V DontTrustInstalledFiles /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Access\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Excel\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\PowerPoint\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Publisher\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Visio\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Word\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V VbaOff /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Outlook\Security" /V Level /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Outlook\Security" /V DontTrustInstalledFiles /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Access\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Excel\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\PowerPoint\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Publisher\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Visio\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Word\Security" /V VBAWarnings /T REG_dWORD /D 4 /F
 
 :: Office 2016 Telemetry
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\Common\clienttelemetry" /V sendtelemetry /T REG_dWORD /D 3 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /V enableupload /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\osm" /V disableonlinemodeauthdiagnostics /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\readinesstoolkit" /V enableusageagent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\Common\clienttelemetry" /V sendtelemetry /T REG_dWORD /D 3 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\osm" /V enableupload /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\osm" /V disableonlinemodeauthdiagnostics /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\readinesstoolkit" /V enableusageagent /T REG_dWORD /D 0 /F
 
 :: Office 2016 Feedback
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common" /V sendcustomerdata /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\Feedback" /V msoridsurveyenabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V sendcustomerdata /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V msoridsurveyenabled /T REG_dWORD /D 0 /F
 
 :: Office 2013 Telemetry
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\osm" /V enableupload /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\osm" /V enableupload /T REG_dWORD /D 0 /F
 
 :: Office 2013 Feedback
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
 
 :: Office 2007 - Disable Microsoft Office Online featured links
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common\Internet" /V ShowSpotlight /T REG_dWORD /D 2 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\Internet" /V ShowSpotlight /T REG_dWORD /D 2 /F
 
 :: Office Disable Online Content
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\12.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\14.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\15.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\16.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
 
 :: Office Disable ActiveX
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Office\Common\Security" /V DisableAllActiveX /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\Common\Security" /V DisableAllActiveX /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\feature_restrict_activexinstall" /V groove.exe /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\feature_restrict_activexinstall" /V excel.exe /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\feature_restrict_activexinstall" /V mspub.exe /T REG_dWORD /D 1 /F
@@ -4809,7 +4808,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LocalProvidersEnabled /T REG_
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /V AllowPrelaunch /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /V PreventFirstRunPage /T REG_dWORD /D 1 /F
 :: Default Browser
-REG ADD "HKCU\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main" /V DisallowDefaultBrowserPrompt /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main" /V DisallowDefaultBrowserPrompt /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\Main" /V DisallowDefaultBrowserPrompt /T REG_dWORD /D 1 /F
 :: -----
 :: Flash
@@ -4866,7 +4865,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter" /V Preve
 :: First Run
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer" /V DisableImportExportFavorites /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V DisableFirstRunCustomize /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V DisableFirstRunCustomize /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Main" /V DisableFirstRunCustomize /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main\EnterpriseMode" /V ShowMessageWhenOpeningSitesInMicrosoftEdge /T REG_dWORD /D 0 /F
 :: Default Browser
 REG ADD "HKLM\Default\Software\Microsoft\Internet Explorer\Main" /V "Check_Associations" /T REG_SZ /D "no" /F
@@ -4880,7 +4879,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer" /V DisableFlashInIE
 :: Telemetry
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Safety\PrivacIE" /V DisableLogging /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Restrictions" /V NoHelpItemSendFeedback /T REG_dWORD /D 1 /F
-REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Restrictions" /V NoHelpItemSendFeedback /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Restrictions" /V NoHelpItemSendFeedback /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\SQM" /V DisableCustomerImprovementProgram /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /V NoReportSiteProblems /T REG_SZ /D yes /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main\WindowsSearch" /V EnabledScopes /T REG_dWORD /D 0 /F
@@ -4898,8 +4897,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\SearchScopes" /V Top
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\ContinuousBrowsing" /V Enabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main" /V "Start Page" /T REG_SZ /D about:blank /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main" /V Default /T REG_SZ /D about:blank /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main" /V "Start Page" /T REG_SZ /D about:blank /F
-REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main" /V Default /T REG_SZ /D about:blank /F
+REG ADD "HKCU\Software\Microsoft\Internet Explorer\Main" /V "Start Page" /T REG_SZ /D about:blank /F
+REG ADD "HKCU\Software\Microsoft\Internet Explorer\Main" /V Default /T REG_SZ /D about:blank /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Recovery" /V NoReopenLastSession /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\TabbedBrowsing" /V NewTabPageShow /T REG_dWORD /D 0 /F
 :: -----
@@ -5764,7 +5763,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNG
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 1 /F
 
 REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
-REG ADD "HKLM\Software\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
 
 takeown /f "%windir%\SysWOW64\OneDriveSetup.exe" /a /r /d y
 icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
@@ -5919,7 +5918,7 @@ goto :EOF
 :: ----- Windows 10
 
 :: Alt-Tab Multitasking (non-forced option) (Default uses forced option)
-:: REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V MultiTaskingAltTabFilter /T REG_dWORD /D 3 /F
+:: REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /V MultiTaskingAltTabFilter /T REG_dWORD /D 3 /F
 
 :: Enable Receive updates for other Microsoft Products when you update windows
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V AllowMUUpdateService /T REG_dWORD /D 1 /F
