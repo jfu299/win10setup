@@ -3872,7 +3872,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V multitaskingAltTa
 :: Printing Manual Set Default Printer
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /V LegacyDefaultPrinterMode /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows" /V LegacyDefaultPrinterMode /T REG_dWORD /D 1 /F
-:: Device Installation Metadate Retrieval Disabled
+:: Device Installation Metadata Retrieval Disabled
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Device Metadata" /V PreventDeviceMetadataFromNetwork /T REG_dWORD /D 1 /F
 :: Device Installation Metered Network Off
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceSetup" /V CostedNetworkPolicy /T REG_dWORD /D 0 /F
@@ -5921,7 +5921,7 @@ goto :EOF
 :: Alt-Tab Multitasking (non-forced option) (setup.bat main file uses forced option instead)
 :: REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /V MultiTaskingAltTabFilter /T REG_dWORD /D 3 /F
 
-:: Device Installation Metadate Retrieval Off (non-forced option) (setup.bat main file uses forced option instead)
+:: Device Installation Metadata Retrieval Off (non-forced option) (setup.bat main file uses forced option instead)
 :: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /V PreventDeviceMetadataFromNetwork /T REG_dWORD /D 1 /F
 
 :: Enable Receive updates for other Microsoft Products when you update windows
