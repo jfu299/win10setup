@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: June 28, 2021
+:: Updated: June 30, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: June 28, 2021
+echo Updated: June 30, 2021
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -3872,8 +3872,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V multitaskingAltTa
 :: Printing Manual Set Default Printer
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /V LegacyDefaultPrinterMode /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Windows" /V LegacyDefaultPrinterMode /T REG_dWORD /D 1 /F
-:: Device Installation Settings
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /V PreventDeviceMetadataFromNetwork /T REG_dWORD /D 1 /F
+:: Device Installation Metadate Retrieval Disabled
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Device Metadata" /V PreventDeviceMetadataFromNetwork /T REG_dWORD /D 1 /F
+:: Device Installation Metered Network Off
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceSetup" /V CostedNetworkPolicy /T REG_dWORD /D 0 /F
 :: Skype Meet Now
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V HideSCAMeetNow /T REG_dWORD /D 1 /F
@@ -5917,8 +5918,11 @@ goto :EOF
 
 :: ----- Windows 10
 
-:: Alt-Tab Multitasking (non-forced option) (Default uses forced option)
+:: Alt-Tab Multitasking (non-forced option) (setup.bat main file uses forced option instead)
 :: REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer" /V MultiTaskingAltTabFilter /T REG_dWORD /D 3 /F
+
+:: Device Installation Metadate Retrieval Off (non-forced option) (setup.bat main file uses forced option instead)
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /V PreventDeviceMetadataFromNetwork /T REG_dWORD /D 1 /F
 
 :: Enable Receive updates for other Microsoft Products when you update windows
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V AllowMUUpdateService /T REG_dWORD /D 1 /F
@@ -5933,10 +5937,6 @@ goto :EOF
 ::      Computer Configuration > Administrative Templates > System > Login >> Show First Sign-In Animation: DISABLED
 
 ::      Computer Configuration > Administrative Templates > Windows Components > OOBE >> Don't launch privacy settings experience on user logon: ENABLED
-
-:: Group Policy: Disable Control Panel Devices and Printers from Showing Download Icon Message
-
-::      Computer Configuration > Administrative Templates > System > Device Installation >> Prevent device metadata retrieval from the Internet: ENABLED
 
 :: Group Policy: Windows 10 Updates
 
