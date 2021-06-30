@@ -3,11 +3,12 @@ Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: June 28, 2021
+Updated: June 30, 2021
 
 1) Take over permissions of Registry Keys
 
-	Take Full Ownership and Control
+	Take Full Ownership and Control:
+
 		HKCR\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder
 		HKCR\CLSID\{B4FB3F98-C1EA-428d-A78A-D1F5659CBA93}\ShellFolder
 		HKCR\Wow6432Node\CLSID\{B4FB3F98-C1EA-428d-A78A-D1F5659CBA93}\ShellFolder
@@ -17,7 +18,8 @@ Updated: June 28, 2021
 		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
 		HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update
 	
-	Deny Everyone Access (After disabling these services)
+	Deny Everyone Access (After disabling these services):
+
 		HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
 		HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack
 
@@ -46,9 +48,8 @@ Updated: June 28, 2021
 
 	- Computer Configuration > Administrative Templates > Windows Components > OOBE >> Don't launch privacy settings experience on user logon: ENABLED
 
-	- Computer Configuration > Administrative Templates > System > Device Installation >> Prevent device metadata retrieval from the Internet: ENABLED
-
 6) Windows 10 Updates
+
 	- Update
 	- Pause Updates
 	- Update Deferral
@@ -57,16 +58,19 @@ Updated: June 28, 2021
 	- Computer Configuration > Administrative Templates > Windows Components > Windows Update > Windows Update for Business
 
 7) Windows Update Medic Service Disable: WaaSMedicSvc
+
 	- Must Take Ownership and Deny Everyone Access Registry Key to fully disable
 		- HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
 
 8) Ease of Access
+
 	- Take ownership and set Deny All to Utilman.exe in System32 and SysWOW64
 		- %windir%\System32\Utilman.exe
 		- %windir%\SysWOW64\Utilman.exe
 
 
 9) Disk Cleanup (Run as Administrator)
+
 	- DO NOT Select the Downloads Folder
 	Other Temp Folders
 		- %temp% (%windir%\Temp)
@@ -102,8 +106,8 @@ Updated: June 28, 2021
 11) Firefox Web Browser about:config Settings
 		
 	- Insert custom userChrome.css file into Profile (Roaming)
-	- toolkit.legacyUserProfileCustomizations.stylesheets
-		true
+		- toolkit.legacyUserProfileCustomizations.stylesheets
+				true
 	
 	- security.secure_connection_icon_color_gray
 		false
