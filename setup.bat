@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: June 30, 2021
+:: Updated: July 2, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: June 30, 2021
+echo Updated: July 2, 2021
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -721,7 +721,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 :: -----
 
 :: About Config Preferences (about:config)
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_MULTI_SZ /D "{\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.hardwaremediakeys.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.engines\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.interventions\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.default.sites\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.vpn-promo.url\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.privatebrowsing.infoEnabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.privatebrowsing.promoEnabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.privatebrowsing.vpnpromourl\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.contentblocking.report.hide_vpn_banner\":{\"Value\":true,\"Status\":\"locked\"},\"browser.contentblocking.report.hide_lockwise_app\":{\"Value\":true,\"Status\":\"locked\"},\"browser.contentblocking.report.lockwise.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.monitor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.show_mobile_app\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.discover.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.getAddons.showPane\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.pocket.onSaveRecs\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.pocket.showHome\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"locked\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.save_print_settings\":{\"Value\":false,\"Status\":\"default\"},\"print.tab_modal.enabled\":{\"Value\":false,\"Status\":\"default\"},\"accessibility.blockautorefresh\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.formautofill.creditCards.enabled\":{\"Value\":false,\"Status\":\"default\"},\"extensions.formautofill.addresses.enabled\":{\"Value\":false,\"Status\":\"default\"},\"ui.key.menuAccessKeyFocuses\":{\"Value\":false,\"Status\":\"locked\"},\"browser.backspace_action\":{\"Value\":2,\"Status\":\"locked\"},\"extensions.allowPrivateBrowsingByDefault\":{\"Value\":true,\"Status\":\"locked\"},\"browser.urlbar.eventTelemetry.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.richSuggestions.tail\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.autoFill\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.discoverystream.spocs.personalized\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.aboutpreferences\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.discoverystreamfeed\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.favicon\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.newtabinit\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.places\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.sections\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.shortcuts.bookmarks\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.shortcuts.history\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.shortcuts.tabs\":{\"Value\":false,\"Status\":\"default\"},\"accessibility.typeaheadfind.manual\":{\"Value\":false,\"Status\":\"default\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"pdfjs.enableScripting\":{\"Value\":false,\"Status\":\"locked\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_MULTI_SZ /D "{\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.hardwaremediakeys.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.engines\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.interventions\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.default.sites\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.vpn-promo.url\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.privatebrowsing.infoEnabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.privatebrowsing.promoEnabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.privatebrowsing.vpnpromourl\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.contentblocking.report.hide_vpn_banner\":{\"Value\":true,\"Status\":\"locked\"},\"browser.contentblocking.report.hide_lockwise_app\":{\"Value\":true,\"Status\":\"locked\"},\"browser.contentblocking.report.lockwise.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.monitor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.show_mobile_app\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.discover.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.getAddons.showPane\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.pocket.onSaveRecs\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.pocket.showHome\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"locked\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutwelcome.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.save_print_settings\":{\"Value\":false,\"Status\":\"default\"},\"print.tab_modal.enabled\":{\"Value\":false,\"Status\":\"default\"},\"accessibility.blockautorefresh\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.formautofill.creditCards.enabled\":{\"Value\":false,\"Status\":\"default\"},\"extensions.formautofill.addresses.enabled\":{\"Value\":false,\"Status\":\"default\"},\"ui.key.menuAccessKeyFocuses\":{\"Value\":false,\"Status\":\"locked\"},\"browser.backspace_action\":{\"Value\":2,\"Status\":\"locked\"},\"extensions.allowPrivateBrowsingByDefault\":{\"Value\":true,\"Status\":\"locked\"},\"browser.urlbar.eventTelemetry.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.richSuggestions.tail\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.autoFill\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.discoverystream.spocs.personalized\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.aboutpreferences\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.discoverystreamfeed\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.favicon\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.newtabinit\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.places\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.sections\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.shortcuts.bookmarks\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.shortcuts.history\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.shortcuts.tabs\":{\"Value\":false,\"Status\":\"default\"},\"accessibility.typeaheadfind.manual\":{\"Value\":false,\"Status\":\"default\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"pdfjs.enableScripting\":{\"Value\":false,\"Status\":\"locked\"}}" /F
 
 :: -----
 :: DNS Over HTTPS
@@ -791,6 +791,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableProfileRefresh /T REG
 :: -----
 :: Quick Set Desktop Background
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableSetDesktopBackground /T REG_dWORD /D 1 /F
+:: Import Bookmarks Icon on Bookmark Bar
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableProfileImport /T REG_dWORD /D 1 /F
 :: Other
 REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /F
 :: -----
@@ -842,8 +844,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ImportSearch
 :: Telemetry
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V CloudReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UrlKeyedAnonymizedDataCollectionEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
@@ -896,6 +896,8 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TorDisabled /T REG_dWORD
 :: Microsoft Edge Chromium
 :: -----------------
 
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+
 :: Extension Settings
 :: 1) "Ublock Origin", 2) "SponsorBlock for YouTube - Skip Sponsorships", 3) "ClearURLs"
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist" /V 1 /T REG_SZ /D odfafepnkmbhccpbejgmiehpchacaeak /F
@@ -905,8 +907,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 1 /
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 2 /T REG_SZ /D mbmgnelfcpoecdepckhlhegpcehmpmji;https://edge.microsoft.com/extensionwebstorebase/v1/crx /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 3 /T REG_SZ /D mdkdmaickkfdekbjdoojfalpbkgaddei;https://edge.microsoft.com/extensionwebstorebase/v1/crx /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\": {},\"mdkdmaickkfdekbjdoojfalpbkgaddei\": {}}" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideWebStoreIcon /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ShowAppsShortcutInBookmarkBar /T REG_dWORD /D 0 /F
 :: -----
 :: DNS Over HTTPS and Proxy
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DnsOverHttpsMode /T REG_SZ /D off /F
@@ -920,11 +920,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultBrowserSettingEnabled 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideFirstRunExperience /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcutDefault /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcut{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062} /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcut{2CD8A007-E189-409D-A2C8-9AF4EF3C72AA} /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcut{65C35B14-6C1D-4122-AC46-7148CC9D6497} /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcut{0D50BFEC-CD6A-4F9A-964C-C7416E3ACB10} /T REG_dWORD /D 0 /F
 :: -----
 :: Easter Egg
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AllowSurfGame /T REG_dWORD /D 1 /F
@@ -947,22 +942,16 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportPaymentInfo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportSavedPasswords /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportSearchEngine /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportShortcuts /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportHomepage /T REG_dWORD /D 0 /F
 :: -----
 :: Telemetry
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DiagnosticData /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CloudReportingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UrlKeyedAnonymizedDataCollectionEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SafeBrowsingExtendedReportingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
 :: -----
 :: Other Content Settings
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TrackingPrevention /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
@@ -978,8 +967,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultWebUsbGuar
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 :: -----
-:: URL Bar
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
 :: Background Mode
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
 :: Inspect Element
@@ -988,37 +975,34 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DeveloperToolsAvailability /T
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 :: PDF Files
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AlwaysOpenPdfExternally /T REG_dWORD /D 0 /F
-:: Bookmark Bar
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BookmarkBarEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: Search Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SearchSuggestEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MediaRecommendationsEnabled /T REG_dWORD /D 0 /F
 :: Media
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EnableMediaRouter /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: -----
-:: Auto-Install
-REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 :: Collections and Shopping
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeCollectionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 1 /T REG_SZ /D pinterest_suggestions /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeShoppingAssistantEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowMicrosoftRewards /T REG_dWORD /D 0 /F
 :: New Tab Page
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AllowWebContentOnNewTabPage /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageHideDefaultTopSites /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPagePrerenderEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageAllowedBackgroundTypes /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageSearchBox /T REG_SZ /D redirect /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SpotlightExperiencesAndRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AddressBarMicrosoftSearchInBingProviderEnabled /T REG_dWORD /D 0 /F
-:: Family Settings
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V familySafetySettingsEnabled /T REG_dWORD /D 0 /F
-:: Internet Explorer
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageQuickLinksEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageContentEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageHideDefaultTopSites /T REG_dWORD /D 1 /F
+:: Family Settings Disable
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V FamilySafetySettingsEnabled /T REG_dWORD /D 0 /F
+:: Internet Explorer Mode
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideInternetExplorerRedirectUXForIncompatibleSitesEnabled /T REG_dWORD /D 1 /F
-:: Error Pages
+:: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LocalProvidersEnabled /T REG_dWORD /D 0 /F
@@ -2349,6 +2333,9 @@ REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mi
 %SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 %SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
 %SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 %SystemDrive%\ProgramFiles\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
@@ -2431,6 +2418,9 @@ REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mi
 
 %SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 %SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 
 %SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 %SystemDrive%\ProgramFiles\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
@@ -4623,7 +4613,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 :: -----
 
 :: About Config Preferences (about:config)
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_MULTI_SZ /D "{\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.hardwaremediakeys.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.engines\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.interventions\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.default.sites\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.vpn-promo.url\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.privatebrowsing.infoEnabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.privatebrowsing.promoEnabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.privatebrowsing.vpnpromourl\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.contentblocking.report.hide_vpn_banner\":{\"Value\":true,\"Status\":\"locked\"},\"browser.contentblocking.report.hide_lockwise_app\":{\"Value\":true,\"Status\":\"locked\"},\"browser.contentblocking.report.lockwise.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.monitor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.show_mobile_app\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.discover.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.getAddons.showPane\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.pocket.onSaveRecs\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.pocket.showHome\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"locked\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.save_print_settings\":{\"Value\":false,\"Status\":\"default\"},\"print.tab_modal.enabled\":{\"Value\":false,\"Status\":\"default\"},\"accessibility.blockautorefresh\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.formautofill.creditCards.enabled\":{\"Value\":false,\"Status\":\"default\"},\"extensions.formautofill.addresses.enabled\":{\"Value\":false,\"Status\":\"default\"},\"ui.key.menuAccessKeyFocuses\":{\"Value\":false,\"Status\":\"locked\"},\"browser.backspace_action\":{\"Value\":2,\"Status\":\"locked\"},\"extensions.allowPrivateBrowsingByDefault\":{\"Value\":true,\"Status\":\"locked\"},\"browser.urlbar.eventTelemetry.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.richSuggestions.tail\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.autoFill\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.discoverystream.spocs.personalized\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.aboutpreferences\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.discoverystreamfeed\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.favicon\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.newtabinit\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.places\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.sections\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.shortcuts.bookmarks\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.shortcuts.history\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.shortcuts.tabs\":{\"Value\":false,\"Status\":\"default\"},\"accessibility.typeaheadfind.manual\":{\"Value\":false,\"Status\":\"default\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"pdfjs.enableScripting\":{\"Value\":false,\"Status\":\"locked\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /T REG_MULTI_SZ /D "{\"media.eme.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.gmp-widevinecdm.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"media.hardwaremediakeys.enabled\":{\"Value\":false,\"Status\":\"default\"},\"browser.search.suggest.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.search.suggest.enabled.private\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.bookmark\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.history\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.openpage\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.searches\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.topsites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.suggest.engines\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.searchTips\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.update1.interventions\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeBookmarks\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeDownloads\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includePocket\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.section.highlights.includeVisited\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.default.sites\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsored\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.showSponsoredTopSites\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.vpn-promo.url\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.privatebrowsing.infoEnabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.privatebrowsing.promoEnabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.privatebrowsing.vpnpromourl\":{\"Value\":\"\",\"Status\":\"locked\"},\"browser.contentblocking.report.hide_vpn_banner\":{\"Value\":true,\"Status\":\"locked\"},\"browser.contentblocking.report.hide_lockwise_app\":{\"Value\":true,\"Status\":\"locked\"},\"browser.contentblocking.report.lockwise.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.monitor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.contentblocking.report.show_mobile_app\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutConfig.showWarning\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnClose\":{\"Value\":false,\"Status\":\"default\"},\"browser.tabs.warnOnCloseOtherTabs\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.trimURLs\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.recommendations.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.htmlaboutaddons.discover.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.getAddons.showPane\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.pocket.onSaveRecs\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.pocket.showHome\":{\"Value\":false,\"Status\":\"locked\"},\"browser.tabs.crashReporting.sendReport\":{\"Value\":false,\"Status\":\"locked\"},\"geo.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"geo.provider.ms-windows-location\":{\"Value\":false,\"Status\":\"locked\"},\"security.insecure_connection_text.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"security.insecure_connection_text.pbmode.enabled\":{\"Value\":true,\"Status\":\"locked\"},\"accessibility.force_disabled\":{\"Value\":1,\"Status\":\"locked\"},\"dom.battery.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.http.sendRefererHeader\":{\"Value\":0,\"Status\":\"locked\"},\"media.videocontrols.picture-in-picture.keyboard-controls.enabled\":{\"Value\":true,\"Status\":\"default\"},\"browser.formfill.enable\":{\"Value\":false,\"Status\":\"default\"},\"network.prefetch-next\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"network.predictor.enable-prefetch\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.speculativeConnect.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.send_pings\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetrybrowser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.pingcentre.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"media.wmf.deblacklisting-for-telemetry-in-gpu-process\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons\":{\"Value\":false,\"Status\":\"locked\"},\"browser.aboutwelcome.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.messaging-system.whatsNewPanel.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.section.topstories\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.snippets\":{\"Value\":false,\"Status\":\"locked\"},\"browser.ctrlTab.recentlyUsedOrder\":{\"Value\":false,\"Status\":\"default\"},\"browser.crashReports.unsubmittedCheck.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.crashReports.unsubmittedCheck.autoSubmit2\":{\"Value\":false,\"Status\":\"locked\"},\"print.always_print_silent\":{\"Value\":false,\"Status\":\"locked\"},\"print.save_print_settings\":{\"Value\":false,\"Status\":\"default\"},\"print.tab_modal.enabled\":{\"Value\":false,\"Status\":\"default\"},\"accessibility.blockautorefresh\":{\"Value\":false,\"Status\":\"locked\"},\"extensions.formautofill.creditCards.enabled\":{\"Value\":false,\"Status\":\"default\"},\"extensions.formautofill.addresses.enabled\":{\"Value\":false,\"Status\":\"default\"},\"ui.key.menuAccessKeyFocuses\":{\"Value\":false,\"Status\":\"locked\"},\"browser.backspace_action\":{\"Value\":2,\"Status\":\"locked\"},\"extensions.allowPrivateBrowsingByDefault\":{\"Value\":true,\"Status\":\"locked\"},\"browser.urlbar.eventTelemetry.enabled\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.richSuggestions.tail\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.autoFill\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.telemetry\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.discoverystream.spocs.personalized\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.aboutpreferences\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.discoverystreamfeed\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.favicon\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.newtabinit\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.places\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.feeds.sections\":{\"Value\":false,\"Status\":\"locked\"},\"browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts\":{\"Value\":false,\"Status\":\"locked\"},\"browser.urlbar.shortcuts.bookmarks\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.shortcuts.history\":{\"Value\":false,\"Status\":\"default\"},\"browser.urlbar.shortcuts.tabs\":{\"Value\":false,\"Status\":\"default\"},\"accessibility.typeaheadfind.manual\":{\"Value\":false,\"Status\":\"default\"},\"media.navigator.enabled\":{\"Value\":false,\"Status\":\"default\"},\"pdfjs.enableScripting\":{\"Value\":false,\"Status\":\"locked\"}}" /F
 
 :: -----
 :: DNS Over HTTPS
@@ -4693,6 +4683,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableProfileRefresh /T REG
 :: -----
 :: Quick Set Desktop Background
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableSetDesktopBackground /T REG_dWORD /D 1 /F
+:: Import Bookmarks Icon on Bookmark Bar
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableProfileImport /T REG_dWORD /D 1 /F
 :: Other
 REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox\UserMessaging" /F
 :: -----
@@ -4744,8 +4736,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ImportSearch
 :: Telemetry
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V CloudReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UrlKeyedAnonymizedDataCollectionEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
@@ -4798,6 +4788,8 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TorDisabled /T REG_dWORD
 :: Microsoft Edge Chromium
 :: -----------------
 
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+
 :: Extension Settings
 :: 1) "Ublock Origin", 2) "SponsorBlock for YouTube - Skip Sponsorships", 3) "ClearURLs"
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist" /V 1 /T REG_SZ /D odfafepnkmbhccpbejgmiehpchacaeak /F
@@ -4807,8 +4799,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 1 /
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 2 /T REG_SZ /D mbmgnelfcpoecdepckhlhegpcehmpmji;https://edge.microsoft.com/extensionwebstorebase/v1/crx /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /V 3 /T REG_SZ /D mdkdmaickkfdekbjdoojfalpbkgaddei;https://edge.microsoft.com/extensionwebstorebase/v1/crx /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\": {\"blocked_permissions\": [\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\": {},\"mdkdmaickkfdekbjdoojfalpbkgaddei\": {}}" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideWebStoreIcon /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ShowAppsShortcutInBookmarkBar /T REG_dWORD /D 0 /F
 :: -----
 :: DNS Over HTTPS and Proxy
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DnsOverHttpsMode /T REG_SZ /D off /F
@@ -4822,11 +4812,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultBrowserSettingEnabled 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideFirstRunExperience /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcutDefault /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcut{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062} /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcut{2CD8A007-E189-409D-A2C8-9AF4EF3C72AA} /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcut{65C35B14-6C1D-4122-AC46-7148CC9D6497} /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V CreateDesktopShortcut{0D50BFEC-CD6A-4F9A-964C-C7416E3ACB10} /T REG_dWORD /D 0 /F
 :: -----
 :: Easter Egg
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AllowSurfGame /T REG_dWORD /D 1 /F
@@ -4849,22 +4834,16 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportPaymentInfo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportSavedPasswords /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportSearchEngine /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportShortcuts /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportHomepage /T REG_dWORD /D 0 /F
 :: -----
 :: Telemetry
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DiagnosticData /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CloudReportingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UrlKeyedAnonymizedDataCollectionEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SafeBrowsingExtendedReportingEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
 :: -----
 :: Other Content Settings
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TrackingPrevention /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
@@ -4880,8 +4859,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultWebUsbGuar
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 :: -----
-:: URL Bar
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
 :: Background Mode
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
 :: Inspect Element
@@ -4890,37 +4867,34 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DeveloperToolsAvailability /T
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 :: PDF Files
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AlwaysOpenPdfExternally /T REG_dWORD /D 0 /F
-:: Bookmark Bar
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BookmarkBarEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: Search Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SearchSuggestEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MediaRecommendationsEnabled /T REG_dWORD /D 0 /F
 :: Media
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EnableMediaRouter /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: -----
-:: Auto-Install
-REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 :: Collections and Shopping
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeCollectionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 1 /T REG_SZ /D pinterest_suggestions /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeShoppingAssistantEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowMicrosoftRewards /T REG_dWORD /D 0 /F
 :: New Tab Page
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AllowWebContentOnNewTabPage /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageHideDefaultTopSites /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPagePrerenderEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageAllowedBackgroundTypes /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageSearchBox /T REG_SZ /D redirect /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SpotlightExperiencesAndRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AddressBarMicrosoftSearchInBingProviderEnabled /T REG_dWORD /D 0 /F
-:: Family Settings
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V familySafetySettingsEnabled /T REG_dWORD /D 0 /F
-:: Internet Explorer
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageQuickLinksEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageContentEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageHideDefaultTopSites /T REG_dWORD /D 1 /F
+:: Family Settings Disable
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V FamilySafetySettingsEnabled /T REG_dWORD /D 0 /F
+:: Internet Explorer Mode
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideInternetExplorerRedirectUXForIncompatibleSitesEnabled /T REG_dWORD /D 1 /F
-:: Error Pages
+:: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LocalProvidersEnabled /T REG_dWORD /D 0 /F
@@ -5815,7 +5789,6 @@ REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mi
 
 %SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 %SystemDrive%\ProgramFiles\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
