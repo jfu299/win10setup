@@ -138,6 +138,14 @@ if "%op%"=="No" goto option2
 if "%op%"=="N" goto option2
 if "%op%"=="NO" goto option2
 
+if "%op%"=="cancel" goto option2
+if "%op%"=="Cancel" goto option2
+if "%op%"=="CANCEL" goto option2
+
+if "%op%"=="stop" goto option2
+if "%op%"=="Stop" goto option2
+if "%op%"=="STOP" goto option2
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -165,6 +173,14 @@ if "%op%"=="no" goto option2
 if "%op%"=="No" goto option2
 if "%op%"=="N" goto option2
 if "%op%"=="NO" goto option2
+
+if "%op%"=="cancel" goto option2
+if "%op%"=="Cancel" goto option2
+if "%op%"=="CANCEL" goto option2
+
+if "%op%"=="stop" goto option2
+if "%op%"=="Stop" goto option2
+if "%op%"=="STOP" goto option2
 
 echo.
 echo -------
@@ -194,6 +210,14 @@ if "%op%"=="No" goto option2
 if "%op%"=="N" goto option2
 if "%op%"=="NO" goto option2
 
+if "%op%"=="cancel" goto option2
+if "%op%"=="Cancel" goto option2
+if "%op%"=="CANCEL" goto option2
+
+if "%op%"=="stop" goto option2
+if "%op%"=="Stop" goto option2
+if "%op%"=="STOP" goto option2
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -222,6 +246,14 @@ if "%op%"=="No" goto option2
 if "%op%"=="N" goto option2
 if "%op%"=="NO" goto option2
 
+if "%op%"=="cancel" goto option2
+if "%op%"=="Cancel" goto option2
+if "%op%"=="CANCEL" goto option2
+
+if "%op%"=="stop" goto option2
+if "%op%"=="Stop" goto option2
+if "%op%"=="STOP" goto option2
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -235,7 +267,7 @@ goto option2.4redo
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
 :: Target Release Version (Version 20H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "20H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
@@ -298,7 +330,7 @@ goto option2
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
 :: Target Release Version (Version 20H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "20H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
@@ -439,6 +471,14 @@ if "%op%"=="No" goto option3
 if "%op%"=="N" goto option3
 if "%op%"=="NO" goto option3
 
+if "%op%"=="cancel" goto option3
+if "%op%"=="Cancel" goto option3
+if "%op%"=="CANCEL" goto option3
+
+if "%op%"=="stop" goto option3
+if "%op%"=="Stop" goto option3
+if "%op%"=="STOP" goto option3
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -467,6 +507,14 @@ if "%op%"=="No" goto option3
 if "%op%"=="N" goto option3
 if "%op%"=="NO" goto option3
 
+if "%op%"=="cancel" goto option3
+if "%op%"=="Cancel" goto option3
+if "%op%"=="CANCEL" goto option3
+
+if "%op%"=="stop" goto option3
+if "%op%"=="Stop" goto option3
+if "%op%"=="STOP" goto option3
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -494,6 +542,14 @@ if "%op%"=="no" goto option3
 if "%op%"=="No" goto option3
 if "%op%"=="N" goto option3
 if "%op%"=="NO" goto option3
+
+if "%op%"=="cancel" goto option3
+if "%op%"=="Cancel" goto option3
+if "%op%"=="CANCEL" goto option3
+
+if "%op%"=="stop" goto option3
+if "%op%"=="Stop" goto option3
+if "%op%"=="STOP" goto option3
 
 echo.
 echo -------
@@ -1974,6 +2030,14 @@ if "%op%"=="No" goto option4
 if "%op%"=="N" goto option4
 if "%op%"=="NO" goto option4
 
+if "%op%"=="cancel" goto option4
+if "%op%"=="Cancel" goto option4
+if "%op%"=="CANCEL" goto option4
+
+if "%op%"=="stop" goto option4
+if "%op%"=="Stop" goto option4
+if "%op%"=="STOP" goto option4
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -2007,6 +2071,14 @@ if "%op%"=="no" goto option4
 if "%op%"=="No" goto option4
 if "%op%"=="N" goto option4
 if "%op%"=="NO" goto option4
+
+if "%op%"=="cancel" goto option4
+if "%op%"=="Cancel" goto option4
+if "%op%"=="CANCEL" goto option4
+
+if "%op%"=="stop" goto option4
+if "%op%"=="Stop" goto option4
+if "%op%"=="STOP" goto option4
 
 echo.
 echo -------
@@ -2184,6 +2256,14 @@ if "%op%"=="No" goto option5
 if "%op%"=="N" goto option5
 if "%op%"=="NO" goto option5
 
+if "%op%"=="cancel" goto option5
+if "%op%"=="Cancel" goto option5
+if "%op%"=="CANCEL" goto option5
+
+if "%op%"=="stop" goto option5
+if "%op%"=="Stop" goto option5
+if "%op%"=="STOP" goto option5
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -2228,6 +2308,14 @@ if "%op%"=="No" goto option5
 if "%op%"=="N" goto option5
 if "%op%"=="NO" goto option5
 
+if "%op%"=="cancel" goto option5
+if "%op%"=="Cancel" goto option5
+if "%op%"=="CANCEL" goto option5
+
+if "%op%"=="stop" goto option5
+if "%op%"=="Stop" goto option5
+if "%op%"=="STOP" goto option5
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -2262,6 +2350,14 @@ if "%op%"=="no" goto option5
 if "%op%"=="No" goto option5
 if "%op%"=="N" goto option5
 if "%op%"=="NO" goto option5
+
+if "%op%"=="cancel" goto option5
+if "%op%"=="Cancel" goto option5
+if "%op%"=="CANCEL" goto option5
+
+if "%op%"=="stop" goto option5
+if "%op%"=="Stop" goto option5
+if "%op%"=="STOP" goto option5
 
 echo.
 echo -------
@@ -2309,6 +2405,14 @@ if "%op%"=="no" goto option5
 if "%op%"=="No" goto option5
 if "%op%"=="N" goto option5
 if "%op%"=="NO" goto option5
+
+if "%op%"=="cancel" goto option5
+if "%op%"=="Cancel" goto option5
+if "%op%"=="CANCEL" goto option5
+
+if "%op%"=="stop" goto option5
+if "%op%"=="Stop" goto option5
+if "%op%"=="STOP" goto option5
 
 echo.
 echo -------
@@ -2633,6 +2737,14 @@ if "%op%"=="No" goto option6
 if "%op%"=="N" goto option6
 if "%op%"=="NO" goto option6
 
+if "%op%"=="cancel" goto option6
+if "%op%"=="Cancel" goto option6
+if "%op%"=="CANCEL" goto option6
+
+if "%op%"=="stop" goto option6
+if "%op%"=="Stop" goto option6
+if "%op%"=="STOP" goto option6
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -2660,6 +2772,14 @@ if "%op%"=="no" goto option6
 if "%op%"=="No" goto option6
 if "%op%"=="N" goto option6
 if "%op%"=="NO" goto option6
+
+if "%op%"=="cancel" goto option6
+if "%op%"=="Cancel" goto option6
+if "%op%"=="CANCEL" goto option6
+
+if "%op%"=="stop" goto option6
+if "%op%"=="Stop" goto option6
+if "%op%"=="STOP" goto option6
 
 echo.
 echo -------
@@ -2689,6 +2809,14 @@ if "%op%"=="No" goto option6
 if "%op%"=="N" goto option6
 if "%op%"=="NO" goto option6
 
+if "%op%"=="cancel" goto option6
+if "%op%"=="Cancel" goto option6
+if "%op%"=="CANCEL" goto option6
+
+if "%op%"=="stop" goto option6
+if "%op%"=="Stop" goto option6
+if "%op%"=="STOP" goto option6
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -2716,6 +2844,14 @@ if "%op%"=="no" goto option6
 if "%op%"=="No" goto option6
 if "%op%"=="N" goto option6
 if "%op%"=="NO" goto option6
+
+if "%op%"=="cancel" goto option6
+if "%op%"=="Cancel" goto option6
+if "%op%"=="CANCEL" goto option6
+
+if "%op%"=="stop" goto option6
+if "%op%"=="Stop" goto option6
+if "%op%"=="STOP" goto option6
 
 echo.
 echo -------
@@ -2745,6 +2881,14 @@ if "%op%"=="no" goto option6
 if "%op%"=="No" goto option6
 if "%op%"=="N" goto option6
 if "%op%"=="NO" goto option6
+
+if "%op%"=="cancel" goto option6
+if "%op%"=="Cancel" goto option6
+if "%op%"=="CANCEL" goto option6
+
+if "%op%"=="stop" goto option6
+if "%op%"=="Stop" goto option6
+if "%op%"=="STOP" goto option6
 
 echo.
 echo -------
@@ -2876,6 +3020,14 @@ if "%op%"=="No" goto option7
 if "%op%"=="N" goto option7
 if "%op%"=="NO" goto option7
 
+if "%op%"=="cancel" goto option7
+if "%op%"=="Cancel" goto option7
+if "%op%"=="CANCEL" goto option7
+
+if "%op%"=="stop" goto option7
+if "%op%"=="Stop" goto option7
+if "%op%"=="STOP" goto option7
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -2903,6 +3055,14 @@ if "%op%"=="no" goto option7
 if "%op%"=="No" goto option7
 if "%op%"=="N" goto option7
 if "%op%"=="NO" goto option7
+
+if "%op%"=="cancel" goto option7
+if "%op%"=="Cancel" goto option7
+if "%op%"=="CANCEL" goto option7
+
+if "%op%"=="stop" goto option7
+if "%op%"=="Stop" goto option7
+if "%op%"=="STOP" goto option7
 
 echo.
 echo -------
@@ -2932,6 +3092,14 @@ if "%op%"=="No" goto option7
 if "%op%"=="N" goto option7
 if "%op%"=="NO" goto option7
 
+if "%op%"=="cancel" goto option7
+if "%op%"=="Cancel" goto option7
+if "%op%"=="CANCEL" goto option7
+
+if "%op%"=="stop" goto option7
+if "%op%"=="Stop" goto option7
+if "%op%"=="STOP" goto option7
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -2959,6 +3127,14 @@ if "%op%"=="no" goto option7
 if "%op%"=="No" goto option7
 if "%op%"=="N" goto option7
 if "%op%"=="NO" goto option7
+
+if "%op%"=="cancel" goto option7
+if "%op%"=="Cancel" goto option7
+if "%op%"=="CANCEL" goto option7
+
+if "%op%"=="stop" goto option7
+if "%op%"=="Stop" goto option7
+if "%op%"=="STOP" goto option7
 
 echo.
 echo -------
@@ -2988,6 +3164,14 @@ if "%op%"=="No" goto option7
 if "%op%"=="N" goto option7
 if "%op%"=="NO" goto option7
 
+if "%op%"=="cancel" goto option7
+if "%op%"=="Cancel" goto option7
+if "%op%"=="CANCEL" goto option7
+
+if "%op%"=="stop" goto option7
+if "%op%"=="Stop" goto option7
+if "%op%"=="STOP" goto option7
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -3016,6 +3200,14 @@ if "%op%"=="no" goto option7
 if "%op%"=="No" goto option7
 if "%op%"=="N" goto option7
 if "%op%"=="NO" goto option7
+
+if "%op%"=="cancel" goto option7
+if "%op%"=="Cancel" goto option7
+if "%op%"=="CANCEL" goto option7
+
+if "%op%"=="stop" goto option7
+if "%op%"=="Stop" goto option7
+if "%op%"=="STOP" goto option7
 
 echo.
 echo -------
@@ -3186,6 +3378,14 @@ if "%op%"=="No" goto option8
 if "%op%"=="N" goto option8
 if "%op%"=="NO" goto option8
 
+if "%op%"=="cancel" goto option8
+if "%op%"=="Cancel" goto option8
+if "%op%"=="CANCEL" goto option8
+
+if "%op%"=="stop" goto option8
+if "%op%"=="Stop" goto option8
+if "%op%"=="STOP" goto option8
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -3239,6 +3439,14 @@ if "%op%"=="No" goto option8
 if "%op%"=="N" goto option8
 if "%op%"=="NO" goto option8
 
+if "%op%"=="cancel" goto option8
+if "%op%"=="Cancel" goto option8
+if "%op%"=="CANCEL" goto option8
+
+if "%op%"=="stop" goto option8
+if "%op%"=="Stop" goto option8
+if "%op%"=="STOP" goto option8
+
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
@@ -3273,6 +3481,14 @@ if "%op%"=="no" goto option8
 if "%op%"=="No" goto option8
 if "%op%"=="N" goto option8
 if "%op%"=="NO" goto option8
+
+if "%op%"=="cancel" goto option8
+if "%op%"=="Cancel" goto option8
+if "%op%"=="CANCEL" goto option8
+
+if "%op%"=="stop" goto option8
+if "%op%"=="Stop" goto option8
+if "%op%"=="STOP" goto option8
 
 echo.
 echo -------
@@ -3516,15 +3732,20 @@ echo.
 echo.
 PAUSE
 echo -------
-echo This also sets some Windows 10 Updates policies, sets up policies on major web browsers,
-echo hides user accounts on a non-admin User Account Control prompt, uninstall and disable OneDrive,
-echo remove the pre-installed Microsoft Edge Chromium and Microsoft Edge Legacy,
-echo and removes/disables various Windows 10 annoyances.
-echo To stop or disable the Windows Update service (wuauserv), use the other options.
+echo This will change almost all Windows 10 Settings;
+echo Sets Web Browser Policies in Chrome, Chromium, Firefox, Microsoft Edge (Chromium and Legacy), and Brave
+echo Removes the pre-installed Microsoft Edge; uninstall all UWP Apps;
+echo and will remove/disable various Windows 10 annoyance features.
+echo To Fully disable Windows Update service (wuauserv), use the other options.
 echo To fully disable the Windows Update Medic Service (WaaSMedicSvc), 
-echo (HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc) you must take over its registry key and deny full access to everyone
+echo after running this batch file, you must take over its registry key and deny full access to everyone
 echo.
-echo This will also fully uninstall Mirosoft Edge Chromium and Microsoft Edge Legacy
+echo  ############################
+echo    WARNING: Make sure you look through this file and know what this will do BEFORE running this batch file
+echo  ############################
+echo.
+echo Windows 10 Target Release Version Policy is set to: 21H1
+echo (Change Target Release Version if you are running an older Windows 10 version)
 echo.
 PAUSE
 echo -------
@@ -3546,6 +3767,14 @@ if "%op%"=="no" goto deny
 if "%op%"=="No" goto deny
 if "%op%"=="N" goto deny
 if "%op%"=="NO" goto deny
+
+if "%op%"=="cancel" goto deny
+if "%op%"=="Cancel" goto deny
+if "%op%"=="CANCEL" goto deny
+
+if "%op%"=="stop" goto deny
+if "%op%"=="Stop" goto deny
+if "%op%"=="STOP" goto deny
 
 echo.
 echo -------
@@ -3703,7 +3932,7 @@ REG DELETE "HKCR\*\shellex\ContextMenuHandlers\ModernSharing" /F
 :: -------
 :: Target Release Version (Version 20H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "20H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
