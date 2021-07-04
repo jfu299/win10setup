@@ -265,7 +265,7 @@ goto option2.4redo
 @echo ON
 :: -------
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
-:: Target Release Version (Version 20H2)
+:: Target Release Version (Version 21H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
 :: Defer Updates (Windows Update for Business)
@@ -328,7 +328,7 @@ goto option2
 :option2.2Start
 @echo ON
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
-:: Target Release Version (Version 20H2)
+:: Target Release Version (Version 21H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
 :: Defer Updates (Windows Update for Business)
@@ -3930,7 +3930,7 @@ REG DELETE "HKCR\*\shellex\ContextMenuHandlers\ModernSharing" /F
 :: -------
 :: Windows 10 Updates Partial Control (Windows Update Not Disabled)
 :: -------
-:: Target Release Version (Version 20H2)
+:: Target Release Version (Version 21H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
 :: Defer Updates (Windows Update for Business)
