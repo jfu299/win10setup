@@ -8,4 +8,6 @@ setup.bat - Main batch file
 
 setup.ps1 - Powershell Script to remove UWP Apps (Combined with setup.bat)
 
-othersetup.txt - Other Settings
+setup.reg - Registry File to set Firefox About Config (about:config) Preferences (Combined with setup.bat)
+
+othersetup.txt - Other Settings that are not covered by setup.bat
