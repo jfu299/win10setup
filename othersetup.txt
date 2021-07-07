@@ -3,7 +3,7 @@ Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: June 30, 2021
+Updated: July 7 2021
 
 1) Take over permissions of Registry Keys
 
@@ -44,7 +44,7 @@ Updated: June 30, 2021
 
 5) Group Policy
 
-	- Computer Configuration > Administrative Templates > System > Login >> Show First Sign-In Animation: DISABLED
+	- Computer Configuration > Administrative Templates > System > Logon >> Show First Sign-In Animation: DISABLED
 
 	- Computer Configuration > Administrative Templates > Windows Components > OOBE >> Don't launch privacy settings experience on user logon: ENABLED
 
