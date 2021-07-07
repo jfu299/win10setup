@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: July 4, 2021
+:: Updated: July 7, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: July 4, 2021
+echo Updated: July 7, 2021
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -4267,11 +4267,10 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartA
 REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartApps /T REG_dWORD /D 0 /F
 :: --------------
 
-:: Group Policies for First Login:
+:: Group Policy: First Login:
 
-:: Computer Configuration > Administrative Templates > 
-::      System > Login >> Show First Sign-In Animation: Disabled
-::      Windows Components > OOBE >> Don't launch privacy settings experience on user logon: Enabled
+::      Computer Configuration > Administrative Templates > System > Logon >> Show First Sign-In Animation: DISABLED
+::      Computer Configuration > Administrative Templates > Windows Components > OOBE >> Don't launch privacy settings experience on user logon: ENABLED
 
 :: Login Animation
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V EnableFirstLogonAnimation /T REG_dWORD /D 0 /F
@@ -6256,6 +6255,8 @@ goto :EOF
 :: Device Installation Metadata Retrieval Off (non-forced option) (setup.bat main file uses forced option instead)
 :: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /V PreventDeviceMetadataFromNetwork /T REG_dWORD /D 1 /F
 
+:: ----- Windows 10 Update
+
 :: Enable Receive updates for other Microsoft Products when you update windows
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V AllowMUUpdateService /T REG_dWORD /D 1 /F
 
@@ -6266,11 +6267,11 @@ goto :EOF
 
 :: Group Policy: First Login (Registry Equivalent already included):
 
-::      Computer Configuration > Administrative Templates > System > Login >> Show First Sign-In Animation: DISABLED
+::      Computer Configuration > Administrative Templates > System > Logon >> Show First Sign-In Animation: DISABLED
 
 ::      Computer Configuration > Administrative Templates > Windows Components > OOBE >> Don't launch privacy settings experience on user logon: ENABLED
 
-:: Group Policy: Windows 10 Updates
+:: Group Policy: Windows 10 Update
 
 ::      Computer Configuration > Administrative Templates > Windows Components > Windows Update
 
