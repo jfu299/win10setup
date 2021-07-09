@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: July 7, 2021
+:: Updated: July 9, 2021
 
 echo.
 echo -------
@@ -4240,9 +4240,16 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTask
 REG ADD "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData\Microsoft.ProjectNewsbar_8wekyb3d8bbwe\msnews-newsbar" /V State /T REG_dWORD /D 1 /F
 :: Remote Assistance Turn Off
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance" /V fAllowToGetHelp /T REG_DWORD /D 0 /F
-:: WPAD Turn Off (Requires Reboot to take effect)
+:: WPAD (Windows 10 Proxy) Turn Off and Disable (Requires Reboot to take effect)
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WinHttpAutoProxySvc" /V Start /T REG_dWORD /D 4 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Control Panel" /V Proxy /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Control Panel" /V Autoconfig /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Control Panel" /V "Connection Settings" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Control Panel" /V "Connwiz Admin Lock" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Control Panel" /V ConnectionsTab /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings" /V proxySettingsPerUser /T REG_dWORD /D 0 /F
 :: Windows AutoPlay Turn Off
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" /V DisableAutoplay /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" /V DisableAutoplay /T REG_dWORD /D 1 /F
 
 :: -------
@@ -4265,6 +4272,25 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V Disa
 :: Auto Open Apps After Restart
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartApps /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /V RestartApps /T REG_dWORD /D 0 /F
+
+:: ----------------------------
+:: Print Spooler Mitigation (July 2021)
+:: ----------------------------
+
+:: https://support.microsoft.com/en-us/topic/kb5005010-restricting-installation-of-new-printer-drivers-after-applying-the-july-6-2021-updates-31b91c02-05bc-4ada-a7ea-183b129578a7
+
+::      Computer Configuration > Administrative Templates > Printers >> Allow Print Spooler to accept client connections: DISABLED
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers" /V RegisterSpoolerRemoteRpcEndPoint /T REG_dWORD /D 2 /F
+
+::      Computer Configuration > Administrative Templates > System > Logon >> Point and Print Restrictions: ENABLED 
+::                                                            "When installing drivers for a new connection": "Show warning and elevation prompt"
+::                                                            "When updating drivers for an existing connection": "Show warning and elevation prompt"
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint" /V NoWarningNoElevationOnInstall /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint" /V UpdatePromptSettings /T REG_dWORD /D 0 /F
+
+:: Force Driver Installs to Administrators
+REG ADD "HKLM\Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint" /V RestrictDriverInstallationToAdministrators /T REG_dWORD /D 1 /F
+
 :: --------------
 
 :: Group Policy: First Login:
