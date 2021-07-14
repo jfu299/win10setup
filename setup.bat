@@ -771,9 +771,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 ::      https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi
 :: 3) ClearURLs - {74145f27-f039-47ce-a470-a662b129930a}
 ::      https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi
-:: 4) Bypass Paywalls
+:: 4) Bypass Paywalls - bypasspaywalls@bypasspaywalls
 ::      https://addons.mozilla.org/firefox/downloads/latest/bypass-paywalls-firefox/latest.xpi
-:: 5) Tree Style Tabs
+:: 5) Tree Style Tabs - treestyletab@piro.sakura.ne.jp
 ::      https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi
 
 :: (Other adblockers interfere with ublock origin)
@@ -4957,9 +4957,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 ::      https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi
 :: 3) ClearURLs - {74145f27-f039-47ce-a470-a662b129930a}
 ::      https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi
-:: 4) Bypass Paywalls
+:: 4) Bypass Paywalls - bypasspaywalls@bypasspaywalls
 ::      https://addons.mozilla.org/firefox/downloads/latest/bypass-paywalls-firefox/latest.xpi
-:: 5) Tree Style Tabs
+:: 5) Tree Style Tabs - treestyletab@piro.sakura.ne.jp
 ::      https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi
 
 :: (Other adblockers interfere with ublock origin)
