@@ -4380,7 +4380,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint" /V 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint" /V UpdatePromptSettings /T REG_dWORD /D 0 /F
 
 :: Force Driver Installs to Administrators
-REG ADD "HKLM\Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint" /V RestrictDriverInstallationToAdministrators /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint" /V RestrictDriverInstallationToAdministrators /T REG_dWORD /D 1 /F
 
 :: --------------
 :: Windows 10 First Run Screen
