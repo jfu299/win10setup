@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: July 14, 2021
+:: Updated: July 15, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: July 14, 2021
+echo Updated: July 15, 2021
 echo -------
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
@@ -2107,6 +2107,8 @@ goto option4.2redo
 :: Uninstall and Disable OneDrive
 :: -----------------
 
+TASKKILL /F /IM OneDrive.exe
+
 REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 1 /F
@@ -2114,19 +2116,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /
 REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
 
-takeown /f "%windir%\SysWOW64\OneDriveSetup.exe" /a /r /d y
-icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
 %windir%\SysWOW64\OneDriveSetup.exe /uninstall
-icacls "%windir%\SysWOW64\OneDriveSetup.exe" /inheritance:r
-icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
-icacls "%windir%\SysWOW64\OneDriveSetup.exe" /deny everyone:F /t /q
 
-takeown /f "%windir%\System32\OneDriveSetup.exe" /a /r /d y
-icacls "%windir%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
 %windir%\System32\OneDriveSetup.exe /uninstall
-icacls "%windir%\System32\OneDriveSetup.exe" /inheritance:r
-icacls "%windir%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
-icacls "%windir%\System32\OneDriveSetup.exe" /deny everyone:F /t /q
 
 takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
@@ -2160,16 +2152,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /
 
 REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
-
-takeown /f "%windir%\SysWOW64\OneDriveSetup.exe" /a /r /d y
-icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
-icacls "%windir%\SysWOW64\OneDriveSetup.exe" /inheritance:e
-icacls "%windir%\SysWOW6\OneDriveSetup.exe" /reset /t /q
-
-takeown /f "%windir%\System32\OneDriveSetup.exe" /a /r /d y
-icacls "%windir%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
-icacls "%windir%\System32\OneDriveSetup.exe" /inheritance:e
-icacls "%windir%\System32\OneDriveSetup.exe" /reset /t /q
 
 md "%UserProfile%\AppData\Local\Microsoft\OneDrive"
 
@@ -2497,11 +2479,11 @@ takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
-rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
-md "%UserProfile%\AppData\Local\Microsoft\Edge"
-takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
+:: rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
+:: md "%UserProfile%\AppData\Local\Microsoft\Edge"
+:: takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
 
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
@@ -2536,9 +2518,9 @@ icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
-takeown /f "%UserProfile%\Local\MicrosoftEdge" /a /r /d y
-icacls "%UserProfile%\Local\MicrosoftEdge" /grant administrators:F /t /q
-rd /s /q "%UserProfile%\Local\MicrosoftEdge"
+takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
+rd /s /q "%UserProfile%\AppData\Local\MicrosoftEdge"
 
 takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
 icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
@@ -2613,11 +2595,11 @@ takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
-rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
-md "%UserProfile%\AppData\Local\Microsoft\Edge"
-takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
+:: rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
+:: md "%UserProfile%\AppData\Local\Microsoft\Edge"
+:: takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
 
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
@@ -2658,9 +2640,9 @@ icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
-takeown /f "%UserProfile%\Local\MicrosoftEdge" /a /r /d y
-icacls "%UserProfile%\Local\MicrosoftEdge" /grant administrators:F /t /q
-rd /s /q "%UserProfile%\Local\MicrosoftEdge"
+takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
+rd /s /q "%UserProfile%\AppData\Local\MicrosoftEdge"
 
 takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
 icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
@@ -6194,11 +6176,11 @@ takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
-rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
-md "%UserProfile%\AppData\Local\Microsoft\Edge"
-takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
+:: rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
+:: md "%UserProfile%\AppData\Local\Microsoft\Edge"
+:: takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
 
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
@@ -6234,9 +6216,9 @@ icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
-takeown /f "%UserProfile%\Local\MicrosoftEdge" /a /r /d y
-icacls "%UserProfile%\Local\MicrosoftEdge" /grant administrators:F /t /q
-rd /s /q "%UserProfile%\Local\MicrosoftEdge"
+takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
+rd /s /q "%UserProfile%\AppData\Local\MicrosoftEdge"
 
 takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
 icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
@@ -6255,19 +6237,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /
 REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
 
-takeown /f "%windir%\SysWOW64\OneDriveSetup.exe" /a /r /d y
-icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
 %windir%\SysWOW64\OneDriveSetup.exe /uninstall
-icacls "%windir%\SysWOW64\OneDriveSetup.exe" /inheritance:r
-icacls "%windir%\SysWOW64\OneDriveSetup.exe" /grant administrators:F /t /q
-icacls "%windir%\SysWOW64\OneDriveSetup.exe" /deny everyone:F /t /q
 
-takeown /f "%windir%\System32\OneDriveSetup.exe" /a /r /d y
-icacls "%windir%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
 %windir%\System32\OneDriveSetup.exe /uninstall
-icacls "%windir%\System32\OneDriveSetup.exe" /inheritance:r
-icacls "%windir%\System32\OneDriveSetup.exe" /grant administrators:F /t /q
-icacls "%windir%\System32\OneDriveSetup.exe" /deny everyone:F /t /q
 
 takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
