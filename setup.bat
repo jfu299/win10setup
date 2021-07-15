@@ -2454,8 +2454,8 @@ icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
 takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
-takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
+takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
 
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
@@ -2497,11 +2497,11 @@ takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
-rd /s /q "%UserProfile%\Local\Microsoft\Edge"
-md "%UserProfile%\Local\Microsoft\Edge"
-takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\Local\Microsoft\Edge" /inheritance:r
-icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
+rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
+md "%UserProfile%\AppData\Local\Microsoft\Edge"
+takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
 
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
@@ -2570,8 +2570,8 @@ icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
 takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
-takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
+takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
 
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
@@ -2613,11 +2613,11 @@ takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
-rd /s /q "%UserProfile%\Local\Microsoft\Edge"
-md "%UserProfile%\Local\Microsoft\Edge"
-takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\Local\Microsoft\Edge" /inheritance:r
-icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
+rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
+md "%UserProfile%\AppData\Local\Microsoft\Edge"
+takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
 
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
@@ -2690,8 +2690,8 @@ icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
 takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
-takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
+takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
 
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
@@ -2737,12 +2737,12 @@ icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /deny everyone:F /t /q
 
-rd /s /q "%UserProfile%\Local\Microsoft\Edge"
-md "%UserProfile%\Local\Microsoft\Edge"
-takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\Local\Microsoft\Edge" /inheritance:r
-icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
-icacls "%UserProfile%\Local\Microsoft\Edge" /deny everyone:F /t /q
+rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
+md "%UserProfile%\AppData\Local\Microsoft\Edge"
+takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /deny everyone:F /t /q
 
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
@@ -6151,8 +6151,8 @@ icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
 takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
-takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
+takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
 
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
@@ -6194,11 +6194,11 @@ takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
-rd /s /q "%UserProfile%\Local\Microsoft\Edge"
-md "%UserProfile%\Local\Microsoft\Edge"
-takeown /f "%UserProfile%\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\Local\Microsoft\Edge" /inheritance:r
-icacls "%UserProfile%\Local\Microsoft\Edge" /grant administrators:F /t /q
+rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
+md "%UserProfile%\AppData\Local\Microsoft\Edge"
+takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
 
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
@@ -6313,8 +6313,13 @@ rd /s /q "%ProgramData%\WindowsHolographicDevices"
 :: Disable Windows XPS Document Writer
 DISM /online /Disable-Feature /FeatureName:Printing-XPSServices-Features -NoRestart
 
+:: -------
 :: Disable Internet Explorer
+:: -------
+
 DISM /online /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.11.0 -NoRestart
+
+:: https://docs.microsoft.com/en-us/troubleshoot/browsers/disable-internet-explorer-windows
 
 :: -------
 :: Set Time Zone (United States Eastern Time)
