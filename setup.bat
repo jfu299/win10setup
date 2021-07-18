@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: July 16, 2021
+:: Updated: July 18, 2021
 
 echo.
 echo -------
@@ -13,19 +13,68 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: July 16, 2021
+echo Updated: July 18, 2021
 echo -------
+echo.
+
+:: --------------
+
+:: Admin Privileges Check
+echo Checking for Admin Privileges:
+echo.
+NET SESSION >nul 2>&1
+IF %ERRORLEVEL% EQU 0 (
+    echo Administrator Privileges Detected
+    goto adminsuccess
+) ELSE (
+    echo Administrator Privileges NOT Detected
+    goto adminfailed
+)
+
+:: --------------
+
+:adminsuccess
+echo.
+echo -------
+echo.
 echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
-echo RUN THIS BATCH FILE AS ADMINISTRATOR
 echo -------
 PAUSE
 
 :: --------------
+:firstMenu
+echo -------
+echo Select an option:
+echo.
+echo 1) MAIN
+echo.
+echo 2) Other Options
+echo.
+echo 3) Exit
+echo.
 
+set /p op="Type Option: "
+
+if "%op%"=="1" goto mainFile
+if "%op%"=="2" goto mainMenu
+
+if "%op%"=="3" goto end
+if "%op%"=="N" goto end
+if "%op%"=="n" goto end
+if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
+if "%op%"=="c" goto end
+
+:: Error Message if a valid choice is not selected
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+goto firstMenu
+:: --------------
 :mainMenu
 echo -------
-echo Select a task:
+echo Select an option:
 echo.
 echo 1) MAIN
 echo.
@@ -58,6 +107,7 @@ if "%op%"=="7" goto option7
 if "%op%"=="8" goto option8
 
 if "%op%"=="9" goto end
+if "%op%"=="N" goto end
 if "%op%"=="n" goto end
 if "%op%"=="exit" goto end
 if "%op%"=="C" goto end
@@ -2187,37 +2237,29 @@ echo You have selected Option 5: Remove Microsoft Edge
 echo.
 echo ------- IMPORTANT ----------
 echo.
-echo The Start Menu Icon for Microsoft Edge Legacy cannot be removed, 
-echo Windows 10 will view it as ms-resource:AppName, and move it to the bottom of the app list
-echo.
-echo To fully remove Microsoft Edge Chromium from the Control Panel List, taking over and deleting registry keys is required
+echo The Start Menu Icon for Microsoft Edge Legacy cannot be removed,
+echo However, pressing the Microsoft Edge Icon will not launch Microsoft Edge
 echo.
 echo ----------------------------
 echo.
 echo Select a task:
 echo.
-echo 1) (Already Included in Main) Remove Microsoft Edge Chromium and Microsoft Edge Legacy
+echo 1) Remove Microsoft Edge Chromium and Microsoft Edge Legacy
 echo.
-echo 2) Remove Microsoft Edge Chromium only
+echo 2) Allow Reinstall of Microsoft Edge Chromium only
 echo.
-echo 3) Remove Microsoft Edge Legacy only
+echo 3) Return
 echo.
-echo 4) Remove Microsoft Edge Chromium only and Prevent Reinstall
-echo.
-echo 5) Return
-echo.
-echo 6) Exit
+echo 4) Exit
 echo.
 
 set /p op="Type Option: "
 
 if "%op%"=="1" goto option5.1
 if "%op%"=="2" goto option5.2
-if "%op%"=="3" goto option5.3
-if "%op%"=="4" goto option5.4
 
-if "%op%"=="5" goto mainMenu
-if "%op%"=="6" goto end
+if "%op%"=="3" goto mainMenu
+if "%op%"=="4" goto end
 if "%op%"=="exit" goto end
 if "%op%"=="C" goto end
 if "%op%"=="c" goto end
@@ -2292,21 +2334,11 @@ echo.
 
 echo ------- IMPORTANT ----------
 echo.
-echo To fully remove Microsoft Edge Chromium from the Control Panel List, taking over and deleting registry keys is required
-echo.
-echo Microsoft Edge Chromium Registry Keys:
-echo	Take over control and delete these registry keys
-echo.
-echo	HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
-echo.
-echo	HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
-echo.
-echo Go To (x64 OS): %ProgramFiles(x86)%\Microsoft\Edge\Application
-echo Go To (x86 OS): %ProgramFiles%\Microsoft\Edge\Application
+echo You will still need to manually Reinstall Microsoft Edge Chromium through an .exe file or a .msi file
 echo.
 echo ----------------------------
 
-set /p op="Remove Microsoft Edge Chromium Only? (y/n) "
+set /p op="Allow Reinstall of Microsoft Edge Chromium? (y/n) "
 if "%op%"=="y" goto option5.2Start
 if "%op%"=="yes" goto option5.2Start
 if "%op%"=="Yes" goto option5.2Start
@@ -2334,341 +2366,7 @@ echo.
 goto option5.2redo
 
 :: --------------
-
-:option5.3
-echo.
-echo -------
-echo.
-
-:option5.3redo
-
-echo ------- IMPORTANT ----------
-echo.
-echo The Start Menu Icon for Microsoft Edge Legacy cannot be removed, 
-echo Windows 10 will view it as ms-resource:AppName, and move it to the bottom of the app list
-echo.
-echo ----------------------------
-
-set /p op="Remove Microsoft Edge Legacy Only? (y/n) "
-if "%op%"=="y" goto option5.3Start
-if "%op%"=="yes" goto option5.3Start
-if "%op%"=="Yes" goto option5.3Start
-if "%op%"=="Y" goto option5.3Start
-if "%op%"=="YES" goto option5.3Start
-
-if "%op%"=="n" goto option5
-if "%op%"=="no" goto option5
-if "%op%"=="No" goto option5
-if "%op%"=="N" goto option5
-if "%op%"=="NO" goto option5
-
-if "%op%"=="cancel" goto option5
-if "%op%"=="Cancel" goto option5
-if "%op%"=="CANCEL" goto option5
-
-if "%op%"=="stop" goto option5
-if "%op%"=="Stop" goto option5
-if "%op%"=="STOP" goto option5
-
-echo.
-echo -------
-echo PLEASE SELECT A VALID OPTION
-echo.
-goto option5.3redo
-
-:: --------------
-
-:option5.4
-echo.
-echo -------
-echo.
-
-:option5.4redo
-
-echo ------- IMPORTANT ----------
-echo.
-echo To fully remove Microsoft Edge Chromium from the Control Panel List, taking over and deleting registry keys is required
-echo.
-echo Microsoft Edge Chromium Registry Keys:
-echo	Take over control and delete these registry keys
-echo.
-echo	HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
-echo.
-echo	HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
-echo.
-echo Go To (x64 OS): %ProgramFiles(x86)%\Microsoft\Edge\Application
-echo Go To (x86 OS): %ProgramFiles%\Microsoft\Edge\Application
-echo.
-echo This will fully remove Microsoft Edge Chromium and Prevent Reinstall
-echo (Windows Updates usually automatically reinstalls Microsoft Edge Chromium)
-echo.
-echo ----------------------------
-
-set /p op="Remove Microsoft Edge Chromium and Prevent Reinstall? (y/n) "
-if "%op%"=="y" goto option5.4Start
-if "%op%"=="yes" goto option5.4Start
-if "%op%"=="Yes" goto option5.4Start
-if "%op%"=="Y" goto option5.4Start
-if "%op%"=="YES" goto option5.4Start
-
-if "%op%"=="n" goto option5
-if "%op%"=="no" goto option5
-if "%op%"=="No" goto option5
-if "%op%"=="N" goto option5
-if "%op%"=="NO" goto option5
-
-if "%op%"=="cancel" goto option5
-if "%op%"=="Cancel" goto option5
-if "%op%"=="CANCEL" goto option5
-
-if "%op%"=="stop" goto option5
-if "%op%"=="Stop" goto option5
-if "%op%"=="STOP" goto option5
-
-echo.
-echo -------
-echo PLEASE SELECT A VALID OPTION
-echo.
-goto option5.4redo
-
-:: --------------
 :option5.1Start
-@echo ON
-
-:: -----------------
-:: Remove Microsoft Edge Chromium
-:: -----------------
-
-TASKKILL /F /IM msedge.exe
-
-takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
-
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
-
-takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
-
-
-REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
-
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
-
-%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge"
-md "%ProgramFiles(x86)%\Microsoft\Edge"
-takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\Edge" /inheritance:r
-icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
-
-rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
-md "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /inheritance:r
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-rd /s /q "%ProgramFiles%\Microsoft\Edge"
-md "%ProgramFiles%\Microsoft\Edge"
-takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:r
-icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
-
-rd /s /q "%ProgramFiles%\Microsoft\EdgeUpdate"
-md "%ProgramFiles%\Microsoft\EdgeUpdate"
-takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
-icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-:: rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
-:: md "%UserProfile%\AppData\Local\Microsoft\Edge"
-:: takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
-:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
-:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
-
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
-
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge" /F
-
-:: -----------------
-:: Remove Microsoft Edge Legacy
-:: -----------------
-
-TASKKILL /F /IM MicrosoftEdge.exe
-
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" && md "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /deny everyone:F /t /q
-
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" && md "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
-
-takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
-icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
-rd /s /q "%UserProfile%\AppData\Local\MicrosoftEdge"
-
-takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
-icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
-rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
-
-
-@echo OFF
-goto option5
-
-:: --------------
-:option5.2Start
-@echo ON
-
-:: -----------------
-:: Remove Microsoft Edge Chromium
-:: -----------------
-
-TASKKILL /F /IM msedge.exe
-
-takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
-
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
-
-takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
-
-
-REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
-
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
-
-%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge"
-md "%ProgramFiles(x86)%\Microsoft\Edge"
-takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\Edge" /inheritance:r
-icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
-
-rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
-md "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /inheritance:r
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-rd /s /q "%ProgramFiles%\Microsoft\Edge"
-md "%ProgramFiles%\Microsoft\Edge"
-takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:r
-icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
-
-rd /s /q "%ProgramFiles%\Microsoft\EdgeUpdate"
-md "%ProgramFiles%\Microsoft\EdgeUpdate"
-takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
-icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-:: rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
-:: md "%UserProfile%\AppData\Local\Microsoft\Edge"
-:: takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
-:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
-:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
-
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
-
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge" /F
-
-@echo OFF
-goto option5
-:: --------------
-:option5.3Start
-@echo ON
-
-:: -----------------
-:: Remove Microsoft Edge Legacy
-:: -----------------
-
-TASKKILL /F /IM MicrosoftEdge.exe
-
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" && md "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /deny everyone:F /t /q
-
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" && md "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
-
-takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
-icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
-rd /s /q "%UserProfile%\AppData\Local\MicrosoftEdge"
-
-takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
-icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
-rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
-
-@echo OFF
-goto option5
-:: --------------
-:option5.4Start
 @echo ON
 
 :: -----------------
@@ -2736,12 +2434,12 @@ icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /deny everyone:F /t /q
 
-rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
-md "%UserProfile%\AppData\Local\Microsoft\Edge"
-takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /deny everyone:F /t /q
+:: rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
+:: md "%UserProfile%\AppData\Local\Microsoft\Edge"
+:: takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /deny everyone:F /t /q
 
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
@@ -2751,6 +2449,68 @@ REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
 REG DELETE "HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge" /F
+
+:: -----------------
+:: Remove Microsoft Edge Legacy
+:: -----------------
+
+TASKKILL /F /IM MicrosoftEdge.exe
+
+takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" && md "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
+takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /deny everyone:F /t /q
+
+takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" && md "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
+takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
+
+:: takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
+:: icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
+:: rd /s /q "%UserProfile%\AppData\Local\MicrosoftEdge"
+
+:: takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
+:: icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
+:: rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
+
+@echo OFF
+goto option5
+:: --------------
+:option5.2Start
+@echo ON
+
+:: -----------------
+:: Allow Reinstall of Microsoft Edge Chromium
+:: -----------------
+
+takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:e
+
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:e
+
+takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:e
+
+takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:e
+
+takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:e
 
 @echo OFF
 goto option5
@@ -3809,63 +3569,140 @@ echo HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
 echo.
 echo HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack
 echo.
-
+echo -------------
 echo.
 PAUSE
+echo.
 echo -------
-echo This will change almost all Windows 10 Settings;
-echo Sets Web Browser Policies in Chrome, Chromium, Firefox, Microsoft Edge (Chromium and Legacy), and Brave
-echo Removes the pre-installed Microsoft Edge; uninstall all UWP Apps;
-echo and will remove/disable various Windows 10 annoyance features.
-echo To Fully disable Windows Update service (wuauserv), use the other options.
-echo To fully disable the Windows Update Medic Service (WaaSMedicSvc), 
-echo after running this batch file, you must take over its registry key and deny full access to everyone
+echo This batch file will:
+echo    - Change almost all Windows 10 Settings
+echo    - Sets Web Browser Policies in Chrome, Chromium, Firefox, Microsoft Edge, and Brave
+echo    - Removes the pre-installed Microsoft Edge; uninstall all UWP Apps;
+echo    - and will remove/disable various Windows 10 annoyance features.
+echo    - To Fully disable Windows Update service (wuauserv), use the other options.
+echo    - To Fully disable the Windows Update Medic Service (WaaSMedicSvc), 
+echo      after running this batch file, you must take over its registry key and deny full access to everyone
 echo.
 echo  ############################
 echo    WARNING: Make sure you look through this file and know what this will do BEFORE running this batch file
 echo  ############################
 echo.
+echo -------
+echo.
 echo Windows 10 Target Release Version Policy is set to: 21H1
 echo (Change Target Release Version if you are running an older Windows 10 version)
 echo.
+echo -------
 PAUSE
-echo -------
+
+:: ----------------------------------------------------------------------
+
 :mainFileredo
-echo MAKE SURE YOU READ THIS BATCH FILE BEFORE YOU RUN IT - THIS BATCH FILE WILL CHANGE MANY SETTINGS
 echo.
-echo RUN THIS BATCH FILE AS ADMINISTRATOR
+echo ----------------------------
+echo.
+echo Option 1: Run main file AND Remove and Prevent Reinstall of Microsoft Edge Chromium
+echo.
+echo Option 2: Run main file WITHOUT Removing Microsoft Edge Chromium
+echo.
+echo ----------------------------
+echo.
+echo 1) Option 1
+echo.
+echo 2) Option 2
+echo.
+echo 3) Return
+echo.
+echo 4) Exit
+echo.
+
+set /p op="Type Option: "
+
+if "%op%"=="1" goto mainFileConfirmStartOption1
+if "%op%"=="2" goto mainFileConfirmStartOption2
+if "%op%"=="3" goto firstMenu
+
+if "%op%"=="4" goto end
+if "%op%"=="exit" goto end
+if "%op%"=="C" goto end
+if "%op%"=="c" goto end
+
+echo.
 echo -------
+echo PLEASE SELECT A VALID OPTION
+goto mainFileredo
+
+:: --------------
+
+:mainFileConfirmStartOption1
 echo.
-set /p op="RUN THIS BATCH FILE (Main File): (y/n) "
-if "%op%"=="y" goto mainFileStart
-if "%op%"=="yes" goto mainFileStart
-if "%op%"=="Yes" goto mainFileStart
-if "%op%"=="Y" goto mainFileStart
-if "%op%"=="YES" goto mainFileStart
+echo -------
+:mainFileConfirmStartOption1redo
+echo.
+set /p op="RUN THIS BATCH FILE (Main File Option 1): (y/n) "
+if "%op%"=="y" goto mainFileStart1
+if "%op%"=="yes" goto mainFileStart1
+if "%op%"=="Yes" goto mainFileStart1
+if "%op%"=="Y" goto mainFileStart1
+if "%op%"=="YES" goto mainFileStart1
 
-if "%op%"=="n" goto deny
-if "%op%"=="no" goto deny
-if "%op%"=="No" goto deny
-if "%op%"=="N" goto deny
-if "%op%"=="NO" goto deny
+if "%op%"=="n" goto mainFileredo
+if "%op%"=="no" goto mainFileredo
+if "%op%"=="No" goto mainFileredo
+if "%op%"=="N" goto mainFileredo
+if "%op%"=="NO" goto mainFileredo
 
-if "%op%"=="cancel" goto deny
-if "%op%"=="Cancel" goto deny
-if "%op%"=="CANCEL" goto deny
+if "%op%"=="cancel" goto mainFileredo
+if "%op%"=="Cancel" goto mainFileredo
+if "%op%"=="CANCEL" goto mainFileredo
 
-if "%op%"=="stop" goto deny
-if "%op%"=="Stop" goto deny
-if "%op%"=="STOP" goto deny
+if "%op%"=="stop" goto mainFileredo
+if "%op%"=="Stop" goto mainFileredo
+if "%op%"=="STOP" goto mainFileredo
 
 echo.
 echo -------
 echo PLEASE SELECT A VALID OPTION
 echo.
-goto mainFileredo
+goto mainFileConfirmStartOption1redo
 
 :: --------------
 
-:mainFileStart
+:mainFileConfirmStartOption2
+echo.
+echo -------
+:mainFileConfirmStartOption2redo
+echo.
+set /p op="RUN THIS BATCH FILE (Main File Option 2): (y/n) "
+if "%op%"=="y" goto mainFileStart2
+if "%op%"=="yes" goto mainFileStart2
+if "%op%"=="Yes" goto mainFileStart2
+if "%op%"=="Y" goto mainFileStart2
+if "%op%"=="YES" goto mainFileStart2
+
+if "%op%"=="n" goto mainFileredo
+if "%op%"=="no" goto mainFileredo
+if "%op%"=="No" goto mainFileredo
+if "%op%"=="N" goto mainFileredo
+if "%op%"=="NO" goto mainFileredo
+
+if "%op%"=="cancel" goto mainFileredo
+if "%op%"=="Cancel" goto mainFileredo
+if "%op%"=="CANCEL" goto mainFileredo
+
+if "%op%"=="stop" goto mainFileredo
+if "%op%"=="Stop" goto mainFileredo
+if "%op%"=="STOP" goto mainFileredo
+
+echo.
+echo -------
+echo PLEASE SELECT A VALID OPTION
+echo.
+goto mainFileConfirmStartOption2redo
+
+:: ----------------------------------------------------------------------
+
+:mainFileStart1
 
 echo.
 echo Please wait for this batch file to finish
@@ -3887,6 +3724,114 @@ TASKKILL /F /IM OneDrive.exe
 :: Stop Skype Background Host
 TASKKILL /F /IM SkypeBackgroundHost.exe
 
+:: -----------------
+:: Remove Microsoft Edge Chromium and Prevent Reinstall
+:: -----------------
+
+takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
+
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+
+takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
+
+takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+
+takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
+
+
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
+
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+
+rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge"
+md "%ProgramFiles(x86)%\Microsoft\Edge"
+takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\Edge" /inheritance:r
+icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft\Edge" /deny everyone:F /t /q
+
+rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
+md "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /inheritance:r
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /deny everyone:F /t /q
+
+rd /s /q "%ProgramFiles%\Microsoft\Edge"
+md "%ProgramFiles%\Microsoft\Edge"
+takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:r
+icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft\Edge" /deny everyone:F /t /q
+
+rd /s /q "%ProgramFiles%\Microsoft\EdgeUpdate"
+md "%ProgramFiles%\Microsoft\EdgeUpdate"
+takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
+icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /deny everyone:F /t /q
+
+:: rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
+:: md "%UserProfile%\AppData\Local\Microsoft\Edge"
+:: takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
+:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /deny everyone:F /t /q
+
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
+
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
+REG DELETE "HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge" /F
+:: -----------------
+
+goto mainFileStart
+:: ----------------------------------------------------------------------
+
+:mainFileStart2
+
+echo.
+echo Please wait for this batch file to finish
+echo.
+
+@echo ON
+
+:: Stop WaaSMedicSvc and DiagTrack
+net stop WaaSMedicSvc
+net stop DiagTrack
+
+:: Stop Microsoft Edge Chromium and Microsoft Edge Legacy
+TASKKILL /F /IM msedge.exe
+TASKKILL /F /IM MicrosoftEdge.exe
+
+:: Stop OneDrive
+TASKKILL /F /IM OneDrive.exe
+
+:: Stop Skype Background Host
+TASKKILL /F /IM SkypeBackgroundHost.exe
+
+goto mainFileStart
+:: ----------------------------------------------------------------------
+:mainFileStart
 :: -------
 :: Remove 3D Objects Folder
 :: -------
@@ -6150,80 +6095,7 @@ icacls "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy"
 icacls "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /deny everyone:F /t /q
 
 :: -----------------
-:: Remove Microsoft Edge Chromium
-:: -----------------
-
-TASKKILL /F /IM msedge.exe
-
-takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
-
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
-
-takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
-icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
-
-
-REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
-
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
-
-%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\84.0.522.52\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\89.0.774.68\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-%SystemDrive%\ProgramFiles (x86)\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-%SystemDrive%\ProgramFiles\Microsoft\Edge\Application\90.0.818.62\Installer\setup.exe --uninstall --system-level --verbose-logging --force-uninstall
-
-rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge"
-md "%ProgramFiles(x86)%\Microsoft\Edge"
-takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\Edge" /inheritance:r
-icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
-
-rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
-md "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /inheritance:r
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-rd /s /q "%ProgramFiles%\Microsoft\Edge"
-md "%ProgramFiles%\Microsoft\Edge"
-takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:r
-icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
-
-rd /s /q "%ProgramFiles%\Microsoft\EdgeUpdate"
-md "%ProgramFiles%\Microsoft\EdgeUpdate"
-takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
-icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /inheritance:r
-icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
-
-:: rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
-:: md "%UserProfile%\AppData\Local\Microsoft\Edge"
-:: takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
-:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /inheritance:r
-:: icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
-
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
-
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge" /F
+:: Remove Microsoft Edge Chromium has been moved to top of main section of batch file
 
 :: -----------------
 :: Remove Microsoft Edge Legacy
@@ -6250,19 +6122,17 @@ icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
-takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
-icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
-rd /s /q "%UserProfile%\AppData\Local\MicrosoftEdge"
+:: takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
+:: icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
+:: rd /s /q "%UserProfile%\AppData\Local\MicrosoftEdge"
 
-takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
-icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
-rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
+:: takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
+:: icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
+:: rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
 
 :: -----------------
 :: Uninstall and Disable OneDrive
 :: -----------------
-
-TASKKILL /F /IM OneDrive.exe
 
 REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
@@ -6451,7 +6321,14 @@ goto :EOF
 
 :: --------------
 :: Other Messages
+:adminfailed
+echo.
+echo -------
+echo.
+echo This batch file requires admin permission
+goto end1
 :: --------------
+:: Non-Admin Message
 :: Deny Message
 :deny
 echo.
