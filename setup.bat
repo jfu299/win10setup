@@ -835,7 +835,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 :: 4) Adguard: adguardadblocker@adguard.com
 :: 5) Proctor Test: {da6554a8-470c-4d6a-a6ca-904740683552}
 :: 6) Honey: jid1-93CWPmRbVPjRQA@jetpack
-:: 7) Grammarly: 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack ; {6601dd36-5bb6-4755-8cd5-f36b59ff5307} ;{01e4670b-532b-42ed-88c2-c7b46d05133a} ; languagetool-webextension@languagetool.org
+:: 7) Grammarly: 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack ; {6601dd36-5bb6-4755-8cd5-f36b59ff5307} ; {01e4670b-532b-42ed-88c2-c7b46d05133a} ; languagetool-webextension@languagetool.org
 :: 8) Amazon Assistant: abb@amazon.com
 :: 9) Nano Adblocker: {0f929014-5ed2-4527-8b8d-86a9c889b129}
 :: 10) Nano Defender: {f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}
@@ -5006,7 +5006,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 :: 4) Adguard: adguardadblocker@adguard.com
 :: 5) Proctor Test: {da6554a8-470c-4d6a-a6ca-904740683552}
 :: 6) Honey: jid1-93CWPmRbVPjRQA@jetpack
-:: 7) Grammarly: 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack ; {6601dd36-5bb6-4755-8cd5-f36b59ff5307} ;{01e4670b-532b-42ed-88c2-c7b46d05133a} ; languagetool-webextension@languagetool.org
+:: 7) Grammarly: 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack ; {6601dd36-5bb6-4755-8cd5-f36b59ff5307} ; {01e4670b-532b-42ed-88c2-c7b46d05133a} ; languagetool-webextension@languagetool.org
 :: 8) Amazon Assistant: abb@amazon.com
 :: 9) Nano Adblocker: {0f929014-5ed2-4527-8b8d-86a9c889b129}
 :: 10) Nano Defender: {f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}
