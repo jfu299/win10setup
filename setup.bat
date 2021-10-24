@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: July 18, 2021
+:: Updated: October 23, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: July 18, 2021
+echo Updated: October 23, 2021
 echo -------
 echo.
 
@@ -45,6 +45,7 @@ PAUSE
 :: --------------
 :firstMenu
 echo -------
+echo.
 echo Select an option:
 echo.
 echo 1) MAIN
@@ -315,9 +316,9 @@ goto option2.4redo
 @echo ON
 :: -------
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
-:: Target Release Version (Version 21H2)
+:: Target Release Version (Version 21H1)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H1" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
@@ -378,9 +379,9 @@ goto option2
 :option2.2Start
 @echo ON
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
-:: Target Release Version (Version 21H2)
+:: Target Release Version (Version 21H1)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H1" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
@@ -811,8 +812,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutoplayAllowed /T REG_dWORD /D 0 /
 :: -----------------
 
 :: -----
-:: Extension Settings and force-install
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"}}" /F
+:: Firefox Extension Settings and force-install
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Installed Extensions:
 :: 1) uBlock Origin - uBlock0@raymondhill.net
@@ -834,10 +835,20 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 :: 4) Adguard: adguardadblocker@adguard.com
 :: 5) Proctor Test: {da6554a8-470c-4d6a-a6ca-904740683552}
 :: 6) Honey: jid1-93CWPmRbVPjRQA@jetpack
-:: 7) Grammarly: 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack ; {6601dd36-5bb6-4755-8cd5-f36b59ff5307} ; {01e4670b-532b-42ed-88c2-c7b46d05133a} ; languagetool-webextension@languagetool.org
+:: 7) Grammarly: 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack ; {6601dd36-5bb6-4755-8cd5-f36b59ff5307} ;{01e4670b-532b-42ed-88c2-c7b46d05133a} ; languagetool-webextension@languagetool.org
 :: 8) Amazon Assistant: abb@amazon.com
 :: 9) Nano Adblocker: {0f929014-5ed2-4527-8b8d-86a9c889b129}
 :: 10) Nano Defender: {f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}
+:: 11) Hola: {45c15c03-6d29-45d2-984c-9f1ad34f3f51}
+:: 12) TunnelBear: browser@tunnelbear.com
+:: 13) ReBinger: rebingerext@gmail.com
+:: 14) Microsoft Application Guard Extension: ApplicationGuardRel@microsoft.com
+:: 15) Microsoft Bing Homepage: {cfa868c0-6239-47df-bc81-54e13151ec2e}
+:: 16) Microsoft Bing Homepage and Search Engine: {a07b7886-3015-4959-9a88-4273860edd6d}
+:: 17) MSN Homepage, New Tab and Bing Search Engine: {7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}
+:: 18) MSN Homepage and New Tab: {23bcb1d2-a715-42e2-87c5-43ba10d23ace}
+:: 19) MSN Homepage and Bing Search Engine: {9b43dad5-885b-4f0d-882f-e945b7e4b96f}
+:: 20) Microsoft Bing Search Engine: {8d8ca802-6b23-43ed-9445-e05d48579542}
 :: -----
 
 :: About Config Preferences (about:config)
@@ -1425,6 +1436,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 119 
 :: Nano Adblocker / Nano Defender
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 120 /T REG_SZ /D gabbbocakeomblphkmmnoamkioajlkfo /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 121 /T REG_SZ /D ggolfgbegefeeoocgjbmkembbncoadlb /F
+:: Grammer Check Software Block
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 122 /T REG_SZ /D kdfieneakcjfaiglcfcgkidlkmlijjnh /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 123 /T REG_SZ /D oldceeleldhonbafppcapldpdifcinji /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 124 /T REG_SZ /D pjpgohokimaldkikgejifibjdpbopfdc /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 125 /T REG_SZ /D gpaiobkfhnonedkhhfjpmhdalgeoebfa /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 126 /T REG_SZ /D npnbdojkgkbcdfdjlfdmplppdphlhhcf /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 127 /T REG_SZ /D hamhaljjdpcgkelbadepgmnocknejief /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 136 /T REG_SZ /D oidhbpddkfhmipanjccneeifmmiabjng /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 137 /T REG_SZ /D nngceafehcgnogadphbkblijebijibkj /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 138 /T REG_SZ /D fkjahhehbehlijcehipnhpjhldcajban /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
+:: Tunnelbear
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
 
 :: -----------------
 :: Chromium
@@ -1577,6 +1608,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 119 /T RE
 :: Nano Adblocker / Nano Defender
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 120 /T REG_SZ /D gabbbocakeomblphkmmnoamkioajlkfo /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 121 /T REG_SZ /D ggolfgbegefeeoocgjbmkembbncoadlb /F
+:: Grammer Check Software Block
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 122 /T REG_SZ /D kdfieneakcjfaiglcfcgkidlkmlijjnh /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 123 /T REG_SZ /D oldceeleldhonbafppcapldpdifcinji /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 124 /T REG_SZ /D pjpgohokimaldkikgejifibjdpbopfdc /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 125 /T REG_SZ /D gpaiobkfhnonedkhhfjpmhdalgeoebfa /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 126 /T REG_SZ /D npnbdojkgkbcdfdjlfdmplppdphlhhcf /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 127 /T REG_SZ /D hamhaljjdpcgkelbadepgmnocknejief /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 136 /T REG_SZ /D oidhbpddkfhmipanjccneeifmmiabjng /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 137 /T REG_SZ /D nngceafehcgnogadphbkblijebijibkj /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 138 /T REG_SZ /D fkjahhehbehlijcehipnhpjhldcajban /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
+:: Tunnelbear
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
 
 :: -----------------
 :: Brave
@@ -1729,6 +1780,26 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 :: Nano Adblocker / Nano Defender
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 120 /T REG_SZ /D gabbbocakeomblphkmmnoamkioajlkfo /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 121 /T REG_SZ /D ggolfgbegefeeoocgjbmkembbncoadlb /F
+:: Grammer Check Software Block
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 122 /T REG_SZ /D kdfieneakcjfaiglcfcgkidlkmlijjnh /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 123 /T REG_SZ /D oldceeleldhonbafppcapldpdifcinji /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 124 /T REG_SZ /D pjpgohokimaldkikgejifibjdpbopfdc /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 125 /T REG_SZ /D gpaiobkfhnonedkhhfjpmhdalgeoebfa /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 126 /T REG_SZ /D npnbdojkgkbcdfdjlfdmplppdphlhhcf /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 127 /T REG_SZ /D hamhaljjdpcgkelbadepgmnocknejief /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 136 /T REG_SZ /D oidhbpddkfhmipanjccneeifmmiabjng /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 137 /T REG_SZ /D nngceafehcgnogadphbkblijebijibkj /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 138 /T REG_SZ /D fkjahhehbehlijcehipnhpjhldcajban /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
+:: Tunnelbear
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -1972,6 +2043,27 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 174
 :: Nano Adblocker / Nano Defender (Edge Addon Version)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 175 /T REG_SZ /D epbkapkgcmdmfpogenoebpdeibmfinpf /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 176 /T REG_SZ /D ijfkmnlofajajikjhfiigelipempcklj /F
+:: Grammer Check Software Block
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 177 /T REG_SZ /D blnfpbeiknacmjcafapeejaljddgoain /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 178 /T REG_SZ /D kdfieneakcjfaiglcfcgkidlkmlijjnh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 179 /T REG_SZ /D oldceeleldhonbafppcapldpdifcinji /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 180 /T REG_SZ /D pjpgohokimaldkikgejifibjdpbopfdc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 181 /T REG_SZ /D gpaiobkfhnonedkhhfjpmhdalgeoebfa /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 182 /T REG_SZ /D npnbdojkgkbcdfdjlfdmplppdphlhhcf /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 183 /T REG_SZ /D hamhaljjdpcgkelbadepgmnocknejief /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 184 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 185 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 186 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 187 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 188 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 189 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 190 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 191 /T REG_SZ /D oidhbpddkfhmipanjccneeifmmiabjng /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 192 /T REG_SZ /D nngceafehcgnogadphbkblijebijibkj /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 193 /T REG_SZ /D fkjahhehbehlijcehipnhpjhldcajban /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 194 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
+:: Tunnelbear
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 195 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
 
 :: -----------------
 
@@ -1990,7 +2082,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T
 :: Chromium
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 :: Firefox
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 :: Brave
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 :: Microsoft Edge Chromium
@@ -2021,7 +2113,7 @@ REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome" /V BlockExternalExtensions /F
 REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKLM\SOFTWARE\Policies\Chromium" /V BlockExternalExtensions /F
 :: Firefox
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 :: Brave
 REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BlockExternalExtensions /F
@@ -3353,7 +3445,7 @@ REG ADD "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T
 REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Firefox
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Brave
 REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
@@ -3416,7 +3508,7 @@ REG ADD "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T
 REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Firefox
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Brave
 REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
@@ -3956,9 +4048,9 @@ REG DELETE "HKCR\*\shellex\ContextMenuHandlers\ModernSharing" /F
 :: -------
 :: Windows 10 Updates Partial Control (Windows Update Not Disabled)
 :: -------
-:: Target Release Version (Version 21H2)
+:: Target Release Version (Version 21H1)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H1" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
@@ -4891,8 +4983,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutoplayAllowed /T REG_dWORD /D 0 /
 :: -----------------
 
 :: -----
-:: Extension Settings and force-install
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"}}" /F
+:: Firefox Extension Settings and force-install
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Installed Extensions:
 :: 1) uBlock Origin - uBlock0@raymondhill.net
@@ -4914,10 +5006,20 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_SZ 
 :: 4) Adguard: adguardadblocker@adguard.com
 :: 5) Proctor Test: {da6554a8-470c-4d6a-a6ca-904740683552}
 :: 6) Honey: jid1-93CWPmRbVPjRQA@jetpack
-:: 7) Grammarly: 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack ; {6601dd36-5bb6-4755-8cd5-f36b59ff5307} ; {01e4670b-532b-42ed-88c2-c7b46d05133a} ; languagetool-webextension@languagetool.org
+:: 7) Grammarly: 87677a2c52b84ad3a151a4a72f5bd3c4@jetpack ; {6601dd36-5bb6-4755-8cd5-f36b59ff5307} ;{01e4670b-532b-42ed-88c2-c7b46d05133a} ; languagetool-webextension@languagetool.org
 :: 8) Amazon Assistant: abb@amazon.com
 :: 9) Nano Adblocker: {0f929014-5ed2-4527-8b8d-86a9c889b129}
 :: 10) Nano Defender: {f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}
+:: 11) Hola: {45c15c03-6d29-45d2-984c-9f1ad34f3f51}
+:: 12) TunnelBear: browser@tunnelbear.com
+:: 13) ReBinger: rebingerext@gmail.com
+:: 14) Microsoft Application Guard Extension: ApplicationGuardRel@microsoft.com
+:: 15) Microsoft Bing Homepage: {cfa868c0-6239-47df-bc81-54e13151ec2e}
+:: 16) Microsoft Bing Homepage and Search Engine: {a07b7886-3015-4959-9a88-4273860edd6d}
+:: 17) MSN Homepage, New Tab and Bing Search Engine: {7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}
+:: 18) MSN Homepage and New Tab: {23bcb1d2-a715-42e2-87c5-43ba10d23ace}
+:: 19) MSN Homepage and Bing Search Engine: {9b43dad5-885b-4f0d-882f-e945b7e4b96f}
+:: 20) Microsoft Bing Search Engine: {8d8ca802-6b23-43ed-9445-e05d48579542}
 :: -----
 
 :: About Config Preferences (about:config)
@@ -5505,6 +5607,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 119 
 :: Nano Adblocker / Nano Defender
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 120 /T REG_SZ /D gabbbocakeomblphkmmnoamkioajlkfo /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 121 /T REG_SZ /D ggolfgbegefeeoocgjbmkembbncoadlb /F
+:: Grammer Check Software Block
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 122 /T REG_SZ /D kdfieneakcjfaiglcfcgkidlkmlijjnh /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 123 /T REG_SZ /D oldceeleldhonbafppcapldpdifcinji /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 124 /T REG_SZ /D pjpgohokimaldkikgejifibjdpbopfdc /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 125 /T REG_SZ /D gpaiobkfhnonedkhhfjpmhdalgeoebfa /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 126 /T REG_SZ /D npnbdojkgkbcdfdjlfdmplppdphlhhcf /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 127 /T REG_SZ /D hamhaljjdpcgkelbadepgmnocknejief /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 136 /T REG_SZ /D oidhbpddkfhmipanjccneeifmmiabjng /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 137 /T REG_SZ /D nngceafehcgnogadphbkblijebijibkj /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 138 /T REG_SZ /D fkjahhehbehlijcehipnhpjhldcajban /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
+:: Tunnelbear
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
 
 :: -----------------
 :: Chromium
@@ -5657,6 +5779,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 119 /T RE
 :: Nano Adblocker / Nano Defender
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 120 /T REG_SZ /D gabbbocakeomblphkmmnoamkioajlkfo /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 121 /T REG_SZ /D ggolfgbegefeeoocgjbmkembbncoadlb /F
+:: Grammer Check Software Block
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 122 /T REG_SZ /D kdfieneakcjfaiglcfcgkidlkmlijjnh /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 123 /T REG_SZ /D oldceeleldhonbafppcapldpdifcinji /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 124 /T REG_SZ /D pjpgohokimaldkikgejifibjdpbopfdc /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 125 /T REG_SZ /D gpaiobkfhnonedkhhfjpmhdalgeoebfa /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 126 /T REG_SZ /D npnbdojkgkbcdfdjlfdmplppdphlhhcf /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 127 /T REG_SZ /D hamhaljjdpcgkelbadepgmnocknejief /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 136 /T REG_SZ /D oidhbpddkfhmipanjccneeifmmiabjng /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 137 /T REG_SZ /D nngceafehcgnogadphbkblijebijibkj /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 138 /T REG_SZ /D fkjahhehbehlijcehipnhpjhldcajban /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
+:: Tunnelbear
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
 
 :: -----------------
 :: Brave
@@ -5809,6 +5951,26 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 :: Nano Adblocker / Nano Defender
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 120 /T REG_SZ /D gabbbocakeomblphkmmnoamkioajlkfo /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 121 /T REG_SZ /D ggolfgbegefeeoocgjbmkembbncoadlb /F
+:: Grammer Check Software Block
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 122 /T REG_SZ /D kdfieneakcjfaiglcfcgkidlkmlijjnh /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 123 /T REG_SZ /D oldceeleldhonbafppcapldpdifcinji /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 124 /T REG_SZ /D pjpgohokimaldkikgejifibjdpbopfdc /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 125 /T REG_SZ /D gpaiobkfhnonedkhhfjpmhdalgeoebfa /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 126 /T REG_SZ /D npnbdojkgkbcdfdjlfdmplppdphlhhcf /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 127 /T REG_SZ /D hamhaljjdpcgkelbadepgmnocknejief /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 136 /T REG_SZ /D oidhbpddkfhmipanjccneeifmmiabjng /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 137 /T REG_SZ /D nngceafehcgnogadphbkblijebijibkj /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 138 /T REG_SZ /D fkjahhehbehlijcehipnhpjhldcajban /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
+:: Tunnelbear
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -6052,6 +6214,27 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 174
 :: Nano Adblocker / Nano Defender (Edge Addon Version)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 175 /T REG_SZ /D epbkapkgcmdmfpogenoebpdeibmfinpf /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 176 /T REG_SZ /D ijfkmnlofajajikjhfiigelipempcklj /F
+:: Grammer Check Software Block
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 177 /T REG_SZ /D blnfpbeiknacmjcafapeejaljddgoain /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 178 /T REG_SZ /D kdfieneakcjfaiglcfcgkidlkmlijjnh /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 179 /T REG_SZ /D oldceeleldhonbafppcapldpdifcinji /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 180 /T REG_SZ /D pjpgohokimaldkikgejifibjdpbopfdc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 181 /T REG_SZ /D gpaiobkfhnonedkhhfjpmhdalgeoebfa /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 182 /T REG_SZ /D npnbdojkgkbcdfdjlfdmplppdphlhhcf /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 183 /T REG_SZ /D hamhaljjdpcgkelbadepgmnocknejief /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 184 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 185 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 186 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 187 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 188 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 189 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 190 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 191 /T REG_SZ /D oidhbpddkfhmipanjccneeifmmiabjng /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 192 /T REG_SZ /D nngceafehcgnogadphbkblijebijibkj /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 193 /T REG_SZ /D fkjahhehbehlijcehipnhpjhldcajban /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 194 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
+:: Tunnelbear
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 195 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
 
 :: -----------------
 
@@ -6321,6 +6504,8 @@ goto :EOF
 
 :: --------------
 :: Other Messages
+:: --------------
+:: Non-Admin Message
 :adminfailed
 echo.
 echo -------
@@ -6328,7 +6513,6 @@ echo.
 echo This batch file requires admin permission
 goto end1
 :: --------------
-:: Non-Admin Message
 :: Deny Message
 :deny
 echo.
