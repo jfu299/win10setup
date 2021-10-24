@@ -1446,7 +1446,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 127 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboc /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
@@ -1456,6 +1456,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 138 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
 :: Tunnelbear
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
+:: Fake Adblockers
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 141 /T REG_SZ /D njglkaigokomacaljolalkopeonkpbik /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 142 /T REG_SZ /D obhacaboehinamiaoafpljgofoapchgf /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 143 /T REG_SZ /D cccmaneagdjeppggplfjbemndmknmdib /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 144 /T REG_SZ /D kgddnoifhgfdhcpbkkjdgokfnkkmdcen /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 145 /T REG_SZ /D jaohnaoeopobbpjdeglffjnaclhifabp /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 
 :: -----------------
 :: Chromium
@@ -1618,7 +1625,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 127 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboc /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
@@ -1628,6 +1635,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 138 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
 :: Tunnelbear
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
+:: Fake Adblockers
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 141 /T REG_SZ /D njglkaigokomacaljolalkopeonkpbik /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 142 /T REG_SZ /D obhacaboehinamiaoafpljgofoapchgf /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 143 /T REG_SZ /D cccmaneagdjeppggplfjbemndmknmdib /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 144 /T REG_SZ /D kgddnoifhgfdhcpbkkjdgokfnkkmdcen /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 145 /T REG_SZ /D jaohnaoeopobbpjdeglffjnaclhifabp /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 
 :: -----------------
 :: Brave
@@ -1790,7 +1804,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboc /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
@@ -1800,6 +1814,13 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
 :: Tunnelbear
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
+:: Fake Adblockers
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 141 /T REG_SZ /D njglkaigokomacaljolalkopeonkpbik /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 142 /T REG_SZ /D obhacaboehinamiaoafpljgofoapchgf /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 143 /T REG_SZ /D cccmaneagdjeppggplfjbemndmknmdib /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 144 /T REG_SZ /D kgddnoifhgfdhcpbkkjdgokfnkkmdcen /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 145 /T REG_SZ /D jaohnaoeopobbpjdeglffjnaclhifabp /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -2054,7 +2075,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 183
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 184 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 185 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 186 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 187 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 187 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboc /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 188 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 189 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 190 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
@@ -2064,6 +2085,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 193
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 194 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
 :: Tunnelbear
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 195 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
+:: Fake Adblockers
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 196 /T REG_SZ /D njglkaigokomacaljolalkopeonkpbik /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 197 /T REG_SZ /D obhacaboehinamiaoafpljgofoapchgf /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 198 /T REG_SZ /D cccmaneagdjeppggplfjbemndmknmdib /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 199 /T REG_SZ /D kgddnoifhgfdhcpbkkjdgokfnkkmdcen /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 200 /T REG_SZ /D jaohnaoeopobbpjdeglffjnaclhifabp /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 201 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 
 :: -----------------
 
@@ -5617,7 +5645,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 127 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboc /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
@@ -5627,6 +5655,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 138 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
 :: Tunnelbear
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
+:: Fake Adblockers
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 141 /T REG_SZ /D njglkaigokomacaljolalkopeonkpbik /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 142 /T REG_SZ /D obhacaboehinamiaoafpljgofoapchgf /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 143 /T REG_SZ /D cccmaneagdjeppggplfjbemndmknmdib /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 144 /T REG_SZ /D kgddnoifhgfdhcpbkkjdgokfnkkmdcen /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 145 /T REG_SZ /D jaohnaoeopobbpjdeglffjnaclhifabp /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 
 :: -----------------
 :: Chromium
@@ -5789,7 +5824,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 127 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboc /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
@@ -5799,6 +5834,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 138 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
 :: Tunnelbear
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
+:: Fake Adblockers
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 141 /T REG_SZ /D njglkaigokomacaljolalkopeonkpbik /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 142 /T REG_SZ /D obhacaboehinamiaoafpljgofoapchgf /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 143 /T REG_SZ /D cccmaneagdjeppggplfjbemndmknmdib /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 144 /T REG_SZ /D kgddnoifhgfdhcpbkkjdgokfnkkmdcen /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 145 /T REG_SZ /D jaohnaoeopobbpjdeglffjnaclhifabp /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 
 :: -----------------
 :: Brave
@@ -5961,7 +6003,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 128 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 129 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 130 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 131 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboc /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 132 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 134 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 135 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
@@ -5971,6 +6013,13 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 139 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
 :: Tunnelbear
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 140 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
+:: Fake Adblockers
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 141 /T REG_SZ /D njglkaigokomacaljolalkopeonkpbik /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 142 /T REG_SZ /D obhacaboehinamiaoafpljgofoapchgf /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 143 /T REG_SZ /D cccmaneagdjeppggplfjbemndmknmdib /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 144 /T REG_SZ /D kgddnoifhgfdhcpbkkjdgokfnkkmdcen /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 145 /T REG_SZ /D jaohnaoeopobbpjdeglffjnaclhifabp /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -6225,7 +6274,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 183
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 184 /T REG_SZ /D ifajfiofeifbbhbionejdliodenmecna /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 185 /T REG_SZ /D dmngfggkdcjejjgbfemebfomkphgcena /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 186 /T REG_SZ /D mpeepmfabickbdbckcejbflkpfamgcon /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 187 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboca /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 187 /T REG_SZ /D dmgkiikdlhmpikkhpiplldicbnicmboc /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 188 /T REG_SZ /D ndgklmlnheedegipcohgcbjhhgddendc /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 189 /T REG_SZ /D ecpbljknammclncihheaiehdahccgmnk /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 190 /T REG_SZ /D nohphjepbjannpjpmodlcgdlialokkpd /F
@@ -6235,6 +6284,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 193
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 194 /T REG_SZ /D ljgdcokhgjdpghmhdkbolccfcfdbklpo /F
 :: Tunnelbear
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 195 /T REG_SZ /D omdakjcmkglenbhjadbccaookpfjihpa /F
+:: Fake Adblockers
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 196 /T REG_SZ /D njglkaigokomacaljolalkopeonkpbik /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 197 /T REG_SZ /D obhacaboehinamiaoafpljgofoapchgf /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 198 /T REG_SZ /D cccmaneagdjeppggplfjbemndmknmdib /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 199 /T REG_SZ /D kgddnoifhgfdhcpbkkjdgokfnkkmdcen /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 200 /T REG_SZ /D jaohnaoeopobbpjdeglffjnaclhifabp /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 201 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 
 :: -----------------
 
