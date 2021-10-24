@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: October 23, 2021
+:: Updated: October 24, 2021
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: October 23, 2021
+echo Updated: October 24, 2021
 echo -------
 echo.
 
@@ -6398,14 +6398,109 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\tzautoupdate" /V start /T REG_dW
 
 :: -----------------
 :: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
+:: Powershell Command to Prompt to Restart Computer
 :: Redirects to powershell script (setup.ps1)
 :: -----------------
 
 powershell.exe -ExecutionPolicy Unrestricted -Command ". '%~dpn0.ps1'"
 
-powershell.exe -ExecutionPolicy AllSigned
+powershell.exe -ExecutionPolicy AllSigned -Command Write-Output "Complete"
 
+@echo OFF
+
+goto RestartPrompt
+
+:: -------
+
+:RestartPrompt
+echo.
+echo ---------------------
+echo.
+echo A Restart is Recommended
+echo.
+echo If you want to restart the computer, it will restart in 10 seconds after answering the prompt
+echo To cancel a Restart, type shutdown /a on Command Prompt, Powershell, or Run
+echo.
+echo ---------------------
+echo.
+
+set /p op="Restart Computer? (y/n) "
+if "%op%"=="y" goto RestartComputer
+if "%op%"=="yes" goto RestartComputer
+if "%op%"=="Yes" goto RestartComputer
+if "%op%"=="Y" goto RestartComputer
+if "%op%"=="YES" goto RestartComputer
+
+if "%op%"=="n" goto NoRestart
+if "%op%"=="no" goto NoRestart
+if "%op%"=="No" goto NoRestart
+if "%op%"=="N" goto NoRestart
+if "%op%"=="NO" goto NoRestart
+
+:: -------
+
+echo.
+echo -------
+echo.
+echo INVALID OPTION - Computer will NOT be Restarted
+goto end
+
+:: -------
+
+:NoRestart
+echo.
+echo -------
+echo.
+echo Computer will NOT be Restarted
+goto end
+
+:: --------------
+:: Other Messages
+:: --------------
+:: Non-Admin Message
+:adminfailed
+echo.
+echo -------
+echo.
+echo This batch file requires admin permission
+goto end1
+:: --------------
+:: Deny Message
+:deny
+echo.
+echo -------
+echo.
+echo You have denied permissions
+goto end1
+:: --------------
+:: Restart Computer
+:RestartComputer
+echo.
+echo -------
+echo.
+shutdown /r /f /t 10
+echo Restarting in 10 Seconds ...
+echo.
+echo TO CANCEL RESTART: shutdown /a
+echo.
+echo -------
+echo.
+PAUSE
 goto :EOF
+:: --------------
+:: End of File Message
+:end
+echo.
+echo -------
+:end1
+echo.
+echo Press Any Key to End
+echo.
+echo -------
+echo.
+PAUSE
+goto :EOF
+:: --------------
 
 :: ----------------------------------------------------------------------
 :: ----- OPTIONAL -----
@@ -6500,36 +6595,3 @@ goto :EOF
 ::      Computer Configuration > Administrative Templates > Windows Components > Windows Update > Windows Update for Business
 
 :: ----------------------------------------------------------------------
-
-
-:: --------------
-:: Other Messages
-:: --------------
-:: Non-Admin Message
-:adminfailed
-echo.
-echo -------
-echo.
-echo This batch file requires admin permission
-goto end1
-:: --------------
-:: Deny Message
-:deny
-echo.
-echo -------
-echo.
-echo You have denied permissions
-goto end1
-:: --------------
-:: End of File Message
-:end
-echo.
-echo -------
-:end1
-echo.
-echo Press Any Key to End
-echo.
-echo -------
-echo.
-PAUSE
-:: --------------
