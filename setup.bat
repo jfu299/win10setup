@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: January 19, 2022
+:: Updated: January 23, 2022
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: January 19, 2022
+echo Updated: January 23, 2022
 echo -------
 echo.
 
@@ -708,6 +708,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V EnableMediaRouter /T REG_dWORD
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: -----
+:: URL Blocklist
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
+:: -----
 
 :: -----------------
 :: Chromium
@@ -806,6 +810,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V EnableMediaRouter /T REG_dWORD /D 0
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: -----
+:: URL Blocklist
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
+:: -----
 
 :: -----------------
 :: Firefox
@@ -813,6 +821,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutoplayAllowed /T REG_dWORD /D 0 /
 
 :: -----
 :: Firefox Extension Settings and force-install
+REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Installed Extensions:
@@ -856,6 +865,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MUL
 :: About Config Preferences (about:config)
 :: Uses setup.reg
 
+REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /F
 regedit.exe /S %~dpn0.reg
 
 :: -----
@@ -1030,6 +1040,10 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AutoplayAllowed /T REG_d
 :: Brave: Tor
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TorDisabled /T REG_dWORD /D 1 /F
 :: -----
+:: URL Blocklist
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
+:: -----
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -1145,6 +1159,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideInternetExplorerRedirectU
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LocalProvidersEnabled /T REG_dWORD /D 0 /F
+:: -----
+:: URL Blocklist
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
 :: -----
 
 :: -----------------
@@ -1474,6 +1492,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 145 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 147 /T REG_SZ /D kdmoafnhillldhoddnccefecelkofphm /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 148 /T REG_SZ /D keghjkfdmmdkneijbbbnopeglnakbphn /F
+:: Securly Classroom
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 149 /T REG_SZ /D jfbecfmiegcjddenjhlbhlikcbfmnafd /F
+:: Securly for Chromebooks (This extension force reloads tabs when extension restarts)
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
+:: Securly and GoGuardian Weakness
+:: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
 
 :: -----------------
 :: Chromium
@@ -1655,6 +1679,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 145 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 147 /T REG_SZ /D kdmoafnhillldhoddnccefecelkofphm /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 148 /T REG_SZ /D keghjkfdmmdkneijbbbnopeglnakbphn /F
+:: Securly Classroom
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 149 /T REG_SZ /D jfbecfmiegcjddenjhlbhlikcbfmnafd /F
+:: Securly for Chromebooks (This extension force reloads tabs when extension restarts)
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
+:: Securly and GoGuardian Weakness
+:: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
 
 :: -----------------
 :: Brave
@@ -1836,6 +1866,12 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 147 /T REG_SZ /D kdmoafnhillldhoddnccefecelkofphm /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 148 /T REG_SZ /D keghjkfdmmdkneijbbbnopeglnakbphn /F
+:: Securly Classroom
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 149 /T REG_SZ /D jfbecfmiegcjddenjhlbhlikcbfmnafd /F
+:: Securly for Chromebooks (This extension force reloads tabs when extension restarts)
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
+:: Securly and GoGuardian Weakness
+:: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -2109,6 +2145,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 200
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 201 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 202 /T REG_SZ /D kdmoafnhillldhoddnccefecelkofphm /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 203 /T REG_SZ /D keghjkfdmmdkneijbbbnopeglnakbphn /F
+:: Securly Classroom
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 204 /T REG_SZ /D jfbecfmiegcjddenjhlbhlikcbfmnafd /F
+:: Securly for Chromebooks (This extension force reloads tabs when extension restarts)
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 205 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
+:: Securly and GoGuardian Weakness
+:: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
 
 :: -----------------
 
@@ -2127,6 +2169,7 @@ REG ADD "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T
 :: Chromium
 REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 :: Firefox
+REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 :: Brave
 REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
@@ -2158,6 +2201,7 @@ REG DELETE "HKCU\Software\Policies\Google\Chrome" /V BlockExternalExtensions /F
 REG DELETE "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKCU\Software\Policies\Chromium" /V BlockExternalExtensions /F
 :: Firefox
+REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 :: Brave
 REG DELETE "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /F
@@ -3490,6 +3534,7 @@ REG ADD "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T
 REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Firefox
+REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Brave
@@ -3553,6 +3598,7 @@ REG ADD "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T
 REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 
 :: Firefox
+REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Brave
@@ -4938,6 +4984,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V EnableMediaRouter /T REG_dWORD
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: -----
+:: URL Blocklist
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
+:: -----
 
 :: -----------------
 :: Chromium
@@ -5036,6 +5086,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V EnableMediaRouter /T REG_dWORD /D 0
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: -----
+:: URL Blocklist
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
+:: -----
 
 :: -----------------
 :: Firefox
@@ -5043,6 +5097,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutoplayAllowed /T REG_dWORD /D 0 /
 
 :: -----
 :: Firefox Extension Settings and force-install
+REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"bypasspaywalls@bypasspaywalls\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://github.com/iamadamdev/bypass-paywalls-chrome/releases/latest/download/bypass-paywalls-firefox.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Installed Extensions:
@@ -5086,6 +5141,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MUL
 :: About Config Preferences (about:config)
 :: Uses setup.reg
 
+REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V Preferences /F
 regedit.exe /S %~dpn0.reg
 
 :: -----
@@ -5260,6 +5316,10 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AutoplayAllowed /T REG_d
 :: Brave: Tor
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TorDisabled /T REG_dWORD /D 1 /F
 :: -----
+:: URL Blocklist
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
+:: -----
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -5375,6 +5435,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideInternetExplorerRedirectU
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LocalProvidersEnabled /T REG_dWORD /D 0 /F
+:: -----
+:: URL Blocklist
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
 :: -----
 
 :: -----------------
@@ -5704,6 +5768,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 145 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 147 /T REG_SZ /D kdmoafnhillldhoddnccefecelkofphm /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 148 /T REG_SZ /D keghjkfdmmdkneijbbbnopeglnakbphn /F
+:: Securly Classroom
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 149 /T REG_SZ /D jfbecfmiegcjddenjhlbhlikcbfmnafd /F
+:: Securly for Chromebooks (This extension force reloads tabs when extension restarts)
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
+:: Securly and GoGuardian Weakness
+:: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
 
 :: -----------------
 :: Chromium
@@ -5885,6 +5955,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 145 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 147 /T REG_SZ /D kdmoafnhillldhoddnccefecelkofphm /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 148 /T REG_SZ /D keghjkfdmmdkneijbbbnopeglnakbphn /F
+:: Securly Classroom
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 149 /T REG_SZ /D jfbecfmiegcjddenjhlbhlikcbfmnafd /F
+:: Securly for Chromebooks (This extension force reloads tabs when extension restarts)
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
+:: Securly and GoGuardian Weakness
+:: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
 
 :: -----------------
 :: Brave
@@ -6066,6 +6142,12 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 146 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 147 /T REG_SZ /D kdmoafnhillldhoddnccefecelkofphm /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 148 /T REG_SZ /D keghjkfdmmdkneijbbbnopeglnakbphn /F
+:: Securly Classroom
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 149 /T REG_SZ /D jfbecfmiegcjddenjhlbhlikcbfmnafd /F
+:: Securly for Chromebooks (This extension force reloads tabs when extension restarts)
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
+:: Securly and GoGuardian Weakness
+:: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -6339,6 +6421,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 200
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 201 /T REG_SZ /D fnkihbploojbmldhgdfpalkoifmegfpn /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 202 /T REG_SZ /D kdmoafnhillldhoddnccefecelkofphm /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 203 /T REG_SZ /D keghjkfdmmdkneijbbbnopeglnakbphn /F
+:: Securly Classroom
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 204 /T REG_SZ /D jfbecfmiegcjddenjhlbhlikcbfmnafd /F
+:: Securly for Chromebooks (This extension force reloads tabs when extension restarts)
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 205 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
+:: Securly and GoGuardian Weakness
+:: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
 
 :: -----------------
 
@@ -6609,6 +6697,9 @@ goto :EOF
 :: ----------------------------------------------------------------------
 :: ----- OPTIONAL -----
 :: -----------------
+
+:: ----- Securly and GoGuardian Weakness
+:: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
 
 :: ----- Chrome
 
