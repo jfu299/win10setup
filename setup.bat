@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: January 23, 2022
+:: Updated: February 18, 2022
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: January 23, 2022
+echo Updated: February 18, 2022
 echo -------
 echo.
 
@@ -1498,6 +1498,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 149 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
 :: Securly and GoGuardian Weakness
 :: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
+:: lanschool student
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
+:: lanschool web helper
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
 
 :: -----------------
 :: Chromium
@@ -1685,6 +1689,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 149 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
 :: Securly and GoGuardian Weakness
 :: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
+:: lanschool student
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
+:: lanschool web helper
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
 
 :: -----------------
 :: Brave
@@ -1872,6 +1880,10 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
 :: Securly and GoGuardian Weakness
 :: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
+:: lanschool student
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
+:: lanschool web helper
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -2151,6 +2163,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 204
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 205 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
 :: Securly and GoGuardian Weakness
 :: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
+:: lanschool student
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 206 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
+:: lanschool web helper
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 207 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
 
 :: -----------------
 
@@ -5774,6 +5790,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 149 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
 :: Securly and GoGuardian Weakness
 :: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
+:: lanschool student
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
+:: lanschool web helper
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
 
 :: -----------------
 :: Chromium
@@ -5961,6 +5981,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 149 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
 :: Securly and GoGuardian Weakness
 :: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
+:: lanschool student
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
+:: lanschool web helper
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
 
 :: -----------------
 :: Brave
@@ -6148,6 +6172,10 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
 :: Securly and GoGuardian Weakness
 :: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
+:: lanschool student
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
+:: lanschool web helper
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -6427,6 +6455,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 204
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 205 /T REG_SZ /D iheobagjkfklnlikgihanlhcddjoihkg /F
 :: Securly and GoGuardian Weakness
 :: Blocklists are not stored through extension, if their servers cannot be reached (securly.com and goguardian.com), extension is unable to block or monitor websites
+:: lanschool student
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 206 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
+:: lanschool web helper
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 207 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
 
 :: -----------------
 
@@ -6766,6 +6798,22 @@ goto :EOF
 
 :: Device Installation Metadata Retrieval Off (non-forced option) (setup.bat main file uses forced option instead)
 :: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /V PreventDeviceMetadataFromNetwork /T REG_dWORD /D 1 /F
+
+:: Force Hide Start Menu App List
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoStartMenuMoreprograms /T REG_dWORD /D 1 /F
+:: REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoStartMenuMoreprograms /T REG_dWORD /D 1 /F
+
+:: Force Show Start Menu App List
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoStartMenuMoreprograms /T REG_dWORD /D 2 /F
+:: REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoStartMenuMoreprograms /T REG_dWORD /D 2 /F
+
+:: Disable Modify Toolbar (Taskbar)
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V taskbarNoAddRemoveToolbar /T REG_dWORD /D 1 /F
+:: REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V taskbarNoAddRemoveToolbar /T REG_dWORD /D 1 /F
+
+:: Force Lock Toolbar (Taskbar)
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V LockTaskbar /T REG_dWORD /D 1 /F
+:: REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V LockTaskbar /T REG_dWORD /D 1 /F
 
 :: ----- Windows 10 Update
 
