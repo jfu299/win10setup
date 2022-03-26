@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: February 18, 2022
+:: Updated: March 26, 2022
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: February 18, 2022
+echo Updated: March 26, 2022
 echo -------
 echo.
 
@@ -937,6 +937,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V "DisplayMenuBar" /T REG_SZ /
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisablePocket /T REG_dWORD /D 1 /F
 :: Refresh Profile Suggestion
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableProfileRefresh /T REG_dWORD /D 1 /F
+:: Safe Mode Disabled
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableSafeMode /T REG_dWORD /D 1 /F
+:: Windows SSO
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V WindowsSSO /T REG_dWORD /D 0 /F
 :: -----
 :: Quick Set Desktop Background
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableSetDesktopBackground /T REG_dWORD /D 1 /F
@@ -5229,6 +5233,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V "DisplayMenuBar" /T REG_SZ /
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisablePocket /T REG_dWORD /D 1 /F
 :: Refresh Profile Suggestion
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableProfileRefresh /T REG_dWORD /D 1 /F
+:: Safe Mode Disabled
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableSafeMode /T REG_dWORD /D 1 /F
+:: Windows SSO
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V WindowsSSO /T REG_dWORD /D 0 /F
 :: -----
 :: Quick Set Desktop Background
 REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableSetDesktopBackground /T REG_dWORD /D 1 /F
@@ -6750,9 +6758,8 @@ goto :EOF
 :: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V IncognitoModeAvailability /T REG_dWORD /D 1 /F
 :: 0 - User Choice, 1 - Force Disable, 2 - Force Enabled
 
-    :: Disable Sync (Already Included in Main)
-    
-        :: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SyncDisabled /T REG_dWORD /D 1 /F
+:: Disable Sync (Already Included in Main)
+:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SyncDisabled /T REG_dWORD /D 1 /F
 
     :: Chromium Clear Browsing History on EXIT
     :: (Make Sure to DISABLE SYNC)
@@ -6769,6 +6776,15 @@ goto :EOF
     :: (Make Sure to DISABLE SYNC)
 
     :: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V "BrowsingDataLifetime" /T REG_SZ /D "{\"data_types\":[\"browsing_history\",\"download_history\",\"cookies_and_other_site_data\",\"cached_images_and_files\",\"autofill\",\"site_settings\",\"hosted_app_data\"],\"time_to_live_in_hours\":1}" /F
+
+:: Disable Security Bypass
+:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SafeBrowsingProtectionLevel /T REG_dWORD /D 1 /F
+
+:: Disable Download Security Bypass
+:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DownloadRestrictions /T REG_dWORD /D 4 /F
+
+:: Block All Downloads
+:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DownloadRestrictions /T REG_dWORD /D 3 /F
 
 :: ----- Edge Chromium
 
@@ -6788,8 +6804,9 @@ goto :EOF
 :: Disable Firefox Accounts
 :: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableFirefoxAccounts /T REG_dWORD /D 1 /F
 
-:: Disable Firefox Safe Mode
-:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V DisableSafeMode /T REG_dWORD /D 1 /F
+:: Disable Firefox Security Bypass
+:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\DisableSecurityBypass" /V InvalidCertificate /T REG_dWORD /D 1 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\DisableSecurityBypass" /V SafeBrowsing /T REG_dWORD /D 1 /F
 
 :: ----- Windows 10
 
