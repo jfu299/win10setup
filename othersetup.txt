@@ -3,7 +3,7 @@ Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: July 15, 2021
+Updated: April 16, 2022
 
 1) Take over permissions of Registry Keys
 
@@ -106,20 +106,19 @@ Updated: July 15, 2021
 		false
 	- browser.newtabpage.activity-stream.asrouter.providers.whats-new-panel	
   		{"id":"whats-new-panel","enabled":false,"type":"remote-settings","bucket":"whats-new-panel","updateCycleInMs":3600000}
+
+	- security.insecure_connection_icon.enabled
+		true
+	- security.insecure_connection_icon.pbmode.enabled
+		true	
+	
 	- identity.mobilepromo.android
   		(LEAVE BLANK)
 	- identity.mobilepromo.ios
   		(LEAVE BLANK)
 	- identity.sendtabpromo.url
-  		(LEAVE BLANK)
-	- security.insecure_connection_icon.enabled
-		true	
-	- security.insecure_connection_text.enabled
-		true
-	- security.insecure_connection_icon.pbmode.enabled
-		true		
-	- security.insecure_connection_text.pbmode.enabled
-		true
+  		(LEAVE BLANK)	
+
 
 11) Remove Start Menu Bloat 
 
