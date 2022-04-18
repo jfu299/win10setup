@@ -1,9 +1,10 @@
+
 othersetup.txt
 Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: April 16, 2022
+Updated: April 18, 2022
 
 1) Take over permissions of Registry Keys
 
@@ -111,14 +112,6 @@ Updated: April 16, 2022
 		true
 	- security.insecure_connection_icon.pbmode.enabled
 		true	
-	
-	- identity.mobilepromo.android
-  		(LEAVE BLANK)
-	- identity.mobilepromo.ios
-  		(LEAVE BLANK)
-	- identity.sendtabpromo.url
-  		(LEAVE BLANK)	
-
 
 11) Remove Start Menu Bloat 
 
