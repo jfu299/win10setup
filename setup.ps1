@@ -4,7 +4,7 @@
 # 		https://github.com/jfu299/win10setup
 # 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.ps1
 # By: Justin Fu
-# Updated: July 4, 2021
+# Updated: April 18, 2022
 
 # --------------
 # Remove All UWP Apps (Except Microsoft Store, Windows Terminal, and Calculator)
