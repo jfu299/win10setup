@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: April 20, 2022
+:: Updated: April 21, 2022
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: April 20, 2022
+echo Updated: April 21, 2022
 echo -------
 echo.
 
@@ -329,7 +329,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePrevie
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\PolicyState" /V IsWUfBConfigured /T REG_dWORD /D 1 /F
 :: Current Branch Readiness (Semi-Annual Channel for 1903 and above)
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V BranchReadinessLevel /T REG_dWORD /D 16 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V BranchReadinessLevel /T REG_dWORD /D 1 /F
 :: Disable Wake Timers
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AUPowerManagement /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance" /V WakeUp /T REG_dWORD /D 0 /F
@@ -392,7 +392,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePrevie
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\PolicyState" /V IsWUfBConfigured /T REG_dWORD /D 1 /F
 :: Current Branch Readiness (Semi-Annual Channel for 1903 and above)
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V BranchReadinessLevel /T REG_dWORD /D 16 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V BranchReadinessLevel /T REG_dWORD /D 1 /F
 :: Disable Wake Timers
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AUPowerManagement /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance" /V WakeUp /T REG_dWORD /D 0 /F
@@ -1509,10 +1509,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 150 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
 :: lanschool web helper
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
-:: Other 2
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
 :: Read and Write
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+:: Other 2
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 155 /T REG_SZ /D hmkphiklpggiafkgpmdekkofbadkffnn /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 
 :: -----------------
 :: Chromium
@@ -1704,10 +1706,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 150 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
 :: lanschool web helper
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
-:: Other 2
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
 :: Read and Write
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+:: Other 2
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 155 /T REG_SZ /D hmkphiklpggiafkgpmdekkofbadkffnn /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 
 :: -----------------
 :: Brave
@@ -1899,10 +1903,12 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
 :: lanschool web helper
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
-:: Other 2
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
 :: Read and Write
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+:: Other 2
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 155 /T REG_SZ /D hmkphiklpggiafkgpmdekkofbadkffnn /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -2186,11 +2192,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 205
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 206 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
 :: lanschool web helper
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 207 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
-:: Other 2
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 208 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
 :: Read and Write Extension Chromium and Edge
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 209 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 210 /T REG_SZ /D bjglhpoliipklkfjcahfefdlfpifcinb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 208 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 209 /T REG_SZ /D bjglhpoliipklkfjcahfefdlfpifcinb /F
+:: Other 2
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 210 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 211 /T REG_SZ /D hmkphiklpggiafkgpmdekkofbadkffnn /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 212 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 
 :: -----------------
 
@@ -4192,7 +4200,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePrevie
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\PolicyState" /V IsWUfBConfigured /T REG_dWORD /D 1 /F
 :: Current Branch Readiness (Semi-Annual Channel for 1903 and above)
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V BranchReadinessLevel /T REG_dWORD /D 16 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V BranchReadinessLevel /T REG_dWORD /D 1 /F
 :: Disable Wake Timers
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AUPowerManagement /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Task Scheduler\Maintenance" /V WakeUp /T REG_dWORD /D 0 /F
@@ -4273,6 +4281,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Privacy" /V TailoredExpe
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Privacy" /V TailoredExperiencesWithDiagnosticDataEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableTailoredExperiencesWithDiagnosticData /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DisableEnterpriseAuthproxy /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\SQMClient\Windows" /V StudyId /T REG_dWORD /D 0 /F
 :: Connected User Experiences and Telemetry Service (DiagTrack)
 :: (Moved to Top of Main File) net stop DiagTrack
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack" /V Start /T REG_dWORD /D 4 /F
@@ -4280,17 +4289,25 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack" /V ObjectName /T REG_
 :: Windows 10 Send Feedback
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DoNotShowFeedbackNotifications /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DisableDiagnosticDataViewer /T REG_dWORD /D 1 /F
-:: Windows Defender Automatic Sample Submission
+:: Windows Defender
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /V SpynetReporting /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /V LocalSettingOverrideSpynetReporting /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /V SubmitSamplesConsent /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MRT" /V DontReportInfectionInformation /T REG_dWORD /D 1 /F	
 :: Windows Error Reporting
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /V Disabled /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\Windows Error Reporting" /V Disabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting" /V DoReport /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent" /V DefaultConsent /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\WindowsMitigation" /V UserPreference /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /V DontSendAdditionalData /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /V BypassNetworkCostThrottling /T REG_dWORD /D 0 /F
+
 :: -------
 :: Disable Inking and Typing
 :: -------
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization" /V DisablePersonalization /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace" /V AllowSuggestedAppsInWindowsInkWorkspace /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace" /V AllowWindowsInkWorkspace /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization" /V AllowInputPersonalization /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization" /V RestrictImplicitTextCollection /T REG_dWORD /D 1 /F
@@ -4324,6 +4341,7 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V St
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /V DisableLocation /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /V DisableLocationScripting /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /V DisableSensors /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors" /V DisableWindowsLocationProvider /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessLocation /T REG_dWORD /D 2 /F
 :: Find My Device Location
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\FindMyDevice" /V AllowFindMyDevice /T REG_dWORD /D 0 /F
@@ -4357,10 +4375,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsSyncWith
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessMotion /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessGazeInput /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessBackgroundSpatialPerception /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessGraphicsCaptureProgrammatic /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\documentsLibrary" /V Value /T REG_SZ /D Deny /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\picturesLibrary" /V Value /T REG_SZ /D Deny /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\videosLibrary" /V Value /T REG_SZ /D Deny /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\broadFileSystemAccess" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Messaging" /V AllowMessageSync /T REG_dWORD /D 0 /F
+
 :: -------
 :: Disable Microsoft Annoyances
 :: -------
@@ -4372,6 +4393,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableConsum
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableCloudOptimizedContent /T REG_dWORD /D 1 /F
 :: Microsoft Store Disable Auto Update Apps
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsStore" /V AutoDownload /T REG_dWORD /D 2 /F
+:: Microsoft Store Disable Push to Install
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\PushToInstall" /V DisablePushToInstall /T REG_dWORD /D 1 /F
 :: Microsoft Store Apps
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V ContentDeliveryAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /V OemPreInstalledAppsEnabled /T REG_dWORD /D 0 /F
@@ -4409,6 +4432,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Sh
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowInfoTip /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowSyncProviderNotifications /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowSyncProviderNotifications /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\EdgeUI" /V DisableMFUTracking /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\EdgeUI" /V DisableMFUTracking /T REG_dWORD /D 1 /F
 :: File Explorer Clear History
 Del /F /Q %UserProfile%\AppData\Microsoft\Windows\Recent\*
 Del /F /Q %UserProfile%\AppData\Microsoft\Windows\Recent\AutomaticDestinations\*
@@ -4418,6 +4443,9 @@ REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths /V
 REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery /VA /F
 :: Settings Tips
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V AllowOnlineTips /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\EdgeUI " /V DisableHelpSticker /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Assistance\Client\1.0" /V NoActiveHelp /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Assistance\Client\1.0" /V NoUntrustedContent /T REG_dWORD /D 1 /F
 :: Keyboard
 REG ADD "HKCU\Software\Microsoft\Input\Settings" /V EnableHwkbTextPrediction /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Control Panel\International" /V TurnOffOfferTextPredictions /T REG_dWORD /D 1 /F
@@ -4461,6 +4489,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Connect" /V AllowProjectionToP
 REG ADD "HKLM\SOFTWARE\Microsoft\MiracastReceiver" /V "Primary Authorization Method" /T REG_dWORD /D 3 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Connect" /V "Primary Authorization Method" /T REG_dWORD /D 3 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\MiracastReceiver" /V ConsentToast /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\NetworkProjector" /V DisableNetworkProjector /T REG_dWORD /D 1 /F
 :: Shared Experiences
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V EnableCdp /T REG_dWORD /D 0 /F
 :: Offline Maps App
@@ -4502,6 +4531,7 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTask
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTaskbarContentUpdateMode /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTaskbarOpenOnHover /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData\Microsoft.ProjectNewsbar_8wekyb3d8bbwe\msnews-newsbar" /V State /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Dsh" /V AllowNewsAndInterests /T REG_dWORD /D 0 /F
 :: Taskbar Chat Icon
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Chat" /V ChatIcon /T REG_dWORD /D 3 /F
 :: Remote Assistance Turn Off
@@ -4523,6 +4553,22 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V Do
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V SystemUsesLightTheme /T REG_dWORD /D 0 /F
 :: Transparency Turn Off
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V EnableTransparency /T REG_dWORD /D 0 /F
+:: Disable Family / Parental Options
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\ParentalControls" /V WPCEnableOnDomain /T REG_dWORD /D 0 /F
+:: Game Explorer
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\GameUX" /V DownloadGameInfo /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\GameUX" /V GameUpdateOptions /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\GameUX" /V ListRecentlyPlayed /T REG_dWORD /D 0 /F
+:: Windows Windows Game Recording and Broadcasting Disable
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\GameDVR" /V AllowGameDVR /T REG_dWORD /D 0 /F
+:: Windows Calendar
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Windows" /V TurnOffWinCal /T REG_dWORD /D 1 /F
+:: Windows Mail
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Mail" /V ManualLaunchAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Mail" /V DisableCommunities /T REG_dWORD /D 1 /F
+:: Windows Messanger
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Messenger\Client" /V PreventAutoRun /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Messenger\Client" /V PreventRun /T REG_dWORD /D 1 /F
 
 :: -------
 :: Windows Ease of Access
@@ -4595,6 +4641,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowCloudS
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowSearchToUseLocation /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V DisableWebSearch /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V ConnectedSearchPrivacy /T REG_dWORD /D 3 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V ConnectedSearchUseWeb /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V ConnectedSearchUseWebOverMeteredConnections /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V BingSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowCortanaButton /T REG_dWORD /D 0 /F
 :: Search History
@@ -4606,6 +4654,7 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V Cl
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsAADCloudSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsDeviceSearchHistoryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsMSACloudSearchEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V SafeSearchMode /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Comdlg32" /V NoFileMru /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Comdlg32" /V NoFileMru /T REG_dWORD /D 1 /F
 :: Recently Added Apps
@@ -4635,11 +4684,19 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisablePersona
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableStartLayoutSettingSyncUserOverride /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableSyncOnPaidNetwork /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Microsoftaccount" /V DisableUserAuth /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V MSAOptional /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\AppModel\StateManager" /V AllowSharedLocalAppData /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx" /V BlockNonAdminUserInstall /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx" /V RestrictAppDataToSystemVolume /T REG_dWORD /D 1 /F
 :: Disable Sign in to Workplace
 REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowWorkplace" /V value /T REG_dWORD /D 0 /F
+:: Disable MDM Enrollment
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\MDM" /V DisableRegistration /T REG_dWORD /D 1 /F
 :: Windows Defender
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Account protection" /V UILockdown /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Family options" /V UILockdown /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Notifications" /V DisableEnhancedNotifications /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Systray" /V HideSystray /T REG_dWORD /D 1 /F
 :: Hide Password Reveal
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\CredUI" /V DisablePasswordReveal /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CredUI" /V DisablePasswordReveal /T REG_dWORD /D 1 /F
@@ -4651,6 +4708,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V NoLocalPasswordRese
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V DontDisplayNetworkSelectionUI /T REG_dWORD /D 1 /F
 :: UAC Hide User Accounts
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnumerateAdministrators /T REG_dWORD /D 0 /F
+:: Restrict SAS to only manual
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V SoftwareSASGeneration /T REG_dWORD /D 0 /F
+
 :: -------
 :: Action Center
 :: -------
@@ -4883,6 +4943,9 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\feature_r
 :: Require Password on Wake-Up
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51" /V DCSettingIndex /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51" /V ACSettingIndex /T REG_dWORD /D 1 /F
+
+:: Windows Sideshow Auto Wake Disabled
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SideShow" /V AutoWakeDisabled /T REG_dWORD /D 1 /F
 
 :: Require Password after Display turns off
 REG ADD "HKLM\Control Panel\Desktop" /V DelayLockInterval /T REG_dWORD /D 0 /F
@@ -5825,10 +5888,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 150 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
 :: lanschool web helper
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
-:: Other 2
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
 :: Read and Write
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+:: Other 2
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 155 /T REG_SZ /D hmkphiklpggiafkgpmdekkofbadkffnn /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 
 :: -----------------
 :: Chromium
@@ -6020,10 +6085,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 150 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
 :: lanschool web helper
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
-:: Other 2
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
 :: Read and Write
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+:: Other 2
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 155 /T REG_SZ /D hmkphiklpggiafkgpmdekkofbadkffnn /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 
 :: -----------------
 :: Brave
@@ -6215,10 +6282,12 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
 :: lanschool web helper
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 152 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
-:: Other 2
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
 :: Read and Write
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 153 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+:: Other 2
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 154 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 155 /T REG_SZ /D hmkphiklpggiafkgpmdekkofbadkffnn /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -6502,11 +6571,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 205
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 206 /T REG_SZ /D ifeifkfohlobcbhmlfkenopaimbmnahb /F
 :: lanschool web helper
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 207 /T REG_SZ /D honjcnefekfnompampcpmcdadibmjhlk /F
-:: Other 2
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 208 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
 :: Read and Write Extension Chromium and Edge
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 209 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 210 /T REG_SZ /D bjglhpoliipklkfjcahfefdlfpifcinb /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 208 /T REG_SZ /D inoeonmfapjbbkmdafoankkfajkcphgd /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 209 /T REG_SZ /D bjglhpoliipklkfjcahfefdlfpifcinb /F
+:: Other 2
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 210 /T REG_SZ /D kgeglempfkhalebjlogemlmeakondflc /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 211 /T REG_SZ /D hmkphiklpggiafkgpmdekkofbadkffnn /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 212 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 
 :: -----------------
 
