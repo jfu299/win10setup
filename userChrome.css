@@ -5,7 +5,7 @@ Custom Setup for Windows 10
     https://github.com/jfu299/win10setup
     https://raw.githubusercontent.com/jfu299/win10setup/main/userChrome.css
 By: Justin Fu 
-Updated: April 18, 2022
+Updated: May 08, 2022
 
 -------------------
 
@@ -17,6 +17,33 @@ Custom css for Firefox
 
 */
 
+/* ----- Tracking Protection Icon ----- */
+
+#tracking-protection-icon {
+    list-style-image: url(chrome://browser/skin/tracking-protection.svg) !important;
+  }
+
+/* ----- Insecure / Not Secure Icon Red ----- */
+
+#identity-box[pageproxystate="valid"].notSecure #identity-icon,
+#identity-box[pageproxystate="valid"].mixedActiveContent #identity-icon,
+#identity-box[pageproxystate="valid"].httpsOnlyErrorPage #identity-icon,
+#identity-box[pageproxystate="valid"].weakCipher #identity-icon,
+#identity-box[pageproxystate="valid"].mixedDisplayContent #identity-icon,
+#identity-box[pageproxystate="valid"].mixedDisplayContentLoadedActiveBlocked #identity-icon,
+#identity-box[pageproxystate="valid"].certUserOverridden #identity-icon,
+#identity-box[pageproxystate="valid"].certErrorPage #identity-icon,
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon {
+    fill-opacity: 1 !important;
+    fill: #ff0000 !important;
+  }
+
+/* ----- Secure Icon Green ----- */
+
+#identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
+    fill-opacity: 1;
+    fill: #12BC00;
+  }
 
 /* ----- Hide Bookmark Star on URL bar ----- */
 
@@ -54,7 +81,7 @@ Custom css for Firefox
 /* ------------------- */
 
 /* ----- Vertical Tabs ----- */
-/*
+
 #TabsToolbar {
     display:none !important;
 }
@@ -62,5 +89,5 @@ Custom css for Firefox
 #menubar-items {
     display:none !important;
 }
-*/
+
 /* ------------------- */
