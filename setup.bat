@@ -4666,7 +4666,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V EnableActivityFeed 
 :: Advanced Clipboard
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V AllowClipboardHistory /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V AllowCrossDeviceClipboard /T REG_dWORD /D 0 /F
-REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Start_TrackDocs /T REG_dWORD /D 0 /
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Start_TrackDocs /T REG_dWORD /D 0 /F
 :: Search Highlights
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V EnableDynamicContentInWSB /T REG_dWORD /D 0 /F
 :: -------
