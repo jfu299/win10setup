@@ -4,7 +4,7 @@ Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: May 08, 2022
+Updated: May 19, 2022
 
 1) Take over permissions of Registry Keys
 
@@ -111,7 +111,12 @@ Updated: May 08, 2022
 	- security.insecure_connection_icon.pbmode.enabled
 		true	
 
-11) Remove Start Menu Bloat 
+11) Date Time Format
+
+	HKCU\Control Panel\International
+	Control Panel - Date Time Formats
+
+12) Remove Start Menu Bloat 
 
 	--- setup.bat already does Option 1 ---
 
