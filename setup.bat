@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: May 19, 2022
+:: Updated: May 28, 2022
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: May 19, 2022
+echo Updated: May 28, 2022
 echo -------
 echo.
 
@@ -6731,8 +6731,17 @@ DISM /online /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.
 :: -------
 :: Set Time Zone (United States Eastern Time)
 :: -------
-:: Set to United States Eastern Time
+
+net stop tzautoupdate
+
+:: Disable Auto Select Time Zone
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\tzautoupdate" /V start /T REG_dWORD /D 4 /F
+
+:: Set Time to United States Eastern Time
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "TimeZoneKeyName" /T REG_SZ /D "Eastern Standard Time" /F
+
+:: Auto Set Daylight Savings Time
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "DynamicDaylightTimeDisabled" /T REG_dWORD /D 0 /F
 
 :: Sync Time
 timeout /t 2 /nobreak
@@ -6741,8 +6750,11 @@ timeout /t 2 /nobreak
 w32tm /resync
 timeout /t 2 /nobreak
 
-:: Disable Auto Select Time Zone
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\tzautoupdate" /V start /T REG_dWORD /D 4 /F
+:: Set Short Date Format
+REG ADD "HKCU\Control Panel\International" /V "sShortDate" /T REG_SZ /D "MMMM dd, yyyy" /F
+
+:: Set Long Date Format
+REG ADD "HKCU\Control Panel\International" /V "sLongDate" /T REG_SZ /D "dddd, MMMM dd, yyyy" /F
 
 :: -----------------
 :: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
@@ -6947,6 +6959,10 @@ goto :EOF
 :: Force Lock Toolbar (Taskbar)
 :: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V LockTaskbar /T REG_dWORD /D 1 /F
 :: REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V LockTaskbar /T REG_dWORD /D 1 /F
+
+:: Date Time Format
+:: HKCU\Control Panel\International
+::      Control Panel - Date Time Formats
 
 :: ----- Windows 10 Update
 
