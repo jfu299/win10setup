@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: September 26, 2022
+:: Updated: December 31, 2022
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: September 26, 2022
+echo Updated: December 31, 2022
 echo -------
 echo.
 
@@ -639,6 +639,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BrowserSignin /T REG_dWORD /D 
 :: -----
 :: DNS Over HTTPS and Proxy
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DnsOverHttpsMode /T REG_SZ /D off /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BuiltInDnsClientEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
@@ -676,21 +677,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SafeBrowsingExtendedReportingE
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
 :: -----
-:: Other Content Settings
+:: Other Content Settings 1
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+:: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -744,6 +750,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SyncDisabled /T REG_dWORD /D 1 /F
 :: -----
 :: DNS Over HTTPS and Proxy
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DnsOverHttpsMode /T REG_SZ /D off /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BuiltInDnsClientEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
@@ -781,21 +788,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SafeBrowsingExtendedReportingEnable
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
 :: -----
-:: Other Content Settings
+:: Other Content Settings 1
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+:: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -980,6 +992,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ShowAppsShor
 :: -----
 :: DNS Over HTTPS and Proxy
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DnsOverHttpsMode /T REG_SZ /D off /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BuiltInDnsClientEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
@@ -1015,21 +1028,26 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SafeBrowsingExtendedRepo
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
 :: -----
-:: Other Content Settings
+:: Other Content Settings 1
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+:: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -1120,22 +1138,27 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabl
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 :: -----
-:: Other Content Settings
+:: Other Content Settings 1
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TrackingPrevention /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+:: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
 :: -----
 :: Background Mode
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
@@ -1530,6 +1553,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 155 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 :: Content Keeper
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 157 /T REG_SZ /D jdogphakondfdmcanpapfahkdomaicfa /F
+:: GoGuardian Extension
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 158 /T REG_SZ /D haldlgldplgnggkjaafhelgiaglafanh /F
 
 :: -----------------
 :: Chromium
@@ -1729,6 +1754,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 155 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 :: Content Keeper
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 157 /T REG_SZ /D jdogphakondfdmcanpapfahkdomaicfa /F
+:: GoGuardian Extension
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 158 /T REG_SZ /D haldlgldplgnggkjaafhelgiaglafanh /F
 
 :: -----------------
 :: Brave
@@ -1928,6 +1955,8 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 :: Content Keeper
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 157 /T REG_SZ /D jdogphakondfdmcanpapfahkdomaicfa /F
+:: GoGuardian Extension
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 158 /T REG_SZ /D haldlgldplgnggkjaafhelgiaglafanh /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -2220,6 +2249,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 211
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 212 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 :: Content Keeper CWS
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 213 /T REG_SZ /D jdogphakondfdmcanpapfahkdomaicfa /F
+:: GoGuardian Extension
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 214 /T REG_SZ /D haldlgldplgnggkjaafhelgiaglafanh /F
 
 :: -----------------
 
@@ -5059,6 +5090,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BrowserSignin /T REG_dWORD /D 
 :: -----
 :: DNS Over HTTPS and Proxy
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DnsOverHttpsMode /T REG_SZ /D off /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BuiltInDnsClientEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
@@ -5096,21 +5128,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SafeBrowsingExtendedReportingE
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
 :: -----
-:: Other Content Settings
+:: Other Content Settings 1
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+:: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -5164,6 +5201,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SyncDisabled /T REG_dWORD /D 1 /F
 :: -----
 :: DNS Over HTTPS and Proxy
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DnsOverHttpsMode /T REG_SZ /D off /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BuiltInDnsClientEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
@@ -5201,21 +5239,26 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SafeBrowsingExtendedReportingEnable
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
 :: -----
-:: Other Content Settings
+:: Other Content Settings 1
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+:: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -5400,6 +5443,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ShowAppsShor
 :: -----
 :: DNS Over HTTPS and Proxy
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DnsOverHttpsMode /T REG_SZ /D off /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BuiltInDnsClientEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
@@ -5435,21 +5479,26 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SafeBrowsingExtendedRepo
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AdvancedProtectionAllowed /T REG_dWORD /D 0 /F
 :: -----
-:: Other Content Settings
+:: Other Content Settings 1
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+:: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -5540,22 +5589,27 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabl
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 :: -----
-:: Other Content Settings
+:: Other Content Settings 1
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TrackingPrevention /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+:: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultFileSystemReadGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultFileSystemWriteGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSerialGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
 :: -----
 :: Background Mode
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
@@ -5950,6 +6004,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 155 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 :: Content Keeper
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 157 /T REG_SZ /D jdogphakondfdmcanpapfahkdomaicfa /F
+:: GoGuardian Extension
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 158 /T REG_SZ /D haldlgldplgnggkjaafhelgiaglafanh /F
 
 :: -----------------
 :: Chromium
@@ -6149,6 +6205,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 155 /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 :: Content Keeper
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 157 /T REG_SZ /D jdogphakondfdmcanpapfahkdomaicfa /F
+:: GoGuardian Extension
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallBlocklist" /V 158 /T REG_SZ /D haldlgldplgnggkjaafhelgiaglafanh /F
 
 :: -----------------
 :: Brave
@@ -6348,6 +6406,8 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 156 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 :: Content Keeper
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 157 /T REG_SZ /D jdogphakondfdmcanpapfahkdomaicfa /F
+:: GoGuardian Extension
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 158 /T REG_SZ /D haldlgldplgnggkjaafhelgiaglafanh /F
 
 :: -----------------
 :: Microsoft Edge Chromium
@@ -6640,6 +6700,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 211
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 212 /T REG_SZ /D jdfhadodhoabdfkgkclcdpocjffadkne /F
 :: Content Keeper CWS
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 213 /T REG_SZ /D jdogphakondfdmcanpapfahkdomaicfa /F
+:: GoGuardian Extension
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 214 /T REG_SZ /D haldlgldplgnggkjaafhelgiaglafanh /F
 
 :: -----------------
 
@@ -6807,11 +6869,23 @@ timeout /t 2 /nobreak
 w32tm /resync
 timeout /t 2 /nobreak
 
-:: Set Short Date Format
-REG ADD "HKCU\Control Panel\International" /V "sShortDate" /T REG_SZ /D "MMMM dd, yyyy" /F
+:: Date Time Format
 
-:: Set Long Date Format
-REG ADD "HKCU\Control Panel\International" /V "sLongDate" /T REG_SZ /D "dddd, MMMM dd, yyyy" /F
+:: Short Date Format
+REG ADD "HKCU\Control Panel\International" /V "sShortDate" /T REG_SZ /D "yyyy-MM-dd" /F
+
+:: Long Date Format
+REG ADD "HKCU\Control Panel\International" /V "sLongDate" /T REG_SZ /D "dddd, yyyy MMMM dd" /F
+
+:: Short Time Format
+REG ADD "HKCU\Control Panel\International" /V "sShortTime" /T REG_SZ /D "HH:mm" /F
+
+:: Long Time Format
+REG ADD "HKCU\Control Panel\International" /V "sTimeFormat" /T REG_SZ /D "HH:mm:ss" /F
+
+:: First Day of the Week Sunday
+REG ADD "HKCU\Control Panel\International" /V "iFirstDayOfWeek" /T REG_SZ /D "6" /F
+
 
 :: -----------------
 :: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
