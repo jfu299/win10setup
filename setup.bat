@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: December 31, 2022
+:: Updated: January 01, 2023
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: December 31, 2022
+echo Updated: January 01, 2023
 echo -------
 echo.
 
@@ -643,6 +643,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BuiltInDnsClientEnabled /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
@@ -697,6 +698,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultClipboardSetting /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+:: History Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HistoryClustersVisible /T REG_dWORD /D 0 /F
+:: New Tab Page Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NTPCardsVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -754,6 +760,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BuiltInDnsClientEnabled /T REG_dWOR
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
@@ -808,6 +815,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultClipboardSetting /T REG_dWOR
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+:: History Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HistoryClustersVisible /T REG_dWORD /D 0 /F
+:: New Tab Page Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NTPCardsVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -996,6 +1008,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BuiltInDnsClientEnabled 
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
@@ -1048,6 +1061,11 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultClipboardSetting 
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+:: History Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HistoryClustersVisible /T REG_dWORD /D 0 /F
+:: New Tab Page Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NTPCardsVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -1070,8 +1088,11 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V EnableMediaRouter /T REG
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: -----
-:: Brave: Tor
+:: Brave: Settings
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TorDisabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V IPFSEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveRewardsDisabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveWalletDisabled /T REG_dWORD /D 1 /F
 :: -----
 :: URL Blocklist
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
@@ -1102,6 +1123,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BuiltInDnsClientEnabled /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
@@ -1159,6 +1181,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultClipboardSetting /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+:: History Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HistoryClustersVisible /T REG_dWORD /D 0 /F
+:: New Tab Page Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NTPCardsVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
 :: -----
 :: Background Mode
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
@@ -5094,6 +5121,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BuiltInDnsClientEnabled /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
@@ -5148,6 +5176,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultClipboardSetting /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+:: History Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HistoryClustersVisible /T REG_dWORD /D 0 /F
+:: New Tab Page Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NTPCardsVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -5205,6 +5238,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BuiltInDnsClientEnabled /T REG_dWOR
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
@@ -5259,6 +5293,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultClipboardSetting /T REG_dWOR
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+:: History Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HistoryClustersVisible /T REG_dWORD /D 0 /F
+:: New Tab Page Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NTPCardsVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -5447,6 +5486,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BuiltInDnsClientEnabled 
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
@@ -5499,6 +5539,11 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultClipboardSetting 
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+:: History Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HistoryClustersVisible /T REG_dWORD /D 0 /F
+:: New Tab Page Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NTPCardsVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -5521,8 +5566,11 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V EnableMediaRouter /T REG
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: -----
-:: Brave: Tor
+:: Brave: Settings
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TorDisabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V IPFSEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveRewardsDisabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveWalletDisabled /T REG_dWORD /D 1 /F
 :: -----
 :: URL Blocklist
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
@@ -5553,6 +5601,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BuiltInDnsClientEnabled /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
@@ -5610,6 +5659,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultClipboardSetting /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultInsecureContentSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultPopupsSetting /T REG_dWORD /D 2 /F
+:: History Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HistoryClustersVisible /T REG_dWORD /D 0 /F
+:: New Tab Page Suggestions
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NTPCardsVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
 :: -----
 :: Background Mode
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
