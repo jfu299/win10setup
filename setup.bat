@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: January 03, 2023
+:: Updated: February 04, 2023
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: January 03, 2023
+echo Updated: February 04, 2023
 echo -------
 echo.
 
@@ -316,10 +316,10 @@ goto option2.4redo
 @echo ON
 :: -------
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
-:: Target Release Version (Version 21H2)
+:: Target Release Version (Version 22H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ProductVersion /T REG_SZ /D "Windows 10" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "22H2" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
@@ -380,10 +380,10 @@ goto option2
 :option2.2Start
 @echo ON
 :: See Windows 10 Updates Partial Control on Main (Same Thing)
-:: Target Release Version (Version 21H2)
+:: Target Release Version (Version 22H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ProductVersion /T REG_SZ /D "Windows 10" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "22H2" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
@@ -3899,7 +3899,7 @@ echo  ############################
 echo.
 echo -------
 echo.
-echo Windows 10 Target Release Version Policy is set to: 21H2
+echo Windows 10 Target Release Version Policy is set to: 22H2
 echo (Change Target Release Version if you are running an older Windows 10 version)
 echo.
 echo -------
@@ -4266,10 +4266,10 @@ REG DELETE "HKCR\*\shellex\ContextMenuHandlers\ModernSharing" /F
 :: -------
 :: Windows 10 Updates Partial Control (Windows Update Not Disabled)
 :: -------
-:: Target Release Version (Version 21H2)
+:: Target Release Version (Version 22H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ProductVersion /T REG_SZ /D "Windows 10" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "22H2" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
