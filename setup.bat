@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: February 04, 2023
+:: Updated: February 05, 2023
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: February 04, 2023
+echo Updated: February 05, 2023
 echo -------
 echo.
 
@@ -1104,6 +1104,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 2 /T REG_SZ
 :: -----------------
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V CreateDesktopShortcutDefault /T REG_dWORD /D 0 /F
 
 :: Extension Settings
 :: 1) "Ublock Origin", 2) "SponsorBlock for YouTube - Skip Sponsorships", 3) "UBlock Origin Lite", 4) "ClearURLs"
@@ -1133,35 +1134,41 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideFirstRunExperience /T REG
 :: -----
 :: Easter Egg
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AllowSurfGame /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AllowGamesMenu /T REG_dWORD /D 0 /F
 :: -----
 :: Notification / Location / Flash
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultGeolocationSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultNotificationsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultPluginsSetting /T REG_dWORD /D 2 /F
 :: -----
-:: Settings Import
+:: Edge Settings Import
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutoImportAtFirstRun /T REG_dWORD /D 4 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ImportOnEachLaunch /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportAutofillFormData /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportBrowserSettings /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportCookies /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportExtensions /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportFavorites /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportHistory /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportHomepage /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportOpenTabs /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportPaymentInfo /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportSavedPasswords /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportSearchEngine /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportShortcuts /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportHomepage /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportStartupPageSettings /T REG_dWORD /D 0 /F
 :: -----
 :: Telemetry
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SendSiteInfoToImproveServices /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DiagnosticData /T REG_dWORD /D 0 /F
 :: -----
 :: Other Content Settings 1
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TrackingPrevention /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdsTransparencyEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
@@ -1208,6 +1215,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeCollectionsEnabled /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 1 /T REG_SZ /D pinterest_suggestions /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeShoppingAssistantEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowMicrosoftRewards /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeFollowEnabled /T REG_dWORD /D 0 /F
 :: New Tab Page
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageHideDefaultTopSites /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPagePrerenderEnabled /T REG_dWORD /D 0 /F
@@ -1225,10 +1233,17 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideInternetExplorerRedirectU
 :: Edge Bar / Web Widget
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebWidgetIsEnabledOnStartup /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebWidgetAllowed /T REG_dWORD /D 0 /F
+:: Edge Discovery Disable
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HubsSidebarEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeDiscoverEnabled /T REG_dWORD /D 0 /F
+:: Edge Insider Promotion Disable
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MicrosoftEdgeInsiderPromotionEnabled /T REG_dWORD /D 0 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LocalProvidersEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LocalBrowserDataShareEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SharedLinksEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: URL Blocklist
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
@@ -5582,6 +5597,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 2 /T REG_SZ
 :: -----------------
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V CreateDesktopShortcutDefault /T REG_dWORD /D 0 /F
 
 :: Extension Settings
 :: 1) "Ublock Origin", 2) "SponsorBlock for YouTube - Skip Sponsorships", 3) "UBlock Origin Lite", 4) "ClearURLs"
@@ -5611,35 +5627,41 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideFirstRunExperience /T REG
 :: -----
 :: Easter Egg
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AllowSurfGame /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AllowGamesMenu /T REG_dWORD /D 0 /F
 :: -----
 :: Notification / Location / Flash
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultGeolocationSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultNotificationsSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultPluginsSetting /T REG_dWORD /D 2 /F
 :: -----
-:: Settings Import
+:: Edge Settings Import
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutoImportAtFirstRun /T REG_dWORD /D 4 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ImportOnEachLaunch /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportAutofillFormData /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportBrowserSettings /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportCookies /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportExtensions /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportFavorites /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportHistory /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportHomepage /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportOpenTabs /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportPaymentInfo /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportSavedPasswords /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportSearchEngine /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportShortcuts /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportHomepage /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportStartupPageSettings /T REG_dWORD /D 0 /F
 :: -----
 :: Telemetry
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SendSiteInfoToImproveServices /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DiagnosticData /T REG_dWORD /D 0 /F
 :: -----
 :: Other Content Settings 1
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TrackingPrevention /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdsTransparencyEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AdsSettingForIntrusiveAdsSites /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BlockThirdPartyCookies /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
@@ -5686,6 +5708,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeCollectionsEnabled /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 1 /T REG_SZ /D pinterest_suggestions /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeShoppingAssistantEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowMicrosoftRewards /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeFollowEnabled /T REG_dWORD /D 0 /F
 :: New Tab Page
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageHideDefaultTopSites /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPagePrerenderEnabled /T REG_dWORD /D 0 /F
@@ -5703,10 +5726,17 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideInternetExplorerRedirectU
 :: Edge Bar / Web Widget
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebWidgetIsEnabledOnStartup /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebWidgetAllowed /T REG_dWORD /D 0 /F
+:: Edge Discovery Disable
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HubsSidebarEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeDiscoverEnabled /T REG_dWORD /D 0 /F
+:: Edge Insider Promotion Disable
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MicrosoftEdgeInsiderPromotionEnabled /T REG_dWORD /D 0 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LocalProvidersEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LocalBrowserDataShareEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SharedLinksEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: URL Blocklist
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
