@@ -4772,6 +4772,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V AllowCrossDeviceCli
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Start_TrackDocs /T REG_dWORD /D 0 /F
 :: Search Highlights
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V EnableDynamicContentInWSB /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds\DSB" /V ShowDynamicContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsDynamicSearchBoxEnabled /T REG_dWORD /D 0 /F
 :: -------
 :: Windows Security and UAC Settings
 :: -------
