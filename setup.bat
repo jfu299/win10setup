@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: February 28, 2023
+:: Updated: March 25, 2023
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: February 28, 2023
+echo Updated: March 25, 2023
 echo -------
 echo.
 
@@ -1295,8 +1295,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\TabPreloader" /V Prevent
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /V SyncFavoritesBetweenIEAndMicrosoftEdge /T REG_dWORD /D 0 /F
 :: -----
 :: Sync
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableSettingSyn /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableWebBrowserSettingSyncUserOverride /T REG_dWORD /D 2 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableSettingSync /T REG_dWORD /D 2 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableWebBrowserSettingSyncUserOverride /T REG_dWORD /D 1 /F
 :: -----
 :: Browsing History
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\KioskMode" /V ConfigureKioskMode /T REG_dWORD /D 1 /F
@@ -4682,6 +4682,8 @@ REG ADD "HKCU\Control Panel\Accessibility\Keyboard Response" /V "Flags" /T REG_S
 REG ADD "HKCU\Control Panel\Accessibility\ToggleKeys" /V "Flags" /T REG_SZ /D "34" /F
 :: Mouse Keys
 REG ADD "HKCU\Control Panel\Accessibility\MouseKeys" /V "Flags" /T REG_SZ /D "2" /F
+
+
 :: -------
 :: Windows Login Experience
 :: -------
@@ -4776,7 +4778,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V EnableDynam
 :: Microsoft account
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V NoConnectedUser /T REG_dWORD /D 3 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableSettingSync /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableSettingSyncUserOverride /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableSettingSyncUserOverride /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableWindowsSettingSyncUserOverride /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableApplicationSettingSyncUserOverride /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableAppSyncSettingSyncUserOverride /T REG_dWORD /D 2 /F
@@ -5796,8 +5798,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\TabPreloader" /V Prevent
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /V SyncFavoritesBetweenIEAndMicrosoftEdge /T REG_dWORD /D 0 /F
 :: -----
 :: Sync
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableSettingSyn /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableWebBrowserSettingSyncUserOverride /T REG_dWORD /D 2 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableSettingSync /T REG_dWORD /D 2 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableWebBrowserSettingSyncUserOverride /T REG_dWORD /D 1 /F
 :: -----
 :: Browsing History
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\KioskMode" /V ConfigureKioskMode /T REG_dWORD /D 1 /F
@@ -6946,7 +6948,7 @@ DISM /online /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.
 net stop tzautoupdate
 
 :: Disable Auto Select Time Zone
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\tzautoupdate" /V start /T REG_dWORD /D 4 /F
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\tzautoupdate" /V "start" /T REG_dWORD /D 4 /F
 
 :: Set Time to United States Eastern Time
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "TimeZoneKeyName" /T REG_SZ /D "Eastern Standard Time" /F
@@ -6954,8 +6956,23 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "TimeZone
 :: Auto Set Daylight Savings Time
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "DynamicDaylightTimeDisabled" /T REG_dWORD /D 0 /F
 
+:: Set Internet Time Server to time.nist.gov
+REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DateTime\Servers" /ve /d "2" /f
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" /V "NtpServer" /T REG_SZ /D "time.nist.gov,0x9" /F
+
+:: Additional Clock 1 (UTC)
+REG ADD "HKLM\Control Panel\TimeDate\AdditionalClocks\1" /V "Enable" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\1" /V "DisplayName" /T REG_SZ /D "UTC" /F
+REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\1" /V "TzRegKeyName" /T REG_SZ /D "UTC" /F
+
+:: Additional Clock 2 (Eastern Time)
+REG ADD "HKLM\Control Panel\TimeDate\AdditionalClocks\2" /V "Enable" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\2" /V "DisplayName" /T REG_SZ /D "Eastern Time" /F
+REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\2" /V "TzRegKeyName" /T REG_SZ /D "Eastern Standard Time" /F
+
 :: Sync Time
-timeout /t 2 /nobreak
+net start w32time
+timeout /t 5 /nobreak
 w32tm /resync
 timeout /t 2 /nobreak
 w32tm /resync
@@ -6977,6 +6994,10 @@ REG ADD "HKCU\Control Panel\International" /V "sTimeFormat" /T REG_SZ /D "HH:mm:
 
 :: First Day of the Week Sunday
 REG ADD "HKCU\Control Panel\International" /V "iFirstDayOfWeek" /T REG_SZ /D "6" /F
+
+:: Prevent User Override
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Control Panel\International" /V PreventUserOverrides /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Control Panel\International" /V PreventUserOverrides /T REG_dWORD /D 1 /F
 
 
 :: -----------------
