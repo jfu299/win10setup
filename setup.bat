@@ -4875,6 +4875,12 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Ta
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V SearchboxTaskbarMode /T REG_dWORD /D 0 /F
 :: Task View Button
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowTaskViewButton /T REG_dWORD /D 0 /F
+:: Taskbar Toolbar Disable
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoToolbarsOnTaskbar /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V TaskbarNoAddRemoveToolbar /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoToolbarsOnTaskbar /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V TaskbarNoAddRemoveToolbar /T REG_dWORD /D 1 /F
+
 :: -------
 :: File Explorer
 :: -------
@@ -6996,8 +7002,8 @@ REG ADD "HKCU\Control Panel\International" /V "sTimeFormat" /T REG_SZ /D "HH:mm:
 REG ADD "HKCU\Control Panel\International" /V "iFirstDayOfWeek" /T REG_SZ /D "6" /F
 
 :: Prevent User Override
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Control Panel\International" /V PreventUserOverrides /T REG_dWORD /D 1 /F
-REG ADD "HKCU\Software\Policies\Microsoft\Control Panel\International" /V PreventUserOverrides /T REG_dWORD /D 1 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Control Panel\International" /V PreventUserOverrides /T REG_dWORD /D 1 /F
+:: REG ADD "HKCU\Software\Policies\Microsoft\Control Panel\International" /V PreventUserOverrides /T REG_dWORD /D 1 /F
 
 
 :: -----------------
