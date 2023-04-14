@@ -1,4 +1,4 @@
-Windows 10 Setup
+# Windows 10 Setup
 
 By: Justin Fu
 
