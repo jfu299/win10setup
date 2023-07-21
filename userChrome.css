@@ -5,7 +5,7 @@ Custom Setup for Windows 10
     https://github.com/jfu299/win10setup
     https://raw.githubusercontent.com/jfu299/win10setup/main/userChrome.css
 By: Justin Fu 
-Updated: March 16, 2023
+Updated: July 20, 2023
 
 -------------------
 
@@ -20,8 +20,8 @@ Custom css for Firefox
 /* ----- Tracking Protection Icon ----- */
 
 #tracking-protection-icon {
-    list-style-image: url(chrome://browser/skin/tracking-protection.svg) !important;
-  }
+  list-style-image: url(chrome://browser/skin/tracking-protection.svg) !important;
+}
 
 /* ----- Insecure / Not Secure Icon Red ----- */
 
@@ -31,42 +31,87 @@ Custom css for Firefox
 #identity-box[pageproxystate="valid"].weakCipher #identity-icon,
 #identity-box[pageproxystate="valid"].mixedDisplayContent #identity-icon,
 #identity-box[pageproxystate="valid"].mixedDisplayContentLoadedActiveBlocked #identity-icon,
-#identity-box[pageproxystate="valid"].certUserOverridden #identity-icon,
 #identity-box[pageproxystate="valid"].certErrorPage #identity-icon,
-#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon {
-    fill-opacity: 1 !important;
-    fill: #ff0000 !important;
-  }
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon,
+#identity-box[pageproxystate="valid"].certUserOverridden #identity-icon {
+  fill-opacity: 1;
+  fill: #FF0000 !important;
+}
+
+/* ----- Not Secure Text Red ----- */
+
+#identity-box[pageproxystate="valid"].notSecure #identity-icon-label,
+#identity-box[pageproxystate="valid"].mixedActiveContent #identity-icon-label,
+#identity-box[pageproxystate="valid"].httpsOnlyErrorPage #identity-icon-label,
+#identity-box[pageproxystate="valid"].weakCipher #identity-icon-label,
+#identity-box[pageproxystate="valid"].mixedDisplayContent #identity-icon-label,
+#identity-box[pageproxystate="valid"].mixedDisplayContentLoadedActiveBlocked #identity-icon-label,
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon-label,
+#identity-box[pageproxystate="valid"].certUserOverridden #identity-icon-label,
+#identity-box[pageproxystate="valid"].certErrorPage #identity-icon-label {
+  color: #FF0000 !important;
+}
+
+/* ----- Firefox Page Secure Icon Orange ----- */
+
+#identity-box[pageproxystate="valid"].chromeUI #identity-icon {
+  list-style-image: url(chrome://global/skin/icons/security.svg) !important;
+  fill-opacity: 1;
+  color: #E66000 !important;
+}
+
+/* ----- Firefox Text Orange ----- */
+
+#identity-box[pageproxystate="valid"].chromeUI #identity-icon-label {
+  color: #E66000 !important;
+}
 
 /* ----- Secure Icon Green ----- */
 
 #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
-    fill-opacity: 1;
-    fill: #12BC00;
-  }
+  fill-opacity: 1;
+  fill: #12BC00;
+}
+
+/* ---- Firefox Page / Extension Page Highlight ---- */
+
+#identity-box[pageproxystate="valid"].chromeUI > .identity-box-button:not(:hover),
+#identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:not(:hover) {
+  background-color: transparent !important;
+}
+
+#identity-box[pageproxystate="valid"].chromeUI > .identity-box-button:hover,
+#identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:hover {
+  background-color: var(--urlbar-box-hover-bgcolor) !important;
+}
+
+#identity-box[pageproxystate="valid"].chromeUI > .identity-box-button[open=true],
+#identity-box[pageproxystate="valid"].extensionPage > .identity-box-button[open=true] {
+  background-color: var(--urlbar-box-active-bgcolor) !important;
+}
 
 /* ----- Hide Bookmark Star on URL bar ----- */
 
 #star-button-box {
-    display:none !important;
-    }
+  display: none !important;
+  }
 
 /* ----- Extension Page URL Bar Shorten  ----- */
 
-#identity-box.extensionPage label{
-    display:none !important;
+#identity-box.extensionPage label {
+  display: none !important;
 }
 
 /* ----- Hide Camera and Microphone Popup Warning ----- */
 
 #webrtcIndicator {
-  display: none;
+display: none !important;
 }
 
 /* ----- Remove Back, Forward, Reload, and Bookmark Star Button on Right Click Context Menu ----- */
 
 #context-navigation {
-    display:none !important;
+  display: none !important;
 }
 
 /* ----- Hide Recent Bookmarks ----- */
@@ -75,26 +120,25 @@ Custom css for Firefox
 #PanelUI-bookmarks #panelMenu_recentBookmarks, 
 /* Recent Bookmarks List */
 #PanelUI-bookmarks #panelMenu_bookmarksMenu {
-  display: none !important;
+display: none !important;
 }
 
 /* ----- Hide Extension Icon Toolbar ----- */
-#unified-extensions-button, #unified-extensions-button > .toolbarbutton-icon{
-  width: 0px !important;
-  padding: 0px !important;
-  }
 
+#unified-extensions-button{
+  display: none !important;
+}
 
 /* ------------------- */
 
 /* ----- Vertical Tabs ----- */
 
 #TabsToolbar {
-    display:none !important;
+  display: none !important;
 }
 
 #menubar-items {
-    display:none !important;
+  display: none !important;
 }
 
 /* ------------------- */
