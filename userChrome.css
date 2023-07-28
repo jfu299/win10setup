@@ -5,7 +5,7 @@ Custom Setup for Windows 10
     https://github.com/jfu299/win10setup
     https://raw.githubusercontent.com/jfu299/win10setup/main/userChrome.css
 By: Justin Fu 
-Updated: July 20, 2023
+Updated: July 28, 2023
 
 -------------------
 
@@ -34,7 +34,7 @@ Custom css for Firefox
 #identity-box[pageproxystate="valid"].certErrorPage #identity-icon,
 #identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon,
 #identity-box[pageproxystate="valid"].certUserOverridden #identity-icon {
-  fill-opacity: 1;
+  fill-opacity: 1 !important;
   fill: #FF0000 !important;
 }
 
@@ -49,28 +49,30 @@ Custom css for Firefox
 #identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon-label,
 #identity-box[pageproxystate="valid"].certUserOverridden #identity-icon-label,
 #identity-box[pageproxystate="valid"].certErrorPage #identity-icon-label {
+  fill-opacity: 1 !important;
   color: #FF0000 !important;
 }
 
-/* ----- Firefox Page Secure Icon Orange ----- */
+/* ----- Firefox Page Secure Icon Green ----- */
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
   list-style-image: url(chrome://global/skin/icons/security.svg) !important;
-  fill-opacity: 1;
-  color: #E66000 !important;
+  fill-opacity: 1 !important;
+  color: #12BC00 !important;
 }
 
-/* ----- Firefox Text Orange ----- */
+/* ----- Firefox Text Green ----- */
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon-label {
-  color: #E66000 !important;
+  fill-opacity: 1 !important;
+  color: #12BC00 !important;
 }
 
 /* ----- Secure Icon Green ----- */
 
 #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
-  fill-opacity: 1;
-  fill: #12BC00;
+  fill-opacity: 1 !important;
+  fill: #12BC00 !important;
 }
 
 /* ---- Firefox Page / Extension Page Highlight ---- */
@@ -126,12 +128,15 @@ display: none !important;
 /* ----- Hide Extension Icon Toolbar ----- */
 
 #unified-extensions-button{
-  display: none !important;
+  /* -style-image: url("chrome://browser/skin/menu.svg") !important; */
+  list-style-image: url("chrome://global/skin/icons/chevron.svg") !important;
+  /* display: none !important; */
 }
 
 /* ------------------- */
 
-/* ----- Vertical Tabs ----- */
+/* ----- Vertical Tabs Setup for Tree Style Tab extension ----- */
+/* Removes regular tab display and menubar items */
 
 #TabsToolbar {
   display: none !important;
