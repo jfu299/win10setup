@@ -40,6 +40,8 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V Start /T REG_dWORD 
 
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V ObjectName /D Administrators /F
 
+goto endmessage
+
 :: --------------
 :: Non-Admin Message
 
@@ -48,6 +50,7 @@ echo.
 echo -------
 echo.
 echo This batch file requires admin permission
+:endmessage
 echo.
 echo Press Any Key to End
 echo.
