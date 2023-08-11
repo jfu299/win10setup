@@ -1,10 +1,10 @@
 
 othersetup.txt
-Custom Setup for Windows 10 (Windows 10 Version 20H2 - OS Build 19042)
+Custom Setup for Windows 10 (Windows 10 Version 22H2 - OS Build 19045)
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: May 19, 2022
+Updated: August 10, 2023
 
 1) Take over permissions of Registry Keys
 
@@ -78,7 +78,6 @@ Updated: May 19, 2022
 		- %UserProfile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs
 		- %ProgramData%\Microsoft\Windows\Start Menu\Programs
 
-	
 	--- If setup.bat was not able to fully uninstall Microsoft Edge: ---
 
 	- Use Administrator Powershell or Command Prompt
@@ -103,8 +102,11 @@ Updated: May 19, 2022
 		- toolkit.legacyUserProfileCustomizations.stylesheets
 				true
 	
-	- browser.newtabpage.activity-stream.asrouter.providers.whats-new-panel	
-  		{"id":"whats-new-panel","enabled":false,"type":"remote-settings","bucket":"whats-new-panel","updateCycleInMs":3600000}
+	- Enable or Disable Firefox Accounts
+		- identity.fxaccounts.enabled
+
+	- Enable or Disable Full Screen
+		- full-screen-api.enabled
 
 	- security.insecure_connection_icon.enabled
 		true
