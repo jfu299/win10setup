@@ -7541,6 +7541,7 @@ REG ADD "HKCU\Control Panel\International" /V "iFirstDayOfWeek" /T REG_SZ /D "6"
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Control Panel\International" /V PreventUserOverrides /T REG_dWORD /D 1 /F
 :: REG ADD "HKCU\Software\Policies\Microsoft\Control Panel\International" /V PreventUserOverrides /T REG_dWORD /D 1 /F
 
+:: -------
 
 :: Remove Windows Backup App, UWP Snipping Tool App, UWP Emoji Picker
 takeown /f "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /a /r /d y
