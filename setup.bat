@@ -341,6 +341,8 @@ powercfg /SETACVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd
 powercfg -attributes SUB_SLEEP BD3B718A-0680-4D9D-8AB2-E1D2B4AC806D +ATTRIB_HIDE
 :: No Windows Update Taskbar Notification
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V TrayIconVisibility /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate" /V TrayIconStatus /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\WindowsUpdate" /V TrayIconStatus /T REG_dWORD /D 0 /F
 :: Disable Automatic Active Hours
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
 :: Maximum Active Hours
@@ -426,6 +428,8 @@ powercfg /SETACVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd
 powercfg -attributes SUB_SLEEP BD3B718A-0680-4D9D-8AB2-E1D2B4AC806D +ATTRIB_HIDE
 :: No Windows Update Taskbar Notification
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V TrayIconVisibility /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate" /V TrayIconStatus /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\WindowsUpdate" /V TrayIconStatus /T REG_dWORD /D 0 /F
 :: Disable Automatic Active Hours
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
 :: Maximum Active Hours
@@ -4617,6 +4621,8 @@ powercfg /SETACVALUEINDEX SCHEME_CURRENT 238c9fa8-0aad-41ed-83f4-97be242c8f20 bd
 powercfg -attributes SUB_SLEEP BD3B718A-0680-4D9D-8AB2-E1D2B4AC806D +ATTRIB_HIDE
 :: No Windows Update Taskbar Notification
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V TrayIconVisibility /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate" /V TrayIconStatus /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\WindowsUpdate" /V TrayIconStatus /T REG_dWORD /D 0 /F
 :: Disable Automatic Active Hours
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /V SmartActiveHoursState /T REG_dWORD /D 2 /F
 :: Maximum Active Hours
@@ -4992,8 +4998,15 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V Do
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DontSetAutoplayCheckbox /T REG_dWORD /D 1 /F
 :: System Theme Set Dark
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V SystemUsesLightTheme /T REG_dWORD /D 0 /F
+:: App Theme Set Dark
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V AppsUseLightTheme /T REG_dWORD /D 0 /F
 :: Transparency Turn Off
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V EnableTransparency /T REG_dWORD /D 0 /F
+:: Accent Color auto pick turn off
+REG ADD "HKCU\Control Panel\Desktop" /V AutoColorization /T REG_dWORD /D 0 /F
+:: Accent Color turn off on Start, taskbar, action center, and Title bars
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V ColorPrevalence /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Software\Microsoft\Windows\DWM" /V ColorPrevalence /T REG_dWORD /D 0 /F
 :: Disable Family / Parental Options
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\ParentalControls" /V WPCEnableOnDomain /T REG_dWORD /D 0 /F
 :: Game Explorer
@@ -5022,7 +5035,6 @@ REG ADD "HKCU\Control Panel\Accessibility\Keyboard Response" /V "Flags" /T REG_S
 REG ADD "HKCU\Control Panel\Accessibility\ToggleKeys" /V "Flags" /T REG_SZ /D "34" /F
 :: Mouse Keys
 REG ADD "HKCU\Control Panel\Accessibility\MouseKeys" /V "Flags" /T REG_SZ /D "2" /F
-
 
 :: -------
 :: Windows Login Experience
@@ -5267,6 +5279,26 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Di
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V DisallowShaking /T REG_dWORD /D 1 /F
 :: Command Prompt on Win X Shortcut
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V DontUsePowerShellOnWinX /T REG_dWORD /D 1 /F
+:: Auto Arrange Icons OFF, Align Icons to Grid ON
+:: 1075839520 = Auto arrange icons = OFF and Align icons to grid = OFF
+:: 1075839521 = Auto arrange icons = ON and Align icons to grid = OFF
+:: 1075839524 = Auto arrange icons = OFF and Align icons to grid = ON
+:: 1075839525 = Auto arrange icons = ON and Align icons to grid = ON
+REG ADD "HKCU\Software\Microsoft\Windows\Shell\Bags\1\Desktop" /V FFLAGS /T REG_dWORD /D 1075839524 /F
+:: Hide Desktop Icons - Computer, User File, Network, Recycle Bin, Control Panel
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /V "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /V "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /V "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /V "{645FF040-5081-101B-9F08-00AA002F954E}" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /V "{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" /V "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" /V "{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" /V "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" /V "{645FF040-5081-101B-9F08-00AA002F954E}" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" /V "{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}" /T REG_dWORD /D 1 /F
+:: Hide All Desktop Icons
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoDesktop /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoDesktop /T REG_dWORD /D 1 /F
 
 :: -------
 :: Start Menu
@@ -5296,6 +5328,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideRecommendedPe
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V SimplifyQuickSettings /T REG_dWORD /D 1 /F
 :: Windows 11 Taskbar align to the left instead of center default
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarAl /T REG_dWORD /D 0 /F
+:: Windows 11 Copilot
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /V TurnOffWindowsCopilot /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot" /V TurnOffWindowsCopilot /T REG_dWORD /D 1 /F
 
 :: -------
 :: File Explorer
@@ -5342,6 +5377,15 @@ REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\General" /V recomme
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Personalization" /V homeuseprogram /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\sharepointintegration" /V hidelearnmorelink /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V insiderslabbehavior /T REG_dWORD /D 2 /F
+
+:: Animations Disabled
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Graphics" /V disableanimations /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Word\Options" /V animatescreenmove /T REG_dWORD /D 0 /F
+
+:: Accessibility Checker Disabled
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Excel\Options" /V enableaccchecker /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Powerpoint\Options" /V enableaccchecker /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Word\Options" /V enableacccheckerstatusbaritem /T REG_dWORD /D 0 /F
 
 :: Office 2007 Disable Application Add-ins
 REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
@@ -7854,6 +7898,16 @@ goto :EOF
 
 :: DISM Check Installed Packages
 :: dism /online /get-packages
+
+:: Block Changing Desktop Background
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\ActiveDesktop" /V NoChangingWallPaper /T REG_dWORD /D 1 /F
+
+:: Block Changing Lock Screen Background
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization" /V NoChangingLockScreen /T REG_dWORD /D 1 /F
+
+:: Disable Theme and Color Change
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoThemesTab /T REG_dWORD /D 1 /F
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V NoDispAppearancePage /T REG_dWORD /D 1 /F
 
 :: ----- Windows 10 Update
 
