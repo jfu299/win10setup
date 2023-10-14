@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: October 13, 2023
+:: Updated: October 14, 2023
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: October 13, 2023
+echo Updated: October 14, 2023
 echo -------
 echo.
 
@@ -327,6 +327,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQuality
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdatesPeriodInDays /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuilds /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuildsPolicyValue /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds" /V AllowBuildPreview /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds" /V EnableExperimentation /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\PolicyState" /V IsWUfBConfigured /T REG_dWORD /D 1 /F
 :: Current Branch Readiness (Semi-Annual Channel for 1903 and above)
@@ -410,6 +412,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQuality
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdatesPeriodInDays /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuilds /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuildsPolicyValue /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds" /V AllowBuildPreview /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds" /V EnableExperimentation /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\PolicyState" /V IsWUfBConfigured /T REG_dWORD /D 1 /F
 :: Current Branch Readiness (Semi-Annual Channel for 1903 and above)
@@ -1248,8 +1252,9 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 2 /T REG_SZ
 :: -----------------
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V DisableEdgeDesktopShortcutCreation /T REG_DWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V CreateDesktopShortcutDefault /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V RemoveDesktopShortcutDefault /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V RemoveDesktopShortcutDefault /T REG_dWORD /D 2 /F
 
 :: Extension Settings
 :: 1) "Ublock Origin", 2) "SponsorBlock for YouTube - Skip Sponsorships", 3) "UBlock Origin Lite", 4) "ClearURLs", 5) "DeArrow - Better Titles and Thumbnails"
@@ -1319,6 +1324,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportStartupPage
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgefeedbackEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SendSiteInfoToImproveServices /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DiagnosticData /T REG_dWORD /D 0 /F
@@ -1447,6 +1453,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TyposquattingCheckerEnabled /
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SearchFiltersEnabled /T REG_dWORD /D 0 /F
 :: Related Matches in Find on Page
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V RelatedMatchesCloudServiceEnabled /T REG_dWORD /D 0 /F
+:: Edge Experiments Disable
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExperimentationAndConfigurationServiceControl /T REG_dWORD /D 1 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
@@ -2721,8 +2729,20 @@ REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedTo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 1 /F
 
+REG ADD "HKCU\Software\Policies\Microsoft\OneDrive" /V DisableFREAnimation /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\OneDrive" /V DisableTutorial /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V DisableGranularFeedbackContactSupport /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V DisableGranularFeedbackSendFeedback /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V DisableGranularFeedbackReceiveSurveys /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V GPOEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\OneDrive" /V GPOEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V KFMBlockOptIn /T REG_dWORD /D 1 /F
+
 REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V SilentAccountConfig /T REG_dWORD /D 0 /F
 
 %windir%\SysWOW64\OneDriveSetup.exe /uninstall
 
@@ -2758,8 +2778,20 @@ REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedTo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 0 /F
 
+REG ADD "HKCU\Software\Policies\Microsoft\OneDrive" /V DisableFREAnimation /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\OneDrive" /V DisableTutorial /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V DisableGranularFeedbackContactSupport /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V DisableGranularFeedbackSendFeedback /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V DisableGranularFeedbackReceiveSurveys /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V GPOEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\OneDrive" /V GPOEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V KFMBlockOptIn /T REG_dWORD /D 1 /F
+
 REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V SilentAccountConfig /T REG_dWORD /D 0 /F
 
 md "%UserProfile%\AppData\Local\Microsoft\OneDrive"
 
@@ -3033,19 +3065,13 @@ TASKKILL /F /IM MicrosoftEdgeUpdate.exe
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" && md "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+del /f /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /deny everyone:F /t /q
 
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" && md "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+del /f /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
 takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
@@ -4577,6 +4603,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQuality
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferQualityUpdatesPeriodInDays /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuilds /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ManagePreviewBuildsPolicyValue /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds" /V AllowBuildPreview /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds" /V EnableExperimentation /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DisableWUfBSafeguards /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\WindowsUpdate\UpdatePolicy\PolicyState" /V IsWUfBConfigured /T REG_dWORD /D 1 /F
 :: Current Branch Readiness (Semi-Annual Channel for 1903 and above)
@@ -4688,8 +4716,15 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\SQMClient\Windows" /V StudyId /T REG_d
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack" /V Start /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack" /V ObjectName /T REG_SZ /D Administrators /F
 :: Windows 10 Send Feedback
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DoNotShowFeedbackNotifications /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DisableDiagnosticDataViewer /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DoNotShowFeedbackNotifications /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DisableTelemetryOptInChangeNotification /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DisableTelemetryOptInSettingsUx /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V DisableOneSettingsDownloads /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V LimitDiagnosticLogCollection /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V LimitDumpCollection /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V LimitEnhancedDiagnosticDataWindowsAnalytics /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Assistance\Client\1.0" /V NoExplicitFeedback /T REG_dWORD /D 1 /F
 :: Windows Defender
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /V SpynetReporting /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /V LocalSettingOverrideSpynetReporting /T REG_dWORD /D 0 /F
@@ -4836,7 +4871,7 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Sh
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\EdgeUI" /V DisableMFUTracking /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\EdgeUI" /V DisableMFUTracking /T REG_dWORD /D 1 /F
 :: File Explorer Clear History
-del /F /Q %UserProfile%\AppData\Roaming\Microsoft\Windows\Recent
+del /f /q /s "%UserProfile%\AppData\Roaming\Microsoft\Windows\Recent"
 REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /VA /F
 REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths /VA /F
 REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery /VA /F
@@ -5095,10 +5130,7 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wlidsv" /V ObjectName /T REG_SZ 
 takeown /f "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /grant administrators:F /t /q
-:: rd /s /q "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" && md "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy"
-takeown /f "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /grant administrators:F /t /q
+:: del /f /s /q "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy"
 icacls "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /deny everyone:F /t /q
 
 :: Settings Sync
@@ -5211,6 +5243,8 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\W
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.Usb.Notification" /V Enabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.BackgroundAccess" /V Enabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.Bthprops" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings\Windows.SystemToast.WiFiNetworkManager" /V Enabled /T REG_dWORD /D 0 /F
+
 :: -------
 :: Desktop
 :: -------
@@ -5227,8 +5261,12 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Do
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V NoUninstallFromStart /T REG_dWORD /D 1 /F
 :: Taskbar Badges
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarBadges /T REG_dWORD /D 0 /F
-:: Taskbar searchbox
+:: Taskbar Searchbox
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V SearchboxTaskbarMode /T REG_dWORD /D 0 /F
+:: Taskbar Searchbox all new user accounts
+REG ADD "HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\Seachbox Taskbar Mode" /VE /D "Seachbox Taskbar Mode" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\Seachbox Taskbar Mode" /V "Version" /T REG_SZ /D "1" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\Seachbox Taskbar Mode" /V "StubPath" /T REG_SZ /D "reg add \"HKCU\Software\Microsoft\Windows\CurrentVersion\Search\" /v \"SearchboxTaskbarMode\" /d \"0\" /f" /F
 :: Task View Button
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowTaskViewButton /T REG_dWORD /D 0 /F
 :: Taskbar Toolbar Disable
@@ -5262,6 +5300,7 @@ REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\General" /V ShownOp
 REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\General" /V shownfirstrunoptin /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\General" /V optindisable /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\firstrun" /V disablemovie /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\firstrun" /V disablemovie /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\firstrun" /V bootedrtm /T REG_dWORD /D 1 /F
@@ -5272,6 +5311,13 @@ REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common" /V QMEnable /T REG
 REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V QMEnable /T REG_dWORD /D 0 /F
+
+:: Recommendations Disabled
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\General" /V filenewmrumaxitems /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\General" /V recommendeddocumentsenabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Personalization" /V homeuseprogram /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\sharepointintegration" /V hidelearnmorelink /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V insiderslabbehavior /T REG_dWORD /D 2 /F
 
 :: Office 2007 Disable Application Add-ins
 REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Access\Security" /V DisableAllAddins /T REG_dWORD /D 1 /F
@@ -5367,8 +5413,13 @@ REG ADD "HKCU\Software\Policies\Microsoft\Office\readinesstoolkit" /V enableusag
 :: Office 2016 Feedback
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V sendcustomerdata /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V includeemail /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V feedbackincludelog /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V includescreenshot /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V surveyenabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Feedback" /V msoridsurveyenabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Outlook\Options\General" /V disableoutlookfeedbackfeatures /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Outlook\Options\General" /V disablepreviewplace /T REG_dWORD /D 1 /F
 
 :: Office 2013 Telemetry
 REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\osm" /V enablelogging /T REG_dWORD /D 0 /F
@@ -5386,6 +5437,13 @@ REG ADD "HKCU\Software\Policies\Microsoft\Office\12.0\Common\Internet" /V UseOnl
 REG ADD "HKCU\Software\Policies\Microsoft\Office\14.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\15.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Internet" /V UseOnlineContent /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\General" /V skydrivesigninoption /T REG_dWORD /D 0 /F
+
+:: Office Disable Connected Experiences
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Privacy" /V DisconnectedState /T REG_dWORD /D 2 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Privacy" /V ControllerConnectedServicesEnabled /T REG_dWORD /D 2 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V linkedin /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Word\Options" /V linkedinresumeassistant /T REG_dWORD /D 0 /F
 
 :: Office Disable ActiveX
 REG ADD "HKCU\Software\Policies\Microsoft\Office\Common\Security" /V DisableAllActiveX /T REG_dWORD /D 1 /F
@@ -6075,8 +6133,9 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 2 /T REG_SZ
 :: -----------------
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V DisableEdgeDesktopShortcutCreation /T REG_DWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V CreateDesktopShortcutDefault /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V RemoveDesktopShortcutDefault /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V RemoveDesktopShortcutDefault /T REG_dWORD /D 2 /F
 
 :: Extension Settings
 :: 1) "Ublock Origin", 2) "SponsorBlock for YouTube - Skip Sponsorships", 3) "UBlock Origin Lite", 4) "ClearURLs", 5) "DeArrow - Better Titles and Thumbnails"
@@ -6146,6 +6205,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportStartupPage
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgefeedbackEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SendSiteInfoToImproveServices /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DiagnosticData /T REG_dWORD /D 0 /F
@@ -6274,6 +6334,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TyposquattingCheckerEnabled /
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SearchFiltersEnabled /T REG_dWORD /D 0 /F
 :: Related Matches in Find on Page
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V RelatedMatchesCloudServiceEnabled /T REG_dWORD /D 0 /F
+:: Edge Experiments Disable
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExperimentationAndConfigurationServiceControl /T REG_dWORD /D 1 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
@@ -7362,10 +7424,7 @@ icacls musnotificationux.exe /deny everyone:F /t /q
 takeown /f "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" && md "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy"
-takeown /f "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /grant administrators:F /t /q
+del /f /s /q "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy"
 icacls "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /deny everyone:F /t /q
 
 :: Holographic First Run (Removed in Version 1809)
@@ -7374,10 +7433,7 @@ icacls "%windir%\SystemApps\Microsoft.PPIProjection_cw5n1h2txyewy" /deny everyon
 takeown /f "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" && md "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy"
-takeown /f "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /grant administrators:F /t /q
+del /f /s /q "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy"
 icacls "%windir%\SystemApps\Microsoft.Windows.HolographicFirstRun_cw5n1h2txyewy" /deny everyone:F /t /q
 
 :: -----------------
@@ -7393,19 +7449,13 @@ TASKKILL /F /IM MicrosoftEdgeUpdate.exe
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" && md "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+del /f /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /deny everyone:F /t /q
 
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" && md "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
-takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
-icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+del /f /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
 takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
@@ -7424,8 +7474,20 @@ REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedTo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 1 /F
 
+REG ADD "HKCU\Software\Policies\Microsoft\OneDrive" /V DisableFREAnimation /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\OneDrive" /V DisableTutorial /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V DisableGranularFeedbackContactSupport /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V DisableGranularFeedbackSendFeedback /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V DisableGranularFeedbackReceiveSurveys /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V GPOEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\OneDrive" /V GPOEnabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V KFMBlockOptIn /T REG_dWORD /D 1 /F
+
 REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V SilentAccountConfig /T REG_dWORD /D 0 /F
 
 %windir%\SysWOW64\OneDriveSetup.exe /uninstall
 
