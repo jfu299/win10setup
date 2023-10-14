@@ -5547,7 +5547,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SideShow" /V AutoWakeDisabled 
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7516b95f-f776-4464-8c53-06167f40cc99\8EC4B3A5-6868-48c2-BE75-4F3044BE88A7" /V Attributes /T REG_dWORD /D 2 /F
 
 :: Require Password after Display turns off
-REG ADD "HKLM\Control Panel\Desktop" /V DelayLockInterval /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Control Panel\Desktop" /V DelayLockInterval /T REG_dWORD /D 0 /F
 
 :: Enable Hibernate Option
@@ -7632,12 +7631,12 @@ REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DateTime\Servers" /ve /d
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" /V "NtpServer" /T REG_SZ /D "time.nist.gov,0x9" /F
 
 :: Additional Clock 1 (UTC)
-REG ADD "HKLM\Control Panel\TimeDate\AdditionalClocks\1" /V "Enable" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\1" /V "Enable" /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\1" /V "DisplayName" /T REG_SZ /D "UTC" /F
 REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\1" /V "TzRegKeyName" /T REG_SZ /D "UTC" /F
 
 :: Additional Clock 2 (Eastern Time)
-REG ADD "HKLM\Control Panel\TimeDate\AdditionalClocks\2" /V "Enable" /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\2" /V "Enable" /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\2" /V "DisplayName" /T REG_SZ /D "Eastern Time" /F
 REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\2" /V "TzRegKeyName" /T REG_SZ /D "Eastern Standard Time" /F
 
