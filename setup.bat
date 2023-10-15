@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: October 14, 2023
+:: Updated: October 15, 2023
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: October 14, 2023
+echo Updated: October 15, 2023
 echo -------
 echo.
 
@@ -4907,6 +4907,8 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V SignI
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V ConvertibleSlateModePromptPreference /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\ImmersiveShell" /V ConvertibleSlateModePromptPreference /T REG_dWORD /D 0 /F
 :: Windows Spotlight
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V IncludeEnterpriseSpotlight /T REG_dWORD /D 2 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V IncludeEnterpriseSpotlight /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightFeatures /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightFeatures /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableThirdPartySuggestions /T REG_dWORD /D 1 /F
@@ -4918,8 +4920,10 @@ REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableSpotli
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightOnSettings /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightOnSettings /T REG_dWORD /D 1 /F
 :: Live Tiles
-REG ADD "HKCU\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NoTileApplicationNotification /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NoTileApplicationNotification /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NoCloudApplicationNotification /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NoTileApplicationNotification /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NoCloudApplicationNotification /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V ClearTilesOnExit /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V ClearTilesOnExit /T REG_dWORD /D 1 /F
 :: Windows People Bar
@@ -4979,9 +4983,11 @@ REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\NewsAndInterests\AllowNew
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Dsh" /V AllowNewsAndInterests /T REG_dWORD /D 0 /F
 :: Taskbar Chat Icon
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Chat" /V ChatIcon /T REG_dWORD /D 3 /F
-:: Remote Assistance Turn Off
+:: Remote Assistance / Remote Desktop Turn Off
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Remote Assistance" /V fAllowToGetHelp /T REG_DWORD /D 0 /F
 netsh advfirewall firewall set rule group="Remote Assistance" new enable=no
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /V fDenyTSConnections /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows NT\Terminal Services" /V fDenyTSConnections /T REG_dWORD /D 1 /F
 :: WPAD (Windows 10 Proxy) Turn Off and Disable (Requires Reboot to take effect)
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WinHttpAutoProxySvc" /V Start /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Control Panel" /V Proxy /T REG_dWORD /D 1 /F
@@ -5223,8 +5229,16 @@ REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V DisableNotificati
 :: -------
 :: Windows 10 Notifications
 :: -------
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NotoastApplicationNotification /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NotoastApplicationNotificationOnLockScreen /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NotoastApplicationNotification /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CurrentVersion\PushNotifications" /V NotoastApplicationNotificationOnLockScreen /T REG_dWORD /D 1 /F
+:: --
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\PushNotifications" /V ToastEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\PushNotifications" /V ToastEnabled /T REG_dWORD /D 0 /F
+:: --
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V TaskbarNoNotification /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V TaskbarNoNotification /T REG_dWORD /D 1 /F
 :: --
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Notifications\Settings" /V NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND /T REG_dWORD /D 0 /F
@@ -5314,17 +5328,28 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\Seachbox Task
 REG ADD "HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\Seachbox Taskbar Mode" /V "StubPath" /T REG_SZ /D "reg add \"HKCU\Software\Microsoft\Windows\CurrentVersion\Search\" /v \"SearchboxTaskbarMode\" /d \"0\" /f" /F
 :: Task View Button
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowTaskViewButton /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideTaskViewButton /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V HideTaskViewButton /T REG_dWORD /D 1 /F
 :: Taskbar Toolbar Disable
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoToolbarsOnTaskbar /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V TaskbarNoAddRemoveToolbar /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoToolbarsOnTaskbar /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V TaskbarNoAddRemoveToolbar /T REG_dWORD /D 1 /F
+:: Taskbar Remove Windows Store Apps
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V ShowWindowsStoreAppsOnTaskbar /T REG_dWORD /D 2 /F
 :: Account Related Notifications
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Start_AccountNotifications /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\AccountNotifications" /V DisableAccountNotifications /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\CurrentVersion\AccountNotifications" /V DisableAccountNotifications /T REG_dWORD /D 1 /F
 :: Recommended Section
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideRecommendedSection /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideRecommendedPersonalizedSites /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V SimplifyQuickSettings /T REG_dWORD /D 1 /F
+:: Remove Frequent Programs List from Start Menu
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoStartMenuMFUprogramsList /T REG_dWORD /D 1 /F
+:: Remove Most Used list Start Menu
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V ShowOrHideMostUsedApps /T REG_dWORD /D 2 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V ShowOrHideMostUsedApps /T REG_dWORD /D 2 /F
 :: Windows 11 Taskbar align to the left instead of center default
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarAl /T REG_dWORD /D 0 /F
 :: Windows 11 Copilot
