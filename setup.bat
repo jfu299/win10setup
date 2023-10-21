@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: October 15, 2023
+:: Updated: October 21, 2023
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: October 15, 2023
+echo Updated: October 21, 2023
 echo -------
 echo.
 
@@ -4881,6 +4881,18 @@ del /f /q /s "%UserProfile%\AppData\Roaming\Microsoft\Windows\Recent"
 REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /VA /F
 REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths /VA /F
 REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery /VA /F
+:: Recent Accent Color Theme Clear History
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory0 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory1 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory2 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory3 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory4 /F
+:: Recent Wallpaper Background Clear History
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" /V BackgroundHistoryPath0 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" /V BackgroundHistoryPath1 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" /V BackgroundHistoryPath2 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" /V BackgroundHistoryPath3 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" /V BackgroundHistoryPath4 /F
 :: Settings Tips
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V AllowOnlineTips /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowOnlineTips" /V value /T REG_dWORD /D 0 /F
@@ -5105,6 +5117,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V ConnectedSe
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V ConnectedSearchUseWeb /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V ConnectedSearchUseWebOverMeteredConnections /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V BingSearchEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V CortanaConsent /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowCortanaButton /T REG_dWORD /D 0 /F
 :: Search History
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoRecentDocsHistory /T REG_dWORD /D 1 /F
@@ -5355,6 +5368,30 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Ta
 :: Windows 11 Copilot
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /V TurnOffWindowsCopilot /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot" /V TurnOffWindowsCopilot /T REG_dWORD /D 1 /F
+
+:: -------
+:: Start Menu Folders (Folders on the bottom left of start menu near power icon)
+:: -------
+:: Hide Folders
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderDocuments /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderDownloads /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderFileExplorer /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderPersonalFolder /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderPictures /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderMusic /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderVideos /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderSettings /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderNetwork /T REG_dWORD /D 0 /F
+:: Disable Changing Setting
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderDocuments_ProviderSet /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderDownloads_ProviderSet /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderFileExplorer_ProviderSet /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderPersonalFolder_ProviderSet /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderPictures_ProviderSet /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderMusic_ProviderSet /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderVideos_ProviderSet /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderSettings_ProviderSet /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /V AllowPinnedFolderNetwork_ProviderSet /T REG_dWORD /D 1 /F
 
 :: -------
 :: File Explorer
@@ -7931,6 +7968,12 @@ goto :EOF
 :: Disable Theme and Color Change
 :: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoThemesTab /T REG_dWORD /D 1 /F
 :: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V NoDispAppearancePage /T REG_dWORD /D 1 /F
+
+:: Recent Accent Color History Folder
+:: HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors
+
+:: Background Wallpaper History Folder
+:: HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers
 
 :: ----- Windows 10 Update
 
