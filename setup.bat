@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: October 21, 2023
+:: Updated: November 06, 2023
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: October 21, 2023
+echo Updated: November 06, 2023
 echo -------
 echo.
 
@@ -1517,6 +1517,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\TabPreloader" /V Prevent
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /V SyncFavoritesBetweenIEAndMicrosoftEdge /T REG_dWORD /D 0 /F
 :: -----
 :: Sync
+:: See Windows 10 Setting Sync
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableSettingSync /T REG_dWORD /D 2 /F
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableWebBrowserSettingSyncUserOverride /T REG_dWORD /D 1 /F
 :: -----
@@ -5225,6 +5226,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CredUI" /V DisablePasswordReve
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V BlockDomainPicturePassword /T REG_dWORD /D 1 /F
 :: Hello Face / Biometric Password
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Biometrics" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Biometrics\Credential Provider" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Biometrics\Credential Provider" /V "Domain Accounts" /T REG_dWORD /D 0 /F
 :: Security Questions
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V NoLocalPasswordResetQuestions /T REG_dWORD /D 1 /F
 :: Network Selection on Lock Screen
@@ -5368,6 +5371,10 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Ta
 :: Windows 11 Copilot
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /V TurnOffWindowsCopilot /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot" /V TurnOffWindowsCopilot /T REG_dWORD /D 1 /F
+:: Taskbar disable flashing color
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarFlashing /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Control Panel\Desktop" /V ForegroundFlashCount /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Control Panel\Desktop" /V ForegroundLockTimeout /T REG_dWORD /D 0 /F
 
 :: -------
 :: Start Menu Folders (Folders on the bottom left of start menu near power icon)
@@ -6522,6 +6529,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\TabPreloader" /V Prevent
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main" /V SyncFavoritesBetweenIEAndMicrosoftEdge /T REG_dWORD /D 0 /F
 :: -----
 :: Sync
+:: See Windows 10 Setting Sync
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableSettingSync /T REG_dWORD /D 2 /F
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\SettingSync" /V DisableWebBrowserSettingSyncUserOverride /T REG_dWORD /D 1 /F
 :: -----
@@ -7733,18 +7741,16 @@ REG ADD "HKCU\Control Panel\International" /V "iFirstDayOfWeek" /T REG_SZ /D "6"
 
 :: -------
 
-:: Remove Windows Backup App, UWP Snipping Tool App, UWP Emoji Picker
+:: Take control of folder controlling Windows Backup App, UWP Snipping Tool App, UWP Emoji Picker
 takeown /f "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /a /r /d y
 icacls "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /inheritance:r
 icacls "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /grant administrators:F /t /q
 
-:: Run in Powershell File
-:: Remove-WindowsPackage -Online -PackageName "Microsoft-Windows-UserExperience-Desktop-Package~31bf3856ad364e35~amd64~~10.0.19041.3393" -NoRestart
-
 :: -----------------
-:: Powershell Command to Remove UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
-:: Powershell Command to Prompt to Restart Computer
 :: Redirects to powershell script (setup.ps1)
+::     Removes UWP Apps (Except Microsoft Store, Calculator, and Windows Terminal)
+::     Removes Quick Assist
+::     Removes Windows Hello Face
 :: -----------------
 
 powershell.exe -ExecutionPolicy Unrestricted -Command ". '%~dpn0.ps1'"
@@ -7753,11 +7759,12 @@ powershell.exe -ExecutionPolicy AllSigned -Command Write-Output "Complete"
 
 :: -------
 
+:: timeout /t 10 /nobreak
 :: Remove MicrosoftWindows.Client.CBS_cw5n1h2txyewy folder from SystemApps
-takeown /f "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /a /r /d y
-icacls "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /inheritance:r
-icacls "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /grant administrators:F /t /q
-rd /s /q "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy"
+:: takeown /f "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /a /r /d y
+:: icacls "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /inheritance:r
+:: icacls "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /grant administrators:F /t /q
+:: rd /s /q "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy"
 
 :: -------
 
