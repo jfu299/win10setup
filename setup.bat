@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: November 06, 2023
+:: Updated: November 24, 2023
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: November 06, 2023
+echo Updated: November 24, 2023
 echo -------
 echo.
 
@@ -684,7 +684,7 @@ goto option3.3redo
 REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist" /F
 REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionManifestV2Availability /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
 
@@ -829,7 +829,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "g
 REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallAllowlist" /F
 REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionManifestV2Availability /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
 
@@ -5696,7 +5696,7 @@ powercfg /SETACVALUEINDEX SCHEME_CURRENT e73a048d-bf27-4f12-9731-8b2076e8891f 63
 REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist" /F
 REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionManifestV2Availability /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
 
@@ -5841,7 +5841,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "g
 REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallAllowlist" /F
 REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionManifestV2Availability /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeWebRequest\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
 
