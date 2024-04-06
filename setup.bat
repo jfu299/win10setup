@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: November 24, 2023
+:: Updated: April 06, 2024
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: November 24, 2023
+echo Updated: April 06, 2024
 echo -------
 echo.
 
@@ -137,7 +137,7 @@ echo ----------------------------
 echo.
 echo Select a task:
 echo.
-echo 1) Manual Updates
+echo 1) Enabled Updates
 echo.
 echo 2) Disable Updates
 echo.
@@ -176,7 +176,7 @@ echo.
 
 :option2.1redo
 
-set /p op="Set Manual Updates? (y/n) "
+set /p op="Set Enabled Updates? (y/n) "
 if "%op%"=="y" goto option2.1Start
 if "%op%"=="yes" goto option2.1Start
 if "%op%"=="Yes" goto option2.1Start
@@ -315,7 +315,7 @@ goto option2.4redo
 :option2.1Start
 @echo ON
 :: -------
-:: See Windows 10 Updates Partial Control on Main (Same Thing)
+:: See Windows 10 Updates Partial Control on Main (Same Thing) + wuauserv service enabled
 :: Target Release Version (Version 22H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ProductVersion /T REG_SZ /D "Windows 10" /F
@@ -386,6 +386,16 @@ icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /inheritance:r
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /deny everyone:F /t /q
+:: Disable Windows 10 Update/Upgrade Assistant
+takeown /f "%SystemDrive%\Windows10Upgrade" /a /r /d y
+icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
+rd /s /q "%SystemDrive%\Windows10Upgrade"
+md "%SystemDrive%\Windows10Upgrade"
+takeown /f "%SystemDrive%\Windows10Upgrade" /a /r /d y
+icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows10Upgrade" /inheritance:r
+icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows10Upgrade" /deny everyone:F /t /q
 :: No Auto Reboot
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAutoRebootWithLoggedOnUsers /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAUShutdownOption /T REG_dWORD /D 1 /F
@@ -402,7 +412,7 @@ goto option2
 :: --------------
 :option2.2Start
 @echo ON
-:: See Windows 10 Updates Partial Control on Main (Same Thing)
+:: See Windows 10 Updates Partial Control on Main (Same Thing) + wuauserv service disabled
 :: Target Release Version (Version 22H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ProductVersion /T REG_SZ /D "Windows 10" /F
@@ -473,6 +483,16 @@ icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /inheritance:r
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /deny everyone:F /t /q
+:: Disable Windows 10 Update/Upgrade Assistant
+takeown /f "%SystemDrive%\Windows10Upgrade" /a /r /d y
+icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
+rd /s /q "%SystemDrive%\Windows10Upgrade"
+md "%SystemDrive%\Windows10Upgrade"
+takeown /f "%SystemDrive%\Windows10Upgrade" /a /r /d y
+icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows10Upgrade" /inheritance:r
+icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows10Upgrade" /deny everyone:F /t /q
 :: No Auto Reboot
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAutoRebootWithLoggedOnUsers /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAUShutdownOption /T REG_dWORD /D 1 /F
@@ -732,6 +752,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ChromeCleanupEnabled /T REG_dW
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SafeBrowsingExtendedReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
@@ -789,6 +810,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V EnableMediaRouter /T REG_dWORD
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: Special Features
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V RelatedWebsiteSetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V FirstPartySetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PrivacySandboxAdMeasurementEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PrivacySandboxAdTopicsEnabled /T REG_dWORD /D 0 /F
@@ -877,6 +899,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ChromeCleanupEnabled /T REG_dWORD /
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SafeBrowsingExtendedReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
@@ -934,6 +957,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V EnableMediaRouter /T REG_dWORD /D 0
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: Special Features
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V RelatedWebsiteSetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V FirstPartySetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PrivacySandboxAdMeasurementEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PrivacySandboxAdTopicsEnabled /T REG_dWORD /D 0 /F
@@ -1173,6 +1197,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupEnabled /T 
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SafeBrowsingExtendedReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
@@ -1228,6 +1253,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V EnableMediaRouter /T REG
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: Special Features
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V RelatedWebsiteSetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V FirstPartySetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PrivacySandboxAdMeasurementEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PrivacySandboxAdTopicsEnabled /T REG_dWORD /D 0 /F
@@ -1328,6 +1354,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportStartupPage
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgefeedbackEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SendSiteInfoToImproveServices /T REG_dWORD /D 0 /F
@@ -1382,6 +1409,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EnableMediaRouter /T REG_dWOR
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: Special Features
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V RelatedWebsiteSetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V FirstPartySetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PrivacySandboxAdMeasurementEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PrivacySandboxAdTopicsEnabled /T REG_dWORD /D 0 /F
@@ -1432,6 +1460,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebWidgetAllowed /T REG_dWORD
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HubsSidebarEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeDiscoverEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DiscoverPageContextEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPagebingchatEnabled /T REG_dWORD /D 0 /F
 :: Edge Share Experience Disable
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ConfigureShare /T REG_dWORD /D 1 /F
 :: Edge Insider Promotion Disable
@@ -2757,6 +2786,14 @@ takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\AppData\Local\Microsoft\OneDrive"
 
+takeown /f "%ProgramFiles%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramFiles%\Microsoft OneDrive" /grant administrators:F /t /q
+rd /s /q "%ProgramFiles%\Microsoft OneDrive"
+
+takeown /f "%ProgramFiles(x86)%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /grant administrators:F /t /q
+rd /s /q "%ProgramFiles(x86)%\Microsoft OneDrive"
+
 takeown /f "%ProgramData%\Microsoft OneDrive" /a /r /d y
 icacls "%ProgramData%\Microsoft OneDrive" /grant administrators:F /t /q
 rd /s /q "%ProgramData%\Microsoft OneDrive"
@@ -2799,6 +2836,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNet
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V SilentAccountConfig /T REG_dWORD /D 0 /F
 
 md "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+
+md "%ProgramFiles%\Microsoft OneDrive"
+
+md "%ProgramFiles(x86)%\Microsoft OneDrive"
 
 md "%ProgramData%\Microsoft OneDrive"
 
@@ -4667,6 +4708,16 @@ icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /inheritance:r
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /deny everyone:F /t /q
+:: Disable Windows 10 Update/Upgrade Assistant
+takeown /f "%SystemDrive%\Windows10Upgrade" /a /r /d y
+icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
+rd /s /q "%SystemDrive%\Windows10Upgrade"
+md "%SystemDrive%\Windows10Upgrade"
+takeown /f "%SystemDrive%\Windows10Upgrade" /a /r /d y
+icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows10Upgrade" /inheritance:r
+icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows10Upgrade" /deny everyone:F /t /q
 :: No Auto Reboot
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAutoRebootWithLoggedOnUsers /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAUShutdownOption /T REG_dWORD /D 1 /F
@@ -4750,6 +4801,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /V By
 :: Disable Inking and Typing
 :: -------
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization" /V DisablePersonalization /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\InputPersonalization" /V DisablePersonalization /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace" /V AllowSuggestedAppsInWindowsInkWorkspace /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsInkWorkspace" /V AllowWindowsInkWorkspace /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\InputPersonalization" /V AllowInputPersonalization /T REG_dWORD /D 0 /F
@@ -4818,7 +4870,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsSyncWith
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessMotion /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessGazeInput /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessBackgroundSpatialPerception /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessHumanPresence /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessGraphicsCaptureProgrammatic /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessGraphicsCaptureWithoutBorder /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\documentsLibrary" /V Value /T REG_SZ /D Deny /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\picturesLibrary" /V Value /T REG_SZ /D Deny /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\videosLibrary" /V Value /T REG_SZ /D Deny /F
@@ -4836,6 +4890,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableConsum
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableCloudOptimizedContent /T REG_dWORD /D 1 /F
 :: Microsoft Store Disable Auto Update Apps
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsStore" /V AutoDownload /T REG_dWORD /D 2 /F
+REG ADD "HKCU\Software\Policies\Microsoft\WindowsStore" /V AutoDownload /T REG_dWORD /D 2 /F
 :: Microsoft Store Disable Push to Install
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\PushToInstall" /V DisablePushToInstall /T REG_dWORD /D 1 /F
 :: Microsoft Store Apps
@@ -4883,6 +4938,7 @@ REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /VA /F
 REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths /VA /F
 REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery /VA /F
 :: Recent Accent Color Theme Clear History
+:: set folder to read only permissions to prevent history
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory0 /F
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory1 /F
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory2 /F
@@ -5371,6 +5427,7 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Ta
 :: Windows 11 Copilot
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /V TurnOffWindowsCopilot /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot" /V TurnOffWindowsCopilot /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowCopilotButton /T REG_dWORD /D 0 /F
 :: Taskbar disable flashing color
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarFlashing /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Control Panel\Desktop" /V ForegroundFlashCount /T REG_dWORD /D 1 /F
@@ -5578,6 +5635,9 @@ REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\General" /V skydriv
 :: Office Disable Connected Experiences
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Privacy" /V DisconnectedState /T REG_dWORD /D 2 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Privacy" /V ControllerConnectedServicesEnabled /T REG_dWORD /D 2 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Privacy" /V usercontentdisabled /T REG_dWORD /D 2 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Privacy" /V disconnectedstate /T REG_dWORD /D 2 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common\Privacy" /V downloadcontentdisabled /T REG_dWORD /D 2 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Common" /V linkedin /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Office\16.0\Word\Options" /V linkedinresumeassistant /T REG_dWORD /D 0 /F
 
@@ -5744,6 +5804,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ChromeCleanupEnabled /T REG_dW
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SafeBrowsingExtendedReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
@@ -5801,6 +5862,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V EnableMediaRouter /T REG_dWORD
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: Special Features
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V RelatedWebsiteSetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V FirstPartySetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PrivacySandboxAdMeasurementEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PrivacySandboxAdTopicsEnabled /T REG_dWORD /D 0 /F
@@ -5889,6 +5951,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ChromeCleanupEnabled /T REG_dWORD /
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SafeBrowsingExtendedReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
@@ -5946,6 +6009,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V EnableMediaRouter /T REG_dWORD /D 0
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: Special Features
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V RelatedWebsiteSetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V FirstPartySetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PrivacySandboxAdMeasurementEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PrivacySandboxAdTopicsEnabled /T REG_dWORD /D 0 /F
@@ -6185,6 +6249,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupEnabled /T 
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SafeBrowsingExtendedReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V WebRtcEventLogCollectionAllowed /T REG_dWORD /D 0 /F
@@ -6240,6 +6305,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V EnableMediaRouter /T REG
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: Special Features
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V RelatedWebsiteSetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V FirstPartySetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PrivacySandboxAdMeasurementEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PrivacySandboxAdTopicsEnabled /T REG_dWORD /D 0 /F
@@ -6340,6 +6406,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportStartupPage
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgefeedbackEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MetricsReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SendSiteInfoToImproveServices /T REG_dWORD /D 0 /F
@@ -6394,6 +6461,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EnableMediaRouter /T REG_dWOR
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowCastIconInToolbar /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutoplayAllowed /T REG_dWORD /D 0 /F
 :: Special Features
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V RelatedWebsiteSetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V FirstPartySetsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PrivacySandboxAdMeasurementEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PrivacySandboxAdTopicsEnabled /T REG_dWORD /D 0 /F
@@ -6444,6 +6512,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebWidgetAllowed /T REG_dWORD
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HubsSidebarEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeDiscoverEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DiscoverPageContextEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPagebingchatEnabled /T REG_dWORD /D 0 /F
 :: Edge Share Experience Disable
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ConfigureShare /T REG_dWORD /D 1 /F
 :: Edge Insider Promotion Disable
@@ -7632,6 +7701,14 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V SilentAccountConfig /T RE
 takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+
+takeown /f "%ProgramFiles%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramFiles%\Microsoft OneDrive" /grant administrators:F /t /q
+rd /s /q "%ProgramFiles%\Microsoft OneDrive"
+
+takeown /f "%ProgramFiles(x86)%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /grant administrators:F /t /q
+rd /s /q "%ProgramFiles(x86)%\Microsoft OneDrive"
 
 takeown /f "%ProgramData%\Microsoft OneDrive" /a /r /d y
 icacls "%ProgramData%\Microsoft OneDrive" /grant administrators:F /t /q
