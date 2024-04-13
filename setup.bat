@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: April 06, 2024
+:: Updated: April 13, 2024
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: April 06, 2024
+echo Updated: April 13, 2024
 echo -------
 echo.
 
@@ -315,7 +315,7 @@ goto option2.4redo
 :option2.1Start
 @echo ON
 :: -------
-:: See Windows 10 Updates Partial Control on Main (Same Thing) + wuauserv service enabled
+:: See Windows 10 Updates Control on Main + wuauserv service enabled
 :: Target Release Version (Version 22H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ProductVersion /T REG_SZ /D "Windows 10" /F
@@ -404,7 +404,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAUAsDef
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AllowAutoWindowsUpdateDownloadOverMeteredNetwork /T REG_dWORD /D 0 /F
 :: Windows 10 Manual Update
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V AUOptions /T REG_dWORD /D 2 /F
-:: --- Manual Update Start
+:: --- Update wuauserv service enabled
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V Start /T REG_dWORD /D 3 /F
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V ObjectName /T REG_SZ /D LocalSystem /F
 @echo OFF
@@ -412,7 +412,7 @@ goto option2
 :: --------------
 :option2.2Start
 @echo ON
-:: See Windows 10 Updates Partial Control on Main (Same Thing) + wuauserv service disabled
+:: See Windows 10 Updates Control on Main + wuauserv service disabled
 :: Target Release Version (Version 22H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ProductVersion /T REG_SZ /D "Windows 10" /F
@@ -502,7 +502,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AllowAutoWin
 :: Windows 10 Manual Update
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V AUOptions /T REG_dWORD /D 2 /F
 :: -------
-:: --- Disable Update Start
+:: --- Update wuauserv service disabled
 net stop wuauserv
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V Start /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V ObjectName /T REG_SZ /D Administrators /F
@@ -4636,7 +4636,7 @@ REG DELETE "HKLM\SOFTWARE\Classes\InternetShortcut\shell\print" /F
 :: -------
 REG DELETE "HKCR\*\shellex\ContextMenuHandlers\ModernSharing" /F
 :: -------
-:: Windows 10 Updates Partial Control (Windows Update Not Disabled)
+:: Windows 10 Updates Control + wuauserv service disabled
 :: -------
 :: Target Release Version (Version 22H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
@@ -4726,8 +4726,10 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAUAsDef
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V AllowAutoWindowsUpdateDownloadOverMeteredNetwork /T REG_dWORD /D 0 /F
 :: Windows 10 Manual Update
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V AUOptions /T REG_dWORD /D 2 /F
-:: Windows 10 Update Service Manual Start (Use other option instead)
-:: REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V Start /T REG_dWORD /D 3 /F
+:: --- Update wuauserv service disabled
+:: (Moved to Top of Main File) net stop wuauserv
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V Start /T REG_dWORD /D 4 /F
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wuauserv" /V ObjectName /T REG_SZ /D Administrators /F
 :: -------
 :: Turn Off Fast Startup
 :: -------
