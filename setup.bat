@@ -2893,6 +2893,8 @@ takeown /f "%UserProfile%\OneDrive" /a /r /d y
 icacls "%UserProfile%\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\OneDrive"
 
+del /f /q "%UserProfile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
+
 @echo OFF
 goto option4
 
@@ -3220,6 +3222,11 @@ REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
 REG DELETE "HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge" /F
+
+del /f /q "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk"
+del /f /q "%UserProfile%\Desktop\Microsoft Edge.lnk"
+del /f /q "%SystemDrive%\Users\Public\Public Desktop\Microsoft Edge.lnk"
+del /f /q "%SystemDrive%\Users\Public\Desktop\Microsoft Edge.lnk"
 
 :: -----------------
 :: Remove Microsoft Edge Legacy
@@ -4656,6 +4663,11 @@ REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
 REG DELETE "HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge" /F
+
+del /f /q "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk"
+del /f /q "%UserProfile%\Desktop\Microsoft Edge.lnk"
+del /f /q "%SystemDrive%\Users\Public\Public Desktop\Microsoft Edge.lnk"
+del /f /q "%SystemDrive%\Users\Public\Desktop\Microsoft Edge.lnk"
 
 :: -----------------
 
@@ -8009,6 +8021,8 @@ rd /s /q "%ProgramData%\Microsoft OneDrive"
 takeown /f "%UserProfile%\OneDrive" /a /r /d y
 icacls "%UserProfile%\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\OneDrive"
+
+del /f /q "%UserProfile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
 
 :: -----------------
 
