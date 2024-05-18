@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: May 17, 2024
+:: Updated: May 18, 2024
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: May 17, 2024
+echo Updated: May 18, 2024
 echo -------
 echo.
 
@@ -128,10 +128,12 @@ echo You have selected Option 2: Windows 10 Update Options
 echo.
 echo ------- IMPORTANT ----------
 echo.
-echo Please notice to set updates to manual or disabled you must stop the
+echo Please notice to set updates to manual or disabled you must stop
 echo Windows 10 Medic Service (WaaSMedicSvc) through the registry and
-echo take ownership and disable access to everyone to the WaaSMedicSvc registry key
+echo Microsoft Update Health Service (uhssvc)
+echo through the registry and take ownership and disable access to everyone
 echo (HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc)
+echo (HKLM\SYSTEM\CurrentControlSet\Services\uhssvc)
 echo.
 echo ----------------------------
 echo.
@@ -367,7 +369,17 @@ REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T
 net stop WaaSMedicSvc
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /V Start /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /V ObjectName /T REG_SZ /D Administrators /F
+:: Disable Microsoft Update Health Tools Service
+net stop uhssvc
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\uhssvc" /V Start /T REG_dWORD /D 4 /F
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\uhssvc" /V ObjectName /T REG_SZ /D Administrators /F
 :: Disable Microsoft Update Health Tools
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRepair /T REG_dWORD /D 0 /F
 takeown /f "%ProgramFiles%\Microsoft Update Health Tools" /a /r /d y
 icacls "%ProgramFiles%\Microsoft Update Health Tools" /grant administrators:F /t /q
 rd /s /q "%ProgramFiles%\Microsoft Update Health Tools"
@@ -386,6 +398,8 @@ icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /inheritance:r
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /deny everyone:F /t /q
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /F
 :: Disable Windows 10 Update/Upgrade Assistant
 takeown /f "%SystemDrive%\Windows10Upgrade" /a /r /d y
 icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
@@ -464,7 +478,17 @@ REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T
 net stop WaaSMedicSvc
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /V Start /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /V ObjectName /T REG_SZ /D Administrators /F
+:: Disable Microsoft Update Health Tools Service
+net stop uhssvc
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\uhssvc" /V Start /T REG_dWORD /D 4 /F
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\uhssvc" /V ObjectName /T REG_SZ /D Administrators /F
 :: Disable Microsoft Update Health Tools
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRepair /T REG_dWORD /D 0 /F
 takeown /f "%ProgramFiles%\Microsoft Update Health Tools" /a /r /d y
 icacls "%ProgramFiles%\Microsoft Update Health Tools" /grant administrators:F /t /q
 rd /s /q "%ProgramFiles%\Microsoft Update Health Tools"
@@ -483,6 +507,8 @@ icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /inheritance:r
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /deny everyone:F /t /q
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /F
 :: Disable Windows 10 Update/Upgrade Assistant
 takeown /f "%SystemDrive%\Windows10Upgrade" /a /r /d y
 icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
@@ -2850,6 +2876,10 @@ goto option4.2redo
 
 TASKKILL /F /IM OneDrive.exe
 
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe" /V NoRepair /T REG_dWORD /D 0 /F
+
 REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 1 /F
@@ -2912,6 +2942,8 @@ icacls "%ProgramData%\Microsoft OneDrive" /deny everyone:F /t /q
 takeown /f "%UserProfile%\OneDrive" /a /r /d y
 icacls "%UserProfile%\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\OneDrive"
+
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe" /F
 
 del /f /q "%UserProfile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
 
@@ -3166,17 +3198,23 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /grant administrators
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRepair /T REG_dWORD /D 0 /F
 
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRepair /T REG_dWORD /D 0 /F
 
@@ -3288,17 +3326,11 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /deny everyone:F /t /
 :: ----------
 
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
 
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
 
 del /f /q "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk"
@@ -3716,7 +3748,7 @@ echo 1) Require Ctrl-Alt-Del on Login
 echo.
 echo 2) Require Ctrl-Alt-Del on UAC
 echo.
-echo 3) Disable ability to change account password on Ctrl-Alt-Del Screen
+echo 3) (Already included in Main) Disable ability to change account password on Ctrl-Alt-Del Screen
 echo.
 echo 4) Do Not Require Ctrl-Alt-Del on Login
 echo.
@@ -3829,7 +3861,7 @@ echo.
 
 :option7.3redo
 
-set /p op="Disable ability to change account password on Ctrl-Alt-Del Screen? (y/n) "
+set /p op="(Already included in Main) Disable ability to change account password on Ctrl-Alt-Del Screen? (y/n) "
 if "%op%"=="y" goto option7.3Start
 if "%op%"=="yes" goto option7.3Start
 if "%op%"=="Yes" goto option7.3Start
@@ -3992,7 +4024,7 @@ goto option7
 :option7.3Start
 @echo ON
 
-:: Disable ability to change account password on Ctrl-Alt-Del Screen
+:: (Already included in Main) Disable ability to change account password on Ctrl-Alt-Del Screen
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 1 /F
 
 @echo OFF
@@ -4455,7 +4487,7 @@ echo -------
 echo.
 echo You have selected Option 1: MAIN FILE
 echo.
-echo Before running this File, Set these Registry Keys to Administrators Ownership and Full Control
+echo Set these Registry Keys to Administrators Ownership and Full Control
 echo.
 echo HKCR\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder
 echo.
@@ -4474,9 +4506,12 @@ echo.
 echo HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update
 echo.
 echo -------------
-echo In addition to taking over these registry keys below, deny access to these registry keys below AFTER running this batch script
+echo Set these Registry Keys to Administrators Ownership and Full Control
+echo After running the batch script, set Deny Full Control access to Everyone
 echo.
 echo HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc
+echo.
+echo HKLM\SYSTEM\CurrentControlSet\Services\uhssvc
 echo.
 echo HKLM\SYSTEM\CurrentControlSet\Services\DiagTrack
 echo.
@@ -4491,7 +4526,8 @@ echo    - Sets Web Browser Policies in Chrome, Chromium, Firefox, Microsoft Edge
 echo    - Removes the pre-installed Microsoft Edge; uninstall all UWP Apps;
 echo    - and will remove/disable various Windows 10 annoyance features.
 echo    - To Fully disable Windows Update service (wuauserv), use the other options.
-echo    - To Fully disable the Windows Update Medic Service (WaaSMedicSvc), 
+echo    - To Fully disable the Windows Update Medic Service (WaaSMedicSvc)
+echo      and the Microsoft Update Health Service (uhssvc),
 echo      after running this batch file, you must take over its registry key and deny full access to everyone
 echo.
 echo  ############################
@@ -4621,8 +4657,9 @@ echo.
 
 @echo ON
 
-:: Stop WaaSMedicSvc and DiagTrack and wlidsv
+:: Stop WaaSMedicSvc and uhssvc and DiagTrack and wlidsv
 net stop WaaSMedicSvc
+net stop uhssvc
 net stop DiagTrack
 net stop wlidsv
 
@@ -4689,17 +4726,23 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /grant administrators
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRepair /T REG_dWORD /D 0 /F
 
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoModify /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRepair /T REG_dWORD /D 0 /F
 
@@ -4811,17 +4854,11 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /deny everyone:F /t /
 :: ----------
 
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
 
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
 
 del /f /q "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk"
@@ -5037,7 +5074,17 @@ REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T
 :: (Moved to Top of Main File) net stop WaaSMedicSvc
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /V Start /T REG_dWORD /D 4 /F
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /V ObjectName /T REG_SZ /D Administrators /F
+:: Disable Microsoft Update Health Tools Service
+:: (Moved to Top of Main File) net stop uhssvc
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\uhssvc" /V Start /T REG_dWORD /D 4 /F
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\uhssvc" /V ObjectName /T REG_SZ /D Administrators /F
 :: Disable Microsoft Update Health Tools
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /V NoRepair /T REG_dWORD /D 0 /F
 takeown /f "%ProgramFiles%\Microsoft Update Health Tools" /a /r /d y
 icacls "%ProgramFiles%\Microsoft Update Health Tools" /grant administrators:F /t /q
 rd /s /q "%ProgramFiles%\Microsoft Update Health Tools"
@@ -5056,6 +5103,8 @@ icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /inheritance:r
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft Update Health Tools" /deny everyone:F /t /q
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{1FC1A6C2-576E-489A-9B4A-92D21F542136}" /F
 :: Disable Windows 10 Update/Upgrade Assistant
 takeown /f "%SystemDrive%\Windows10Upgrade" /a /r /d y
 icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
@@ -5667,6 +5716,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V DontDisplayNetworkS
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnumerateAdministrators /T REG_dWORD /D 0 /F
 :: Restrict SAS to only manual
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V SoftwareSASGeneration /T REG_dWORD /D 0 /F
+:: Disable ability to change account password on Ctrl-Alt-Del Screen
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 1 /F
 
 :: -------
 :: Action Center
@@ -8161,6 +8212,10 @@ icacls "%UserProfile%\MicrosoftEdgeBackups" /deny everyone:F /t /q
 :: Uninstall and Disable OneDrive
 :: -----------------
 
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe" /V NoRepair /T REG_dWORD /D 0 /F
+
 REG ADD "HKCR\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /V System.IsPinnedToNameSpaceTree /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSyncNGSC /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableFileSync /T REG_dWORD /D 1 /F
@@ -8223,6 +8278,8 @@ icacls "%ProgramData%\Microsoft OneDrive" /deny everyone:F /t /q
 takeown /f "%UserProfile%\OneDrive" /a /r /d y
 icacls "%UserProfile%\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\OneDrive"
+
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\OneDriveSetup.exe" /F
 
 del /f /q "%UserProfile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
 
