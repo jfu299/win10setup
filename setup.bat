@@ -129,7 +129,7 @@ echo.
 echo ------- IMPORTANT ----------
 echo.
 echo Please notice to set updates to manual or disabled you must stop
-echo Windows 10 Medic Service (WaaSMedicSvc) through the registry and
+echo Windows Update Medic Service (WaaSMedicSvc) through the registry and
 echo Microsoft Update Health Service (uhssvc)
 echo through the registry and take ownership and disable access to everyone
 echo (HKLM\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc)
@@ -4499,12 +4499,6 @@ echo HKCR\Wow6432Node\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder
 echo.
 echo HKLM\SYSTEM\CurrentControlSet\Services\wuauserv
 echo.
-echo HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
-echo.
-echo HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge
-echo.
-echo HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update
-echo.
 echo -------------
 echo Set these Registry Keys to Administrators Ownership and Full Control
 echo After running the batch script, set Deny Full Control access to Everyone
@@ -4748,9 +4742,11 @@ REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mi
 
 :: ----------
 
-"%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\115.0.1901.188\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
+:: (Optional) Find version number in folder: "%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application"
 
-"%SystemDrive%\Program Files\Microsoft\Edge\Application\115.0.1901.188\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
+:: "%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\[VERSION NUMBER HERE]\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
+
+:: "%SystemDrive%\Program Files\Microsoft\Edge\Application\[VERSION NUMBER HERE]\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
 
 :: ----------
 
