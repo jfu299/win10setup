@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: May 16, 2024
+:: Updated: May 17, 2024
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: May 16, 2024
+echo Updated: May 17, 2024
 echo -------
 echo.
 
@@ -2663,7 +2663,7 @@ REG ADD "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T
 REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 :: Firefox
 REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
-REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 :: Brave
 REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 :: Microsoft Edge Chromium
@@ -2695,7 +2695,7 @@ REG DELETE "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKCU\Software\Policies\Chromium" /V BlockExternalExtensions /F
 :: Firefox
 REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
-REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 :: Brave
 REG DELETE "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKCU\Software\Policies\BraveSoftware\Brave" /V BlockExternalExtensions /F
@@ -2876,18 +2876,38 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V SilentAccountConfig /T RE
 takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+md "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /inheritance:r
+icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
+icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /deny everyone:F /t /q
 
 takeown /f "%ProgramFiles%\Microsoft OneDrive" /a /r /d y
 icacls "%ProgramFiles%\Microsoft OneDrive" /grant administrators:F /t /q
 rd /s /q "%ProgramFiles%\Microsoft OneDrive"
+md "%ProgramFiles%\Microsoft OneDrive"
+takeown /f "%ProgramFiles%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramFiles%\Microsoft OneDrive" /inheritance:r
+icacls "%ProgramFiles%\Microsoft OneDrive" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft OneDrive" /deny everyone:F /t /q
 
 takeown /f "%ProgramFiles(x86)%\Microsoft OneDrive" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /grant administrators:F /t /q
 rd /s /q "%ProgramFiles(x86)%\Microsoft OneDrive"
+md "%ProgramFiles(x86)%\Microsoft OneDrive"
+takeown /f "%ProgramFiles(x86)%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /inheritance:r
+icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /deny everyone:F /t /q
 
 takeown /f "%ProgramData%\Microsoft OneDrive" /a /r /d y
 icacls "%ProgramData%\Microsoft OneDrive" /grant administrators:F /t /q
 rd /s /q "%ProgramData%\Microsoft OneDrive"
+md "%ProgramData%\Microsoft OneDrive"
+takeown /f "%ProgramData%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramData%\Microsoft OneDrive" /inheritance:r
+icacls "%ProgramData%\Microsoft OneDrive" /grant administrators:F /t /q
+icacls "%ProgramData%\Microsoft OneDrive" /deny everyone:F /t /q
 
 takeown /f "%UserProfile%\OneDrive" /a /r /d y
 icacls "%UserProfile%\OneDrive" /grant administrators:F /t /q
@@ -2928,13 +2948,21 @@ REG ADD "HKLM\SOFTWARE\Microsoft\OneDrive" /V PreventNetworkTrafficPreUserSignIn
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /V DisableMeteredNetworkFileSync /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V SilentAccountConfig /T REG_dWORD /D 0 /F
 
-md "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
+icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /inheritance:e
 
-md "%ProgramFiles%\Microsoft OneDrive"
+takeown /f "%ProgramFiles%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramFiles%\Microsoft OneDrive" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft OneDrive" /inheritance:e
 
-md "%ProgramFiles(x86)%\Microsoft OneDrive"
+takeown /f "%ProgramFiles(x86)%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /inheritance:e
 
-md "%ProgramData%\Microsoft OneDrive"
+takeown /f "%ProgramData%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramData%\Microsoft OneDrive" /grant administrators:F /t /q
+icacls "%ProgramData%\Microsoft OneDrive" /inheritance:e
 
 md "%UserProfile%\OneDrive"
 
@@ -3087,14 +3115,27 @@ goto option5.2redo
 
 TASKKILL /F /IM msedge.exe
 
+:: -----
+
 takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
+
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeCore" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeCore" /grant administrators:F /t /q
 
 takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /grant administrators:F /t /q
+
+:: -----
+
 takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
+
+takeown /f "%ProgramFiles%\Microsoft\EdgeCore" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeCore" /grant administrators:F /t /q
 
 takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
@@ -3102,11 +3143,12 @@ icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 takeown /f "%ProgramFiles%\Microsoft\EdgeWebView" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeWebView" /grant administrators:F /t /q
 
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /grant administrators:F /t /q
+:: -----
 
 takeown /f "%ProgramData%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramData%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+
+:: -----
 
 takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
@@ -3125,10 +3167,18 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /grant administrators
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRepair /T REG_dWORD /D 0 /F
+
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRepair /T REG_dWORD /D 0 /F
 
 :: ----------
 
@@ -3145,6 +3195,13 @@ icacls "%ProgramFiles(x86)%\Microsoft\Edge" /inheritance:r
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /deny everyone:F /t /q
 
+rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeCore"
+md "%ProgramFiles(x86)%\Microsoft\EdgeCore"
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeCore" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeCore" /inheritance:r
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeCore" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeCore" /deny everyone:F /t /q
+
 rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
 md "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
 takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
@@ -3152,12 +3209,28 @@ icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /deny everyone:F /t /q
 
+rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeWebView"
+md "%ProgramFiles(x86)%\Microsoft\EdgeWebView"
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /inheritance:r
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /deny everyone:F /t /q
+
+:: -----
+
 rd /s /q "%ProgramFiles%\Microsoft\Edge"
 md "%ProgramFiles%\Microsoft\Edge"
 takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
 icacls "%ProgramFiles%\Microsoft\Edge" /deny everyone:F /t /q
+
+rd /s /q "%ProgramFiles%\Microsoft\EdgeCore"
+md "%ProgramFiles%\Microsoft\EdgeCore"
+takeown /f "%ProgramFiles%\Microsoft\EdgeCore" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeCore" /inheritance:r
+icacls "%ProgramFiles%\Microsoft\EdgeCore" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft\EdgeCore" /deny everyone:F /t /q
 
 rd /s /q "%ProgramFiles%\Microsoft\EdgeUpdate"
 md "%ProgramFiles%\Microsoft\EdgeUpdate"
@@ -3173,12 +3246,7 @@ icacls "%ProgramFiles%\Microsoft\EdgeWebView" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\EdgeWebView" /grant administrators:F /t /q
 icacls "%ProgramFiles%\Microsoft\EdgeWebView" /deny everyone:F /t /q
 
-rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeWebView"
-md "%ProgramFiles(x86)%\Microsoft\EdgeWebView"
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /inheritance:r
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /grant administrators:F /t /q
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /deny everyone:F /t /q
+:: -----
 
 rd /s /q "%ProgramData%\Microsoft\EdgeUpdate"
 md "%ProgramData%\Microsoft\EdgeUpdate"
@@ -3186,6 +3254,8 @@ takeown /f "%ProgramData%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramData%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramData%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%ProgramData%\Microsoft\EdgeUpdate" /deny everyone:F /t /q
+
+:: -----
 
 rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
 md "%UserProfile%\AppData\Local\Microsoft\Edge"
@@ -3218,10 +3288,18 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /deny everyone:F /t /
 :: ----------
 
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
+
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
 
 del /f /q "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk"
 del /f /q "%UserProfile%\Desktop\Microsoft Edge.lnk"
@@ -3238,24 +3316,40 @@ TASKKILL /F /IM MicrosoftEdge.exe
 TASKKILL /F /IM MicrosoftEdgeUpdate.exe
 
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
+md "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
+takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
-del /f /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /deny everyone:F /t /q
 
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
+md "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
+takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
-del /f /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
 takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
 icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\AppData\Local\MicrosoftEdge"
+md "%UserProfile%\AppData\Local\MicrosoftEdge"
+takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /inheritance:r
+icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
+icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /deny everyone:F /t /q
 
 takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
 icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
+md "%UserProfile%\MicrosoftEdgeBackups"
+takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
+icacls "%UserProfile%\MicrosoftEdgeBackups" /inheritance:r
+icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
+icacls "%UserProfile%\MicrosoftEdgeBackups" /deny everyone:F /t /q
 
 @echo OFF
 goto option5
@@ -3271,13 +3365,27 @@ takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /inheritance:e
 
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeCore" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeCore" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeCore" /inheritance:e
+
 takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /inheritance:e
 
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /inheritance:e
+
+:: -----
+
 takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
 icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:e
+
+takeown /f "%ProgramFiles%\Microsoft\EdgeCore" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeCore" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft\EdgeCore" /inheritance:e
 
 takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
@@ -3287,13 +3395,13 @@ takeown /f "%ProgramFiles%\Microsoft\EdgeWebView" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeWebView" /grant administrators:F /t /q
 icacls "%ProgramFiles%\Microsoft\EdgeWebView" /inheritance:e
 
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /grant administrators:F /t /q
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /inheritance:e
+:: -----
 
 takeown /f "%ProgramData%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramData%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%ProgramData%\Microsoft\EdgeUpdate" /inheritance:e
+
+:: -----
 
 takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
@@ -3310,6 +3418,8 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /inheritance:e
 takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /grant administrators:F /t /q
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /inheritance:e
+
+:: -----
 
 @echo OFF
 goto option5
@@ -4153,7 +4263,7 @@ REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_
 
 :: Firefox
 REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
-REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Brave
 REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
@@ -4217,7 +4327,7 @@ REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_
 
 :: Firefox
 REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
-REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitlab.com/magnolia1234/bpc-uploads/-/raw/master/bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Brave
 REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
@@ -4533,11 +4643,22 @@ TASKKILL /F /IM SkypeBackgroundHost.exe
 takeown /f "%ProgramFiles(x86)%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
 
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeCore" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeCore" /grant administrators:F /t /q
+
 takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /grant administrators:F /t /q
+
+:: -----
+
 takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
+
+takeown /f "%ProgramFiles%\Microsoft\EdgeCore" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeCore" /grant administrators:F /t /q
 
 takeown /f "%ProgramFiles%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
@@ -4545,11 +4666,12 @@ icacls "%ProgramFiles%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 takeown /f "%ProgramFiles%\Microsoft\EdgeWebView" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\EdgeWebView" /grant administrators:F /t /q
 
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /grant administrators:F /t /q
+:: -----
 
 takeown /f "%ProgramData%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramData%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
+
+:: -----
 
 takeown /f "%UserProfile%\AppData\Local\Microsoft\Edge" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\Edge" /grant administrators:F /t /q
@@ -4568,10 +4690,18 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /grant administrators
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRepair /T REG_dWORD /D 0 /F
+
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /V NoRepair /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoModify /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /V NoRepair /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRemove /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRepair /T REG_dWORD /D 0 /F
 
 :: ----------
 
@@ -4588,6 +4718,13 @@ icacls "%ProgramFiles(x86)%\Microsoft\Edge" /inheritance:r
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft\Edge" /deny everyone:F /t /q
 
+rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeCore"
+md "%ProgramFiles(x86)%\Microsoft\EdgeCore"
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeCore" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeCore" /inheritance:r
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeCore" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeCore" /deny everyone:F /t /q
+
 rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
 md "%ProgramFiles(x86)%\Microsoft\EdgeUpdate"
 takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /a /r /d y
@@ -4595,12 +4732,28 @@ icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" /deny everyone:F /t /q
 
+rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeWebView"
+md "%ProgramFiles(x86)%\Microsoft\EdgeWebView"
+takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /inheritance:r
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /deny everyone:F /t /q
+
+:: -----
+
 rd /s /q "%ProgramFiles%\Microsoft\Edge"
 md "%ProgramFiles%\Microsoft\Edge"
 takeown /f "%ProgramFiles%\Microsoft\Edge" /a /r /d y
 icacls "%ProgramFiles%\Microsoft\Edge" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\Edge" /grant administrators:F /t /q
 icacls "%ProgramFiles%\Microsoft\Edge" /deny everyone:F /t /q
+
+rd /s /q "%ProgramFiles%\Microsoft\EdgeCore"
+md "%ProgramFiles%\Microsoft\EdgeCore"
+takeown /f "%ProgramFiles%\Microsoft\EdgeCore" /a /r /d y
+icacls "%ProgramFiles%\Microsoft\EdgeCore" /inheritance:r
+icacls "%ProgramFiles%\Microsoft\EdgeCore" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft\EdgeCore" /deny everyone:F /t /q
 
 rd /s /q "%ProgramFiles%\Microsoft\EdgeUpdate"
 md "%ProgramFiles%\Microsoft\EdgeUpdate"
@@ -4616,12 +4769,7 @@ icacls "%ProgramFiles%\Microsoft\EdgeWebView" /inheritance:r
 icacls "%ProgramFiles%\Microsoft\EdgeWebView" /grant administrators:F /t /q
 icacls "%ProgramFiles%\Microsoft\EdgeWebView" /deny everyone:F /t /q
 
-rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeWebView"
-md "%ProgramFiles(x86)%\Microsoft\EdgeWebView"
-takeown /f "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /a /r /d y
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /inheritance:r
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /grant administrators:F /t /q
-icacls "%ProgramFiles(x86)%\Microsoft\EdgeWebView" /deny everyone:F /t /q
+:: -----
 
 rd /s /q "%ProgramData%\Microsoft\EdgeUpdate"
 md "%ProgramData%\Microsoft\EdgeUpdate"
@@ -4629,6 +4777,8 @@ takeown /f "%ProgramData%\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%ProgramData%\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%ProgramData%\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%ProgramData%\Microsoft\EdgeUpdate" /deny everyone:F /t /q
+
+:: -----
 
 rd /s /q "%UserProfile%\AppData\Local\Microsoft\Edge"
 md "%UserProfile%\AppData\Local\Microsoft\Edge"
@@ -4661,10 +4811,18 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /deny everyone:F /t /
 :: ----------
 
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
-REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
 REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
+REG DELETE "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
+
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge" /F
 REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
-REG DELETE "HKLM\SOFTWARE\Clients\StartMenuInternet\Microsoft Edge" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge Update" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
+REG DELETE "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /F
 
 del /f /q "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk"
 del /f /q "%UserProfile%\Desktop\Microsoft Edge.lnk"
@@ -5501,6 +5659,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Biometrics\Credential Provider" /V Ena
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Biometrics\Credential Provider" /V "Domain Accounts" /T REG_dWORD /D 0 /F
 :: Security Questions
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V NoLocalPasswordResetQuestions /T REG_dWORD /D 1 /F
+:: Set Password Never Expires for current user account
+wmic useraccount where Name='%username%' Set PasswordExpires=False
 :: Network Selection on Lock Screen
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V DontDisplayNetworkSelectionUI /T REG_dWORD /D 1 /F
 :: UAC Hide User Accounts
@@ -7962,24 +8122,40 @@ TASKKILL /F /IM MicrosoftEdge.exe
 TASKKILL /F /IM MicrosoftEdgeUpdate.exe
 
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
+md "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
+takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /grant administrators:F /t /q
-del /f /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" /deny everyone:F /t /q
 
 takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
+icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
+rd /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
+md "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
+takeown /f "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /grant administrators:F /t /q
-del /f /s /q "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe"
 icacls "%windir%\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe" /deny everyone:F /t /q
 
 takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
 icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\AppData\Local\MicrosoftEdge"
+md "%UserProfile%\AppData\Local\MicrosoftEdge"
+takeown /f "%UserProfile%\AppData\Local\MicrosoftEdge" /a /r /d y
+icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /inheritance:r
+icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /grant administrators:F /t /q
+icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /deny everyone:F /t /q
 
 takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
 icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
+md "%UserProfile%\MicrosoftEdgeBackups"
+takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
+icacls "%UserProfile%\MicrosoftEdgeBackups" /inheritance:r
+icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
+icacls "%UserProfile%\MicrosoftEdgeBackups" /deny everyone:F /t /q
 
 :: -----------------
 :: Uninstall and Disable OneDrive
@@ -8011,18 +8187,38 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /V SilentAccountConfig /T RE
 takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+md "%UserProfile%\AppData\Local\Microsoft\OneDrive"
+takeown /f "%UserProfile%\AppData\Local\Microsoft\OneDrive" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /inheritance:r
+icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /grant administrators:F /t /q
+icacls "%UserProfile%\AppData\Local\Microsoft\OneDrive" /deny everyone:F /t /q
 
 takeown /f "%ProgramFiles%\Microsoft OneDrive" /a /r /d y
 icacls "%ProgramFiles%\Microsoft OneDrive" /grant administrators:F /t /q
 rd /s /q "%ProgramFiles%\Microsoft OneDrive"
+md "%ProgramFiles%\Microsoft OneDrive"
+takeown /f "%ProgramFiles%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramFiles%\Microsoft OneDrive" /inheritance:r
+icacls "%ProgramFiles%\Microsoft OneDrive" /grant administrators:F /t /q
+icacls "%ProgramFiles%\Microsoft OneDrive" /deny everyone:F /t /q
 
 takeown /f "%ProgramFiles(x86)%\Microsoft OneDrive" /a /r /d y
 icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /grant administrators:F /t /q
 rd /s /q "%ProgramFiles(x86)%\Microsoft OneDrive"
+md "%ProgramFiles(x86)%\Microsoft OneDrive"
+takeown /f "%ProgramFiles(x86)%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /inheritance:r
+icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /grant administrators:F /t /q
+icacls "%ProgramFiles(x86)%\Microsoft OneDrive" /deny everyone:F /t /q
 
 takeown /f "%ProgramData%\Microsoft OneDrive" /a /r /d y
 icacls "%ProgramData%\Microsoft OneDrive" /grant administrators:F /t /q
 rd /s /q "%ProgramData%\Microsoft OneDrive"
+md "%ProgramData%\Microsoft OneDrive"
+takeown /f "%ProgramData%\Microsoft OneDrive" /a /r /d y
+icacls "%ProgramData%\Microsoft OneDrive" /inheritance:r
+icacls "%ProgramData%\Microsoft OneDrive" /grant administrators:F /t /q
+icacls "%ProgramData%\Microsoft OneDrive" /deny everyone:F /t /q
 
 takeown /f "%UserProfile%\OneDrive" /a /r /d y
 icacls "%UserProfile%\OneDrive" /grant administrators:F /t /q
