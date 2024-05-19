@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: May 18, 2024
+:: Updated: May 19, 2024
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: May 18, 2024
+echo Updated: May 19, 2024
 echo -------
 echo.
 
@@ -5186,6 +5186,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MRT" /V DontReportInfectionInformation
 :: Windows Defender Update Deployment - Current Channel (Broad)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /V EngineRing /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /V PlatformRing /T REG_dWORD /D 5 /F
+:: Windows Defender Notification Icon Taskbar
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Systray" /V HideSystray /T REG_dWORD /D 1 /F
 :: Windows Error Reporting
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /V Disabled /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\Windows Error Reporting" /V Disabled /T REG_dWORD /D 1 /F
@@ -5692,7 +5694,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\MDM" /V Disable
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Account protection" /V UILockdown /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Family options" /V UILockdown /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Notifications" /V DisableEnhancedNotifications /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Systray" /V HideSystray /T REG_dWORD /D 1 /F
 :: Hide Password Reveal
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\CredUI" /V DisablePasswordReveal /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CredUI" /V DisablePasswordReveal /T REG_dWORD /D 1 /F
@@ -8315,7 +8316,11 @@ DISM /online /Disable-Feature /FeatureName:Printing-XPSServices-Features -NoRest
 :: Disable Internet Explorer
 :: -------
 
-DISM /online /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.11.0 -NoRestart
+:: Uninstall Internet Explorer
+:: DISM /online /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.11.0 -NoRestart
+
+:: Disable Internet Explorer
+dism /online /Disable-Feature /FeatureName:Internet-Explorer-Optional-amd64 -NoRestart
 
 :: https://docs.microsoft.com/en-us/troubleshoot/browsers/disable-internet-explorer-windows
 
