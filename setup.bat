@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: May 19, 2024
+:: Updated: May 22, 2024
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: May 19, 2024
+echo Updated: May 22, 2024
 echo -------
 echo.
 
@@ -4651,11 +4651,10 @@ echo.
 
 @echo ON
 
-:: Stop WaaSMedicSvc and uhssvc and DiagTrack and wlidsv
+:: Stop WaaSMedicSvc and uhssvc and DiagTrack
 net stop WaaSMedicSvc
 net stop uhssvc
 net stop DiagTrack
-net stop wlidsv
 
 :: Stop Microsoft Edge Chromium and Microsoft Edge Legacy
 TASKKILL /F /IM msedge.exe
@@ -4877,10 +4876,10 @@ echo.
 
 @echo ON
 
-:: Stop WaaSMedicSvc and DiagTrack and wlidsv
+:: Stop WaaSMedicSvc and uhssvc and DiagTrack
 net stop WaaSMedicSvc
+net stop uhssvc
 net stop DiagTrack
-net stop wlidsv
 
 :: Stop Microsoft Edge Chromium and Microsoft Edge Legacy
 TASKKILL /F /IM msedge.exe
@@ -5216,10 +5215,13 @@ REG ADD "HKCU\Software\Microsoft\InputPersonalization" /V RestrictImplicitTextCo
 REG ADD "HKCU\Software\Microsoft\InputPersonalization" /V RestrictImplicitInkCollection /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\InputPersonalization" /V RestrictImplicitTextCollection /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\InputPersonalization" /V RestrictImplicitInkCollection /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" /V HarvestContacts /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\InputPersonalization\TrainedDataStore" /V HarvestContacts /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Personalization\Settings" /V AcceptedPrivacyPolicy /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Personalization\Settings" /V AcceptedPrivacyPolicy /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Input\Settings" /V InsightsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Input\TIPC" /V Enabled /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy" /V HasAccepted /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\TabletPC" /V PreventhandwritingDataSharing /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports" /V PreventHandwritingErrorReports /T REG_dWORD /D 1 /F
 :: -------
@@ -5481,11 +5483,15 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Control Panel" /V "C
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Control Panel" /V ConnectionsTab /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings" /V proxySettingsPerUser /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Internet Explorer\Control Panel" /V Proxy /T REG_dWORD /D 1 /F
-:: Windows AutoPlay Turn Off
+:: Windows AutoPlay Disable
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" /V DisableAutoplay /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" /V DisableAutoplay /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DontSetAutoplayCheckbox /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V DontSetAutoplayCheckbox /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V NoautoplayfornonVolume /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoAutorun /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoDriveTypeAutoRun /T REG_dWORD /D 255 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowAutoPlay" /V value /T REG_dWORD /D 0 /F
 :: System Theme Set Dark
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" /V SystemUsesLightTheme /T REG_dWORD /D 0 /F
 :: App Theme Set Dark
@@ -5568,6 +5574,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /V EnableFi
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V EnableFirstLogonAnimation /T REG_dWORD /D 0 /F
 :: Welcome Experience
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightWindowswelcomeExperience /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent" /V DisableWindowsSpotlightWindowswelcomeExperience /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OOBE" /V DisablePrivacyExperience /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\OOBE" /V DisablePrivacyExperience /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE" /V SkipMachineOOBE /T REG_dWORD /D 1 /F
@@ -5629,11 +5636,6 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsDyn
 
 :: Microsoft Account
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V NoConnectedUser /T REG_dWORD /D 3 /F
-
-:: Disable Microsoft Account Cloud Authentication Service
-:: (Moved to Top of Main File) net stop wlidsv
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wlidsv" /V Start /T REG_dWORD /D 4 /F
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\wlidsv" /V ObjectName /T REG_SZ /D Administrators /F
 
 :: Microsoft Account Signin Prompts Disable
 takeown /f "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /a /r /d y
