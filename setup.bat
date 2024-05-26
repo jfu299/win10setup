@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: May 22, 2024
+:: Updated: May 26, 2024
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: May 22, 2024
+echo Updated: May 26, 2024
 echo -------
 echo.
 
@@ -5178,7 +5178,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V LimitDumpCo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /V LimitEnhancedDiagnosticDataWindowsAnalytics /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Assistance\Client\1.0" /V NoExplicitFeedback /T REG_dWORD /D 1 /F
 :: Windows Defender
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /V SpynetReporting /T REG_dWORD /D 0 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /V SpynetReporting /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /V LocalSettingOverrideSpynetReporting /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Spynet" /V SubmitSamplesConsent /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\MRT" /V DontReportInfectionInformation /T REG_dWORD /D 1 /F
@@ -5341,6 +5341,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Sh
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowSyncProviderNotifications /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\EdgeUI" /V DisableMFUTracking /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\EdgeUI" /V DisableMFUTracking /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\EdgeUI" /V DisableCharms /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\EdgeUI" /V DisableCharms /T REG_dWORD /D 1 /F
 :: File Explorer Clear History
 del /f /q /s "%UserProfile%\AppData\Roaming\Microsoft\Windows\Recent"
 REG DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /VA /F
@@ -5363,6 +5365,7 @@ REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V AllowOnlineTips /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowOnlineTips" /V value /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\EdgeUI " /V DisableHelpSticker /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\EdgeUI " /V DisableHelpSticker /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Assistance\Client\1.0" /V NoActiveHelp /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Assistance\Client\1.0" /V NoUntrustedContent /T REG_dWORD /D 1 /F
 :: Detailed Startup Shutdown Messages
@@ -5615,7 +5618,8 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V SafeS
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Comdlg32" /V NoFileMru /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Comdlg32" /V NoFileMru /T REG_dWORD /D 1 /F
 :: Recently Added Apps
-REG ADD " HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideRecentlyAddedApps /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideRecentlyAddedApps /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V HideRecentlyAddedApps /T REG_dWORD /D 1 /F
 :: Activity History
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V UploadUserActivities /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V PublishUserActivities /T REG_dWORD /D 0 /F
@@ -5842,7 +5846,9 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\AccountNotifica
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\CurrentVersion\AccountNotifications" /V DisableAccountNotifications /T REG_dWORD /D 1 /F
 :: Recommended Section
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideRecommendedSection /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V HideRecommendedSection /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideRecommendedPersonalizedSites /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V HideRecommendedPersonalizedSites /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V SimplifyQuickSettings /T REG_dWORD /D 1 /F
 :: Remove Frequent Programs List from Start Menu
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V NoStartMenuMFUprogramsList /T REG_dWORD /D 1 /F
