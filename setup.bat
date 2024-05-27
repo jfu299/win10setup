@@ -410,6 +410,15 @@ icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
 icacls "%SystemDrive%\Windows10Upgrade" /inheritance:r
 icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
 icacls "%SystemDrive%\Windows10Upgrade" /deny everyone:F /t /q
+takeown /f "%SystemDrive%\Windows\UpdateAssistant" /a /r /d y
+icacls "%SystemDrive%\Windows\UpdateAssistant" /grant administrators:F /t /q
+rd /s /q "%SystemDrive%\Windows\UpdateAssistant"
+md "%SystemDrive%\Windows\UpdateAssistant"
+takeown /f "%SystemDrive%\Windows\UpdateAssistant" /a /r /d y
+icacls "%SystemDrive%\Windows\UpdateAssistant" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows\UpdateAssistant" /inheritance:r
+icacls "%SystemDrive%\Windows\UpdateAssistant" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows\UpdateAssistant" /deny everyone:F /t /q
 :: No Auto Reboot
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAutoRebootWithLoggedOnUsers /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAUShutdownOption /T REG_dWORD /D 1 /F
@@ -519,6 +528,15 @@ icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
 icacls "%SystemDrive%\Windows10Upgrade" /inheritance:r
 icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
 icacls "%SystemDrive%\Windows10Upgrade" /deny everyone:F /t /q
+takeown /f "%SystemDrive%\Windows\UpdateAssistant" /a /r /d y
+icacls "%SystemDrive%\Windows\UpdateAssistant" /grant administrators:F /t /q
+rd /s /q "%SystemDrive%\Windows\UpdateAssistant"
+md "%SystemDrive%\Windows\UpdateAssistant"
+takeown /f "%SystemDrive%\Windows\UpdateAssistant" /a /r /d y
+icacls "%SystemDrive%\Windows\UpdateAssistant" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows\UpdateAssistant" /inheritance:r
+icacls "%SystemDrive%\Windows\UpdateAssistant" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows\UpdateAssistant" /deny everyone:F /t /q
 :: No Auto Reboot
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAutoRebootWithLoggedOnUsers /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAUShutdownOption /T REG_dWORD /D 1 /F
@@ -5110,6 +5128,15 @@ icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
 icacls "%SystemDrive%\Windows10Upgrade" /inheritance:r
 icacls "%SystemDrive%\Windows10Upgrade" /grant administrators:F /t /q
 icacls "%SystemDrive%\Windows10Upgrade" /deny everyone:F /t /q
+takeown /f "%SystemDrive%\Windows\UpdateAssistant" /a /r /d y
+icacls "%SystemDrive%\Windows\UpdateAssistant" /grant administrators:F /t /q
+rd /s /q "%SystemDrive%\Windows\UpdateAssistant"
+md "%SystemDrive%\Windows\UpdateAssistant"
+takeown /f "%SystemDrive%\Windows\UpdateAssistant" /a /r /d y
+icacls "%SystemDrive%\Windows\UpdateAssistant" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows\UpdateAssistant" /inheritance:r
+icacls "%SystemDrive%\Windows\UpdateAssistant" /grant administrators:F /t /q
+icacls "%SystemDrive%\Windows\UpdateAssistant" /deny everyone:F /t /q
 :: No Auto Reboot
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAutoRebootWithLoggedOnUsers /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /V NoAUShutdownOption /T REG_dWORD /D 1 /F
