@@ -3483,7 +3483,7 @@ echo You have selected Option 6: Username Visibility
 echo.
 echo Select a task:
 echo.
-echo 1) Hide Username on Login Screen Only
+echo 1) (Already included in Main) Hide Username on Login Screen Only
 echo.
 echo 2) Hide Username on Login and Lock Screen
 echo.
@@ -3525,7 +3525,7 @@ echo.
 
 :option6.1redo
 
-set /p op="Hide Username on Login Screen Only? (y/n) "
+set /p op="(Already included in Main) Hide Username on Login Screen Only? (y/n) "
 if "%op%"=="y" goto option6.1Start
 if "%op%"=="yes" goto option6.1Start
 if "%op%"=="Yes" goto option6.1Start
@@ -3702,9 +3702,10 @@ goto option6.5redo
 :option6.1Start
 @echo ON
 
-:: Hide Username on Login Screen Only
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V dontdisplaylastusername /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 1 /F
+:: (Already included in Main) Hide Username on Login Screen Only
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayUserName /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLastUsername /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 4 /F
 
 @echo OFF
 goto option6
@@ -3715,7 +3716,8 @@ goto option6
 @echo ON
 
 :: Hide Username on Login and Lock Screen
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V dontdisplaylastusername /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayUserName /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLastUsername /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 3 /F
 
 @echo OFF
@@ -3738,7 +3740,8 @@ goto option6
 @echo ON
 
 :: Undo Hide Username on Login and Lock Screen
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V dontdisplaylastusername /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayUserName /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLastUsername /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 0 /F
 
 @echo OFF
@@ -5759,8 +5762,15 @@ wmic useraccount where Name='%username%' Set PasswordExpires=False
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V DontDisplayNetworkSelectionUI /T REG_dWORD /D 1 /F
 :: UAC Hide User Accounts
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI" /V EnumerateAdministrators /T REG_dWORD /D 0 /F
+:: Hide Username on Login Screen Only
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayUserName /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLastUsername /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V DontDisplayLockedUserID /T REG_dWORD /D 4 /F
 :: Restrict SAS to only manual
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V SoftwareSASGeneration /T REG_dWORD /D 0 /F
+:: UAC Default Settings
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V ConsentPromptBehaviorAdmin /T REG_dWORD /D 5 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V ConsentPromptBehaviorUser /T REG_dWORD /D 3 /F
 :: Disable ability to change account password on Ctrl-Alt-Del Screen
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /V DisableChangePassword /T REG_dWORD /D 1 /F
 
@@ -8704,6 +8714,17 @@ goto :EOF
 
 :: Background Wallpaper History Folder
 :: HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers
+
+:: Hide user accounts on the user switcher
+:: HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /V "EXAMPLE" /T REG_dWORD /D 0 /F
+
+:: Login Screen Legal Text Startup Message
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V "legalnoticecaption" /T REG_SZ /D "EXAMPLE" /F
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V "legalnoticetext" /T REG_MULTI_SZ /D "EXAMPLE" /F
+:: Local Security Policy:
+::      Local Policies > Security Options >> Interactive logon: Message text for users attempting to log on
+::      Local Policies > Security Options >> Interactive logon: Message title for users attempting to log on
 
 :: ----- Windows 10 Update
 
