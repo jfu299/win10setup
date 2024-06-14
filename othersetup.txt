@@ -4,7 +4,7 @@ Custom Setup for Windows 10
 	https://github.com/jfu299/win10setup
 	https://raw.githubusercontent.com/jfu299/win10setup/main/othersetup.txt
 By: Justin Fu
-Updated: May 18, 2024
+Updated: June 14, 2024
 
 1) Take over permissions of Registry Keys
 
@@ -14,6 +14,7 @@ Updated: May 18, 2024
 		HKCR\CLSID\{B4FB3F98-C1EA-428d-A78A-D1F5659CBA93}\ShellFolder
 		HKCR\Wow6432Node\CLSID\{B4FB3F98-C1EA-428d-A78A-D1F5659CBA93}\ShellFolder
 		HKCR\Wow6432Node\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder
+		HKLM\SOFTWARE\Microsoft\Windows Search\Gather\Windows\SystemIndex
 		HKLM\SYSTEM\CurrentControlSet\Services\wuauserv
 	
 	Deny Everyone Access (After disabling these services):
