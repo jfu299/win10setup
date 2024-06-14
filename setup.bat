@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: May 26, 2024
+:: Updated: June 14, 2024
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: May 26, 2024
+echo Updated: June 14, 2024
 echo -------
 echo.
 
@@ -811,7 +811,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V BlockThirdPartyCoo
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -968,7 +968,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V BlockThirdPartyCookies 
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -1284,7 +1284,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V BlockThirdPa
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -1477,7 +1477,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BlockThirdPartyCo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -3239,8 +3239,10 @@ REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mi
 :: ----------
 
 "%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\115.0.1901.188\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
-
 "%SystemDrive%\Program Files\Microsoft\Edge\Application\115.0.1901.188\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
+
+"%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\119.0.2151.44\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
+"%SystemDrive%\Program Files\Microsoft\Edge\Application\119.0.2151.44\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
 
 :: ----------
 
@@ -3358,6 +3360,10 @@ del /f /q "%UserProfile%\AppData\Roaming\Microsoft\Internet Explorer\Quick Launc
 del /f /q "%SystemDrive%\Users\Public\Public Desktop\Microsoft Edge.lnk"
 del /f /q "%SystemDrive%\Users\Public\Desktop\Microsoft Edge.lnk"
 
+REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\edgeupdate" /F
+REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\MicrosoftEdgeElevationService" /F
+REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\edgeupdatem" /F
+
 :: -----------------
 :: Remove Microsoft Edge Legacy
 :: -----------------
@@ -3395,11 +3401,6 @@ icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /deny everyone:F /t /q
 takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
 icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
-md "%UserProfile%\MicrosoftEdgeBackups"
-takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
-icacls "%UserProfile%\MicrosoftEdgeBackups" /inheritance:r
-icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
-icacls "%UserProfile%\MicrosoftEdgeBackups" /deny everyone:F /t /q
 
 @echo OFF
 goto option5
@@ -4881,6 +4882,10 @@ del /f /q "%UserProfile%\AppData\Roaming\Microsoft\Internet Explorer\Quick Launc
 del /f /q "%SystemDrive%\Users\Public\Public Desktop\Microsoft Edge.lnk"
 del /f /q "%SystemDrive%\Users\Public\Desktop\Microsoft Edge.lnk"
 
+REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\edgeupdate" /F
+REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\MicrosoftEdgeElevationService" /F
+REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\edgeupdatem" /F
+
 :: -----------------
 
 goto mainFileStart
@@ -5467,7 +5472,7 @@ REG ADD "HKLM\SOFTWARE\Wow6432Node\JavaSoft" /V "SPONSORS" /T REG_SZ /D "DISABLE
 REG ADD "HKLM\SOFTWARE\JreMetrics" /V "DisableSponsors" /T REG_SZ /D "Y" /F
 REG ADD "HKLM\SOFTWARE\Wow6432Node\JreMetrics" /V "DisableSponsors" /T REG_SZ /D "Y" /F
 :: Settings Page Visibility
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /T REG_SZ /D "hide:workplace;search-permissions;mobile-devices;emailandaccounts;sync;windowsinsider-optin;delivery-optimization;findmydevice;maps-downloadmaps;maps;mobile-devices-addphone;mobile-devices-addphone-direct;privacy-location;privacy-speechtyping;privacy-notifications;privacy-accountinfo;privacy-contacts;privacy-calendar;privacy-phonecalls;privacy-callhistory;privacy-email;privacy-tasks;privacy-messaging;privacy-radios;privacy-customdevices;privacy-backgroundapps;privacy-appdiagnostics;privacy-general;privacy-speech;privacy-activityhistory;clipboard;crossdevice;project;gaming-xboxnetworking;typing;privacy-documents;privacy-pictures;privacy-videos;privacy-broadfilesystemaccess" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /T REG_SZ /D "hide:workplace;search-permissions;mobile-devices;emailandaccounts;sync;windowsinsider-optin;delivery-optimization;findmydevice;maps-downloadmaps;maps;mobile-devices-addphone;mobile-devices-addphone-direct;privacy-location;privacy-speechtyping;privacy-notifications;privacy-accountinfo;privacy-contacts;privacy-calendar;privacy-phonecalls;privacy-callhistory;privacy-email;privacy-tasks;privacy-messaging;privacy-radios;privacy-customdevices;privacy-backgroundapps;privacy-appdiagnostics;privacy-general;privacy-speech;privacy-activityhistory;clipboard;crossdevice;project;gaming-xboxnetworking;typing;privacy-documents;privacy-pictures;privacy-videos;privacy-broadfilesystemaccess;network-proxy;autoplay" /F
 :: Alt-Tab Multitasking
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V multitaskingAltTabFilter /T REG_dWORD /D 4 /F
 :: Printing Manual Set Default Printer
@@ -5481,6 +5486,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceSetup" /V CostedNe
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V HideSCAMeetNow /T REG_dWORD /D 1 /F
 :: Microsoft Customer Experience Improvement Program
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\SQMClient\Windows" /V CEIPEnable /T REG_dWORD /D 0 /F
+:: Bitlocker Customer Experience Improvement Program 
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\FVE\MDOPBitLockerManagement\Configuration" /V CustomerExperienceImprovementProgram /T REG_dWORD /D 0 /F
 :: Windows Media Player
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" /V GroupPrivacyAcceptance /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" /V PreventCDDVDMetadataRetrieval /T REG_dWORD /D 1 /F
@@ -5549,6 +5556,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Mail" /V DisableCommunities /T
 :: Windows Messanger
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Messenger\Client" /V PreventAutoRun /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Messenger\Client" /V PreventRun /T REG_dWORD /D 1 /F
+:: Phone Link
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V EnableMmx /T REG_dWORD /D 0 /F
 
 :: -------
 :: Windows Ease of Access
@@ -5561,6 +5570,8 @@ REG ADD "HKCU\Control Panel\Accessibility\Keyboard Response" /V "Flags" /T REG_S
 REG ADD "HKCU\Control Panel\Accessibility\ToggleKeys" /V "Flags" /T REG_SZ /D "34" /F
 :: Mouse Keys
 REG ADD "HKCU\Control Panel\Accessibility\MouseKeys" /V "Flags" /T REG_SZ /D "2" /F
+:: Underline access keys shortcuts
+REG ADD "HKCU\Control Panel\Accessibility\Keyboard Preference" /V "On" /T REG_SZ /D "1" /F
 
 :: -------
 :: Windows Login Experience
@@ -5623,6 +5634,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /V BlockUserFromShowin
 :: Cortana
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowCortana /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowcortanaAboveLock /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowCortanaInAADPathoobe /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowCloudSearch /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V AllowSearchToUseLocation /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V DisableWebSearch /T REG_dWORD /D 1 /F
@@ -5641,6 +5653,7 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V Cl
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsAADCloudSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsDeviceSearchHistoryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V IsMSACloudSearchEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows Search\Gather\Windows\SystemIndex" /V EnableFindMyFiles /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\SearchSettings" /V SafeSearchMode /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Comdlg32" /V NoFileMru /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Comdlg32" /V NoFileMru /T REG_dWORD /D 1 /F
@@ -5888,12 +5901,22 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Ta
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot" /V TurnOffWindowsCopilot /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot" /V TurnOffWindowsCopilot /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V ShowCopilotButton /T REG_dWORD /D 0 /F
+:: Windows 11 AI / Windows 11 Recall
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI" /V DisableAIDataAnalysis /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\WindowsAI" /V DisableAIDataAnalysis /T REG_dWORD /D 1 /F
 :: Taskbar disable flashing color
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarFlashing /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Control Panel\Desktop" /V ForegroundFlashCount /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Control Panel\Desktop" /V ForegroundLockTimeout /T REG_dWORD /D 0 /F
 :: Bluetooth Taskbar Icon
 REG ADD "HKCU\Control Panel\Bluetooth" /V "Notification Area Icon" /T REG_dWORD /D 0 /F
+:: Classic Snipping Tool Default Settings
+REG ADD "HKCU\Software\Microsoft\Windows\TabletPC\Snipping Tool" /V DisplaySnipInstructions /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\TabletPC\Snipping Tool" /V IsScreenSketchBannerExpanded /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\TabletPC\Snipping Tool" /V NotFirstRun /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\TabletPC\Snipping Tool" /V PromptToSave /T REG_dWORD /D 1 /F
+REG ADD "HKCU\Software\Microsoft\Windows\TabletPC\Snipping Tool" /V ShowCaptureStroke /T REG_dWORD /D 0 /F
+REG ADD "HKCU\Software\Microsoft\Windows\TabletPC\Snipping Tool" /V DisplayURL /T REG_dWORD /D 0 /F
 
 :: -------
 :: Start Menu Folders (Folders on the bottom left of start menu near power icon)
@@ -6286,7 +6309,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V BlockThirdPartyCoo
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -6443,7 +6466,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V BlockThirdPartyCookies 
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -6759,7 +6782,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V BlockThirdPa
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -6952,7 +6975,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BlockThirdPartyCo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -8239,11 +8262,6 @@ icacls "%UserProfile%\AppData\Local\MicrosoftEdge" /deny everyone:F /t /q
 takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
 icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
 rd /s /q "%UserProfile%\MicrosoftEdgeBackups"
-md "%UserProfile%\MicrosoftEdgeBackups"
-takeown /f "%UserProfile%\MicrosoftEdgeBackups" /a /r /d y
-icacls "%UserProfile%\MicrosoftEdgeBackups" /inheritance:r
-icacls "%UserProfile%\MicrosoftEdgeBackups" /grant administrators:F /t /q
-icacls "%UserProfile%\MicrosoftEdgeBackups" /deny everyone:F /t /q
 
 :: -----------------
 :: Uninstall and Disable OneDrive
@@ -8402,6 +8420,10 @@ w32tm /resync
 timeout /t 2 /nobreak
 
 :: Date Time Format
+
+:: Date Time Regional Format
+REG ADD "HKCU\Control Panel\International" /V "Locale" /T REG_SZ /D "00000809" /F
+REG ADD "HKCU\Control Panel\International" /V "LocaleName" /T REG_SZ /D "en-GB" /F
 
 :: Short Date Format
 REG ADD "HKCU\Control Panel\International" /V "sShortDate" /T REG_SZ /D "yyyy-MM-dd" /F
