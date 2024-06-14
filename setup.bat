@@ -318,10 +318,10 @@ goto option2.4redo
 @echo ON
 :: -------
 :: See Windows 10 Updates Control on Main + wuauserv service enabled
-:: Target Release Version (Version 22H2)
+:: Target Release Version (Version 21H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ProductVersion /T REG_SZ /D "Windows 10" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "22H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
@@ -436,10 +436,10 @@ goto option2
 :option2.2Start
 @echo ON
 :: See Windows 10 Updates Control on Main + wuauserv service disabled
-:: Target Release Version (Version 22H2)
+:: Target Release Version (Version 21H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ProductVersion /T REG_SZ /D "Windows 10" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "22H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
@@ -4516,6 +4516,8 @@ echo HKCR\Wow6432Node\CLSID\{B4FB3F98-C1EA-428d-A78A-D1F5659CBA93}\ShellFolder
 echo.
 echo HKCR\Wow6432Node\CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\ShellFolder
 echo.
+echo HKLM\SOFTWARE\Microsoft\Windows Search\Gather\Windows\SystemIndex
+echo.
 echo HKLM\SYSTEM\CurrentControlSet\Services\wuauserv
 echo.
 echo -------------
@@ -4549,7 +4551,7 @@ echo  ############################
 echo.
 echo -------
 echo.
-echo Windows 10 Target Release Version Policy is set to: 22H2
+echo Windows 10 Target Release Version Policy is set to: 21H2
 echo (Change Target Release Version if you are running an older Windows 10 version)
 echo.
 echo -------
@@ -5041,10 +5043,10 @@ REG DELETE "HKCR\*\shellex\ContextMenuHandlers\ModernSharing" /F
 :: -------
 :: Windows 10 Updates Control + wuauserv service disabled
 :: -------
-:: Target Release Version (Version 22H2)
+:: Target Release Version (Version 21H2)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersion /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V ProductVersion /T REG_SZ /D "Windows 10" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "22H2" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V TargetReleaseVersionInfo /T REG_SZ /D "21H2" /F
 :: Defer Updates (Windows Update for Business)
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdates /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /V DeferFeatureUpdatesPeriodInDays /T REG_dWORD /D 365 /F
@@ -8439,6 +8441,20 @@ REG ADD "HKCU\Control Panel\International" /V "sTimeFormat" /T REG_SZ /D "HH:mm:
 
 :: First Day of the Week Sunday
 REG ADD "HKCU\Control Panel\International" /V "iFirstDayOfWeek" /T REG_SZ /D "6" /F
+
+:: US Measurement System (Metric is 0)
+REG ADD "HKCU\Control Panel\International" /V "iMeasure" /T REG_SZ /D "1" /F
+
+:: US Currency System
+REG ADD "HKCU\Control Panel\International" /V "sCurrency" /T REG_SZ /D "$" /F
+REG ADD "HKCU\Control Panel\International" /V "iCurrDigits" /T REG_SZ /D "2" /F
+
+:: Language en-US
+REG ADD "HKCU\Control Panel\International\Geo" /V "Name" /T REG_SZ /D "US" /F
+REG ADD "HKCU\Control Panel\International\Geo" /V "Nation" /T REG_SZ /D "244" /F
+REG ADD "HKCU\Control Panel\International\User Profile" /V "Languages" /T REG_MULTI_SZ /D "en-US" /F
+
+REG ADD "HKCU\Control Panel\International\User Profile" /V ShowTextPrediction /T REG_dWORD /D 0 /F
 
 :: Prevent User Override
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Control Panel\International" /V PreventUserOverrides /T REG_dWORD /D 1 /F
