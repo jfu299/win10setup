@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: 2024-10-14
+:: Updated: 2024-10-17
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: 2024-10-14
+echo Updated: 2024-10-17
 echo -------
 echo.
 
@@ -2581,13 +2581,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 147
 :: (Other adblockers interfere with ublock origin)
 :: Chrome Web Store Version of force installed extensions (Microsoft addons versions already installed)
 :: uBlock Origin
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 148 /T REG_SZ /D cjpalhdlnbpafiamejdnhcphjbkeiagm /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 148 /T REG_SZ /D cjpalhdlnbpafiamejdnhcphjbkeiagm /F
 :: SponsorBlock
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 149 /T REG_SZ /D mnjggcdmjocbbbhaepdhchncahnbgone /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 149 /T REG_SZ /D mnjggcdmjocbbbhaepdhchncahnbgone /F
 :: ClearURLs
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D lckanjgmijmafbedllaakclkaicjfmnk /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D lckanjgmijmafbedllaakclkaicjfmnk /F
 :: uBlock Origin Lite
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 215 /T REG_SZ /D ddkjiahejlhfcafbddmgiahcphecmpfh /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 215 /T REG_SZ /D ddkjiahejlhfcafbddmgiahcphecmpfh /F
 :: -----
 :: Adblock Plus
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D gmgoamodcdcjnbaobigkjelfplakmdhh /F
@@ -4398,7 +4398,7 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Ext" /V Restric
 :: ---
 :: Restrict Settings and Control Panel
 :: ---
-REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /T REG_SZ /D "showonly:about;network;network-status;network-wifi;network-wifisettings;network-ethernet;network-airplanemode" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /T REG_SZ /D "showonly:about;network;network-airplanemode;network-ethernet;network-status;network-wifi;network-wifisettings" /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V RestrictCpl /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\RestrictCpl" /V 1 /T REG_SZ /D "Troubleshooting" /F
 
@@ -5289,7 +5289,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessMi
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessMicrophone_UserInControlOfTheseApps /T REG_MULTI_SZ /D NonPackaged\0 /F
 :: Headset Button Press Default App
 REG ADD "HKCU\Software\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps" /V AgentActivationLastUsed /T REG_dWORD /D 0 /F
-:: Other
+:: Other 1
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessNotifications /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessAccountInfo /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessContacts /T REG_dWORD /D 2 /F
@@ -5310,11 +5310,39 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessBa
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessHumanPresence /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessGraphicsCaptureProgrammatic /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /V LetAppsAccessGraphicsCaptureWithoutBorder /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Messaging" /V AllowMessageSync /T REG_dWORD /D 0 /F
+:: Other 2
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\documentsLibrary" /V Value /T REG_SZ /D Deny /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\picturesLibrary" /V Value /T REG_SZ /D Deny /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\videosLibrary" /V Value /T REG_SZ /D Deny /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\broadFileSystemAccess" /V Value /T REG_SZ /D Deny /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Messaging" /V AllowMessageSync /T REG_dWORD /D 0 /F
+:: Other 3
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\activity" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appDiagnostics" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\appointments" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\bluetooth" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\bluetoothSync" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\cellularData" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\chat" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\contacts" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\email" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\gazeInput" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\humanInterfaceDevice" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCall" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\phoneCallHistory" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\radios" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\sensors.custom" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\serialCommunication" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\usb" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userDataTasks" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userNotificationListener" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\wifiData" /V Value /T REG_SZ /D Deny /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\wiFiDirect" /V Value /T REG_SZ /D Deny /F
+
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\microphone" /V Value /T REG_SZ /D Deny /F
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\webcam" /V Value /T REG_SZ /D Deny /F
 
 :: -------
 :: Disable Microsoft Annoyances
@@ -5474,7 +5502,7 @@ REG ADD "HKLM\SOFTWARE\Wow6432Node\JavaSoft" /V "SPONSORS" /T REG_SZ /D "DISABLE
 REG ADD "HKLM\SOFTWARE\JreMetrics" /V "DisableSponsors" /T REG_SZ /D "Y" /F
 REG ADD "HKLM\SOFTWARE\Wow6432Node\JreMetrics" /V "DisableSponsors" /T REG_SZ /D "Y" /F
 :: Settings Page Visibility
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /T REG_SZ /D "hide:workplace;search-permissions;mobile-devices;emailandaccounts;sync;windowsinsider-optin;delivery-optimization;findmydevice;maps-downloadmaps;maps;mobile-devices-addphone;mobile-devices-addphone-direct;privacy-location;privacy-speechtyping;privacy-notifications;privacy-accountinfo;privacy-contacts;privacy-calendar;privacy-phonecalls;privacy-callhistory;privacy-email;privacy-tasks;privacy-messaging;privacy-radios;privacy-customdevices;privacy-backgroundapps;privacy-appdiagnostics;privacy-general;privacy-speech;privacy-activityhistory;clipboard;crossdevice;project;gaming-xboxnetworking;typing;privacy-documents;privacy-pictures;privacy-videos;privacy-broadfilesystemaccess;network-proxy;autoplay" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V SettingsPageVisibility /T REG_SZ /D "hide:autoplay;clipboard;crossdevice;delivery-optimization;emailandaccounts;findmydevice;gaming-xboxnetworking;maps;maps-downloadmaps;mobile-devices;mobile-devices-addphone;mobile-devices-addphone-direct;network-proxy;notifications;privacy-accountinfo;privacy-activityhistory;privacy-appdiagnostics;privacy-backgroundapps;privacy-broadfilesystemaccess;privacy-calendar;privacy-callhistory;privacy-contacts;privacy-customdevices;privacy-documents;privacy-email;privacy-general;privacy-location;privacy-messaging;privacy-notifications;privacy-phonecalls;privacy-pictures;privacy-radios;privacy-speech;privacy-speechtyping;privacy-tasks;privacy-videos;project;search-permissions;sync;typing;windowsinsider-optin;workplace" /F
 :: Alt-Tab Multitasking
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V multitaskingAltTabFilter /T REG_dWORD /D 4 /F
 :: Printing Manual Set Default Printer
@@ -5926,6 +5954,8 @@ REG ADD "HKCU\Software\Microsoft\Windows\TabletPC\Snipping Tool" /V NotFirstRun 
 REG ADD "HKCU\Software\Microsoft\Windows\TabletPC\Snipping Tool" /V PromptToSave /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Microsoft\Windows\TabletPC\Snipping Tool" /V ShowCaptureStroke /T REG_dWORD /D 0 /F
 REG ADD "HKCU\Software\Microsoft\Windows\TabletPC\Snipping Tool" /V DisplayURL /T REG_dWORD /D 0 /F
+:: Turn off automatic promotion of notification icons to the taskbar
+REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V NoSystraySystemPromotion /T REG_dWORD /D 1 /F
 
 :: -------
 :: Start Menu Folders (Folders on the bottom left of start menu near power icon)
@@ -8088,13 +8118,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 147
 :: (Other adblockers interfere with ublock origin)
 :: Chrome Web Store Version of force installed extensions (Microsoft addons versions already installed)
 :: uBlock Origin
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 148 /T REG_SZ /D cjpalhdlnbpafiamejdnhcphjbkeiagm /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 148 /T REG_SZ /D cjpalhdlnbpafiamejdnhcphjbkeiagm /F
 :: SponsorBlock
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 149 /T REG_SZ /D mnjggcdmjocbbbhaepdhchncahnbgone /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 149 /T REG_SZ /D mnjggcdmjocbbbhaepdhchncahnbgone /F
 :: ClearURLs
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D lckanjgmijmafbedllaakclkaicjfmnk /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 150 /T REG_SZ /D lckanjgmijmafbedllaakclkaicjfmnk /F
 :: uBlock Origin Lite
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 215 /T REG_SZ /D ddkjiahejlhfcafbddmgiahcphecmpfh /F
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 215 /T REG_SZ /D ddkjiahejlhfcafbddmgiahcphecmpfh /F
 :: -----
 :: Adblock Plus
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallBlocklist" /V 151 /T REG_SZ /D gmgoamodcdcjnbaobigkjelfplakmdhh /F
