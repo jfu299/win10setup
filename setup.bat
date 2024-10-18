@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: 2024-10-17
+:: Updated: 2024-10-18
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: 2024-10-17
+echo Updated: 2024-10-18
 echo -------
 echo.
 
@@ -869,9 +869,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SideSearchEnabled /T REG_dWORD
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
 :: Generative AI
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HistorySearchSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V TabCompareSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
 :: Google Assistant
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
@@ -1026,9 +1029,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SideSearchEnabled /T REG_dWORD /D 0
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
 :: Generative AI
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HistorySearchSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V TabCompareSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
 :: Google Assistant
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
@@ -1061,7 +1067,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 2 /T REG_SZ /D "goguar
 :: 2) ClearURLs - {74145f27-f039-47ce-a470-a662b129930a}
 ::      https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi
 :: 3) uBlock Origin Lite - uBOLite@raymondhill.net
-::      https://addons.mozilla.org/firefox/downloads/latest/ublock-origin-lite/latest.xpi
+::      https://github.com/uBlockOrigin/uBOL-home/releases/download/uBOLite_2024.9.22.986/uBOLite_2024.9.22.986.firefox.signed.mv3.xpi
 
 REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 
@@ -1337,9 +1343,12 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SideSearchEnabled /T REG
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
 :: Generative AI
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HistorySearchSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TabCompareSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
 :: Google Assistant
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
@@ -1528,9 +1537,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SideSearchEnabled /T REG_dWOR
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
 :: Generative AI
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HistorySearchSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TabCompareSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
 :: Google Assistant
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
@@ -5417,12 +5429,18 @@ REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory2 /F
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory3 /F
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /V ColorHistory4 /F
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\History\Colors" /F
 :: Recent Wallpaper Background Clear History
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" /V BackgroundHistoryPath0 /F
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" /V BackgroundHistoryPath1 /F
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" /V BackgroundHistoryPath2 /F
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" /V BackgroundHistoryPath3 /F
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" /V BackgroundHistoryPath4 /F
+:: Microsoft Paint Clear History
+:: set folder to read only permissions to prevent history
+REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\Paint\Recent File List" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\Paint\Recent File List" /F
 :: Settings Tips
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V AllowOnlineTips /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowOnlineTips" /V value /T REG_dWORD /D 0 /F
@@ -6406,9 +6424,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SideSearchEnabled /T REG_dWORD
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
 :: Generative AI
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HistorySearchSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V TabCompareSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
 :: Google Assistant
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
@@ -6563,9 +6584,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SideSearchEnabled /T REG_dWORD /D 0
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
 :: Generative AI
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HistorySearchSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V TabCompareSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
 :: Google Assistant
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
@@ -6598,7 +6622,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 2 /T REG_SZ /D "goguar
 :: 2) ClearURLs - {74145f27-f039-47ce-a470-a662b129930a}
 ::      https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi
 :: 3) uBlock Origin Lite - uBOLite@raymondhill.net
-::      https://addons.mozilla.org/firefox/downloads/latest/ublock-origin-lite/latest.xpi
+::      https://github.com/uBlockOrigin/uBOL-home/releases/download/uBOLite_2024.9.22.986/uBOLite_2024.9.22.986.firefox.signed.mv3.xpi
 
 REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 
@@ -6874,9 +6898,12 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SideSearchEnabled /T REG
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
 :: Generative AI
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HistorySearchSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TabCompareSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
 :: Google Assistant
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
@@ -7065,9 +7092,12 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SideSearchEnabled /T REG_dWOR
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
 :: Generative AI
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HistorySearchSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TabCompareSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
 :: Google Assistant
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
