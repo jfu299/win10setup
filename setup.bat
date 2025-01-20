@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: 2024-10-18
+:: Updated: 2025-01-20
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: 2024-10-18
+echo Updated: 2025-01-20
 echo -------
 echo.
 
@@ -8463,9 +8463,13 @@ REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "TimeZone
 :: Auto Set Daylight Savings Time
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" /V "DynamicDaylightTimeDisabled" /T REG_dWORD /D 0 /F
 
+:: Set Internet Time Server to time.windows.com
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DateTime\Servers" /ve /d "1" /f
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" /V "NtpServer" /T REG_SZ /D "time.windows.com,0x9" /F
+
 :: Set Internet Time Server to time.nist.gov
-REG Add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DateTime\Servers" /ve /d "2" /f
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" /V "NtpServer" /T REG_SZ /D "time.nist.gov,0x9" /F
+:: REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DateTime\Servers" /ve /d "2" /f
+:: REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\W32Time\Parameters" /V "NtpServer" /T REG_SZ /D "time.nist.gov,0x9" /F
 
 :: Additional Clock 1 (UTC)
 REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\1" /V "Enable" /T REG_dWORD /D 1 /F
@@ -8479,11 +8483,11 @@ REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\1" /V "TzRegKeyName" /T RE
 
 :: Sync Time
 net start w32time
-timeout /t 5 /nobreak
+timeout /t 6 /nobreak
 w32tm /resync
-timeout /t 2 /nobreak
+timeout /t 6 /nobreak
 w32tm /resync
-timeout /t 2 /nobreak
+timeout /t 6 /nobreak
 
 :: Date Time Format
 
