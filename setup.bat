@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: 2025-01-20
+:: Updated: 2025-07-19
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: 2025-01-20
+echo Updated: 2025-07-19
 echo -------
 echo.
 
@@ -728,33 +728,62 @@ goto option3.3redo
 :: Chrome
 :: -----------------
 
-:: -----
-:: Extension Settings
+:: ----------------------------------
+:: Chrome Extension Settings - Manifest V2 - Version 138 and below
 
-:: Force Installed Extensions:
+:: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
+
+:: Allowed Installed Extensions:
+:: 2) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
+:: 3) SponsorBlock for YouTube - Skip Sponsorships
+::      mnjggcdmjocbbbhaepdhchncahnbgone
+:: 4) DeArrow - Better Titles and Thumbnails
+::      enamippconapkdmgfgjchkhakpfinmaj
+
+:: Allowed Extensions:
+:: 5) ClearURLs
+::      lckanjgmijmafbedllaakclkaicjfmnk
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: Chrome Extension Settings - Manifest V3 - Version 139+
+
+:: Force Installed and Pinned Extensions:
+:: 1) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
 :: Allowed Extensions:
-:: 1) uBlock Origin Lite
-::      ddkjiahejlhfcafbddmgiahcphecmpfh
-:: 2) ClearURLs
+:: 4) ClearURLs
 ::      lckanjgmijmafbedllaakclkaicjfmnk
 
-REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist" /F
-REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /F
+:: Not Manifest V3 Extension:
+:: 5) uBlock Origin
+::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
-
+:: ----------------------------------
+:: Hide Web Store Icon / Hide Apps Shortcut
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HideWebStoreIcon /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ShowAppsShortcutInBookmarkBar /T REG_dWORD /D 0 /F
-
+:: -----
+:: Delete Old ExtensionInstallAllowlist / ExtensionInstallForcelist
+REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist" /F
+REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /F
 :: -----
 :: Browser Sign In
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BrowserSignin /T REG_dWORD /D 0 /F
@@ -769,6 +798,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NetworkPredictionOptions /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
@@ -839,6 +869,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowFullUrlsInAddressBar /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
 :: Inspect Element
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DeveloperToolsAvailability /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionDeveloperModeSettings /T REG_dWORD /D 0 /F
 :: Download Prompt
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 :: PDF Files
@@ -888,33 +919,62 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "g
 :: Chromium
 :: -----------------
 
-:: -----
-:: Extension Settings
+:: ----------------------------------
+:: Chromium Extension Settings - Manifest V2 - Version 138 and below
 
-:: Force Installed Extensions:
+:: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
+
+:: Allowed Installed Extensions:
+:: 2) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
+:: 3) SponsorBlock for YouTube - Skip Sponsorships
+::      mnjggcdmjocbbbhaepdhchncahnbgone
+:: 4) DeArrow - Better Titles and Thumbnails
+::      enamippconapkdmgfgjchkhakpfinmaj
+
+:: Allowed Extensions:
+:: 5) ClearURLs
+::      lckanjgmijmafbedllaakclkaicjfmnk
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: Chromium Extension Settings - Manifest V3 - Version 139+
+
+:: Force Installed and Pinned Extensions:
+:: 1) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
 :: Allowed Extensions:
-:: 1) uBlock Origin Lite
-::      ddkjiahejlhfcafbddmgiahcphecmpfh
-:: 2) ClearURLs
+:: 4) ClearURLs
 ::      lckanjgmijmafbedllaakclkaicjfmnk
 
-REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallAllowlist" /F
-REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /F
+:: Not Manifest V3 Extension:
+:: 5) uBlock Origin
+::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
-
+:: ----------------------------------
+:: Hide Web Store Icon / Hide Apps Shortcut
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HideWebStoreIcon /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ShowAppsShortcutInBookmarkBar /T REG_dWORD /D 0 /F
-
+:: -----
+:: Delete Old ExtensionInstallAllowlist / ExtensionInstallForcelist
+REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallAllowlist" /F
+REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /F
 :: -----
 :: Browser Sign In
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BrowserSignin /T REG_dWORD /D 0 /F
@@ -929,6 +989,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NetworkPredictionOptions /T REG_dWO
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
@@ -999,6 +1060,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowFullUrlsInAddressBar /T REG_dWO
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
 :: Inspect Element
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DeveloperToolsAvailability /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionDeveloperModeSettings /T REG_dWORD /D 0 /F
 :: Download Prompt
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 :: PDF Files
@@ -1071,7 +1133,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 2 /T REG_SZ /D "goguar
 
 REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"default_area\":\"navbar\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\",\"private_browsing\":true},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\",\"private_browsing\":true},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\",\"private_browsing\":true},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\",\"private_browsing\":true},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\",\"private_browsing\":true},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Blocked Extension List:
 :: 1) Adblock: adblock-for-ff-lite@addons ; jid1-NIfFY2CA8fy1tg@jetpack ; {c8476e35-1a52-831c-487c-86db836cf38c} ; jid1-q4sG8pYhq8KGHs@jetpack
@@ -1204,33 +1266,62 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /V 2 /T REG
 :: Brave
 :: -----------------
 
-:: -----
-:: Extension Settings
+:: ----------------------------------
+:: Brave Extension Settings - Manifest V2
 
-:: Force Installed Extensions:
+:: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
+
+:: Allowed Installed Extensions:
+:: 2) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
+:: 3) SponsorBlock for YouTube - Skip Sponsorships
+::      mnjggcdmjocbbbhaepdhchncahnbgone
+:: 4) DeArrow - Better Titles and Thumbnails
+::      enamippconapkdmgfgjchkhakpfinmaj
+
+:: Allowed Extensions:
+:: 5) ClearURLs
+::      lckanjgmijmafbedllaakclkaicjfmnk
+
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: Brave Extension Settings - Manifest V3
+
+:: Force Installed and Pinned Extensions:
+:: 1) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
 :: Allowed Extensions:
-:: 1) uBlock Origin Lite
-::      ddkjiahejlhfcafbddmgiahcphecmpfh
-:: 2) ClearURLs
+:: 4) ClearURLs
 ::      lckanjgmijmafbedllaakclkaicjfmnk
 
-REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallAllowlist" /F
-REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallForcelist" /F
+:: Not Manifest V3 Extension:
+:: 5) uBlock Origin
+::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionManifestV2Availability /T REG_dWORD /D 2 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
 
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
-
+:: ----------------------------------
+:: Hide Web Store Icon / Hide Apps Shortcut
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HideWebStoreIcon /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ShowAppsShortcutInBookmarkBar /T REG_dWORD /D 0 /F
-
+:: -----
+:: Delete Old ExtensionInstallAllowlist / ExtensionInstallForcelist
+REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallAllowlist" /F
+REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallForcelist" /F
 :: -----
 :: Browser Sign In
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BrowserSignin /T REG_dWORD /D 0 /F
@@ -1245,6 +1336,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NetworkPredictionOptions
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
@@ -1315,6 +1407,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowFullUrlsInAddressBar
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
 :: Inspect Element
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DeveloperToolsAvailability /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionDeveloperModeSettings /T REG_dWORD /D 0 /F
 :: Download Prompt
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 :: PDF Files
@@ -1423,6 +1516,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultBrowserSettingsCampaig
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowPDFDefaultRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideFirstRunExperience /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromotionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: Disable Shortcut Creation and Remove Shortcuts
@@ -1510,6 +1604,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NTPMiddleSlotAnnouncementVisi
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
 :: Inspect Element
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DeveloperToolsAvailability /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionDeveloperModeSettings /T REG_dWORD /D 0 /F
 :: Download Prompt
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 :: PDF Files
@@ -2716,7 +2811,7 @@ REG ADD "HKCU\Software\Policies\Google\Chrome\ExtensionInstallBlocklist" /V 1 /T
 REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 :: Firefox
 REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
-REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"default_area\":\"navbar\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\",\"private_browsing\":true},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\",\"private_browsing\":true},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\",\"private_browsing\":true},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\",\"private_browsing\":true},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\",\"private_browsing\":true},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 :: Brave
 REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
 :: Microsoft Edge Chromium
@@ -2748,7 +2843,7 @@ REG DELETE "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKCU\Software\Policies\Chromium" /V BlockExternalExtensions /F
 :: Firefox
 REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
-REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"default_area\":\"navbar\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\",\"private_browsing\":true},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\",\"private_browsing\":true},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\",\"private_browsing\":true},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\",\"private_browsing\":true},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\",\"private_browsing\":true},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 :: Brave
 REG DELETE "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /F
 REG DELETE "HKCU\Software\Policies\BraveSoftware\Brave" /V BlockExternalExtensions /F
@@ -4326,7 +4421,7 @@ REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_
 
 :: Firefox
 REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
-REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"default_area\":\"navbar\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\",\"private_browsing\":true},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\",\"private_browsing\":true},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\",\"private_browsing\":true},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\",\"private_browsing\":true},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\",\"private_browsing\":true},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Brave
 REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
@@ -4390,7 +4485,7 @@ REG ADD "HKCU\Software\Policies\Chromium\ExtensionInstallBlocklist" /V 1 /T REG_
 
 :: Firefox
 REG DELETE "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /F
-REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKCU\Software\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"blocked\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"default_area\":\"navbar\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\",\"private_browsing\":true},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\",\"private_browsing\":true},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\",\"private_browsing\":true},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\",\"private_browsing\":true},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\",\"private_browsing\":true},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Brave
 REG ADD "HKCU\Software\Policies\BraveSoftware\Brave\ExtensionInstallBlocklist" /V 1 /T REG_SZ /D * /F
@@ -6283,33 +6378,62 @@ powercfg /SETACVALUEINDEX SCHEME_CURRENT 238C9FA8-0AAD-41ED-83F4-97BE242C8F20 7b
 :: Chrome
 :: -----------------
 
-:: -----
-:: Extension Settings
+:: ----------------------------------
+:: Chrome Extension Settings - Manifest V2 - Version 138 and below
 
-:: Force Installed Extensions:
+:: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
+
+:: Allowed Installed Extensions:
+:: 2) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
+:: 3) SponsorBlock for YouTube - Skip Sponsorships
+::      mnjggcdmjocbbbhaepdhchncahnbgone
+:: 4) DeArrow - Better Titles and Thumbnails
+::      enamippconapkdmgfgjchkhakpfinmaj
+
+:: Allowed Extensions:
+:: 5) ClearURLs
+::      lckanjgmijmafbedllaakclkaicjfmnk
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: Chrome Extension Settings - Manifest V3 - Version 139+
+
+:: Force Installed and Pinned Extensions:
+:: 1) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
 :: Allowed Extensions:
-:: 1) uBlock Origin Lite
-::      ddkjiahejlhfcafbddmgiahcphecmpfh
-:: 2) ClearURLs
+:: 4) ClearURLs
 ::      lckanjgmijmafbedllaakclkaicjfmnk
 
-REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist" /F
-REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /F
+:: Not Manifest V3 Extension:
+:: 5) uBlock Origin
+::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
-
+:: ----------------------------------
+:: Hide Web Store Icon / Hide Apps Shortcut
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HideWebStoreIcon /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ShowAppsShortcutInBookmarkBar /T REG_dWORD /D 0 /F
-
+:: -----
+:: Delete Old ExtensionInstallAllowlist / ExtensionInstallForcelist
+REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist" /F
+REG DELETE "HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist" /F
 :: -----
 :: Browser Sign In
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BrowserSignin /T REG_dWORD /D 0 /F
@@ -6324,6 +6448,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NetworkPredictionOptions /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
@@ -6394,6 +6519,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowFullUrlsInAddressBar /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
 :: Inspect Element
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DeveloperToolsAvailability /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionDeveloperModeSettings /T REG_dWORD /D 0 /F
 :: Download Prompt
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 :: PDF Files
@@ -6443,33 +6569,62 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "g
 :: Chromium
 :: -----------------
 
-:: -----
-:: Extension Settings
+:: ----------------------------------
+:: Chromium Extension Settings - Manifest V2 - Version 138 and below
 
-:: Force Installed Extensions:
+:: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
+
+:: Allowed Installed Extensions:
+:: 2) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
+:: 3) SponsorBlock for YouTube - Skip Sponsorships
+::      mnjggcdmjocbbbhaepdhchncahnbgone
+:: 4) DeArrow - Better Titles and Thumbnails
+::      enamippconapkdmgfgjchkhakpfinmaj
+
+:: Allowed Extensions:
+:: 5) ClearURLs
+::      lckanjgmijmafbedllaakclkaicjfmnk
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: Chromium Extension Settings - Manifest V3 - Version 139+
+
+:: Force Installed and Pinned Extensions:
+:: 1) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
 :: Allowed Extensions:
-:: 1) uBlock Origin Lite
-::      ddkjiahejlhfcafbddmgiahcphecmpfh
-:: 2) ClearURLs
+:: 4) ClearURLs
 ::      lckanjgmijmafbedllaakclkaicjfmnk
 
-REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallAllowlist" /F
-REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /F
+:: Not Manifest V3 Extension:
+:: 5) uBlock Origin
+::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
-
+:: ----------------------------------
+:: Hide Web Store Icon / Hide Apps Shortcut
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HideWebStoreIcon /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ShowAppsShortcutInBookmarkBar /T REG_dWORD /D 0 /F
-
+:: -----
+:: Delete Old ExtensionInstallAllowlist / ExtensionInstallForcelist
+REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallAllowlist" /F
+REG DELETE "HKLM\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist" /F
 :: -----
 :: Browser Sign In
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BrowserSignin /T REG_dWORD /D 0 /F
@@ -6484,6 +6639,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NetworkPredictionOptions /T REG_dWO
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
@@ -6554,6 +6710,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowFullUrlsInAddressBar /T REG_dWO
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
 :: Inspect Element
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DeveloperToolsAvailability /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionDeveloperModeSettings /T REG_dWORD /D 0 /F
 :: Download Prompt
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 :: PDF Files
@@ -6626,7 +6783,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 2 /T REG_SZ /D "goguar
 
 REG DELETE "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\"},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\"},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\"},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\"},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\"},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox" /V ExtensionSettings /T REG_MULTI_SZ /D "{\"*\":{\"installation_mode\":\"allowed\"},\"uBlock0@raymondhill.net\":{\"installation_mode\":\"force_installed\",\"default_area\":\"navbar\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi\",\"private_browsing\":true},\"sponsorBlocker@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi\",\"private_browsing\":true},\"deArrow@ajay.app\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/dearrow/latest.xpi\",\"private_browsing\":true},\"magnolia@12.34\":{\"installation_mode\":\"force_installed\",\"install_url\":\"https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass_paywalls_clean-latest.xpi\",\"private_browsing\":true},\"treestyletab@piro.sakura.ne.jp\":{\"installation_mode\":\"normal_installed\",\"install_url\":\"https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi\",\"private_browsing\":true},\"{74145f27-f039-47ce-a470-a662b129930a}\":{\"installation_mode\":\"allowed\"},\"uBOLite@raymondhill.net\":{\"installation_mode\":\"allowed\"},\"adblock-for-ff-lite@addons\":{\"installation_mode\":\"blocked\"},\"jid1-NIfFY2CA8fy1tg@jetpack\":{\"installation_mode\":\"blocked\"},\"{c8476e35-1a52-831c-487c-86db836cf38c}\":{\"installation_mode\":\"blocked\"},\"jid1-q4sG8pYhq8KGHs@jetpack\":{\"installation_mode\":\"blocked\"},\"adblockultimate@adblockultimate.net\":{\"installation_mode\":\"blocked\"},\"{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}\":{\"installation_mode\":\"blocked\"},\"adguardadblocker@adguard.com\":{\"installation_mode\":\"blocked\"},\"{da6554a8-470c-4d6a-a6ca-904740683552}\":{\"installation_mode\":\"blocked\"},\"jid1-93CWPmRbVPjRQA@jetpack\":{\"installation_mode\":\"blocked\"},\"87677a2c52b84ad3a151a4a72f5bd3c4@jetpack\":{\"installation_mode\":\"blocked\"},\"{6601dd36-5bb6-4755-8cd5-f36b59ff5307}\":{\"installation_mode\":\"blocked\"},\"{01e4670b-532b-42ed-88c2-c7b46d05133a}\":{\"installation_mode\":\"blocked\"},\"languagetool-webextension@languagetool.org\":{\"installation_mode\":\"blocked\"},\"abb@amazon.com\":{\"installation_mode\":\"blocked\"},\"{0f929014-5ed2-4527-8b8d-86a9c889b129}\":{\"installation_mode\":\"blocked\"},\"{f9cacf2e-cafc-4f0f-b6ad-8e1a01b4b4d0}\":{\"installation_mode\":\"blocked\"},\"{45c15c03-6d29-45d2-984c-9f1ad34f3f51}\":{\"installation_mode\":\"blocked\"},\"browser@tunnelbear.com\":{\"installation_mode\":\"blocked\"},\"rebingerext@gmail.com\":{\"installation_mode\":\"blocked\"},\"ApplicationGuardRel@microsoft.com\":{\"installation_mode\":\"blocked\"},\"{cfa868c0-6239-47df-bc81-54e13151ec2e}\":{\"installation_mode\":\"blocked\"},\"{a07b7886-3015-4959-9a88-4273860edd6d}\":{\"installation_mode\":\"blocked\"},\"{7e39f3c8-2ef5-46ea-80d0-f8b8f72541c5}\":{\"installation_mode\":\"blocked\"},\"{23bcb1d2-a715-42e2-87c5-43ba10d23ace}\":{\"installation_mode\":\"blocked\"},\"{9b43dad5-885b-4f0d-882f-e945b7e4b96f}\":{\"installation_mode\":\"blocked\"},\"{8d8ca802-6b23-43ed-9445-e05d48579542}\":{\"installation_mode\":\"blocked\"}}" /F
 
 :: Blocked Extension List:
 :: 1) Adblock: adblock-for-ff-lite@addons ; jid1-NIfFY2CA8fy1tg@jetpack ; {c8476e35-1a52-831c-487c-86db836cf38c} ; jid1-q4sG8pYhq8KGHs@jetpack
@@ -6759,33 +6916,62 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /V 2 /T REG
 :: Brave
 :: -----------------
 
-:: -----
-:: Extension Settings
+:: ----------------------------------
+:: Brave Extension Settings - Manifest V2
 
-:: Force Installed Extensions:
+:: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
+
+:: Allowed Installed Extensions:
+:: 2) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
+:: 3) SponsorBlock for YouTube - Skip Sponsorships
+::      mnjggcdmjocbbbhaepdhchncahnbgone
+:: 4) DeArrow - Better Titles and Thumbnails
+::      enamippconapkdmgfgjchkhakpfinmaj
+
+:: Allowed Extensions:
+:: 5) ClearURLs
+::      lckanjgmijmafbedllaakclkaicjfmnk
+
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: Brave Extension Settings - Manifest V3
+
+:: Force Installed and Pinned Extensions:
+:: 1) uBlock Origin Lite
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
 :: Allowed Extensions:
-:: 1) uBlock Origin Lite
-::      ddkjiahejlhfcafbddmgiahcphecmpfh
-:: 2) ClearURLs
+:: 4) ClearURLs
 ::      lckanjgmijmafbedllaakclkaicjfmnk
 
-REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallAllowlist" /F
-REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallForcelist" /F
+:: Not Manifest V3 Extension:
+:: 5) uBlock Origin
+::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionManifestV2Availability /T REG_dWORD /D 2 /F
+:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
 
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
-
+:: ----------------------------------
+:: Hide Web Store Icon / Hide Apps Shortcut
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HideWebStoreIcon /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ShowAppsShortcutInBookmarkBar /T REG_dWORD /D 0 /F
-
+:: -----
+:: Delete Old ExtensionInstallAllowlist / ExtensionInstallForcelist
+REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallAllowlist" /F
+REG DELETE "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\ExtensionInstallForcelist" /F
 :: -----
 :: Browser Sign In
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BrowserSignin /T REG_dWORD /D 0 /F
@@ -6800,6 +6986,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NetworkPredictionOptions
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
@@ -6870,6 +7057,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowFullUrlsInAddressBar
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
 :: Inspect Element
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DeveloperToolsAvailability /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionDeveloperModeSettings /T REG_dWORD /D 0 /F
 :: Download Prompt
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 :: PDF Files
@@ -6978,6 +7166,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultBrowserSettingsCampaig
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowPDFDefaultRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideFirstRunExperience /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromotionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: Disable Shortcut Creation and Remove Shortcuts
@@ -7065,6 +7254,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NTPMiddleSlotAnnouncementVisi
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
 :: Inspect Element
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DeveloperToolsAvailability /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionDeveloperModeSettings /T REG_dWORD /D 0 /F
 :: Download Prompt
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromptForDownloadLocation /T REG_dWORD /D 1 /F
 :: PDF Files
