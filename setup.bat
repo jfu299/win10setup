@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: 2025-07-19
+:: Updated: 2025-10-09
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: 2025-07-19
+echo Updated: 2025-10-09
 echo -------
 echo.
 
@@ -799,7 +799,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ThirdPartyBlockingEnabled /T R
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
 :: -----
@@ -823,8 +822,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ImportSearchEngine
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V CloudReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V UrlKeyedAnonymizedDataCollectionEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V UrlKeyedMetricsAllowed /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
@@ -841,7 +838,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V BlockThirdPartyCoo
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -851,7 +847,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSerialGuardSetting /T R
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWindowManagementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
@@ -862,6 +857,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HistoryClustersVisible /T REG_
 :: New Tab Page Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NTPCardsVisible /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V LensDesktopNTPSearchEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -898,18 +894,23 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SharedClipboardEnabled /T REG_
 :: Side Search Panel
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SideSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
+:: ----------
 :: Generative AI
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AIModeSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GeminiSettings /T REG_dWORD /D 1 /F
+:: ---
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+:: ---
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HistorySearchSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V TabCompareSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AutofillPredictionSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V CreateThemesSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AutomatedPasswordChangeSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
-:: Google Assistant
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
-:: -----
+:: ----------
 :: URL Blocklist
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
@@ -990,7 +991,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ThirdPartyBlockingEnabled /T REG_dW
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
 :: -----
@@ -1014,8 +1014,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ImportSearchEngine /T R
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V CloudReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V UrlKeyedAnonymizedDataCollectionEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V UrlKeyedMetricsAllowed /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
@@ -1032,7 +1030,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V BlockThirdPartyCookies 
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -1042,7 +1039,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSerialGuardSetting /T REG_dW
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWindowManagementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
@@ -1053,6 +1049,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HistoryClustersVisible /T REG_dWORD
 :: New Tab Page Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NTPCardsVisible /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V LensDesktopNTPSearchEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -1089,18 +1086,23 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SharedClipboardEnabled /T REG_dWORD
 :: Side Search Panel
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SideSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
+:: ----------
 :: Generative AI
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AIModeSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GeminiSettings /T REG_dWORD /D 1 /F
+:: ---
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+:: ---
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HistorySearchSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V TabCompareSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutofillPredictionSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V CreateThemesSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutomatedPasswordChangeSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
-:: Google Assistant
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
-:: -----
+:: ----------
 :: URL Blocklist
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
@@ -1337,7 +1339,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ThirdPartyBlockingEnable
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
 :: -----
@@ -1361,8 +1362,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ImportSearch
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V CloudReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UrlKeyedAnonymizedDataCollectionEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UrlKeyedMetricsAllowed /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
@@ -1379,7 +1378,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V BlockThirdPa
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -1389,7 +1387,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSerialGuardSettin
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWindowManagementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
@@ -1400,6 +1397,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HistoryClustersVisible /
 :: New Tab Page Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NTPCardsVisible /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V LensDesktopNTPSearchEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -1434,21 +1432,25 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SharedClipboardEnabled /
 :: Side Search Panel
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SideSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
+:: ----------
 :: Generative AI
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AIModeSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GeminiSettings /T REG_dWORD /D 1 /F
+:: ---
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+:: ---
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HistorySearchSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TabCompareSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AutofillPredictionSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V CreateThemesSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AutomatedPasswordChangeSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
-:: Google Assistant
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
-:: -----
+:: ----------
 :: Brave: Settings
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TorDisabled /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V IPFSEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveRewardsDisabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveWalletDisabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveVPNDisabled /T REG_dWORD /D 1 /F
@@ -1517,7 +1519,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowPDFDefaultRecommendations
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideFirstRunExperience /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromotionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: Disable Shortcut Creation and Remove Shortcuts
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V DisableEdgeDesktopShortcutCreation /T REG_DWORD /D 1 /F
@@ -1577,7 +1578,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BlockThirdPartyCo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -1587,7 +1587,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSerialGuardSetting /T 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWindowManagementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
@@ -1599,6 +1598,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HistoryClustersVisible /T REG
 :: New Tab Page Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NTPCardsVisible /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LensDesktopNTPSearchEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: Background Mode
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
@@ -1630,18 +1630,23 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SharedClipboardEnabled /T REG
 :: Side Search Panel
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SideSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
+:: ----------
 :: Generative AI
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AIModeSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GeminiSettings /T REG_dWORD /D 1 /F
+:: ---
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+:: ---
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HistorySearchSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TabCompareSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutofillPredictionSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CreateThemesSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutomatedPasswordChangeSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
-:: Google Assistant
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
-:: -----
+:: ----------
 :: Collections and Shopping
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeCollectionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 1 /T REG_SZ /D "pinterest_suggestions" /F
@@ -6449,7 +6454,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ThirdPartyBlockingEnabled /T R
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
 :: -----
@@ -6473,8 +6477,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V ImportSearchEngine
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V CloudReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V UrlKeyedAnonymizedDataCollectionEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V UrlKeyedMetricsAllowed /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
@@ -6491,7 +6493,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V BlockThirdPartyCoo
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -6501,7 +6502,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultSerialGuardSetting /T R
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultWindowManagementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
@@ -6512,6 +6512,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HistoryClustersVisible /T REG_
 :: New Tab Page Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NTPCardsVisible /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V LensDesktopNTPSearchEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -6548,18 +6549,23 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SharedClipboardEnabled /T REG_
 :: Side Search Panel
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SideSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
+:: ----------
 :: Generative AI
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AIModeSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GeminiSettings /T REG_dWORD /D 1 /F
+:: ---
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+:: ---
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V HistorySearchSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V TabCompareSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AutofillPredictionSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V CreateThemesSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AutomatedPasswordChangeSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
-:: Google Assistant
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
-:: -----
+:: ----------
 :: URL Blocklist
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
@@ -6640,7 +6646,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ThirdPartyBlockingEnabled /T REG_dW
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
 :: -----
@@ -6664,8 +6669,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V ImportSearchEngine /T R
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V CloudReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V UrlKeyedAnonymizedDataCollectionEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V UrlKeyedMetricsAllowed /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
@@ -6682,7 +6685,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V BlockThirdPartyCookies 
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -6692,7 +6694,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultSerialGuardSetting /T REG_dW
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultWindowManagementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
@@ -6703,6 +6704,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HistoryClustersVisible /T REG_dWORD
 :: New Tab Page Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NTPCardsVisible /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V LensDesktopNTPSearchEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -6735,22 +6737,27 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PrivacySandboxAdTopicsEnabled /T RE
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PrivacySandboxPromptEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PrivacySandboxSiteEnabledAdsEnabled /T REG_dWORD /D 0 /F
 :: Shared Clipboard
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SharedClipboardEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SharedClipboardEnabled /T REG_dWORD /D 0 /F 
 :: Side Search Panel
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SideSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
+:: ----------
 :: Generative AI
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AIModeSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GeminiSettings /T REG_dWORD /D 1 /F
+:: ---
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+:: ---
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V HistorySearchSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V TabCompareSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutofillPredictionSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V CreateThemesSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AutomatedPasswordChangeSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
-:: Google Assistant
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
-:: -----
+:: ----------
 :: URL Blocklist
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium\URLBlocklist" /V 2 /T REG_SZ /D "goguardian.com" /F
@@ -6987,7 +6994,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ThirdPartyBlockingEnable
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
 :: -----
@@ -7011,8 +7017,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V ImportSearch
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V CloudReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UrlKeyedAnonymizedDataCollectionEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UrlKeyedMetricsAllowed /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ChromeCleanupReportingEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SpellCheckServiceEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
@@ -7029,7 +7033,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V BlockThirdPa
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -7039,7 +7042,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultSerialGuardSettin
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultWindowManagementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
@@ -7050,6 +7052,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HistoryClustersVisible /
 :: New Tab Page Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NTPCardsVisible /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V LensDesktopNTPSearchEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: URL Bar
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ShowFullUrlsInAddressBar /T REG_dWORD /D 1 /F
@@ -7084,21 +7087,25 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SharedClipboardEnabled /
 :: Side Search Panel
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SideSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
+:: ----------
 :: Generative AI
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AIModeSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GeminiSettings /T REG_dWORD /D 1 /F
+:: ---
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+:: ---
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V HistorySearchSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TabCompareSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AutofillPredictionSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V CreateThemesSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AutomatedPasswordChangeSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
-:: Google Assistant
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
-:: -----
+:: ----------
 :: Brave: Settings
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V TorDisabled /T REG_dWORD /D 1 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V IPFSEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveRewardsDisabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveWalletDisabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveVPNDisabled /T REG_dWORD /D 1 /F
@@ -7167,7 +7174,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowPDFDefaultRecommendations
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HideFirstRunExperience /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SuppressUnsupportedOSWarning /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromotionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PromotionalTabsEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: Disable Shortcut Creation and Remove Shortcuts
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V DisableEdgeDesktopShortcutCreation /T REG_DWORD /D 1 /F
@@ -7227,7 +7233,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V BlockThirdPartyCo
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V RestoreOnStartup /T REG_dWORD /D 5 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillAddressEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V AutofillCreditCardEnabled /T REG_dWORD /D 0 /F
-:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PasswordSharingEnabled /T REG_dWORD /D 0 /F
 :: Other Content Settings 2
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PaymentMethodQueryEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSensorsSetting /T REG_dWORD /D 2 /F
@@ -7237,7 +7242,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultSerialGuardSetting /T 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebBluetoothGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebUsbGuardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWebHidGuardSetting /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWindowPlacementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultWindowManagementSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultClipboardSetting /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultLocalFontsSetting /T REG_dWORD /D 2 /F
@@ -7249,6 +7253,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HistoryClustersVisible /T REG
 :: New Tab Page Suggestions
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NTPCardsVisible /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NTPMiddleSlotAnnouncementVisible /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LensDesktopNTPSearchEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: Background Mode
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BackgroundModeEnabled /T REG_dWORD /D 0 /F
@@ -7280,18 +7285,23 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SharedClipboardEnabled /T REG
 :: Side Search Panel
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SideSearchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GoogleSearchSidePanelEnabled /T REG_dWORD /D 0 /F
+:: ----------
 :: Generative AI
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CreateThemesSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AIModeSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GeminiSettings /T REG_dWORD /D 1 /F
+:: ---
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
+:: ---
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HelpMeWriteSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HistorySearchSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TabCompareSettings /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TabOrganizerSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutofillPredictionSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CreateThemesSettings /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AutomatedPasswordChangeSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAILocalFoundationalModelSettings /T REG_dWORD /D 1 /F
-:: Google Assistant
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AssistantWebEnabled /T REG_dWORD /D 0 /F
-:: -----
+:: ----------
 :: Collections and Shopping
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeCollectionsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 1 /T REG_SZ /D "pinterest_suggestions" /F
