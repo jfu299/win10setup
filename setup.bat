@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: 2025-10-13
+:: Updated: 2025-10-22
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: 2025-10-13
+echo Updated: 2025-10-22
 echo -------
 echo.
 
@@ -3357,6 +3357,9 @@ for /d %%i in ("%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\*")
     setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 )
 
+:: Go Back to default start batch file
+cd \Windows\System32
+
 for /d %%i in ("%SystemDrive%\Program Files\Microsoft\Edge\Application\*") do (
     cd "%%i\Installer"
     setup.exe --uninstall --system-level --verbose-logging --force-uninstall
@@ -4964,6 +4967,9 @@ for /d %%i in ("%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\*")
     cd "%%i\Installer"
     setup.exe --uninstall --system-level --verbose-logging --force-uninstall
 )
+
+:: Go Back to default start batch file
+cd \Windows\System32
 
 for /d %%i in ("%SystemDrive%\Program Files\Microsoft\Edge\Application\*") do (
     cd "%%i\Installer"
