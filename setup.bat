@@ -795,7 +795,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BuiltInDnsClientEnabled /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionsEnabled /T REG_dWORD /D 0 /F
@@ -987,7 +986,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BuiltInDnsClientEnabled /T REG_dWOR
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionsEnabled /T REG_dWORD /D 0 /F
@@ -1337,7 +1335,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BuiltInDnsClientEnabled 
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionsEnabled /T REG_dWORD /D 0 /F
@@ -1512,7 +1509,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V "ProxySettings" /T REG_SZ /D 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V "ApplicationGuardContainerProxy" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
@@ -3320,6 +3316,9 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeCore" /grant administrators:F 
 takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
+takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /grant administrators:F /t /q
+
 takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /grant administrators:F /t /q
 
@@ -3347,13 +3346,24 @@ REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mi
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRepair /T REG_dWORD /D 0 /F
 
+reg delete "HKLM\SOFTWARE\WOW6432Node\Microsoft\Edge" /F
+reg delete "HKLM\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate" /F
+
 :: ----------
+:: Force Uninstall Microsoft Edge thru setup.exe
 
-"%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\115.0.1901.188\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
-"%SystemDrive%\Program Files\Microsoft\Edge\Application\115.0.1901.188\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
+for /d %%i in ("%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\*") do (
+    cd "%%i\Installer"
+    setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+)
 
-"%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\119.0.2151.44\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
-"%SystemDrive%\Program Files\Microsoft\Edge\Application\119.0.2151.44\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
+for /d %%i in ("%SystemDrive%\Program Files\Microsoft\Edge\Application\*") do (
+    cd "%%i\Installer"
+    setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+)
+
+:: Go Back to default start batch file
+cd \Windows\System32
 
 :: ----------
 
@@ -3447,6 +3457,13 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /deny everyone:F /t /q
 
+rd /s /q "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater"
+md "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater"
+takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /inheritance:r
+icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /grant administrators:F /t /q
+icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /deny everyone:F /t /q
+
 rd /s /q "%UserProfile%\AppData\Local\Microsoft\EdgeWebView"
 md "%UserProfile%\AppData\Local\Microsoft\EdgeWebView"
 takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /a /r /d y
@@ -3474,6 +3491,62 @@ del /f /q "%SystemDrive%\Users\Public\Desktop\Microsoft Edge.lnk"
 REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\edgeupdate" /F
 REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\MicrosoftEdgeElevationService" /F
 REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\edgeupdatem" /F
+
+reg delete "HKLM\SOFTWARE\Microsoft\Edge" /F
+reg delete "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+
+:: Disable Shortcut Creation and Remove Shortcuts
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V DisableEdgeDesktopShortcutCreation /T REG_DWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V CreateDesktopShortcutDefault /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "CreateDesktopShortcut{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}" /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "CreateDesktopShortcut{2CD8A007-E189-409D-A2C8-9AF4EF3C72AA}" /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "CreateDesktopShortcut{65C35B14-6C1D-4122-AC46-7148CC9D6497}" /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "CreateDesktopShortcut{0D50BFEC-CD6A-4F9A-964C-C7416E3ACB10}" /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V RemoveDesktopShortcutDefault /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "RemoveDesktopShortcut{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}" /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "RemoveDesktopShortcut{2CD8A007-E189-409D-A2C8-9AF4EF3C72AA}" /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "RemoveDesktopShortcut{65C35B14-6C1D-4122-AC46-7148CC9D6497}" /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "RemoveDesktopShortcut{0D50BFEC-CD6A-4F9A-964C-C7416E3ACB10}" /T REG_dWORD /D 2 /F
+
+:: Delete other Microsoft Edge Chromium Shortcuts
+reg delete "HKCU\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\microsoft-edge" /F
+reg delete "HKCU\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\microsoft-edge-holographic" /F
+
+reg delete "HKLM\SOFTWARE\Classes\MSEdgeHTM" /F
+reg delete "HKLM\SOFTWARE\Classes\MSEdgeMHT" /F
+reg delete "HKLM\SOFTWARE\Classes\MSEdgePDF" /F
+
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CoreClass" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CoreClass.1" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CoreMachineClass" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CoreMachineClass.1" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CredentialDialogMachine" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CredentialDialogMachine.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassMachine" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassMachine.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassMachineFallback" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassMachineFallback.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassSvc" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassSvc.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusMachine" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusMachine.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusMachineFallback" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusMachineFallback.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusSvc" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusSvc.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.ProcessLauncher" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.ProcessLauncher.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3COMClassService" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3COMClassService.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebMachine" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebMachine.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebMachineFallback" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebMachineFallback.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebSvc" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebSvc.1.0" /F
+
 
 :: -----------------
 :: Remove Microsoft Edge Legacy
@@ -3576,6 +3649,10 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeCore" /inheritance:e
 takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /inheritance:e
+
+takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /grant administrators:F /t /q
+icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /inheritance:e
 
 takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /grant administrators:F /t /q
@@ -4847,6 +4924,9 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeCore" /grant administrators:F 
 takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 
+takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /grant administrators:F /t /q
+
 takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /a /r /d y
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /grant administrators:F /t /q
 
@@ -4874,13 +4954,24 @@ REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mi
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRemove /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView" /V NoRepair /T REG_dWORD /D 0 /F
 
+reg delete "HKLM\SOFTWARE\WOW6432Node\Microsoft\Edge" /F
+reg delete "HKLM\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate" /F
+
 :: ----------
+:: Force Uninstall Microsoft Edge thru setup.exe
 
-:: (Optional) Find version number in folder: "%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application"
+for /d %%i in ("%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\*") do (
+    cd "%%i\Installer"
+    setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+)
 
-:: "%SystemDrive%\Program Files (x86)\Microsoft\Edge\Application\[VERSION NUMBER HERE]\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
+for /d %%i in ("%SystemDrive%\Program Files\Microsoft\Edge\Application\*") do (
+    cd "%%i\Installer"
+    setup.exe --uninstall --system-level --verbose-logging --force-uninstall
+)
 
-:: "%SystemDrive%\Program Files\Microsoft\Edge\Application\[VERSION NUMBER HERE]\Installer\setup.exe" --uninstall --system-level --verbose-logging --force-uninstall
+:: Go Back to default start batch file
+cd \Windows\System32
 
 :: ----------
 
@@ -4974,6 +5065,13 @@ icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /inheritance:r
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /grant administrators:F /t /q
 icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdate" /deny everyone:F /t /q
 
+rd /s /q "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater"
+md "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater"
+takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /a /r /d y
+icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /inheritance:r
+icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /grant administrators:F /t /q
+icacls "%UserProfile%\AppData\Local\Microsoft\EdgeUpdater" /deny everyone:F /t /q
+
 rd /s /q "%UserProfile%\AppData\Local\Microsoft\EdgeWebView"
 md "%UserProfile%\AppData\Local\Microsoft\EdgeWebView"
 takeown /f "%UserProfile%\AppData\Local\Microsoft\EdgeWebView" /a /r /d y
@@ -5001,6 +5099,62 @@ del /f /q "%SystemDrive%\Users\Public\Desktop\Microsoft Edge.lnk"
 REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\edgeupdate" /F
 REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\MicrosoftEdgeElevationService" /F
 REG DELETE "HKLM\SYSTEM\CurrentControlSet\Services\edgeupdatem" /F
+
+reg delete "HKLM\SOFTWARE\Microsoft\Edge" /F
+reg delete "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
+
+:: Disable Shortcut Creation and Remove Shortcuts
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V DisableEdgeDesktopShortcutCreation /T REG_DWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V CreateDesktopShortcutDefault /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "CreateDesktopShortcut{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}" /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "CreateDesktopShortcut{2CD8A007-E189-409D-A2C8-9AF4EF3C72AA}" /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "CreateDesktopShortcut{65C35B14-6C1D-4122-AC46-7148CC9D6497}" /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "CreateDesktopShortcut{0D50BFEC-CD6A-4F9A-964C-C7416E3ACB10}" /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V RemoveDesktopShortcutDefault /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "RemoveDesktopShortcut{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}" /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "RemoveDesktopShortcut{2CD8A007-E189-409D-A2C8-9AF4EF3C72AA}" /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "RemoveDesktopShortcut{65C35B14-6C1D-4122-AC46-7148CC9D6497}" /T REG_dWORD /D 2 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V "RemoveDesktopShortcut{0D50BFEC-CD6A-4F9A-964C-C7416E3ACB10}" /T REG_dWORD /D 2 /F
+
+:: Delete other Microsoft Edge Chromium Shortcuts
+reg delete "HKCU\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\microsoft-edge" /F
+reg delete "HKCU\Software\Microsoft\Windows\Shell\Associations\UrlAssociations\microsoft-edge-holographic" /F
+
+reg delete "HKLM\SOFTWARE\Classes\MSEdgeHTM" /F
+reg delete "HKLM\SOFTWARE\Classes\MSEdgeMHT" /F
+reg delete "HKLM\SOFTWARE\Classes\MSEdgePDF" /F
+
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CoreClass" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CoreClass.1" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CoreMachineClass" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CoreMachineClass.1" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CredentialDialogMachine" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.CredentialDialogMachine.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassMachine" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassMachine.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassMachineFallback" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassMachineFallback.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassSvc" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.OnDemandCOMClassSvc.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusMachine" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusMachine.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusMachineFallback" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusMachineFallback.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusSvc" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.PolicyStatusSvc.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.ProcessLauncher" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.ProcessLauncher.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3COMClassService" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3COMClassService.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebMachine" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebMachine.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebMachineFallback" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebMachineFallback.1.0" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebSvc" /F
+reg delete "HKLM\SOFTWARE\Classes\MicrosoftEdgeUpdate.Update3WebSvc.1.0" /F
+
 
 :: -----------------
 
@@ -5645,7 +5799,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer" /V PreventMusicFil
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\WMDRM" /V DisableOnline /T REG_dWORD /D 1 /F
 :: Taskbar News and Interests
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTaskbarViewMode /T REG_dWORD /D 1 /F
-timeout /t 3 /nobreak
+timeout /t 1 /nobreak
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /V ShellFeedsTaskbarViewMode /T REG_dWORD /D 2 /F
 timeout /t 1 /nobreak
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Feeds" /V EnableFeeds /T REG_dWORD /D 0 /F
@@ -5835,8 +5989,10 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V NoCo
 takeown /f "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /a /r /d y
 icacls "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /inheritance:r
 icacls "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /grant administrators:F /t /q
+
+:: KEEP DISABLED - IF ENABLED WILL BREAK OS
 :: del /f /s /q "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy"
-icacls "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /deny everyone:F /t /q
+:: icacls "%windir%\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy" /deny everyone:F /t /q
 
 :: Settings Sync
 
@@ -6452,7 +6608,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BuiltInDnsClientEnabled /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V PromotionsEnabled /T REG_dWORD /D 0 /F
@@ -6644,7 +6799,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BuiltInDnsClientEnabled /T REG_dWOR
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V PromotionsEnabled /T REG_dWORD /D 0 /F
@@ -6994,7 +7148,6 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BuiltInDnsClientEnabled 
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V "ProxySettings" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V PromotionsEnabled /T REG_dWORD /D 0 /F
@@ -7169,7 +7322,6 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V "ProxySettings" /T REG_SZ /D 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V "ApplicationGuardContainerProxy" /T REG_SZ /D "{\"ProxyMode\":\"direct\"}" /F
 :: Network Prefetch
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NetworkPredictionOptions /T REG_dWORD /D 2 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ThirdPartyBlockingEnabled /T REG_dWORD /D 1 /F
 :: -----
 :: First Run and Default Browser
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DefaultBrowserSettingEnabled /T REG_dWORD /D 0 /F
@@ -8687,11 +8839,11 @@ REG ADD "HKCU\Control Panel\TimeDate\AdditionalClocks\1" /V "TzRegKeyName" /T RE
 
 :: Sync Time
 net start w32time
-timeout /t 6 /nobreak
+timeout /t 1 /nobreak
 w32tm /resync
-timeout /t 6 /nobreak
+timeout /t 1 /nobreak
 w32tm /resync
-timeout /t 6 /nobreak
+timeout /t 1 /nobreak
 
 :: Date Time Format
 
@@ -8738,6 +8890,10 @@ REG ADD "HKCU\Control Panel\International\User Profile" /V ShowTextPrediction /T
 takeown /f "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /a /r /d y
 icacls "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /inheritance:r
 icacls "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /grant administrators:F /t /q
+
+:: KEEP DISABLED - might break os
+:: del /f /s /q "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy"
+:: icacls "%windir%\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy" /deny everyone:F /t /q
 
 :: -----------------
 :: Redirects to powershell script (setup.ps1)
