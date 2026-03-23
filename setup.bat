@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: 2025-10-22
+:: Updated: 2026-03-23
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: 2025-10-22
+echo Updated: 2026-03-23
 echo -------
 echo.
 
@@ -1495,10 +1495,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BrowserSignin /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SyncDisabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ForceSync /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SeamlessWebToBrowserSignInEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebToBrowserSignInEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ConfigureOnPremisesAccountAutoSignIn /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NonRemovableProfileEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ImplicitSignInEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MSAWebSiteSSOUsingThisProfileAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AADWebSiteSSOUsingThisProfileEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GuidedSwitchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LinkedAccountEnabled /T REG_dWORD /D 0 /F
 :: -----
@@ -1560,6 +1563,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportStartupPage
 :: Telemetry
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizeTopSitesInCustomizeSidebarEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgefeedbackEnabled /T REG_dWORD /D 0 /F
@@ -1669,7 +1673,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPagePrerenderEnabled /T
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageAllowedBackgroundTypes /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageSearchBox /T REG_SZ /D redirect /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SpotlightExperiencesAndRecommendationsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AddressBarMicrosoftSearchInBingProviderEnabled /T REG_dWORD /D 0 /F
+:: deprecated -- REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AddressBarMicrosoftSearchInBingProviderEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AddressBarTrendingSuggestEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageQuickLinksEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageContentEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageAppLauncherEnabled /T REG_dWORD /D 0 /F
@@ -1684,7 +1689,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebWidgetAllowed /T REG_dWORD
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HubsSidebarEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeDiscoverEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DiscoverPageContextEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPagebingchatEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageBingChatEnabled /T REG_dWORD /D 0 /F
 :: Edge Share Experience Disable
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ConfigureShare /T REG_dWORD /D 1 /F
 :: Edge Insider Promotion Disable
@@ -1704,26 +1709,39 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ImmersiveReaderGrammarToolsEn
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ImmersiveReaderPictureDictionaryEnabled /T REG_dWORD /D 0 /F
 :: Speech Recognition
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SpeechRecognitionEnabled /T REG_dWORD /D 0 /F
-:: Typosquatting Warning Enabled
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TyposquattingCheckerEnabled /T REG_dWORD /D 1 /F
+:: Typosquatting Warning Disabled
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TyposquattingCheckerEnabled /T REG_dWORD /D 0 /F
 :: Search Filters
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SearchFiltersEnabled /T REG_dWORD /D 0 /F
 :: Related Matches in Find on Page
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V RelatedMatchesCloudServiceEnabled /T REG_dWORD /D 0 /F
 :: Edge Experiments Disable
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExperimentationAndConfigurationServiceControl /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExperimentationAndConfigurationServiceControl /T REG_dWORD /D 0 /F
 :: Edge Copilot
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CopilotCDPPageContext /T REG_dWORD /D 0 /F
+:: deprecated -- REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CopilotCDPPageContext /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CopilotPageContext /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ComposeInlineEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeEntraCopilotPageContext /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CopilotPageContext /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V Microsoft365CopilotChatIconEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShareBrowsingHistoryWithCopilotSearchAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeAutofillMlEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeAssetDeliveryServiceEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeHistoryAISearchEnabled /T REG_dWORD /D 0 /F
 :: Edge AI Theme Generator
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AIGenThemesEnabled /T REG_dWORD /D 0 /F
+:: Edge 3P SERP Telemetry
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V Edge3PSerpTelemetryEnabled /T REG_dWORD /D 0 /F
 :: Microsoft Edge WebView2 Runtime Block Auto-Install
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V "Install{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}" /T REG_dWORD /D 0 /F
 :: Disable Microsoft Edge Experimentation and Configuration Service
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V UpdaterExperimentationAndConfigurationServiceControl /T REG_dWORD /D 0 /F
 :: Disable Edge Preview
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V "EdgePreview{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}" /T REG_dWORD /D 0 /F
+:: E Drop
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeEDropEnabled /T REG_dWORD /D 0 /F
+:: Read Aloud
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ReadAloudEnabled /T REG_dWORD /D 0 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
@@ -5704,8 +5722,8 @@ REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Wallpapers" 
 REG DELETE "HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\Paint\Recent File List" /F
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\Paint\Recent File List" /F
 :: Settings Tips
-REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V AllowOnlineTips /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowOnlineTips" /V value /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /V AllowOnlineTips /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\EdgeUI " /V DisableHelpSticker /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\EdgeUI " /V DisableHelpSticker /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Assistance\Client\1.0" /V NoActiveHelp /T REG_dWORD /D 1 /F
@@ -6042,6 +6060,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /V MSAO
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\AppModel\StateManager" /V AllowSharedLocalAppData /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx" /V BlockNonAdminUserInstall /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx" /V RestrictAppDataToSystemVolume /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Appx" /V AllowAutomaticAppArchiving /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowYourAccount" /V value /T REG_dWORD /D 0 /F
 
 :: Disable Sign in to Workplace
@@ -6181,8 +6200,10 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Hi
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V NoUninstallFromStart /T REG_dWORD /D 1 /F
 :: Taskbar Badges
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V TaskbarBadges /T REG_dWORD /D 0 /F
-:: Taskbar Searchbox
+:: Taskbar Searchbox - Windows 10
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Search" /V SearchboxTaskbarMode /T REG_dWORD /D 0 /F
+:: Search on Taskbar - Windows 11 - Force Hide
+REG ADD  "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /V SearchOnTaskbarMode /T REG_dWORD /D 0 /F
 :: Taskbar Searchbox all new user accounts
 REG ADD "HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\Seachbox Taskbar Mode" /VE /D "Seachbox Taskbar Mode" /F
 REG ADD "HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\Seachbox Taskbar Mode" /V "Version" /T REG_SZ /D "1" /F
@@ -6203,7 +6224,7 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V St
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /V Start_IrisRecommendations /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\AccountNotifications" /V DisableAccountNotifications /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\CurrentVersion\AccountNotifications" /V DisableAccountNotifications /T REG_dWORD /D 1 /F
-:: Recommended Section
+:: Windows 11 Recommended Section
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideRecommendedSection /T REG_dWORD /D 1 /F
 REG ADD "HKCU\Software\Policies\Microsoft\Windows\Explorer" /V HideRecommendedSection /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Explorer" /V HideRecommendedPersonalizedSites /T REG_dWORD /D 1 /F
@@ -7314,10 +7335,13 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BrowserSignin /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SyncDisabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ForceSync /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SeamlessWebToBrowserSignInEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebToBrowserSignInEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ConfigureOnPremisesAccountAutoSignIn /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NonRemovableProfileEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ImplicitSignInEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V MSAWebSiteSSOUsingThisProfileAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AADWebSiteSSOUsingThisProfileEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GuidedSwitchEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V LinkedAccountEnabled /T REG_dWORD /D 0 /F
 :: -----
@@ -7379,6 +7403,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\Recommended" /V ImportStartupPage
 :: Telemetry
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowRecommendationsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizationReportingEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V PersonalizeTopSitesInCustomizeSidebarEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V UserFeedbackAllowed /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V FeedbackSurveysEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgefeedbackEnabled /T REG_dWORD /D 0 /F
@@ -7488,7 +7513,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPagePrerenderEnabled /T
 :: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageAllowedBackgroundTypes /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageSearchBox /T REG_SZ /D redirect /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SpotlightExperiencesAndRecommendationsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AddressBarMicrosoftSearchInBingProviderEnabled /T REG_dWORD /D 0 /F
+:: deprecated -- REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AddressBarMicrosoftSearchInBingProviderEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AddressBarTrendingSuggestEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageQuickLinksEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageContentEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageAppLauncherEnabled /T REG_dWORD /D 0 /F
@@ -7503,7 +7529,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V WebWidgetAllowed /T REG_dWORD
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V HubsSidebarEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeDiscoverEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DiscoverPageContextEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPagebingchatEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V NewTabPageBingChatEnabled /T REG_dWORD /D 0 /F
 :: Edge Share Experience Disable
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ConfigureShare /T REG_dWORD /D 1 /F
 :: Edge Insider Promotion Disable
@@ -7523,26 +7549,39 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ImmersiveReaderGrammarToolsEn
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ImmersiveReaderPictureDictionaryEnabled /T REG_dWORD /D 0 /F
 :: Speech Recognition
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SpeechRecognitionEnabled /T REG_dWORD /D 0 /F
-:: Typosquatting Warning Enabled
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TyposquattingCheckerEnabled /T REG_dWORD /D 1 /F
+:: Typosquatting Warning Disabled
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V TyposquattingCheckerEnabled /T REG_dWORD /D 0 /F
 :: Search Filters
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SearchFiltersEnabled /T REG_dWORD /D 0 /F
 :: Related Matches in Find on Page
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V RelatedMatchesCloudServiceEnabled /T REG_dWORD /D 0 /F
 :: Edge Experiments Disable
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExperimentationAndConfigurationServiceControl /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExperimentationAndConfigurationServiceControl /T REG_dWORD /D 0 /F
 :: Edge Copilot
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CopilotCDPPageContext /T REG_dWORD /D 0 /F
+:: deprecated -- REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CopilotCDPPageContext /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CopilotPageContext /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ComposeInlineEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeEntraCopilotPageContext /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V CopilotPageContext /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V Microsoft365CopilotChatIconEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShareBrowsingHistoryWithCopilotSearchAllowed /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeAutofillMlEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeAssetDeliveryServiceEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeHistoryAISearchEnabled /T REG_dWORD /D 0 /F
 :: Edge AI Theme Generator
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AIGenThemesEnabled /T REG_dWORD /D 0 /F
+:: Edge 3P SERP Telemetry
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V Edge3PSerpTelemetryEnabled /T REG_dWORD /D 0 /F
 :: Microsoft Edge WebView2 Runtime Block Auto-Install
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V "Install{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}" /T REG_dWORD /D 0 /F
 :: Disable Microsoft Edge Experimentation and Configuration Service
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V UpdaterExperimentationAndConfigurationServiceControl /T REG_dWORD /D 0 /F
 :: Disable Edge Preview
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V "EdgePreview{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}" /T REG_dWORD /D 0 /F
+:: E Drop
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeEDropEnabled /T REG_dWORD /D 0 /F
+:: Read Aloud
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ReadAloudEnabled /T REG_dWORD /D 0 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
