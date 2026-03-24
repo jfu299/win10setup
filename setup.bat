@@ -729,52 +729,31 @@ goto option3.3redo
 :: -----------------
 
 :: ----------------------------------
-:: Chrome Extension Settings - Manifest V2 - Version 138 and below
-
-:: Force Installed and Pinned Extensions:
-:: 1) uBlock Origin
-::      cjpalhdlnbpafiamejdnhcphjbkeiagm
-
-:: Allowed Installed Extensions:
-:: 2) uBlock Origin Lite
-::      ddkjiahejlhfcafbddmgiahcphecmpfh
-
-:: Force Installed Extensions:
-:: 3) SponsorBlock for YouTube - Skip Sponsorships
-::      mnjggcdmjocbbbhaepdhchncahnbgone
-:: 4) DeArrow - Better Titles and Thumbnails
-::      enamippconapkdmgfgjchkhakpfinmaj
-
-:: Allowed Extensions:
-:: 5) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
-:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
-
-:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
-
-:: ----------------------------------
 :: Chrome Extension Settings - Manifest V3 - Version 139+
 
 :: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Force Installed Extensions:
+:: Normal Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
-:: Allowed Extensions:
-:: 4) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
 :: Not Manifest V3 Extension:
-:: 5) uBlock Origin
+:: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: uBlock Origin Lite - Managed Settings
+
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "disableFirstRunPage" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "defaultFiltering" /T REG_SZ /D "complete" /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "strictBlockMode" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "showBlockedCount" /T REG_dWORD /D 1 /F
 
 :: ----------------------------------
 :: Hide Web Store Icon / Hide Apps Shortcut
@@ -920,52 +899,31 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "g
 :: -----------------
 
 :: ----------------------------------
-:: Chromium Extension Settings - Manifest V2 - Version 138 and below
-
-:: Force Installed and Pinned Extensions:
-:: 1) uBlock Origin
-::      cjpalhdlnbpafiamejdnhcphjbkeiagm
-
-:: Allowed Installed Extensions:
-:: 2) uBlock Origin Lite
-::      ddkjiahejlhfcafbddmgiahcphecmpfh
-
-:: Force Installed Extensions:
-:: 3) SponsorBlock for YouTube - Skip Sponsorships
-::      mnjggcdmjocbbbhaepdhchncahnbgone
-:: 4) DeArrow - Better Titles and Thumbnails
-::      enamippconapkdmgfgjchkhakpfinmaj
-
-:: Allowed Extensions:
-:: 5) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
-:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
-
-:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
-
-:: ----------------------------------
 :: Chromium Extension Settings - Manifest V3 - Version 139+
 
 :: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Force Installed Extensions:
+:: Normal Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
-:: Allowed Extensions:
-:: 4) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
 :: Not Manifest V3 Extension:
-:: 5) uBlock Origin
+:: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: uBlock Origin Lite - Managed Settings
+
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "disableFirstRunPage" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "defaultFiltering" /T REG_SZ /D "complete" /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "strictBlockMode" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "showBlockedCount" /T REG_dWORD /D 1 /F
 
 :: ----------------------------------
 :: Hide Web Store Icon / Hide Apps Shortcut
@@ -1269,52 +1227,53 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /V 2 /T REG
 :: -----------------
 
 :: ----------------------------------
-:: Brave Extension Settings - Manifest V2
+:: Brave Extension Settings - Manifest V2 - (Current)
 
 :: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-:: Allowed Installed Extensions:
+:: Normal Installed and Pinned Extensions:
 :: 2) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Force Installed Extensions:
+:: Normal Installed Extensions:
 :: 3) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 4) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
-:: Allowed Extensions:
-:: 5) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"normal_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"}}" /F
 
 :: ----------------------------------
 :: Brave Extension Settings - Manifest V3
+:: Updated: 2026-03-23
 
 :: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Force Installed Extensions:
+:: Normal Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
-:: Allowed Extensions:
-:: 4) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
 :: Not Manifest V3 Extension:
-:: 5) uBlock Origin
+:: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: uBlock Origin Lite - Managed Settings
+
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "disableFirstRunPage" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "defaultFiltering" /T REG_SZ /D "complete" /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "strictBlockMode" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "showBlockedCount" /T REG_dWORD /D 1 /F
 
 :: ----------------------------------
 :: Hide Web Store Icon / Hide Apps Shortcut
@@ -1454,6 +1413,11 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveRewardsDisabled /T 
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveWalletDisabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveVPNDisabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveAIChatEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveNewsDisabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveWaybackMachineEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveP3AEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveStatsPingEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveWebDiscoveryEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: URL Blocklist
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
@@ -1466,31 +1430,80 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 2 /T REG_SZ
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 
-:: -----
+:: ----------------------------------
+:: Microsoft Edge Chromium Extension Settings - Manifest V2 - (Current)
+
 :: Extension Settings
 
-:: Force Installed Extensions:
+:: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin
 ::      odfafepnkmbhccpbejgmiehpchacaeak
-:: 2) SponsorBlock for YouTube - Skip Sponsorships
-::      mbmgnelfcpoecdepckhlhegpcehmpmji
 
-:: Allowed Extensions:
-:: 1) DeArrow - Better Titles and Thumbnails
-::      enamippconapkdmgfgjchkhakpfinmaj
+:: Normal Installed and Pinned Extensions:
 :: 2) uBlock Origin Lite
 ::      cimighlppcgcoapaliogpjjdehbnofhn
-:: 3) ClearURLs
-::      mdkdmaickkfdekbjdoojfalpbkgaddei
 
-REG DELETE "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist" /F
-REG DELETE "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /F
+:: Normal Installed Extensions:
+:: 3) SponsorBlock for YouTube - Skip Sponsorships
+::      mbmgnelfcpoecdepckhlhegpcehmpmji
+
+:: Chrome Webstore CWS - Allowed Extensions:
+:: 4) DeArrow - Better Titles and Thumbnails - (CWS)
+::      enamippconapkdmgfgjchkhakpfinmaj
+:: 5) uBlock Origin - (CWS)
+::      cjpalhdlnbpafiamejdnhcphjbkeiagm
+:: 6) uBlock Origin Lite - (CWS)
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+:: 7) SponsorBlock for YouTube - Skip Sponsorships - (CWS)
+::      mnjggcdmjocbbbhaepdhchncahnbgone
 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\"},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"allowed\"},\"mdkdmaickkfdekbjdoojfalpbkgaddei\":{\"installation_mode\":\"allowed\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"normal_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\"}}" /F
 
-:: -----
+:: ----------------------------------
+:: Microsoft Edge Chromium Extension Settings - Manifest V3
+
+:: Extension Settings
+
+:: Force Installed and Pinned Extensions:
+:: 1) uBlock Origin Lite
+::      cimighlppcgcoapaliogpjjdehbnofhn
+
+:: Normal Installed Extensions:
+:: 2) SponsorBlock for YouTube - Skip Sponsorships
+::      mbmgnelfcpoecdepckhlhegpcehmpmji
+
+:: Chrome Webstore CWS - Allowed Extensions:
+:: 3) DeArrow - Better Titles and Thumbnails - (CWS)
+::      enamippconapkdmgfgjchkhakpfinmaj
+:: 4) uBlock Origin Lite - (CWS)
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+:: 5) SponsorBlock for YouTube - Skip Sponsorships - (CWS)
+::      mnjggcdmjocbbbhaepdhchncahnbgone
+
+:: Not Manifest V3 Extension
+:: 6) uBlock Origin
+::      odfafepnkmbhccpbejgmiehpchacaeak
+:: 7) uBlock Origin - (CWS)
+::      cjpalhdlnbpafiamejdnhcphjbkeiagm
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\"},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},}" /F
+
+:: ----------------------------------
+:: uBlock Origin Lite - Managed Settings
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "disableFirstRunPage" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "defaultFiltering" /T REG_SZ /D "complete" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "strictBlockMode" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "showBlockedCount" /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" /V "disableFirstRunPage" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" /V "defaultFiltering" /T REG_SZ /D "complete" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" /V "strictBlockMode" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" /V "showBlockedCount" /T REG_dWORD /D 1 /F
+
+:: ----------------------------------
 :: Browser Sign In
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BrowserSignin /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SyncDisabled /T REG_dWORD /D 1 /F
@@ -1651,13 +1664,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAILocalFoundationalModelSe
 :: ----------
 :: Collections and Shopping
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeCollectionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 1 /T REG_SZ /D "pinterest_suggestions" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 2 /T REG_SZ /D "collections_share" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 3 /T REG_SZ /D "local_pdf" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 4 /T REG_SZ /D "send_word" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 5 /T REG_SZ /D "send_excel" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 6 /T REG_SZ /D "send_onenote" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 7 /T REG_SZ /D "send_pinterest" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 1 /T REG_SZ /D "collections_share" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 2 /T REG_SZ /D "local_pdf" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 3 /T REG_SZ /D "send_word" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 4 /T REG_SZ /D "send_excel" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 5 /T REG_SZ /D "send_onenote" /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowAcrobatSubscriptionButton /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeShoppingAssistantEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeWalletCheckoutEnabled /T REG_dWORD /D 0 /F
@@ -1742,6 +1753,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V "EdgePreview{56EB18F8-B
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeEDropEnabled /T REG_dWORD /D 0 /F
 :: Read Aloud
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ReadAloudEnabled /T REG_dWORD /D 0 /F
+:: Edge do not allow auto-install of Safe Hosting Extension
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeSafeHostingExtensionEnabled /T REG_dWORD /D 0 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
@@ -6569,52 +6582,31 @@ powercfg /SETACVALUEINDEX SCHEME_CURRENT 238C9FA8-0AAD-41ED-83F4-97BE242C8F20 7b
 :: -----------------
 
 :: ----------------------------------
-:: Chrome Extension Settings - Manifest V2 - Version 138 and below
-
-:: Force Installed and Pinned Extensions:
-:: 1) uBlock Origin
-::      cjpalhdlnbpafiamejdnhcphjbkeiagm
-
-:: Allowed Installed Extensions:
-:: 2) uBlock Origin Lite
-::      ddkjiahejlhfcafbddmgiahcphecmpfh
-
-:: Force Installed Extensions:
-:: 3) SponsorBlock for YouTube - Skip Sponsorships
-::      mnjggcdmjocbbbhaepdhchncahnbgone
-:: 4) DeArrow - Better Titles and Thumbnails
-::      enamippconapkdmgfgjchkhakpfinmaj
-
-:: Allowed Extensions:
-:: 5) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
-:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
-
-:: REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
-
-:: ----------------------------------
 :: Chrome Extension Settings - Manifest V3 - Version 139+
 
 :: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Force Installed Extensions:
+:: Normal Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
-:: Allowed Extensions:
-:: 4) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
 :: Not Manifest V3 Extension:
-:: 5) uBlock Origin
+:: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: uBlock Origin Lite - Managed Settings
+
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "disableFirstRunPage" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "defaultFiltering" /T REG_SZ /D "complete" /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "strictBlockMode" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "showBlockedCount" /T REG_dWORD /D 1 /F
 
 :: ----------------------------------
 :: Hide Web Store Icon / Hide Apps Shortcut
@@ -6760,52 +6752,31 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "g
 :: -----------------
 
 :: ----------------------------------
-:: Chromium Extension Settings - Manifest V2 - Version 138 and below
-
-:: Force Installed and Pinned Extensions:
-:: 1) uBlock Origin
-::      cjpalhdlnbpafiamejdnhcphjbkeiagm
-
-:: Allowed Installed Extensions:
-:: 2) uBlock Origin Lite
-::      ddkjiahejlhfcafbddmgiahcphecmpfh
-
-:: Force Installed Extensions:
-:: 3) SponsorBlock for YouTube - Skip Sponsorships
-::      mnjggcdmjocbbbhaepdhchncahnbgone
-:: 4) DeArrow - Better Titles and Thumbnails
-::      enamippconapkdmgfgjchkhakpfinmaj
-
-:: Allowed Extensions:
-:: 5) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
-:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
-
-:: REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
-
-:: ----------------------------------
 :: Chromium Extension Settings - Manifest V3 - Version 139+
 
 :: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Force Installed Extensions:
+:: Normal Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
-:: Allowed Extensions:
-:: 4) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
 :: Not Manifest V3 Extension:
-:: 5) uBlock Origin
+:: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: uBlock Origin Lite - Managed Settings
+
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "disableFirstRunPage" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "defaultFiltering" /T REG_SZ /D "complete" /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "strictBlockMode" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "showBlockedCount" /T REG_dWORD /D 1 /F
 
 :: ----------------------------------
 :: Hide Web Store Icon / Hide Apps Shortcut
@@ -7109,52 +7080,53 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /V 2 /T REG
 :: -----------------
 
 :: ----------------------------------
-:: Brave Extension Settings - Manifest V2
+:: Brave Extension Settings - Manifest V2 - (Current)
 
 :: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-:: Allowed Installed Extensions:
+:: Normal Installed and Pinned Extensions:
 :: 2) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Force Installed Extensions:
+:: Normal Installed Extensions:
 :: 3) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 4) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
-:: Allowed Extensions:
-:: 5) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"normal_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"}}" /F
 
 :: ----------------------------------
 :: Brave Extension Settings - Manifest V3
+:: Updated: 2026-03-23
 
 :: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Force Installed Extensions:
+:: Normal Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
-:: Allowed Extensions:
-:: 4) ClearURLs
-::      lckanjgmijmafbedllaakclkaicjfmnk
-
 :: Not Manifest V3 Extension:
-:: 5) uBlock Origin
+:: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lckanjgmijmafbedllaakclkaicjfmnk\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+
+:: ----------------------------------
+:: uBlock Origin Lite - Managed Settings
+
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "disableFirstRunPage" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "defaultFiltering" /T REG_SZ /D "complete" /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "strictBlockMode" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "showBlockedCount" /T REG_dWORD /D 1 /F
 
 :: ----------------------------------
 :: Hide Web Store Icon / Hide Apps Shortcut
@@ -7294,6 +7266,11 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveRewardsDisabled /T 
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveWalletDisabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveVPNDisabled /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveAIChatEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveNewsDisabled /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveWaybackMachineEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveP3AEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveStatsPingEnabled /T REG_dWORD /D 0 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BraveWebDiscoveryEnabled /T REG_dWORD /D 0 /F
 :: -----
 :: URL Blocklist
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 1 /T REG_SZ /D "securly.com" /F
@@ -7306,31 +7283,81 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave\URLBlocklist" /V 2 /T REG_SZ
 
 REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T REG_dWORD /D 1 /F
 
-:: -----
+:: ----------------------------------
+:: Microsoft Edge Chromium Extension Settings - Manifest V2 - (Current)
+
 :: Extension Settings
 
-:: Force Installed Extensions:
+:: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin
 ::      odfafepnkmbhccpbejgmiehpchacaeak
-:: 2) SponsorBlock for YouTube - Skip Sponsorships
-::      mbmgnelfcpoecdepckhlhegpcehmpmji
 
-:: Allowed Extensions:
-:: 1) DeArrow - Better Titles and Thumbnails
-::      enamippconapkdmgfgjchkhakpfinmaj
+:: Normal Installed and Pinned Extensions:
 :: 2) uBlock Origin Lite
 ::      cimighlppcgcoapaliogpjjdehbnofhn
-:: 3) ClearURLs
-::      mdkdmaickkfdekbjdoojfalpbkgaddei
 
-REG DELETE "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallAllowlist" /F
-REG DELETE "HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist" /F
+:: Normal Installed Extensions:
+:: 3) SponsorBlock for YouTube - Skip Sponsorships
+::      mbmgnelfcpoecdepckhlhegpcehmpmji
+
+:: Chrome Webstore CWS - Allowed Extensions:
+:: 4) DeArrow - Better Titles and Thumbnails - (CWS)
+::      enamippconapkdmgfgjchkhakpfinmaj
+:: 5) uBlock Origin - (CWS)
+::      cjpalhdlnbpafiamejdnhcphjbkeiagm
+:: 6) uBlock Origin Lite - (CWS)
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+:: 7) SponsorBlock for YouTube - Skip Sponsorships - (CWS)
+::      mnjggcdmjocbbbhaepdhchncahnbgone
 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"force_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\"},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"allowed\"},\"mdkdmaickkfdekbjdoojfalpbkgaddei\":{\"installation_mode\":\"allowed\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"normal_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\"}}" /F
 
-:: -----
+:: ----------------------------------
+:: Microsoft Edge Chromium Extension Settings - Manifest V3
+:: Updated: 2026-03-23
+
+:: Extension Settings
+
+:: Force Installed and Pinned Extensions:
+:: 1) uBlock Origin Lite
+::      cimighlppcgcoapaliogpjjdehbnofhn
+
+:: Normal Installed Extensions:
+:: 2) SponsorBlock for YouTube - Skip Sponsorships
+::      mbmgnelfcpoecdepckhlhegpcehmpmji
+
+:: Chrome Webstore CWS - Allowed Extensions:
+:: 3) DeArrow - Better Titles and Thumbnails - (CWS)
+::      enamippconapkdmgfgjchkhakpfinmaj
+:: 4) uBlock Origin Lite - (CWS)
+::      ddkjiahejlhfcafbddmgiahcphecmpfh
+:: 5) SponsorBlock for YouTube - Skip Sponsorships - (CWS)
+::      mnjggcdmjocbbbhaepdhchncahnbgone
+
+:: Not Manifest V3 Extension
+:: 6) uBlock Origin
+::      odfafepnkmbhccpbejgmiehpchacaeak
+:: 7) uBlock Origin - (CWS)
+::      cjpalhdlnbpafiamejdnhcphjbkeiagm
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\"},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},}" /F
+
+:: ----------------------------------
+:: uBlock Origin Lite - Managed Settings
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "disableFirstRunPage" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "defaultFiltering" /T REG_SZ /D "complete" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "strictBlockMode" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\ddkjiahejlhfcafbddmgiahcphecmpfh\policy" /V "showBlockedCount" /T REG_dWORD /D 1 /F
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" /V "disableFirstRunPage" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" /V "defaultFiltering" /T REG_SZ /D "complete" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" /V "strictBlockMode" /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\cimighlppcgcoapaliogpjjdehbnofhn\policy" /V "showBlockedCount" /T REG_dWORD /D 1 /F
+
+:: ----------------------------------
 :: Browser Sign In
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BrowserSignin /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SyncDisabled /T REG_dWORD /D 1 /F
@@ -7491,13 +7518,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAILocalFoundationalModelSe
 :: ----------
 :: Collections and Shopping
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeCollectionsEnabled /T REG_dWORD /D 0 /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 1 /T REG_SZ /D "pinterest_suggestions" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 2 /T REG_SZ /D "collections_share" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 3 /T REG_SZ /D "local_pdf" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 4 /T REG_SZ /D "send_word" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 5 /T REG_SZ /D "send_excel" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 6 /T REG_SZ /D "send_onenote" /F
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 7 /T REG_SZ /D "send_pinterest" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 1 /T REG_SZ /D "collections_share" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 2 /T REG_SZ /D "local_pdf" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 3 /T REG_SZ /D "send_word" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 4 /T REG_SZ /D "send_excel" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge\CollectionsServicesAndExportsBlockList" /V 5 /T REG_SZ /D "send_onenote" /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ShowAcrobatSubscriptionButton /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeShoppingAssistantEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeWalletCheckoutEnabled /T REG_dWORD /D 0 /F
@@ -7582,6 +7607,8 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /V "EdgePreview{56EB18F8-B
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeEDropEnabled /T REG_dWORD /D 0 /F
 :: Read Aloud
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ReadAloudEnabled /T REG_dWORD /D 0 /F
+:: Edge do not allow auto-install of Safe Hosting Extension
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V EdgeSafeHostingExtensionEnabled /T REG_dWORD /D 0 /F
 :: Other
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ResolveNavigationErrorsUseWebService /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AlternateErrorPagesEnabled /T REG_dWORD /D 0 /F
