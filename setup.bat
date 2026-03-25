@@ -5,7 +5,7 @@
 :: 		https://github.com/jfu299/win10setup
 :: 		https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 :: By: Justin Fu
-:: Updated: 2026-03-23
+:: Updated: 2026-03-25
 
 echo.
 echo -------
@@ -13,7 +13,7 @@ echo Custom Setup for Windows 10
 echo 	https://github.com/jfu299/win10setup
 echo 	https://raw.githubusercontent.com/jfu299/win10setup/main/setup.bat
 echo By: Justin Fu
-echo Updated: 2026-03-23
+echo Updated: 2026-03-25
 echo -------
 echo.
 
@@ -735,7 +735,7 @@ goto option3.3redo
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
@@ -745,7 +745,11 @@ goto option3.3redo
 :: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+:: 5) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_pin\":\"default_unpinned\"}}" /F
 
 :: ----------------------------------
 :: uBlock Origin Lite - Managed Settings
@@ -877,6 +881,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GoogleSearchSidePanelEnabled /
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AIModeSettings /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GeminiSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SearchContentSharingSettings /T REG_dWORD /D 1 /F
 :: ---
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
@@ -905,7 +910,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "g
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
@@ -915,7 +920,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "g
 :: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+:: 5) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_pin\":\"default_unpinned\"}}" /F
 
 :: ----------------------------------
 :: uBlock Origin Lite - Managed Settings
@@ -1047,6 +1056,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GoogleSearchSidePanelEnabled /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AIModeSettings /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GeminiSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SearchContentSharingSettings /T REG_dWORD /D 1 /F
 :: ---
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
@@ -1227,35 +1237,38 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /V 2 /T REG
 :: -----------------
 
 :: ----------------------------------
-:: Brave Extension Settings - Manifest V2 - (Current)
+:: Brave Browser Extension Settings - Manifest V2 - (Current)
 
-:: Force Installed and Pinned Extensions:
+:: Force Installed and Default Pinned Extensions:
 :: 1) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-:: Normal Installed and Pinned Extensions:
+:: Normal Installed and Default Pinned Extensions:
 :: 2) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 3) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 4) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
+:: 5) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"normal_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"normal_installed\",\"toolbar_pin\":\"default_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_pin\":\"default_unpinned\"}}" /F
 
 :: ----------------------------------
-:: Brave Extension Settings - Manifest V3
-:: Updated: 2026-03-23
+:: Brave Browser Extension Settings - Manifest V3
 
 :: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
@@ -1265,7 +1278,11 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG
 :: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+:: 5) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
+:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_pin\":\"default_unpinned\"}}" /F
 
 :: ----------------------------------
 :: uBlock Origin Lite - Managed Settings
@@ -1395,6 +1412,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GoogleSearchSidePanelEna
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AIModeSettings /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GeminiSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SearchContentSharingSettings /T REG_dWORD /D 1 /F
 :: ---
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
@@ -1443,7 +1461,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T
 :: 2) uBlock Origin Lite
 ::      cimighlppcgcoapaliogpjjdehbnofhn
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 3) SponsorBlock for YouTube - Skip Sponsorships
 ::      mbmgnelfcpoecdepckhlhegpcehmpmji
 
@@ -1457,9 +1475,13 @@ REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T
 :: 7) SponsorBlock for YouTube - Skip Sponsorships - (CWS)
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 
+:: 8) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"normal_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"default_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"normal_installed\",\"toolbar_state\":\"default_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"default_hidden\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_shown\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_shown\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"}}" /F
 
 :: ----------------------------------
 :: Microsoft Edge Chromium Extension Settings - Manifest V3
@@ -1470,7 +1492,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /
 :: 1) uBlock Origin Lite
 ::      cimighlppcgcoapaliogpjjdehbnofhn
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mbmgnelfcpoecdepckhlhegpcehmpmji
 
@@ -1488,7 +1510,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /
 :: 7) uBlock Origin - (CWS)
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\"},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},}" /F
+:: 8) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"default_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"default_hidden\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_shown\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"}}" /F
 
 :: ----------------------------------
 :: uBlock Origin Lite - Managed Settings
@@ -1650,6 +1676,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GoogleSearchSidePanelEnabled 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AIModeSettings /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GeminiSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SearchContentSharingSettings /T REG_dWORD /D 1 /F
 :: ---
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
@@ -6588,7 +6615,7 @@ powercfg /SETACVALUEINDEX SCHEME_CURRENT 238C9FA8-0AAD-41ED-83F4-97BE242C8F20 7b
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
@@ -6598,7 +6625,11 @@ powercfg /SETACVALUEINDEX SCHEME_CURRENT 238C9FA8-0AAD-41ED-83F4-97BE242C8F20 7b
 :: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+:: 5) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_pin\":\"default_unpinned\"}}" /F
 
 :: ----------------------------------
 :: uBlock Origin Lite - Managed Settings
@@ -6730,6 +6761,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GoogleSearchSidePanelEnabled /
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V AIModeSettings /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V GeminiSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V SearchContentSharingSettings /T REG_dWORD /D 1 /F
 :: ---
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
@@ -6758,7 +6790,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "g
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
@@ -6768,7 +6800,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Google\Chrome\URLBlocklist" /V 2 /T REG_SZ /D "g
 :: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+:: 5) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_pin\":\"default_unpinned\"}}" /F
 
 :: ----------------------------------
 :: uBlock Origin Lite - Managed Settings
@@ -6900,6 +6936,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GoogleSearchSidePanelEnabled /T REG
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V AIModeSettings /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V GeminiSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V SearchContentSharingSettings /T REG_dWORD /D 1 /F
 :: ---
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Chromium" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
@@ -7080,35 +7117,38 @@ REG ADD "HKLM\SOFTWARE\Policies\Mozilla\Firefox\WebsiteFilter\Block" /V 2 /T REG
 :: -----------------
 
 :: ----------------------------------
-:: Brave Extension Settings - Manifest V2 - (Current)
+:: Brave Browser Extension Settings - Manifest V2 - (Current)
 
-:: Force Installed and Pinned Extensions:
+:: Force Installed and Default Pinned Extensions:
 :: 1) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-:: Normal Installed and Pinned Extensions:
+:: Normal Installed and Default Pinned Extensions:
 :: 2) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 3) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 4) DeArrow - Better Titles and Thumbnails
 ::      enamippconapkdmgfgjchkhakpfinmaj
 
+:: 5) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
-REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"normal_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"normal_installed\",\"toolbar_pin\":\"default_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_pin\":\"default_unpinned\"}}" /F
 
 :: ----------------------------------
-:: Brave Extension Settings - Manifest V3
-:: Updated: 2026-03-23
+:: Brave Browser Extension Settings - Manifest V3
 
 :: Force Installed and Pinned Extensions:
 :: 1) uBlock Origin Lite
 ::      ddkjiahejlhfcafbddmgiahcphecmpfh
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 :: 3) DeArrow - Better Titles and Thumbnails
@@ -7118,7 +7158,11 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG
 :: 4) uBlock Origin
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"force_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"}}" /F
+:: 5) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
+:: REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_pinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"force_installed\",\"toolbar_pin\":\"default_unpinned\",\"update_url\":\"https://clients2.google.com/service/update2/crx\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_pin\":\"default_unpinned\"}}" /F
 
 :: ----------------------------------
 :: uBlock Origin Lite - Managed Settings
@@ -7248,6 +7292,7 @@ REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GoogleSearchSidePanelEna
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V AIModeSettings /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V GeminiSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V SearchContentSharingSettings /T REG_dWORD /D 1 /F
 :: ---
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\BraveSoftware\Brave" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
@@ -7296,7 +7341,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T
 :: 2) uBlock Origin Lite
 ::      cimighlppcgcoapaliogpjjdehbnofhn
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 3) SponsorBlock for YouTube - Skip Sponsorships
 ::      mbmgnelfcpoecdepckhlhegpcehmpmji
 
@@ -7310,13 +7355,16 @@ REG ADD "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /V DoNotUpdateToEdgeWithChromium /T
 :: 7) SponsorBlock for YouTube - Skip Sponsorships - (CWS)
 ::      mnjggcdmjocbbbhaepdhchncahnbgone
 
+:: 8) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionManifestV2Availability /T REG_dWORD /D 3 /F
 
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"normal_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\"}}" /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"default_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"normal_installed\",\"toolbar_state\":\"default_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"default_hidden\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_shown\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_shown\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"}}" /F
 
 :: ----------------------------------
 :: Microsoft Edge Chromium Extension Settings - Manifest V3
-:: Updated: 2026-03-23
 
 :: Extension Settings
 
@@ -7324,7 +7372,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /
 :: 1) uBlock Origin Lite
 ::      cimighlppcgcoapaliogpjjdehbnofhn
 
-:: Normal Installed Extensions:
+:: Force Installed Extensions:
 :: 2) SponsorBlock for YouTube - Skip Sponsorships
 ::      mbmgnelfcpoecdepckhlhegpcehmpmji
 
@@ -7342,7 +7390,11 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /
 :: 7) uBlock Origin - (CWS)
 ::      cjpalhdlnbpafiamejdnhcphjbkeiagm
 
-:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"force_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"normal_installed\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\"},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},}" /F
+:: 8) Bypass Paywalls Clean - (Manual Install CRX-file)
+::      lkbebcjgcmobigpeffafkodonchffocl
+::      https://gitflic.ru/project/magnolia1234/bpc_uploads/blob/raw?file=bypass-paywalls-chrome-clean-latest.crx
+
+:: REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V ExtensionSettings /T REG_SZ /D "{\"*\":{\"blocked_permissions\":[\"vpnProvider\",\"proxy\",\"dns\",\"webRequest\",\"webRequestBlocking\",\"geolocation\",\"declarativeNetRequest\",\"declarativeNetRequestFeedback\",\"declarativeNetRequestWithHostAccess\",\"declarativeWebRequest\",\"identity\",\"identity.email\",\"loginState\"]},\"cimighlppcgcoapaliogpjjdehbnofhn\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"default_shown\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"mbmgnelfcpoecdepckhlhegpcehmpmji\":{\"installation_mode\":\"force_installed\",\"toolbar_state\":\"default_hidden\",\"update_url\":\"https://edge.microsoft.com/extensionwebstorebase/v1/crx\"},\"enamippconapkdmgfgjchkhakpfinmaj\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"},\"ddkjiahejlhfcafbddmgiahcphecmpfh\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_shown\"},\"mnjggcdmjocbbbhaepdhchncahnbgone\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"},\"odfafepnkmbhccpbejgmiehpchacaeak\":{\"installation_mode\":\"allowed\"},\"cjpalhdlnbpafiamejdnhcphjbkeiagm\":{\"installation_mode\":\"allowed\"},\"lkbebcjgcmobigpeffafkodonchffocl\":{\"installation_mode\":\"allowed\",\"toolbar_state\":\"default_hidden\"}}" /F
 
 :: ----------------------------------
 :: uBlock Origin Lite - Managed Settings
@@ -7504,6 +7556,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GoogleSearchSidePanelEnabled 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GenAiDefaultSettings /T REG_dWORD /D 2 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V AIModeSettings /T REG_dWORD /D 1 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V GeminiSettings /T REG_dWORD /D 1 /F
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V SearchContentSharingSettings /T REG_dWORD /D 1 /F
 :: ---
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V BuiltInAIAPIsEnabled /T REG_dWORD /D 0 /F
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Edge" /V DevToolsGenAiSettings /T REG_dWORD /D 2 /F
