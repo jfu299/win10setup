@@ -2,106 +2,180 @@
 
 userChrome.css
 Custom Setup for Windows 10
-    https://github.com/jfu299/win10setup
-    https://raw.githubusercontent.com/jfu299/win10setup/main/userChrome.css
+    https://github.com/jfu299/win10setup
+    https://raw.githubusercontent.com/jfu299/win10setup/main/userChrome.css
 By: Justin Fu 
-Updated: July 28, 2023
+Updated: 2026-03-25
 
 -------------------
 
 Custom css for Firefox
-    Set TRUE in about:config - toolkit.legacyUserProfileCustomizations.stylesheets
-    Profile Root Directory (%UserProfile%\AppData\Roaming\Mozilla\Firefox\Profiles\[Profile Folder])
-    Create Folder: "chrome" (%UserProfile%\AppData\Roaming\Mozilla\Firefox\Profiles\[Profile Folder]\Chrome)
-    Copy and Paste this File into Folder
+    Set TRUE in about:config - toolkit.legacyUserProfileCustomizations.stylesheets
+    Profile Root Directory (%UserProfile%\AppData\Roaming\Mozilla\Firefox\Profiles\[Profile Folder])
+    Create Folder: "chrome" (%UserProfile%\AppData\Roaming\Mozilla\Firefox\Profiles\[Profile Folder]\chrome)
+    Copy and Paste this File into Folder
 
 */
 
-/* ----- Tracking Protection Icon ----- */
 
-#tracking-protection-icon {
-  list-style-image: url(chrome://browser/skin/tracking-protection.svg) !important;
+/* ----- NEW 149+: Not Secure - Icon: Yellow ----- */
+#trust-icon-container.insecure #trust-icon {
+  list-style-image: url(chrome://global/skin/icons/security-broken.svg) !important;
+  fill-opacity: 1 !important;
+  color: #eed202 !important;
+  font-weight: bold !important;
 }
 
-/* ----- Insecure / Not Secure Icon Red ----- */
+/* ----- NEW 149+: Not Secure - Custom Text: Yellow ----- */
 
-#identity-box[pageproxystate="valid"].notSecure #identity-icon,
-#identity-box[pageproxystate="valid"].mixedActiveContent #identity-icon,
-#identity-box[pageproxystate="valid"].httpsOnlyErrorPage #identity-icon,
-#identity-box[pageproxystate="valid"].weakCipher #identity-icon,
-#identity-box[pageproxystate="valid"].mixedDisplayContent #identity-icon,
-#identity-box[pageproxystate="valid"].mixedDisplayContentLoadedActiveBlocked #identity-icon,
-#identity-box[pageproxystate="valid"].certErrorPage #identity-icon,
-#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon,
-#identity-box[pageproxystate="valid"].certUserOverridden #identity-icon {
-  fill-opacity: 1 !important;
-  fill: #FF0000 !important;
+#trust-icon-container.insecure #trust-label {
+  position: relative !important;
+  visibility: hidden !important;
+  min-width: 85px !important;
+  width: auto !important;
+  padding-right: 3px !important;
+  padding-inline: 6px !important;
 }
 
-/* ----- Not Secure Text Red ----- */
-
-#identity-box[pageproxystate="valid"].notSecure #identity-icon-label,
-#identity-box[pageproxystate="valid"].mixedActiveContent #identity-icon-label,
-#identity-box[pageproxystate="valid"].httpsOnlyErrorPage #identity-icon-label,
-#identity-box[pageproxystate="valid"].weakCipher #identity-icon-label,
-#identity-box[pageproxystate="valid"].mixedDisplayContent #identity-icon-label,
-#identity-box[pageproxystate="valid"].mixedDisplayContentLoadedActiveBlocked #identity-icon-label,
-#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon-label,
-#identity-box[pageproxystate="valid"].certUserOverridden #identity-icon-label,
-#identity-box[pageproxystate="valid"].certErrorPage #identity-icon-label {
-  fill-opacity: 1 !important;
-  color: #FF0000 !important;
+#trust-icon-container.insecure #trust-label::after {
+  content: "NOT SECURE" !important;
+  visibility: visible !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  fill-opacity: 1 !important;
+  color: #eed202 !important;
+  font-weight: bold !important;
 }
 
-/* ----- Firefox Page Secure Icon Green ----- */
+/* ----- NEW 149+: Certificate User Override - Icon: Orange ----- */
+
+#trust-icon-container.secure[tooltiptext*="security exception" i] #trust-icon {
+  list-style-image: url(chrome://global/skin/icons/security-warning.svg) !important;
+  fill-opacity: 1 !important;
+  color: #ff8000 !important;
+}
+
+/* ----- NEW 149+: Certificate User Override - Custom Text: Orange ----- */
+
+#trust-icon-container.secure[tooltiptext*="security exception" i] #trust-label {
+  display: block !important;
+  position: relative !important;
+  visibility: hidden !important;
+  min-width: 112px !important;
+  width: auto !important;
+  padding-right: 3px !important;
+  padding-inline: 6px !important;
+}
+
+#trust-icon-container.secure[tooltiptext*="security exception" i] #trust-label::after {
+  display: block !important;
+  content: "Security Exception" !important;
+  visibility: visible !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  fill-opacity: 1 !important;
+  color: #ff8000 !important;
+}
+
+/* ---- NEW 149+: Certificate User Override - Set Highlight ---- */
+
+/* Base (16%) */
+#trust-icon-container.secure[tooltiptext*="security exception" i] {
+  background-color: color-mix(in srgb, currentColor 16%, transparent) !important;
+}
+
+/* Hover (22%) */
+#trust-icon-container.secure[tooltiptext*="security exception" i]:hover {
+  background-color: color-mix(in srgb, currentColor 22%, transparent) !important;
+}
+
+/* Active / Open (30%) */
+#trust-icon-container.secure[tooltiptext*="security exception" i][open],
+#trust-icon-container.secure[tooltiptext*="security exception" i][open]:active,
+#trust-icon-container.secure[tooltiptext*="security exception" i]:active {
+  background-color: color-mix(in srgb, currentColor 30%, transparent) !important;
+}
+
+/* ----- NEW 149+: Secure Icon: Green ----- */
+
+#trust-icon-container.secure[tooltiptext*="Verified" i] #trust-icon {
+  list-style-image: url(chrome://global/skin/icons/security.svg) !important;
+  fill-opacity: 1 !important;
+  fill: #12BC00 !important;
+}
+
+/* ----- NEW 149+: Other Webpage ----- */
+#trust-icon-container.secure:not([tooltiptext*="Verified" i]):not([tooltiptext*="security exception" i]) #trust-icon {
+  list-style-image: url(chrome://global/skin/icons/info.svg) !important;
+  fill-opacity: 1 !important;
+}
+
+/* ----- NEW 149+: Hide the Trust Panel diagram (Firefox on guard) ----- */
+#trustpanel-graphic-section {
+  display: none !important;
+}
+
+/* ----- Remove Favicon on New Tab ----- */
+.tabbrowser-tab[label="New Tab"] .tab-icon-image{
+  display: none !important;
+}
+
+
+/* ----- Firefox Page Settings Icon Purple ----- */
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
-  list-style-image: url(chrome://global/skin/icons/security.svg) !important;
-  fill-opacity: 1 !important;
-  color: #12BC00 !important;
+  list-style-image: url(chrome://global/skin/icons/settings.svg) !important;
+  fill-opacity: 1 !important;
+  color: #FF1493  !important;
 }
 
-/* ----- Firefox Text Green ----- */
+#identity-box[pageproxystate="valid"].extensionPage #identity-icon {
+  fill-opacity: 1 !important;
+  color: #FF1493  !important;
+}
+
+
+/* ----- Firefox Page Text Purple ----- */
 
 #identity-box[pageproxystate="valid"].chromeUI #identity-icon-label {
-  fill-opacity: 1 !important;
-  color: #12BC00 !important;
+  fill-opacity: 1 !important;
+  color: #FF1493 !important;
 }
 
-/* ----- Secure Icon Green ----- */
+/* ---- Firefox Page / Extension Page set to normal highlight ---- */
 
-#identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
-  fill-opacity: 1 !important;
-  fill: #12BC00 !important;
+/* Base (0%) */
+#identity-box[pageproxystate="valid"].chromeUI > .identity-box-button,
+#identity-box[pageproxystate="valid"].extensionPage > .identity-box-button {
+  background-color: color-mix(in srgb, currentColor 0%, transparent) !important;
 }
 
-/* ---- Firefox Page / Extension Page Highlight ---- */
-
-#identity-box[pageproxystate="valid"].chromeUI > .identity-box-button:not(:hover),
-#identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:not(:hover) {
-  background-color: transparent !important;
-}
-
+/* Hover (22%) */
 #identity-box[pageproxystate="valid"].chromeUI > .identity-box-button:hover,
 #identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:hover {
-  background-color: var(--urlbar-box-hover-bgcolor) !important;
+  background-color: color-mix(in srgb, currentColor 22%, transparent) !important;
 }
 
-#identity-box[pageproxystate="valid"].chromeUI > .identity-box-button[open=true],
-#identity-box[pageproxystate="valid"].extensionPage > .identity-box-button[open=true] {
-  background-color: var(--urlbar-box-active-bgcolor) !important;
+/* Active / Open (30%) */
+#identity-box[pageproxystate="valid"].chromeUI > .identity-box-button[open],
+#identity-box[pageproxystate="valid"].extensionPage > .identity-box-button[open]:active,
+#identity-box[pageproxystate="valid"].extensionPage > .identity-box-button:active {
+  background-color: color-mix(in srgb, currentColor 30%, transparent) !important;
 }
 
 /* ----- Hide Bookmark Star on URL bar ----- */
 
 #star-button-box {
-  display: none !important;
-  }
+  display: none !important;
+}
 
-/* ----- Extension Page URL Bar Shorten  ----- */
+/* ----- Extension Page URL Bar Shorten  ----- */
 
-#identity-box.extensionPage label {
-  display: none !important;
+
+#identity-box.extensionPage #identity-icon-label {
+  display: none !important;
 }
 
 /* ----- Hide Camera and Microphone Popup Warning ----- */
@@ -113,7 +187,7 @@ display: none !important;
 /* ----- Remove Back, Forward, Reload, and Bookmark Star Button on Right Click Context Menu ----- */
 
 #context-navigation {
-  display: none !important;
+  display: none !important;
 }
 
 /* ----- Hide Recent Bookmarks ----- */
@@ -128,9 +202,7 @@ display: none !important;
 /* ----- Hide Extension Icon Toolbar ----- */
 
 #unified-extensions-button{
-  /* -style-image: url("chrome://browser/skin/menu.svg") !important; */
-  list-style-image: url("chrome://global/skin/icons/chevron.svg") !important;
-  /* display: none !important; */
+  list-style-image: url("chrome://global/skin/icons/chevron.svg") !important;
 }
 
 /* ------------------- */
@@ -139,11 +211,95 @@ display: none !important;
 /* Removes regular tab display and menubar items */
 
 #TabsToolbar {
-  display: none !important;
+  display: none !important;
 }
 
 #menubar-items {
-  display: none !important;
+  display: none !important;
+}
+
+/* Removes Sidebar Header Display */
+#sidebar-header {
+  display: none !important;
+}
+
+/* Force sets the sidebar box to 216px, does not allow accidental changes */
+#sidebar-box {
+  width: 216px !important;
+}
+
+/* ------------------- */
+
+/* OLD: Firefox Version 148 and before */
+
+/* ----- OLD: Tracking Protection Icon ----- */
+
+#tracking-protection-icon {
+  list-style-image: url(chrome://browser/skin/tracking-protection.svg) !important;
+}
+
+/* ----- OLD: Not Secure - Icon/Text: Yellow ----- */
+
+#identity-box[pageproxystate="valid"].notSecure #identity-icon,
+#identity-box[pageproxystate="valid"].mixedActiveContent #identity-icon,
+#identity-box[pageproxystate="valid"].httpsOnlyErrorPage #identity-icon,
+#identity-box[pageproxystate="valid"].weakCipher #identity-icon,
+#identity-box[pageproxystate="valid"].mixedDisplayContent #identity-icon,
+#identity-box[pageproxystate="valid"].mixedDisplayContentLoadedActiveBlocked #identity-icon,
+#identity-box[pageproxystate="valid"].certErrorPage #identity-icon,
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon,
+#identity-box[pageproxystate="broken"] #identity-icon,
+#identity-box[pageproxystate="valid"].notSecure #identity-icon-label,
+#identity-box[pageproxystate="valid"].mixedActiveContent #identity-icon-label,
+#identity-box[pageproxystate="valid"].httpsOnlyErrorPage #identity-icon-label,
+#identity-box[pageproxystate="valid"].weakCipher #identity-icon-label,
+#identity-box[pageproxystate="valid"].mixedDisplayContent #identity-icon-label,
+#identity-box[pageproxystate="valid"].mixedDisplayContentLoadedActiveBlocked #identity-icon-label,
+#identity-box[pageproxystate="valid"].mixedActiveBlocked #identity-icon-label,
+#identity-box[pageproxystate="valid"].certErrorPage #identity-icon-label,
+#identity-box[pageproxystate="broken"] #identity-icon-label {
+  fill-opacity: 1 !important;
+  fill: #eed202 !important;
+  
+}
+
+/* ----- OLD: Certificate User Override Orange ----- */
+
+#identity-box[pageproxystate="valid"].certUserOverridden #identity-icon,
+#identity-box[pageproxystate="valid"].certUserOverridden #identity-icon-label {
+  fill-opacity: 1 !important;
+  color: #ff8000 !important;
+  list-style-image: url(chrome://global/skin/icons/security-warning.svg) !important;
+  visibility: visible !important;
+} 
+
+/* ---- OLD: Certificate User Override set to normal highlight ---- */
+
+/* Base (16%) */
+#identity-box[pageproxystate="valid"].certUserOverridden {
+  background-color: color-mix(in srgb, currentColor 16%, transparent) !important;
+  border-radius: var(--urlbar-inner-border-radius) !important;
+}
+
+/* Hover (22%) */
+#identity-box[pageproxystate="valid"].certUserOverridden:hover {
+  background-color: color-mix(in srgb, currentColor 22%, transparent) !important;
+  border-radius: var(--urlbar-inner-border-radius) !important;
+}
+
+/* Active / Open (30%) */
+#identity-box[pageproxystate="valid"].certUserOverridden:active,
+#identity-box[pageproxystate="valid"].certUserOverridden[open],
+#identity-box[pageproxystate="valid"].certUserOverridden[open]:active {
+  background-color: color-mix(in srgb, currentColor 30%, transparent) !important;
+  border-radius: var(--urlbar-inner-border-radius) !important;
+}
+
+/* ----- OLD: Secure Icon: Green ----- */
+
+#identity-box[pageproxystate="valid"].verifiedDomain:not(.certUserOverridden) #identity-icon {
+  fill-opacity: 1 !important;
+  fill: #12BC00 !important;
 }
 
 /* ------------------- */
