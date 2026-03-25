@@ -1,0 +1,46 @@
+/*
+
+userContent.css
+Custom Setup for Windows 10
+    https://github.com/jfu299/win10setup
+    https://raw.githubusercontent.com/jfu299/win10setup/main/userContent.css
+By: Justin Fu 
+Updated: 2026-03-25
+
+-------------------
+
+Custom css for Firefox
+    Set TRUE in about:config - toolkit.legacyUserProfileCustomizations.stylesheets
+    Profile Root Directory (%UserProfile%\AppData\Roaming\Mozilla\Firefox\Profiles\[Profile Folder])
+    Create Folder: "chrome" (%UserProfile%\AppData\Roaming\Mozilla\Firefox\Profiles\[Profile Folder]\chrome)
+    Copy and Paste this File into Folder
+
+*/
+
+
+/* ----- Hide Firefox Private Browsing Notice Screen ----- */
+
+@-moz-document url("about:privatebrowsing") {
+    .showPrivate.showSearch.container {
+      display: none !important;
+    }
+
+    body {
+      padding: 0 !important;
+    }
+
+    .identity-icon {
+    list-style-image: url(chrome://global/skin/icons/defaultFavicon.svg) !important;
+    }
+
+  }
+
+  /* ----- Hide Firefox Mission Message ----- */
+
+@-moz-document url("about:preferences") {
+  .mission-message {
+    display: none !important;
+  }
+}
+
+/* ------------------- */
