@@ -5,7 +5,7 @@ Custom Setup for Windows 10
     https://github.com/jfu299/win10setup
     https://raw.githubusercontent.com/jfu299/win10setup/main/userChrome.css
 By: Justin Fu 
-Updated: 2026-03-25
+Updated: 2026-03-26
 
 -------------------
 
@@ -18,98 +18,57 @@ Custom css for Firefox
 */
 
 
-/* ----- NEW 149+: Not Secure - Icon: Yellow ----- */
-#trust-icon-container.insecure #trust-icon {
+/* ----- NEW 149+ (browser.urlbar.trustPanel.featureGate): Not Secure - Icon / Text: Yellow ----- */
+.urlbar-input-container[pageproxystate="valid"] #trust-icon-container.insecure #trust-icon,
+.urlbar-input-container[pageproxystate="valid"] #trust-icon-container.insecure #trust-label {
   list-style-image: url(chrome://global/skin/icons/security-broken.svg) !important;
   fill-opacity: 1 !important;
   color: #eed202 !important;
   font-weight: bold !important;
 }
 
-/* ----- NEW 149+: Not Secure - Custom Text: Yellow ----- */
-
-#trust-icon-container.insecure #trust-label {
-  position: relative !important;
-  visibility: hidden !important;
-  min-width: 85px !important;
-  width: auto !important;
-  padding-right: 3px !important;
-  padding-inline: 6px !important;
-}
-
-#trust-icon-container.insecure #trust-label::after {
-  content: "NOT SECURE" !important;
-  visibility: visible !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  fill-opacity: 1 !important;
-  color: #eed202 !important;
-  font-weight: bold !important;
-}
 
 /* ----- NEW 149+: Certificate User Override - Icon: Orange ----- */
 
-#trust-icon-container.secure[tooltiptext*="security exception" i] #trust-icon {
+.urlbar-input-container[pageproxystate="valid"] #trust-icon-container.secure[tooltiptext*="security exception" i] #trust-icon {
   list-style-image: url(chrome://global/skin/icons/security-warning.svg) !important;
   fill-opacity: 1 !important;
   color: #ff8000 !important;
-}
-
-/* ----- NEW 149+: Certificate User Override - Custom Text: Orange ----- */
-
-#trust-icon-container.secure[tooltiptext*="security exception" i] #trust-label {
-  display: block !important;
-  position: relative !important;
-  visibility: hidden !important;
-  min-width: 112px !important;
-  width: auto !important;
-  padding-right: 3px !important;
-  padding-inline: 6px !important;
-}
-
-#trust-icon-container.secure[tooltiptext*="security exception" i] #trust-label::after {
-  display: block !important;
-  content: "Security Exception" !important;
-  visibility: visible !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 0 !important;
-  fill-opacity: 1 !important;
-  color: #ff8000 !important;
+  font-weight: bold !important;
 }
 
 /* ---- NEW 149+: Certificate User Override - Set Highlight ---- */
 
 /* Base (16%) */
-#trust-icon-container.secure[tooltiptext*="security exception" i] {
+.urlbar-input-container[pageproxystate="valid"] #trust-icon-container.secure[tooltiptext*="security exception" i] {
   background-color: color-mix(in srgb, currentColor 16%, transparent) !important;
 }
 
 /* Hover (22%) */
-#trust-icon-container.secure[tooltiptext*="security exception" i]:hover {
+.urlbar-input-container[pageproxystate="valid"] #trust-icon-container.secure[tooltiptext*="security exception" i]:hover {
   background-color: color-mix(in srgb, currentColor 22%, transparent) !important;
 }
 
 /* Active / Open (30%) */
-#trust-icon-container.secure[tooltiptext*="security exception" i][open],
-#trust-icon-container.secure[tooltiptext*="security exception" i][open]:active,
-#trust-icon-container.secure[tooltiptext*="security exception" i]:active {
+.urlbar-input-container[pageproxystate="valid"] #trust-icon-container.secure[tooltiptext*="security exception" i][open],
+.urlbar-input-container[pageproxystate="valid"] #trust-icon-container.secure[tooltiptext*="security exception" i][open]:active,
+.urlbar-input-container[pageproxystate="valid"] #trust-icon-container.secure[tooltiptext*="security exception" i]:active {
   background-color: color-mix(in srgb, currentColor 30%, transparent) !important;
 }
 
 /* ----- NEW 149+: Secure Icon: Green ----- */
 
-#trust-icon-container.secure[tooltiptext*="Verified" i] #trust-icon {
+.urlbar-input-container[pageproxystate="valid"] #trust-icon-container.secure[tooltiptext*="Verified" i] #trust-icon {
   list-style-image: url(chrome://global/skin/icons/security.svg) !important;
   fill-opacity: 1 !important;
   fill: #12BC00 !important;
 }
 
 /* ----- NEW 149+: Other Webpage ----- */
-#trust-icon-container.secure:not([tooltiptext*="Verified" i]):not([tooltiptext*="security exception" i]) #trust-icon {
+.urlbar-input-container[pageproxystate="valid"] #trust-icon-container.secure:not([tooltiptext*="Verified" i]):not([tooltiptext*="security exception" i]) #trust-icon {
   list-style-image: url(chrome://global/skin/icons/info.svg) !important;
   fill-opacity: 1 !important;
+  color: #FF1493  !important;
 }
 
 /* ----- NEW 149+: Hide the Trust Panel diagram (Firefox on guard) ----- */
@@ -238,7 +197,7 @@ display: none !important;
   list-style-image: url(chrome://browser/skin/tracking-protection.svg) !important;
 }
 
-/* ----- OLD: Not Secure - Icon/Text: Yellow ----- */
+/* ----- OLD: Not Secure - Icon / Text: Yellow ----- */
 
 #identity-box[pageproxystate="valid"].notSecure #identity-icon,
 #identity-box[pageproxystate="valid"].mixedActiveContent #identity-icon,
@@ -259,8 +218,9 @@ display: none !important;
 #identity-box[pageproxystate="valid"].certErrorPage #identity-icon-label,
 #identity-box[pageproxystate="broken"] #identity-icon-label {
   fill-opacity: 1 !important;
-  fill: #eed202 !important;
-  
+  color: #eed202 !important;
+  font-weight: bold !important;
+  visibility: visible !important;
 }
 
 /* ----- OLD: Certificate User Override Orange ----- */
